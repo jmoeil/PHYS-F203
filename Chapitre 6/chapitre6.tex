@@ -1,0 +1,45 @@
+\documentclass[../notesdecours.tex]{subfiles}
+
+\begin{document}
+\part{Représentations de la position et de l'impulsion en $\mathcal{M}$écanique $\mathcal{Q}$uantique}
+Dans ce chapitre, nous allons de nouveau considérer une particule ; en particulier, nous voulons pouvoir définir les notions de position et d'impulsion.\\
+
+Nous allons travailler dans les espaces de Hilbert $L_2(\mathbb{R})$ ou $L_2 (\mathbb{R}^3)$. Nous aurons alors des fonctions de carré sommable. Dans ces espaces, \emph{les opérateurs position X et impulsion P n'ont pas de vecteurs propres}. Nous pouvons néamoins faire comme si ils en avaient : nous expliqueront ultérieurement comment nous pouvons justifier cette approche.\\
+
+Introduisons les notations:
+\begin{center}
+\begin{tabular}{c|c}
+$\ket{x_0} $ & Etat propre de l'opérateur X de valeur propre $x_0$. Cela correspond à la "fonction d'onde" $\delta(x-x_0)$.\\
+$\ket{p_0} $ & Etat propre de l'opérateur P de valeur propre $p_0$. Cela correspond à la "fonction d'onde" $\frac{1}{\sqrt{2\pi\h}}e^{i \frac{p_0 x}{\h}}$
+\end{tabular}
+\end{center}
+
+Nous pouvons effectuer plusieurs opératuions sur ces objets. 
+\begin{enumerate}
+\item \textbf{Normalisation}\\
+Nous voulons calculer $\braket{x_0|x_0'}$ et $\braket{p_0|p_0'}$. 
+	\begin{align*}
+\braket{x_0|x_0'} &= \int dx \delta (x-x_0)\delta(x-x_0') = \delta (x_0 - x_0)\\
+\braket{p_0|p_0'} &= \int dx \frac{e^{-i \frac{p_0 x}{\h}}}{\sqrt{2\pi\h}} \frac{e^{i \frac{p_0'x}{\h}}}{\sqrt{2\pi\h}}\\
+&= \int du \frac{e^{-i (p_0 - p_0')u)}}{2\pi}		&u = \frac{x}{\h}\\
+&= \delta (p_0-p_0')
+	\end{align*}
+Ce faisant, nous montrons que les deux bases définies par ces opérations sont orthonormées.\\
+
+\item A partir de là, nous obtenons les relations fondamentales suivantes:
+\begin{center}
+\begin{tabular}{c|c}
+$\braket{x_0|x_0'} = \delta (x_0 - x_0)$ & $\braket{p_0|p_0'} = \delta (p_0-p_0')$\\
+$\int d^3x_0 \ket{x_0}\bra{x_0} = \mathbb{I}$ & $\int dp_0 \ket{p_0}\bra{p_0} = \mathbb{I}$
+\end{tabular}
+\end{center}
+Nous avons alors deux relations de \emph{complétude}, ou de \emph{fermeture}.
+
+\item Considérons un état quantique $\ket{\Psi}$, correspondant à la fonction d'onde $\Psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
+\begin{align}
+\ket{\Psi} &= \int d^3x_0 \ket{x_0} \bra{x_0} \ket{\Psi}\\
+\ket{\Psi} &= \int d^3p_0 \ket{p_0} \bra{p_0} \ket{\Psi}
+\end{align}
+\end{enumerate}
+
+\end{document}
