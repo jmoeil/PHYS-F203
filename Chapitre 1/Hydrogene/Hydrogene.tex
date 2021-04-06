@@ -1,0 +1,42 @@
+\documentclass[../../notesdecours]{subfiles}
+
+\begin{document}
+Empiquement, nous trouvons que l'énergie d'un atome d'hydrogène sera donné par la relation
+\begin{equation}
+\label{Energie hydrogène}
+E = \frac{p^2}{2m} - \frac{e^2}{r}
+\end{equation}
+Où $e^2 = \frac{q_e^2}{4 \pi \epsilon_0}$.\\
+
+Or, nous avons que l'électron de l'atome sera confiné dans une zone de rayon r. Dès lors, en utilisant $\ref{Heinsenberg}$, nous aurons que $\Delta p \approx \frac{\hbar}{r}$. Dès lors,
+\begin{equation}
+E \approx \frac{\hbar^2}{2mr^2} - \frac{e^2}{r}
+\end{equation}
+Il suffit alors de dériver cette dernière pour obtenir l'énergie minimale:
+\begin{align*}
+E_{min} &= \frac{d}{dr} (\frac{\hbar^2}{2mr^2} - \frac{e^2}{r}) = 0\\
+&= - \frac{2 \h^2}{2mr^3} + \frac{e^2}{r^2} = 0\\
+&= \frac{1}{r^2} \left[e^2 - \frac{\h^2}{mr} \right] = 0
+\end{align*}
+Il s'ensuit dès lors que 
+\begin{center}
+\begin{tabular}{c c}
+$r = \frac{\hbar^2}{me^2}$ & $E_{min} = - \frac{me^4}{2 \hbar^2}$
+\end{tabular}
+\end{center}
+Nous pouvons en déduire la valeur du $\textbf{rayon de Bohr}$ - soit la distance séparant, dans l'atome d'hydrogène, le proton de l'électron. Il s'agit donc d'un ordre de grandeur du rayon des atomes. Il correspond à 
+\begin{equation}
+\label{Rayon de Bohr}
+a_0 = \frac{\hbar^2}{me^2}
+\end{equation}
+Similairement, nous avons l'énergie de liaison de l'atome d'Hydrogène - également appelée \textbf{énergie de Rydberg} :
+\begin{equation}
+R_y = \frac{me^4}{2 \hbar^2}
+\end{equation}
+Nous pouvons retrouver les états liés en suivant
+\begin{equation}
+\label{Etats liés}
+E_n = - R_y \frac{1}{n^2} = - \frac{me^4}{2 \hbar^2} \frac{1}{n^2}
+\end{equation}
+Où n = 1,2,3, ...
+\end{document}

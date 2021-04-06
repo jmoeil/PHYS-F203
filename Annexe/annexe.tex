@@ -1,0 +1,78 @@
+\documentclass[../notesdecours.tex]{subfiles}
+
+\begin{document}
+\appendix
+\part{Appendice}
+\section{Résultats élémentaires d'Algèbre Linéaire}
+\label{AppendeiceA}
+Rappelons une série de résultats classiques d'Algèbre Linéaire pertinents à la Mécanique Quantique.\\
+
+\begin{definition}[Produit Hermitien] Soit V un espace vectoriel sur $\mathbb{C}$. On y définit le produit hermitien, c'est à dire une application
+\begin{center}
+\begin{tabular}{c c c}
+$V \times V$ & $\rightarrow$ & $\mathbb{C}$\\
+$\left(\bm{x},\bm{y}\right)$ &  $\rightarrow$ & $\bm{x} \cdot \bm{y}$
+\end{tabular}
+\end{center}
+tel que $\forall$ x,y,x',y' $\in$ V, et tout $\lambda \in \mathbb{C}$,
+\begin{enumerate}
+\item $y\cdot x = \bar{x} \cdot \bar{y}$
+\item $\left( x+x' \right) \cdot y = x \cdot y + x' \cdot y$, et $x\cdot(y+y') = x\cdot y+x\cdot y'$
+\item $\left( \lambda x \right)\cdot y = \lambda \left(x\cdot y\right)$ et $x\cdot (\lambda y) = \bar{\lambda} (x\cdot y)$
+\item $x \cdot x \in \mathbb{R}_{\geq 0} \forall x, et x \cdot x = 0$ si et seulement si $x = 0$.
+\end{enumerate}
+Un espace hermitien est un espace vectoriel V sur $\mathbb{C}$ muni d'un produit hermitien.
+\end{definition}
+
+\begin{Property}
+Soit V un espace Hermitien de dimension n. Si E $\doteq \left(e_1,...,e_n\right)$ est un ensemble de vecteurs deux à deux orthogonales, alors E est une base de V. 
+\end{Property}
+
+
+\begin{Property} Soit V un espace Hermitien. Alors il existe une base orthonormale V. \end{Property}
+
+Nous pouvons utiliser l'algorithme de Gram-Schmidt pour ortogonaliser une base de V d'un espace vectoriel sur $\mathbb{C}$ ou $\mathbb{R}$.\\
+
+\begin{definition} Une matrice $a \in$ GL($V_{\mathbb{C}}$) est unitaire si $a^{-1} = \bar{a}^T$. L'ensemble des matrices unitaires de taille $n \times n$ est dénotée par $U_n$. \label{Unitaire}\end{definition}
+
+\begin{definition} Une matrice $a \in$ Mat($\mathbb{C}$) est Hermitienne si $\bar{a}^T = a$. \label{Hermitienne}\end{definition}
+
+\begin{Property} A est une isométrie si et seulement si a est unitaire (si $V_\mathbb{C}$). \end{Property}
+
+Voici une série de propriétés classiques des isométries:
+\begin{enumerate}
+\item Les isométries conservent les distances (normes) et les angles.
+\item Supposons que E est orthonormale. Alors A est une isométrie si et suelement si les vecteur qui forment les colonnes de a sont:
+	\begin{enumerate}
+	\item deux à deux orthogonaux
+	\item de norme 1.
+	\end{enumerate}
+\item Si $\lambda$ est une valeur propre de A, alors $\norm{\lambda} = 1$.
+\item Si A est une isométrie, alors $\norm{det(a)} = 1$.
+\item Si E et F sont des bases orthonormales de V, alors il existe une unique isométrie A tel que $A(e_i) = f_i$.
+\item Tous les éléments de $O_3$ sont d'un des trois types suivants:
+	\begin{enumerate}
+	\item Rotations autour d'une droite passant par l'origine.
+	\item Symétries par rapport à un plan passant par l'origine.
+	\item Une composition d'isométries de type (I) et (II).
+	\end{enumerate}
+\end{enumerate}
+
+\begin{lemma} Toutes les valeurs propres d'une matrice Hermitienne sont réelles. \end{lemma}
+
+
+\begin{theorem} Soit $a \in Mat_{n \times n} (\mathbb{C})$ Hermitienne. Il existe une base orthonormale de V contenant que des vecteurs propres de a. En d'autres mots, il existe une matrice O, unitaire, tel que
+
+\begin{equation}
+O^{-1}aO = \bar{O}^TaO
+\end{equation}
+\end{theorem}
+
+\begin{definition}
+Soit $\mathbb{H}$ un espace de Hilbert. $\mathbb{H}$ est séparable si il possède une base dénombrable. 
+\end{definition}
+
+\begin{remark}
+Soit $u_i$ une base $\forall i\in\mathbb{N}$. Par Gram-Schmidt, nous pouvons prendre la base orthonormée $(u_i,u_j) = \delta_{ij}$.
+\end{remark}
+\end{document}

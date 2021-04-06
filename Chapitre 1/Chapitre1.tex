@@ -1,0 +1,168 @@
+\documentclass[../Notes de cours]{subfiles}
+
+\begin{document}
+\begin{remark} Ce cours traite de l'interprétation de Copenhague de la Mécanique Quantique. \end{remark}
+\part{Principe d'incertitude d'Heisenberg}
+Empiriquement, il est impossible de déterminer à la fois la position $x$ et l'impulsion $p$ d'une particule au delà d'une certaine précision
+
+\begin{equation}
+\label{Heinsenberg}
+\Delta x \Delta p \geq \frac{\hbar}{2}
+\end{equation}
+
+où $\Delta x$,$\Delta p$ sont les \textbf{écart-types} des grandeurs liées. Il s'agit de l'Incertitude de Heisenberg.\\
+
+Nous avons donc que pour tout état quantique, $x$ et $p$ sont incertains : leurs incertitude obéissent à la relation $\ref{Heinsenberg}$. Cela est liée au caractère probabiliste de la Mécanique Quantique : chaque résultat d'une mesure est aléatoire.\\
+
+Notons la relation de longueur d'onde de Broglie : 
+\begin{equation}
+\label{Broglie}
+\lambda = \frac{h}{p}
+\end{equation}
+
+\section{Applications du Principe d'Incertitude}
+Les différents calculs qui vont suivre servent à déterminer un ordre de grandeur : nous ne prêtons pas attention aux constantes multiplicatives tel que le facteur $\frac{1}{2}$ devant $\ref{Heinsenberg}$.
+\subsection{Application à l'atome d'Hydrogène}
+Empiquement, nous trouvons que l'énergie d'un atome d'hydrogène sera donné par la relation
+\begin{equation}
+\label{Energie hydrogène}
+E = \frac{p^2}{2m} - \frac{e^2}{r}
+\end{equation}
+Où $e^2 = \frac{q_e^2}{4 \pi \epsilon_0}$.\\
+
+Or, nous avons que l'électron de l'atome sera confiné dans une zone de rayon r. Dès lors, en utilisant $\ref{Heinsenberg}$, nous aurons que $\Delta p \approx \frac{\hbar}{r}$. Dès lors,
+\begin{equation}
+E \approx \frac{\hbar^2}{2mr^2} - \frac{e^2}{r}
+\end{equation}
+Il suffit alors de dériver cette dernière pour obtenir l'énergie minimale:
+\begin{align*}
+E_{min} &= \frac{d}{dr} (\frac{\hbar^2}{2mr^2} - \frac{e^2}{r}) = 0\\
+&= - \frac{2 \h^2}{2mr^3} + \frac{e^2}{r^2} = 0\\
+&= \frac{1}{r^2} \left[e^2 - \frac{\h^2}{mr} \right] = 0
+\end{align*}
+Il s'ensuit dès lors que 
+\begin{center}
+\begin{tabular}{c c}
+$r = \frac{\hbar^2}{me^2}$ & $E_{min} = - \frac{me^4}{2 \hbar^2}$
+\end{tabular}
+\end{center}
+Nous pouvons en déduire la valeur du $\textbf{rayon de Bohr}$ - soit la distance séparant, dans l'atome d'hydrogène, le proton de l'électron. Il s'agit donc d'un ordre de grandeur du rayon des atomes. Il correspond à 
+\begin{equation}
+\label{Rayon de Bohr}
+a_0 = \frac{\hbar^2}{me^2}
+\end{equation}
+Similairement, nous avons l'énergie de liaison de l'atome d'Hydrogène - également appelée \textbf{énergie de Rydberg} :
+\begin{equation}
+R_y = \frac{me^4}{2 \hbar^2}
+\end{equation}
+Nous pouvons retrouver les états liés en suivant
+\begin{equation}
+\label{Etats liés}
+E_n = - R_y \frac{1}{n^2} = - \frac{me^4}{2 \hbar^2} \frac{1}{n^2}
+\end{equation}
+Où n = 1,2,3, ...
+
+\subsection{Application à l'Oscillateur Harmonique}
+Soit $E = \frac{p^2}{2m} + \frac{kx^2}{2}$. Posons $w = \sqrt{\frac{k}{m}}$, la fréquence angulaire. Par définition, l'état fondamental est de longueur $\Delta x$. Dès lors, $\ref{Heinsenberg}$ nous implique que l'impulsion est donnée par $\Delta p = \frac{\hbar}{\Delta x}$. En partant de là,
+\begin{equation}
+E \left(\Delta x \right) = \frac{\hbar^2}{2m\Delta x^2} + \frac{1}{2} k \Delta x^2
+\end{equation}
+En dérivant cette dernière équations, nous avons que le minimum d'énergie est donnée en $\Delta x \approx \frac{\hbar^{\frac{1}{2}}}{\left(mk\right)^{\frac{1}{4}}}$. Cela implique que
+\begin{equation}
+\label{Energie OH}
+E_{min} \approx \sqrt{\frac{k}{m}} \hbar \approx w \hbar
+\end{equation}
+
+La relation exacte correspond effectivement. En effet :
+\begin{align}
+\label{Energie quantifiée OH}
+E_n &= \hbar w \left( n + \frac{1}{2} \right)\\
+E_0 &= \frac{1}{2} \hbar w
+\end{align}
+Notons que cette dernière est ce que nous appelons l'\textbf{énergie de point zéro}.
+\subsection{Application au cas relativiste}
+L'incertitude d'Heisenberg est également valide dans le cas relativiste. La relation de dispersion nous donne que $E^2 = m^2 c^4 + p^2 c^2$ pour une particule libre relativiste. En posant $\Delta x \approx \frac{\hbar}{mc}$, nous avons que $\Delta p \approx mc$ : il s'agit d'une particule relativiste. Dès lors,
+\begin{itemize}
+\item L'incertitude sur l'énergie sera de l'ordre $\Delta E \approx mc^2$.
+\item Supposons que nous avons un électron $e^(-)$ dans une boite de taille $\approx \frac{\hbar}{mc}$. L'incertitude sur l'énergie permet alors de créer des paires d'électrons et de positrons. \textbf{La notion de particule perd son sens dans le cadre de la mécanique quantique relativiste}. Cette taille est appelée à longueur d'onde de Compton, et vaut exactement $\lambda_C = \frac{\hbar}{mc}$.
+\end{itemize}
+
+\subsection{Application à la Masse de Planck}
+Considérons une particule de masse M confinée dans une boule de rayon R.
+%Schéma
+Nous avons alors plusieurs longueurs charactéristiques intéressantes.
+\begin{enumerate}
+\item \textbf{Première longueur charactéristique.} La longueur de Compton : $\lambda_C = \frac{\hbar}{Mc}$.
+\item \textbf{Seconde longueur charactéristique.} Le rayon de Schwarzschild : $R_S = \frac{2GM}{c^2}$. Il s'agit du rayon que doit prendre un objet de masse M pour devenir un trou noir ; c'est à dire dont la vitesse de libération est de l'ordre c.
+\end{enumerate}
+
+La masse de Planck est alors donnée par la relation $M_{Pl} = \sqrt{\frac{\hbar c}{G}}$. En particulier, nous avons que :
+\begin{itemize}
+\item Si M $< M_{Pl}$, alors $\lambda_C > R_S$ : nous avons une particule élémentaire.
+\item Si M $> M_{Pl}$, nous aurons un trou noir.
+\item Si M $\approx M_{Pl}$, nous ne connaissons pas la nature de l'objet.
+\end{itemize}
+
+\subsection{Application à la masse des étoiles}
+Soit N le nombre d'atomes d'hydrogène dans une boule de rayon R, soumis à l'attraction gravitationelle. Le volume par atome est de l'ordre $\frac{R^3}{N}$. A partir de là, nous pouvons déduire:
+\begin{itemize}
+\item \textbf{Le rayon de confinement de chaque électron et proton.} $\Delta x_e = \Delta x_p = \frac{R}{N^{\frac{1}{3}}}$.
+\item \textbf{Le moment de ces mêmes électrons et protons\footnote{A partir de \ref{Heinsenberg}.}.} $\Delta p_e = \Delta p_p = \frac{\hbar N^{\frac{1}{3}}}{R} $.\\
+\end{itemize}
+
+De ces relations, nous pouvons écrire les énergives cinétiques et gravitationelle de l'objet : 
+\begin{center}
+\begin{tabular}{c c}
+Energie cinétique & Energie gravitationelle\\
+$N \left( m_e c^2 + \frac{1}{2} \frac{\Delta P_e^2}{m_e} + m_p c^2 + \frac{1}{2} \frac{\Delta P_p^2}{m_p} \right)$ & $- G \frac{(Nm_p)^2}{R}$
+\end{tabular}
+\end{center}
+Notons que nous négligeons le dernier terme de l'énergie cinétique : de fait, $m_p >> m_e$.
+Dès lors, l'énergie sera donnée par 
+\begin{equation}
+E(R) \approx - G \frac{(Nm_p)^2}{R} + Nm_e c^2 + Nm_p c^2 + \frac{N}{2m_e} \frac{\hbar^2 N^{\frac{2}{3}}}{R^2}
+\end{equation}
+Dès lors, l'énergie sera minimum en $R^* \approx \frac{\hbar^2}{Gm_p^2m_eN^{\frac{1}{3}}}$. Remarquons que lorsque le nombre de particles N augmente, $R^*$ diminue.\\
+
+Quand est-ce que les électrons deviennent relativistes? Remarquons que $\Delta p_e \approx cm_e = \frac{\hbar N^{\frac{1}{3}}}{R^*} = \frac{Gm_em_p^2N^{2/3}}{\hbar}$. Nous pouvons en déduire que 
+\begin{equation}
+N = \left( \frac{M_{Pl}}{m_p} \right)^3
+\end{equation}
+Lorsque les particules deviennent relativistes, les réactions nucléaires deviennent possibles. Nous avons donc de la fusion nucléaire, ce qui donne une étoile!\\
+
+Dans une première approximation, nous aurons alors que la masse d'une étoile est donnée par 
+\begin{equation}
+M \approx m_p N \approx m_p \left( \frac{M_{Pl}}{m_p} \right)^3
+\end{equation}
+Donner les ordres de grandeur de ces nombres.
+\begin{center}
+\begin{tabular}{c c}
+Masse de Planck & Masse d'un proton\\
+$M_{Pl} \approx 10^{19} \frac{GeV}{c^2}$ & $m_p \approx 1 \frac{GeV}{c^2}$
+\end{tabular}
+\end{center}
+Dès lors, $ M_\odot \approx 10^{57} \frac{GeV}{c^2}$. La valeur exacte est de $1.04 10^{57} \frac{GeV}{c^2}$.\\
+
+Nous estimons les plus petites étoiles à $M \approx 0.08 M_\odot$, et les plus grandes à $M \approx 100 M_\odot$.
+
+
+\subsection{Masse de Chandrasekhar}
+Reprenons $E(R)$ pour $N$ atomes d'hydrogènes dans une boule de rayon R, à température nulle et en tenant compte les effets relativistes.
+\begin{equation}
+E(R) \approx - \frac{GN^2 m_p^2}{R} + N m_p c^2 + N \sqrt{m_e^2c^4 + \frac{\h^2N^{2/3}}{R^2}c^2}
+\end{equation}
+Soit $N^*$ une valeur limite. Lorsque $N = N^*$:
+\begin{align}
+\lim_{R\to 0} E(R) &= 0\\
+\lim_{R\to 0} - \frac{GN^2 m_p^2}{R} + \frac{N^{\frac{4}{3}}\h c}{R} &= 0\\
+N^* &= \left( \frac{\h c}{G} \frac{1}{m_p^3} \right) = \frac{M_{Pl}^3}{m_p^3}
+\end{align}
+A tempéature nulle, si $N > \frac{M_{Pl}^3}{m_p^3} = N^*$, alors la boule ne peut pas résister à son attraction gravitationnelle : elle se collapse en un trou noir.\\
+
+La masse limite à la masse de Chandrasekhar : elle vaut approximativement $1.4 M_\odot$. Il s'agit de l'origine des trous noirs et des supernovae.
+
+\section*{Résumé du chapitre}
+
+Formules.
+
+\end{document}

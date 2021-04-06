@@ -1,0 +1,542 @@
+\documentclass[../notesdecours]{subfiles}
+
+\begin{document}
+\part{L'équation de Schrödinger}
+Commençons par rappeler les relations de \textbf{Plank-Einstein}:
+\begin{align}
+E = h \nu &= \h \omega\\
+\bm{p} &= \h \bm{k}
+\end{align}
+Où $\lambda = \frac{2\pi}{\norm{\bm{k}}} = \frac{h}{\norm{\bm{p}}}$ : il s'agit de la relation de L. de Broglie, reflettant la dualité onde-corpusculaire de la matière.\\
+
+Rappelons également l'équation d'onde :
+\begin{equation}
+\label{D'Alembert}
+\left( \frac{1}{c^2} \partial_t^2 - \partial_x^2 - \partial_y^2 - \partial_z^2 \right)A(t,\bm{x}) = 0
+\end{equation}
+En particulier, une onde plane\footnote{Une onde est dite plane si et seulement si elle ne s'exprime que dans une seule direction.} s'exprime par le champ scalaire 
+\begin{equation}
+\label{Onde plane Sch}
+A(t,\bm{x}) = A_0 e^{-i \left( \omega t - \bm{k} \cdot \bm{x} \right) }
+\end{equation}
+Appliquons l'équation d'une onde plane \ref{Onde plane} à l'équation de D'Alembert \ref{D'Alembert}. En particulier, notons que
+\begin{center}
+\begin{tabular}{c c}
+$\frac{1}{c^2} \partial_t A(t,\bm{x}) = \frac{-iA_0 \omega}{c^2} e^{-i \left( \omega t - \bm{k} \cdot \bm{x} \right)}$ & $\frac{1}{c^2} \partial_t^2 A(t,\bm{x}) = - A_0 \left( \frac{\omega}{c}\right)^2 e^{-i \left( \omega t - \bm{k} \cdot \bm{x} \right)}$\\
+\end{tabular}
+\end{center}
+Rappelons que nous considérons une onde plane : supposons que celle-ci se déplace dans la direction des x. Alors,
+\begin{center}
+\begin{tabular}{c c}
+$\partial_x A(t,x) = iA_0k_x e^{-i \left( \omega t - xk_x \right)}$ & $\partial_x^2 A(t,x) = -A_0k_x^2 e^{-i \left( \omega t - xk_x \right)}$
+\end{tabular}
+\end{center}
+Où $k_x$ est la composante en x du vecteur $\bm{k} = \left( k_x,k_y,k_z \right)$. En combinant ces résultats (et en gardant l'hypothèse d'une onde se dirigeant selon l'axe des x), nous obtenons que
+\begin{align}
+\left( \frac{1}{c^2} \partial_t^2 - \partial_x^2 - \partial_y^2 - \partial_z^2 \right)A(t,x) &= 0\\
+- A_0 \left( \frac{\omega}{c}\right)^2 e^{-i \left( \omega t - xk_x \right)} +A_0k_x^2 e^{-i \left( \omega t - xk_x \right)} &= 0\\
+\left( \frac{\omega}{c}\right)^2 - k_x^2 &= 0
+\end{align}
+A partir de là$\footnote{Demander à Prof. d'élaborer les détails.}$, nous pouvons montrer que 
+\begin{align}
+\omega &= \frac{i}{A} \partial_t \left( A \right)\\
+k_x &= - \frac{i}{A} \partial_x \left( A \right)
+\end{align}
+Ce qui implique les relations
+\begin{center}
+\begin{tabular}{c c c}
+$k_x^2 = - \frac{1}{A} \partial_x^2 A$ & et & $k^2 = - \frac{1}{A} \Delta A$
+\end{tabular}
+\end{center}
+
+On pose également les quelques relations suivantes
+\begin{center}
+\begin{tabular}{c c c}
+$E = \frac{i \h}{\Psi} \partial_t \Psi$ & $p_X = - \frac{i \h}{\Psi} \partial_x \Psi$ & $p^2 = - \frac{\h^2}{\Psi} \Delta \Psi$
+\end{tabular}
+\end{center}
+Dans le cas d'une particule relativiste, l'énergie respecte la relation de dispersion. En particulier, cela implique
+\begin{equation}
+\label{Klein-Gordon}
+- \h \partial_t \Phi + c^2 \h^2 \Delta \Phi - c^4m^2\Phi = 0
+\end{equation}
+Il s'agit de l'équation de Klein-Gordon. Nous pouvons obtenir une relation similaire dans le cas non-relativiste. Effectivement, nous avons alors que l'énergie est donnée par la relation
+\begin{equation}
+E = \frac{p^2}{2m} + V(\bm{r},t)
+\end{equation}
+Dès lors, nous obtenons l'équation de Schrödinger pour une particule:
+\begin{equation}
+\label{Schrodinger}
+i \h \partial_t \Psi = -\frac{\h^2}{2m} \Delta \Psi + V(\bm{r},t) \Psi \doteq H \Psi
+\end{equation}
+\newpage
+\textbf{Note.} Nous avons alors que l'opérateur $H \doteq -\frac{\h^2}{2m} \Delta + V (\bm{r},t)$.
+Remarquons que:
+\begin{itemize}
+\item L'équation de Schrödinger est linéaire\footnote{Si $\Psi_1$ et $\Psi_2$ sont des solutions de \ref{Schrodinger}, alors $\Psi_1 + \Psi_2$ est également une solution de \ref{Schrodinger}.} et satisfait les relations de Broglie.
+\item L'opérateur H est hermitien ; cela garantit la conservation de la probabilité, que ses valeurs propres sont réelles et que ses vecteurs propres constituent une base de l'espace considéré. 
+\end{itemize}
+
+\section{Particule libre}
+
+Dans une première approximation, supposons que le potentiel $V(\bm{r},t)$ soit nul. L'équation de Schrödinger ($\ref{Schrodinger}$) se réduit alors à
+\begin{equation*}
+i\h \partial_t \Psi = - \frac{\h^2}{2m} \Delta \Psi
+\end{equation*}
+Où $\omega = \frac{\h \bm{k}^2}{2m}$. Cela correspond à $E = \frac{p^2}{2m}$.\\
+
+Cette équation différentielle admet visiblement des solutions de la forme
+\begin{equation}
+\label{Solution directe}
+\Psi (\bm{r},t) = Ce^{i(\bm{k} \cdot \bm{x} - \omega t)}
+\end{equation}
+Où C est une constante. Par la principe de superposition, toute combinaison linaire d'ondes planes vérifiant l'expression de $\omega$ sera également une solution de $\ref{Solution directe}$. La solution générale est alors donnée par 
+\begin{equation}
+\label{Solution générale}
+\Psi (\bm{r},t) = \frac{1}{\left( 2 \pi \right)^{\frac{3}{2}}}\int d^3k g(\bm{k})) e^{-i \omega t + \bm{k} \cdot \bm{r}}
+\end{equation}
+Où g($\bm{k}$) est la transformation de Fourier de $\Psi (\bm{r},t = 0)$:
+\begin{equation}
+g(\bm{k},t=0) = \frac{1}{\sqrt{2\pi}} \int \Psi (\bm{r},0)e^{-i\bm{k}x} dx
+\end{equation}
+
+\section{Interprétation probabiliste}
+
+Soit $\Psi (\bm{r},t)$ une solution de ($\ref{Schrodinger}$). Nous pouvons vérifier que $\Psi$ est normaliée : effectivement, $\int d\bm{r} \norm{\Psi(\bm{r},t)}^2 = 1$. Il est possible de montrer que si c'est le cas à un instant donné, ça l'est à tout moment.\\
+
+Posons donc que $\rho (\bm{r},t) = \norm{\Psi (\bm{r},t)}^2 = \bar{\Psi} \Psi$ la densité de probabilité de trouver la particule en $\bm{r}$ à l'instant t.\\
+
+\begin{Property}
+La densité de probabilité telle que nous venons de la définir respecte l'équation de continuité
+\begin{equation}
+\label{Equation de Continuité}
+\partial_t \rho (\bm{r},t) + \bm{\nabla} \cdot \bm{J} (\bm{r},t) = 0
+\end{equation}
+Où $\bm{J} (\bm{r},t) \dot{=} \frac{\h}{2mi} \Big\{\overline{\Psi}\bm{\nabla}\Psi - \Psi\bm{\nabla}\overline{\Psi}\Big\} = \frac{\h}{m} Im \left[\bar{\Psi} \left(\bm{\nabla} \Psi\right)\right]$ est un courant de probabilité.\\
+\end{Property}
+
+\begin{proof}
+Puisque $\Psi$ est hermitique,
+\begin{equation}
+\hat{H}\Psi = \hat{H}\bar{\Psi}
+\end{equation}
+\begin{align}
+i\h\partial_t\bar{\Psi} &= - \frac{\h^2}{2m}\Delta\bar{\Psi}+V\bar{\Psi}	&i\h\partial_t\Psi = -i\h\partial_t\bar{\Psi}
+\end{align}
+De plus, par définition,
+\begin{equation}
+\rho = \norm{\Psi}^2 = \Psi\bar{\Psi}
+\end{equation}
+En dérivant $\rho$ par rapport à au temps et en multipliant par $i\h$,
+\begin{align}
+i\h\partial_t\rho &= \left[-\frac{\h^2}{2m}\Delta \Psi\right]\bar{\Psi} - \left[-\frac{\h^2}{2m}\Delta\bar{\Psi}\right]\Psi\\
+&= -\frac{\h^2}{2m} (\bar{\Psi}\Delta\Psi - \Psi\Delta\bar{\Psi})\\
+\rightarrow 0 &= \partial_t\rho + \frac{\h}{2mi}\bm{\nabla}\cdot(\bar{\Psi}\bm{\nabla}\Psi - \Psi\bm{\nabla}\bar{\Psi})
+\end{align}
+Nous pouvons alors définir 
+\begin{equation}
+\bm{J} \dot{=} \frac{\h}{2mi} \Big\{\overline{\Psi}\bm{\nabla}\Psi - \Psi\bm{\nabla}\overline{\Psi}\Big\} = \frac{\h}{m} Im \left[\bar{\Psi} \left(\bm{\nabla} \Psi\right)\right]
+\end{equation}
+le courant de probabilité. Nous pouvons alors écrire l'équation de probabilité, ce qui conclut la preuve.
+\end{proof}
+
+L'équation de continuité $\eqref{Equation de Continuité}$ explique que rien ne se perd, rien ne se crée et tout se conserve : en effet, si nous intégrons sur une région A, nous aurons
+\begin{align*}
+\int_A \frac{\partial \rho}{\partial t} dV + \int_A \bm{\nabla}\cdot\bm{J} dv &= \frac{d}{dt} \int_A \rho dV + \int_{\partial A} \bm{J}\cdot\bm{ds}
+\end{align*}
+\begin{equation}
+\frac{d}{dt} P_A = -F_A
+\label{Conservation des particules}
+\end{equation}
+Où $P_A$ est la probabilité de trouver une particule dans la région A, et $F$ est le flux de cette particule à travers le bord de la région. L'équation \eqref{Conservation des particules} décrit la conservation des particules à travers la surface A.\\
+
+Nous pouvons également définir les coefficients de \textbf{réflexion} et de \textbf{transmission} comme suit:
+\begin{align}
+R &= \frac{J_- [\leftarrow]}{J_- [\rightarrow]},	&T = \frac{J_+ [\rightarrow]}{J_- [\rightarrow]}
+\end{align}
+Où $J_- [\leftarrow]$ est défini comme étant "le courant de probabilité dans la région négative allant vers la gauche.\\
+
+Dans le cas d'une onde plane, nous pouvons tautologiquement réécrire ($\ref{Solution directe}$) sous la forme
+\begin{equation}
+\label{One plane forme}
+\Psi = Ce^{i \bm{k} \cdot \bm{x}} e^{-i \omega t}
+\end{equation}
+Dès lors, $\rho = \norm{\Psi}^2 = C^2$ est une constante. Nous pouvons utiliser le résultat ($\ref{Courant de probabilité}$) pour voir que, dans le cas d'une \textbf{onde plane}, 
+\begin{equation}
+\bm{J} = \frac{\bm{p}}{m} C^2 = \rho\bm{v}
+\end{equation}
+Nous voyons donc bien qu'une onde plane décrit une particule se déplaçant à une vitesse $\bm{v}$.
+\subsection{Born: étude des collisions. Origine de l'interprétation probabiliste}
+Que se passe-t-il si une onde plane arrive sur un atome? Nous allons essayer de trouver une approximation à cette question.\\
+
+La fonction d'onde d'une particule dont l'énergie potentielle V($\bm{r}$) ne dépend pas du temps doit vérifier l'équation de Schrödinger:
+\begin{equation}
+i \h \partial_t \Psi = - \frac{\h^2}{2m} \Delta \Psi + V(\bm{r}) \Psi
+\end{equation}
+La solution de cette équation est donnée par
+\begin{equation}
+\Psi (\bm{r},t) = e^{- \frac{iEt}{\h}} \phi(\bm{r}) - \frac{\h^2}{2m} \Delta \phi + V(\bm{r})\phi = E \phi
+\end{equation}
+\textbf{Conditions au bord : } pour $x\rightarrow -\infty, \phi = Ce^{ikx}$.
+\begin{itemize}
+\item Une partie de l'onde est construite tout droite.
+\item Une partie est diffusée.
+\end{itemize}
+A grande distance de l'atome, nous avons que 
+\begin{equation}
+\phi(\bm{r}) \approx Ce^{ikx} + \int d^3k \alpha(\bm{r})e^{i \bm{k} \cdot \bm{x}}
+\end{equation}
+\begin{center}
+Avec $\frac{\h^2\norm{\bm{k}}^2}{2m} = \h \omega$.
+\end{center}
+La Mécanique Quantique décrit simultanément \textbf{toutes} les diffusions possibles. Or, en laboratoire, nous n'observons qu'une seule direction: Max-Born en déduit que la Mécanique Quantique décrit les \textbf{possibilités} de diffusions dans les directions $\bm{k}$.
+\begin{equation}
+P(\text{diffusion dans la direction $\bm{k}$}) \approx \norm{\alpha(\bm{k})}^2
+\end{equation}
+
+\section{Paquet d'onde à une dimension}
+\subsection{Vitesse de phase et vitesse de groupe}
+Une onde est une perturbation se déplacnt dans le milieu. Il est possible de lui associer deux vitesses: soit la \emph{vitesse de phase} (ou \emph{célérité}), et la \emph{vitesse de groupe}. Elle peuvent être différentes, sous certaines conditions.\\
+
+Revenons au cas particulier d'une particule libre, dont l'état est décrit par le paquet d'onde à une dimension ($\ref{Solution générale}$). Une onde plane ($\ref{One plane forme}$), respectant la relation de dispersion $w(k)$, se propage avec la vitesse
+\begin{equation}
+V_\phi (k) = \frac{\omega}{Re\{k\}}
+\end{equation}
+Il s'agit de la \textbf{vitesse de phase}. En paticulier, prenons l'exemple d'une particulier quantique, c'est à dire une particule respectant les équations
+\begin{align}
+\omega = \frac{E}{\h} &= \frac{p^2}{2m\h} = \h \frac{k^2}{2m}\\
+k &= \frac{p}{\h}
+\end{align}
+Dans cet exemple, la vitesse de phase s'écrira alors
+\begin{equation}
+V_\phi (k) = \frac{\h k}{2m} = \frac{p}{2m}
+\end{equation}
+Nous savons que dans le cas d'une onde électromagnétique se propageant dans le vide, $V_\phi (k)$ est indépendante de $k$ et se propage à la vitesse de la lumière $c$. Notons que toutes les ondes composant un paquet d'ondes se déplacent à la même vitesse, de sorte que le paquet se déplace à la vitesse de la lumière $c$ dans le vide. \textbf{Ce n'est pas le cas dans un milieu dispersif.}\\
+
+Soit $A(t,x) = \int dk g(k,\omega) e^{-i\omega(k)t}e^{ikx}$, où
+\begin{align*}
+g(k,\omega)&: \text{est centré sur $k_0$ de faible largeur $\Delta$}\\
+g(k,\omega) &\approx e^{- \frac{1}{2}(\frac{k-\omega}{\Delta})^2}
+\end{align*}
+Nous voulons nous rammener à une intégrale gaussienne. Notons que 
+\begin{equation}
+\omega(k) = \omega (k_0) + \partial_k \omega (k-k_0) + \frac{1}{2}\partial_k^2(k-k_0)
+\end{equation}
+Le terme $\partial_k \omega$ représente la \textbf{vitesse de groupe}, et $\partial_k^2 \omega$ représente la \textbf{dispersion}.
+
+Nous avons dès lors que
+\begin{equation}
+A(t,x) \approx e^{-i \omega(k_0)t}e^{ik_0x} \int dk g(k-k_0) e^{\left[\omega't+x\right]}
+\end{equation}
+Nous y négligeons les effets de $\partial_k^2 \omega$ car $\Delta$ est très petit.\\
+
+Il s'ensuit que le centre du paquet d'onde se déplace à la vitesse 
+\begin{equation}
+v_g = \text{Vitesse de groupe} = \frac{\partial \omega}{\partial k} = \omega'
+\end{equation}
+Pour une particule quantique, nous avons alors que $\frac{\partial \omega}{\partial k} = \frac{\h k}{m} = \frac{p}{m} = v_{Classique}$.
+
+\textbf{Note.} Rappelons que la solution à l'intégrale ci-contre, dans le cas où $\textbf{si} -\frac{\pi}{4} < arg \alpha < + \frac{\pi}{4}$:
+\begin{equation}
+I(\alpha,\beta) =\int_{-\infty}^{\infty} e^{-\alpha^2 \left(\xi+\beta\right)^2} d\xi = \frac{\sqrt{\pi}}{\alpha}
+\label{Integral}
+\end{equation}
+
+\paragraph{Paquet d'onde Gaussien en dim 1}
+Nous considérons un modèle à une dimension, avec une particule libre\footnote{Le potentiel V(x) = 0}, dont la fonction d'onde à l'instant $t = 0$ s'écrit
+\begin{equation}
+\Psi(x,t=0) = \frac{\sqrt{a}}{\left(2\pi\right)^{3/4}} \int_{-\infty}^{+\infty} e^{- \frac{a^2}{4} (k-k_0)^2} e^{ikx} dk\\
+\label{Onde gaussienne dim 1}
+\end{equation}
+Ce paquet d'onde est obtenu par superposition d'ondes planes $e^{ikx}$ avec des coefficients 
+\begin{equation}
+\frac{1}{\sqrt{2\pi}} g(k,t=0) = \frac{\sqrt{a}}{\left(2\pi\right)^{3/4}} e^{-\frac{a^2}{4}(k-k_0)^2}
+\end{equation}
+qui correspondent à une fonction de Gauss, centrée en $k = k_0$. C'est pourquoi nous appelons \eqref{Onde gaussienne dim 1} onde gaussienne.\\
+
+En exploitant le résultat \eqref{Integral}, nous pouvons alors montrer que \ref{Onde gaussienne dim 1} vaut
+\begin{equation}
+\left( \frac{2}{\pi a^2}\right)^{\frac{1}{4}} e^{ik_0x}e^{- \frac{x^2}{a^2}}
+\end{equation}
+Nous pouvons en déduire la valeur de la densité de probabilité de la fonction d'onde d'une particule libre à l'instant $t = 0$:
+\begin{equation}
+\norm{\Psi(x,t=0)}^2 = \sqrt{\frac{2}{\pi a^2}} e^{-2 \frac{x^2}{a^2}}
+\end{equation}
+Nous pouvons vérifier que $\int dx \norm{\Psi}^2$ est bien égale à 1.\\
+
+%Calcul de \Psi(x,t).
+
+Nous remarquons alors que $\Delta x \approx \frac{a}{2}$. Ainsi, $\Delta x\Delta p \geq \frac{\h}{2}$. Nous en déduisons en particulier que $\Delta p = \frac{\h}{2}$, et donc que la distribution des vitesses est donnée par $\Delta v = \frac{\Delta p}{m} = \frac{\h}{ma}$ : nous avons un \textbf{étalement}.
+
+\newpage
+\section{Potentiel stationnaire}
+Nous nous intéressons ici au comportement d'une onde plongée dans un potentiel indépendant du temps ; V($\bm{r},t$) = V($\bm{r}$). Cela signifie que les effets quantique doivent se produire lorsque le potentiel varie sur des distances plus courtes que la longueur d'onde : celles-ci ne peuvent alors pas être négligées.  Nous allons donc étudier le comportement d'une particule placée dans différents "potentiels carrés", c'est à dire des potentiels dont les variations se font par "marche d'escaliers". Avant de passer à l'étude du potentiel, discutons des propriétés que satisfait l'équation de Schrödinger pour un potentiel indépendnat du temps $V(\bm{r})$.\\
+
+\subsection{Equation de Schrödinger indépendante du temps}
+
+Recherchons les solutions de l'équation de Schrödinger \eqref{Schrodinger}. Pour ce faire, passons par une séparation des variables. Plus précisément, posons
+\begin{equation}
+\Psi(\bm{r},t) = \varphi(\bm{r})\kappa(t)
+\end{equation}
+Il suffit alors de placer cette dernière équations dans $\eqref{Schrodinger}$:
+\begin{align}
+i \h \varphi(\bm{r})\partial_t \kappa(t) &= - \frac{\h^2}{2m} \kappa(t) \Delta \varphi(\bm{r}) + V(\bm{r})\kappa(t)\varphi(\bm{r})\\
+\frac{i\h}{\kappa(t)} \partial_t \kappa(t) &= - \frac{\h^2}{2m} \frac{1}{\varphi(\bm{r})} \Delta \varphi(\bm{r}) + V(\bm{r})
+\label{Séparation temporelle et spatiale}
+\end{align}
+Cette équation indique l'égalité entre une fonction de t (membre de gauche) et une fonction de $\bm{r}$ (membre de droite). Cette égalité n'est possible que si ils sont en fait tous les deux égales à une constante, que nous poserons égale à $\h \omega$.\\
+
+Dans le membre de gauche, nous obtenons une équation différentielle non-linéaire du premier ordre. Elle se résoud trivialement en
+\begin{align}
+&\kappa (t) = c_1e^{-i\omega t}    &\forall c_1 \in \mathbb{R}
+\label{Solution temporelle}
+\end{align}
+En développant l'égalité de droite, nous trouvons alors \textbf{l'équation de Schrödinger indépendante du temps}:
+\begin{align}
+- \frac{\h^2}{2m} \Delta \varphi(\bm{r}) + V(\bm{r})\varphi(\bm{r}) &= \h\omega\varphi(\bm{r}) \label{Schrodinger spacial} \\
+\left[ - \frac{\h^2}{2m} \Delta + V(\bm{r}) \right] \varphi(\bm{r}) &= E \varphi(\bm{r}) \label{Equations aux valeurs propres}\\
+H \varphi(\bm{r}) &= E \varphi(\bm{r})  \label{kikoo}
+\end{align}
+En posant $c_1 = 1$ dans \eqref{Solution temporelle}, nous obtenons alors la fonction
+\begin{equation}
+\Psi (\bm{r},t) = \varphi(\bm{r})e^{-i\omega t}
+\end{equation}
+qui est solution de l'équation de Schrödinger, si $\varphi(\bm{r})$ est solution de \eqref{Schrodinger spacial}. On dit que l'on a séparé les variables de \textbf{temps} et d'\textbf{espace}.\\
+
+\textbf{Note.} Dans \eqref{Equations aux valeurs propres}, $H$ est un opérateur différentiel \emph{linéaire}. Effectivement, si $\lambda_1$ et $\lambda_2$ sont des constantes, alors 
+\begin{align}
+&H \left[\lambda_1 \varphi_1(\bm{r}) + \lambda_2 \varphi_2(\bm{r})\right] = \lambda_1 H \varphi_1(\bm{r}) + \lambda_2 H \varphi_2(\bm{r})							&\forall \lambda_1,\lambda_2 \in \mathbb{R}
+\end{align}
+
+\textbf{Note.} L'équation $\eqref{Equations aux valeurs propres}$ est souvent décrite comme "l'équation aux valeurs propres".
+
+\subsection{Potentiels à une dimension: description quantitative}
+
+Rappelons l'équation de Schrödinger, elle nous sera utile pour la suite:
+\begin{equation*}
+i \h \partial_t \Psi (t,\bm{r}) = - \frac{\h^2}{2m} \partial_x^2 \Psi(t,\bm{r}) + V(\bm{r})\Psi(t,\bm{r})
+\end{equation*}
+Où V($\bm{r}$) est constante par morceaux.\\
+
+Nous allons considérer les problèmes de \textit{puit de potentiel}, et de\textit{ barrière de potentiel}. Une question légitime est de se demander les raisons derrière cette étude : la réponse est simple. Ils s'agissent de cas théoriques possédant des solutions analytique, et permettant d'illuster des effets quantiques importants: l'\textbf{effet tunnel}, ainsi que les \textbf{états liés}. De plus, certaines situations physiques réelles y sont très proches: pensons notamment à la barrière de Josephson (supraconducteurs), et aux points quantiques: elles consistent dès lors en une excellent approximation de ces phénomènes.\\
+
+\subsubsection{Puit de potentiel infini à une dimension}
+
+Cette situation correspond à un potentiel prenant les valeurs suivantes, en fonction de sa position\footnote{Insistons sur le fait que le potentiel est considéré invariant par le temps : nous avons bien un potentiel stationnaire du type $V(\bm{r},t) = V(x)$.} : 
+\begin{equation}
+V(x) = 
+\begin{cases}
+-\infty\\
+0\\
++\infty
+\end{cases}
+\end{equation}
+respectivement en $x < 0$, $x \in [0,L]$ et $x >L$. Appliquons ce potentiel à l'équation de Schrödinger.
+
+\textbf{Séparation des variables:} $\Psi(\bm{r},t) = \kappa(t)\varphi(\bm{r})$. Nous avons un potentiel stationnaire : reprenons le calcul à partir de $\eqref{Equations aux valeurs propres}$.\\
+
+La solution temporelle provient de $\eqref{Séparation temporelle et spatiale}$, et donne 
+\begin{equation}
+\kappa(t) = \kappa_0 e^{-i \omega t}
+\end{equation}
+Il nous reste à déterminer la solution spatiale. Rappelons les conditions aux bords:  $\varphi(L) = 0 = \varphi(0)$. Dès lors, nous avons que:\\
+
+Pour $0 < x < L : - \frac{\h^2}{2m} \partial_x^2 \varphi = E \varphi$. Il s'agit d'une équation différentielle linéaire du second ordre. Sa solution \textit{générale} est de la forme
+\begin{align}
+&\varphi(\bm{r}) = c_1 \cos \left(kx\right) + c_2\sin \left( kx \right)									&\forall c_1,c_2 \in \mathbb{C}
+\label{Kikoo}
+\end{align}
+Afin de respecter les conditions aux bords, nous aurons que
+\begin{align}
+&c_2 = 0 &kL = n\pi
+\end{align}
+Dès lors,
+\begin{align}
+&k_n = \frac{n\pi}{L} &E_n = \frac{\h^2}{2m} \frac{\pi^2n^2}{L^2}
+\end{align}
+Nous avons alors la solution mathématique à notre problème:
+\begin{equation}
+\Psi_n (\bm{r},t) = \kappa_0 e^{-i \frac{E_nt}{\h}}\sin \left( \frac{n\pi}{L}x \right)
+\end{equation}
+\textbf{Note.} Notons que cette équation implique une \textbf{quantification de l'énergie}. La solution physique sera la superposition de tous les états possible:z
+\begin{equation}
+\Psi (\bm{r},t) = \sum_{n = 1}^\infty \kappa_n e^{-i \frac{E_nt}{\h}}\sin \left( \frac{n\pi}{L}x \right)
+\end{equation}
+
+\subsubsection{Puit de potentiel fini à une dimension}
+Etudions un cas similaire. Soit $I = \left[-\frac{a}{2},\frac{a}{2}\right]$. Dans cette situation, nous avons que 
+\begin{equation}
+\begin{cases} 
+V(x > \norm{\frac{a}{2}}) = 0 \\ 
+V(x) = -V_0\\
+\end{cases}
+\end{equation}
+
+La résolution de l'équation aux valeurs propres $\eqref{Equations aux valeurs propres}$ s'effectue dans chaque zone\footnote{Nous notons I la zone tq $x < -\frac{a}{2}$, III la région tq $x>\frac{a}{2}$ et II la région entre les deux.} indépendemment, et donnera
+\begin{equation}
+\begin{cases}
+\varphi(x < -\frac{a}{2}) = A_1e^{\rho x} + A'_1e^{-\rho x}		&\rho = \sqrt{- \frac{2mE}{\h^2}}\\
+\varphi(x \in I) = B_2e^{ikx} + B'_2e^{-ikx} 					&k = \sqrt{\frac{2m(V_0+E)}{\h^2}}\\
+\varphi(x>\frac{a}{2}) = A_3e^{\rho x} + A'_3e^{-\rho x}
+\end{cases}
+\end{equation}
+\textbf{Conditions aux bords.} Rappelons que $\varphi(x)$ est bornée en les régions I et III. Nous pouvons alors réécrire les équations sous la forme
+\begin{equation}
+\begin{cases}
+\varphi(x) = A_1e^{\rho x}\\
+\varphi(x \in I) = B_2e^{ikx} + B'_2e^{-ikx}\\
+\varphi(x) = A'_3e^{-\rho x}
+\end{cases}
+\end{equation}
+\textbf{QUESTION.} Comment avons-nous choisi le terme en $A'_1$ et $A_3$ pour la simplification?\\
+
+\textbf{Conditions de continuité:} $\varphi(x)$ et $\partial_x \varphi(x)$ doivent être continue. Dès lors,
+\begin{itemize}
+\item \textbf{En x = - $\frac{a}{2}$}, nous avons que:
+\begin{equation}
+\begin{cases}
+A_1e^{-\frac{\rho a}{2}} = B_2e^{\frac{-ika}{2}} + B'_2e^{\frac{ika}{2}}\\
+\rho A_1e^{-\rho\frac{a}{2}} = ik \left[B_2e^{-\frac{ika}{2}} - B'_2e^{\frac{ika}{2}} \right]
+\end{cases}
+\label{Continuité en -a/2}
+\end{equation}
+\item \textbf{En x = $\frac{a}{2}$}, nous avons que:
+\begin{equation}
+\begin{cases}
+A'_3e^{-\frac{\rho a}{2}} = B_2e^{\frac{-ika}{2}} + B'_2e^{\frac{ika}{2}}\\
+\rho A'_3e^{-\frac{\rho a}{2}} = ik \left[B_2e^{\frac{-ika}{2}} - B'_2e^{\frac{ika}{2}}\right]
+\end{cases}
+\label{Continuité en a/2}
+\end{equation}
+\end{itemize}
+\textbf{Note.} Nous possédons 4 équations linéaires à 4 inconnues : la solution est non triviale si $\det \left[ \text{Matrice associée} \right] = 0$.\\
+\textbf{Note.} Les inconnues dans nos équations sont bien $A_2,A_2',B_3$ et $B'_3$.\\
+
+En multipliant la première équation de $\eqref{Continuité en -a/2}$ par $ik$, et en additionnant/soustrayant les deux équations, nous pouvons obtenir
+\begin{equation}
+\begin{cases}
+B_2 = \frac{\rho + ik}{2ik}e^{\left(ik-\rho\right)\frac{a}{2}}A_1\\
+B'_2 = -\frac{\rho-ik}{2ik} e^{-\frac{a}{2}\left[\rho+ik\right]}A_1
+\end{cases}
+\end{equation}
+Similairement, \eqref{Continuité en a/2} permet de mettre en évidence les relations
+\begin{equation}
+\begin{cases}
+B_2 = -\frac{\rho-ik}{2ik}e^{-\frac{a}{2}\left(\rho+ik\right)}A'_3\\
+B'_2 = \frac{\rho+ik}{2ik}e^{\frac{a}{2}\left(ik-\rho\right)}A'_3
+\end{cases}
+\end{equation}
+Ces deux dernières équations, ensembles, impliquent:\\
+
+(...)\\
+
+Les états d'énergie les plus sont sont alors
+\begin{align}
+\approx k &= \frac{n\pi}{a}		&E \approx \frac{\pi^2\h n^2}{2ma^2} - V_0
+\end{align}
+
+\subsubsection{Potentiel en escalier}
+Plaçons-nous dans une région telle que le potentiel est stationnaire, c'est à dire dont la variable spatiale $\varphi (\bm{r})$ de la solution de l'équation de Schrödinger $\Psi (\bm{r},t)$ respecte l'équation $\eqref{Schrodinger spacial}$. Nous pouvons réécrire cette dernière équation sous la forme
+\begin{equation*}
+\frac{d^2 \varphi}{dx^2} + \frac{2m}{\h^2} (E-V)\varphi = 0
+\end{equation*}
+Nous pouvons distinguer plusieurs cas.
+\begin{itemize}
+\item \textbf{$E > V$}. En introduisant le terme positif $k^2 = \frac{2m}{\h^2} (E-V) \geq 0$, nous pouvons montrer que les solutions de $\eqref{Schrodinger spacial}$ sont de la forme
+\begin{equation}
+\varphi = Ae^{ikx} + A'e^{-ikx}
+\end{equation}
+Nous parlons d'ondes progessives.
+\item \textbf{$E < V$}. Cette condition correspond aux régions classiquement interdites : il s'agit de l'\textbf{effet tunnel}. Dans ce cas, nous introduisons la constante $\rho$ définie par $\rho^2 = \frac{2m}{\h^2} (V-E) \geq 0$. Nous obtenons alors que la solution est
+\begin{equation}
+\varphi = Be^{\rho x} + B' e^{-\rho x}
+\end{equation}
+\item \textbf{E = V}. Dans ce cas, $\varphi (\bm{r})$ est une fonction linéaire de x.
+\item \textbf{Là où V est discontinue}. Dans ce cas, $\varphi$ est continue et $\partial_x\varphi$ l'est également.
+\end{itemize}
+\section{Approximation semi-classique}
+L'approximation semi-classique permet d'obtenir une solution de l'Equation de Schrödinger lorsque $\h$ tend vers 0 ; c'est à dire lorsque la longueur d'onde est beaucoup plus ptite que les autres dimensions considérées. Son idée est simple: l'équation de Schrödinger se dérive de l'équation de propagation des ondes. On doit alors retrouver la mécanique classique dans la limite $\h$ tend vers 0, tout comme nous retrouvons l'optique géométrique lorsque $\lambda$ tend vers 0 dans l'optique ondulatoire.\\
+
+Notons $\varphi$ solution stationnaire de l'équation de Schrödinger pour une particule de masse $m$ dans un potentiel $V(R)$. Alors,
+\begin{equation*}
+\left[ -\frac{\h^2}{2m} \partial_x^2 + V(R)\right]\Psi(r) = E\Psi(r)
+\end{equation*}
+Se réécrit, en posant 
+\begin{align}
+&\Psi(r) = A(r)e^{i\frac{S(r)}{\h}}	&\forall A,S\in\mathbb{R}
+\end{align}
+Nous pouvons alors montrer que les relations
+\begin{subequations}
+\begin{equation}
+2A'S'+AS'' = 0 \label{3}\\
+\end{equation}
+\begin{equation}
+\frac{S'^2}{2m} - \frac{\h^2}{2m}\frac{A''}{A}+V = E \label{4}
+\end{equation}
+\end{subequations}
+
+sont équivalentes à l'équation de Schrödinger \eqref{Schrodinger spacial}. En particulier, \eqref{3} peut se résoudre directement et donne
+\begin{align}
+&A(x) = \frac{A_0}{\sqrt{S'(r)}}	&\forall A_0\in\mathbb{R}
+\label{A}
+\end{align}
+Nous pouvons vérifier que \eqref{A} est équivalente à l'équation de continuité \eqref{Equation de Continuité}
+\begin{equation*}
+\partial_t\rho(\bm{r},t) + \nabla \bm{J} = 0
+\end{equation*}
+pour une solution stationnaire: effectivement, nous avons que $\rho (x,t) = |\psi|^2$ ne dépend pas du temps.\\
+
+Pour résoudre \eqref{4}, nous faisons l'hypothèse $\frac{\h^2}{2m}\frac{A''}{A}$ est négligeable par rapport aux autres termes. Nous obtenons alors l'équation 
+\begin{align*}
+\frac{S'^2 (r)}{2m} + V(r) = E
+\end{align*}
+Il s'agit d'une équation bien connue de la mécanique classique: l'équation de \textbf{Hamilton-Jacobi}. Ses solutions sont de la forme
+\begin{subequations}
+\begin{align}
+S'(x) &= \pm \rho (r)		&\rho (r) = \sqrt{2m(E-V(r))}\\
+S(x) &= \pm \int^x dx' \rho (x')
+\end{align}
+\end{subequations}
+Nous avons alors que
+\begin{equation}
+\Psi (r) = \frac{A_0}{\sqrt{\rho (r)}}e^{\pm i \int^x dx' \frac{\rho (x')}{\h}}
+\end{equation}
+Nous pouvons en déduire que
+\begin{enumerate}
+\item Le nombre d'onde à la position x est donnée par $\bm{k}(x) = \frac{p(x)}{\h}$.
+\item La longueur d'onde à la position x est donnée par $\lambda (x) = \frac{2\pi\h}{p(x)}$.
+\item La vitesse de groupe est donnée par
+\begin{equation}
+\frac{1}{V_g} = \frac{\partial k(r)}{\partial \omega} = \frac{\partial p(r)}{\partial E} = \frac{m}{p(r)} = \frac{1}{V_{classique} (r)}.
+\end{equation}
+La vitesse d'un paquet d'onde sera donnée, selon l'approximation semi-classique, par la vitesse $V_{classique} (r)$ de la mécanique classique.
+\item Dans une région classiquement interdite,
+\begin{align}
+&\Psi (r) = \frac{1}{\sqrt{\rho (r)}} e^{\pm \int^x dx' \frac{\rho(x')}{\h}}	&\text{Avec } \frac{\rho^2 (x)}{2m} = V(x)-E
+\end{align}
+\end{enumerate}
+
+[\textbf{Graphique}]
+
+Nous pouvons montrer que si la solution décroit exponentionellement à grande distance (proche du point de rebroussement):
+\begin{align}
+\Psi(r) &= \frac{1}{\sqrt{k(x)}} \cos (\int_b^x k(x') dx' - \frac{\pi}{4})	&\forall x > b\\
+\Psi(r) &= \frac{1}{\sqrt{k(x)}} \cos (\int_x^a k(x')dx'+\frac{\pi}{4})		&\forall x < a
+\end{align}
+Nous obtenons la condition de quantification semi-classique:
+\begin{align}
+\frac{1}{\h} \int^a_b dx\sqrt{2m(E-V(x)} &= (n+\frac{1}{2})\pi
+\end{align}
+(Valable uniquement pour E grand).
+
+\subsection{Application à la désintégration alpha des noyaux}
+
+La particule alpha a une énergie E. Pour $R>R_\alpha$, nous avons une énergie $V(R)<E$ et sommes alors dans une région classiquement permise. Malheureusement, la particule va devoir traverser une région classiquement interdite - entre $R$ et $R_\alpha$. La probabilité d'émission par unité de temps est approximée par $\frac{1}{T_{\frac{1}{2}}} \sim \frac{1}{e^{2\gamma}}$, où:
+\begin{align}
+\gamma &= \frac{1}{\h} \int_R^{R_\gamma} dr\sqrt{2m_\alpha (V(r)-E)}		&\text{Avec } V(r) = \frac{z_\alpha ze^2}{4\pi\epsilon_0r} \text{ et } E = \frac{z_\alpha ze^2}{4\pi\epsilon_0R_\alpha}\\
+&= \frac{1}{\h} \sqrt{\frac{z_\alpha ze^2}{4\pi\epsilon_0}} \int_R^{R_\alpha} \sqrt{\frac{1}{r} - \frac{1}{R_\alpha}} dr\\
+\gamma &\approx \frac{\pi}{2\h} \sqrt{2m_\alpha} \left[\frac{z_\alpha ze^2}{4\pi\epsilon_0}\right]\frac{1}{\sqrt{E}}\\
+&\rightarrow \log T_{\frac{1}{2}} = a\frac{z}{\sqrt{E}} + b
+\end{align}
+Cette loi est bien vérifiée expérimentalement. Elle explique pourquoi il n'y a pas de désintégration des noyaux les plus lourds.
+\end{document}
