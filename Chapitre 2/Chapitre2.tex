@@ -137,14 +137,11 @@ le courant de probabilité. Nous pouvons alors écrire l'équation de probabilit
 \end{proof}
 
 L'équation de continuité $\eqref{Equation de Continuité}$ explique que rien ne se perd, rien ne se crée et tout se conserve : en effet, si nous intégrons sur une région A, nous aurons
-\begin{align*}
-\int_A \frac{\partial \rho}{\partial t} dV + \int_A \bm{\nabla}\cdot\bm{J} dv &= \frac{d}{dt} \int_A \rho dV + \int_{\partial A} \bm{J}\cdot\bm{ds}
-\end{align*}
-\begin{equation}
-\frac{d}{dt} P_A = -F_A
-\label{Conservation des particules}
-\end{equation}
-Où $P_A$ est la probabilité de trouver une particule dans la région A, et $F$ est le flux de cette particule à travers le bord de la région. L'équation \eqref{Conservation des particules} décrit la conservation des particules à travers la surface A.\\
+\begin{align}
+\int_A \frac{\partial \rho}{\partial t} dV + \int_A \bm{\nabla}\cdot\bm{J} dv &= \frac{d}{dt} \int_A \rho dV + \int_{\partial A} \bm{J}\cdot\bm{ds}\\
+\frac{d}{dt} P_A &= -F_A \label{Conservation des particules}
+\end{align}
+Où $P_A$ est la probabilité de trouver une particule dans la région A, et $F_A$ est le flux de cette particule à travers le bord de la région A. L'équation \eqref{Conservation des particules} décrit la conservation des particules à travers la surface A.\\
 
 Nous pouvons également définir les coefficients de \textbf{réflexion} et de \textbf{transmission} comme suit:
 \begin{align}
@@ -165,11 +162,11 @@ Nous voyons donc bien qu'une onde plane décrit une particule se déplaçant à 
 \subsection{Born: étude des collisions. Origine de l'interprétation probabiliste}
 Que se passe-t-il si une onde plane arrive sur un atome? Nous allons essayer de trouver une approximation à cette question.\\
 
-La fonction d'onde d'une particule dont l'énergie potentielle V($\bm{r}$) ne dépend pas du temps doit vérifier l'équation de Schrödinger:
+Une fonction d'onde dont l'énergie potentielle V($\bm{r}$) ne dépend pas du temps doit vérifier l'équation de Schrödinger:
 \begin{equation}
 i \h \partial_t \Psi = - \frac{\h^2}{2m} \Delta \Psi + V(\bm{r}) \Psi
 \end{equation}
-La solution de cette équation est donnée par
+On parle alors de \textit{potentiel stationnaire}. La solution de cette équation est donnée par
 \begin{equation}
 \Psi (\bm{r},t) = e^{- \frac{iEt}{\h}} \phi(\bm{r}) - \frac{\h^2}{2m} \Delta \phi + V(\bm{r})\phi = E \phi
 \end{equation}

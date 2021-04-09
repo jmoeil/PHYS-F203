@@ -244,22 +244,27 @@ Dans ce chapitre, nous allons énoncer les postulats de la mécanique quantique 
 \section{Énoncé des postulats}
 
 \begin{center}
-\fbox{\begin{minipage}{12cm}
+\fbox{\begin{minipage}{15cm}
 \begin{center}
-\textbf{PREMIER POSTULAT}
+\textbf{PREMIER POSTULAT - Vecteur d'état $\ket{\Psi}$}
 \end{center}
-A chaque instant, l'état d'un système physique est donné par un vecteur $\ket{\Psi}$ appartenant à un espace de Hilbert $\mathbb{H}$ normalisé tel que $\braket{\Psi|\Psi} = 1$, défini à une phase près : $\ket{\Psi} \thicksim e^{i\varphi}\ket{\Psi}$.
+A tout système quantique correspond au moins un $\emph{espace de }\mathcal{H}ilbert$ complexe et séparable $\mathbb{H}$ dans lequel la théorique quantique du système peut-être formulée. Tout état accessible du système quantique correspond alors à un \emph{vecteur normé $\ket{\Psi}$} dans $\mathcal{H}$ dont la phase globale est arbitraire. 
 \end{minipage}}
 \end{center}
-\begin{remark}
-L'espace des états $\mathbb{H}$ étant un espace vectoriel, ce premier postulat implique un principe de superposition: une combinaison linéaire de vecteurs d'états est un vecteur d'état. Si $\ket{\Psi_1 (t)}$ et $\ket{\Psi_2 (t)}$ sont des solutions, alors $\alpha\ket{\Psi_1 (t)}+\beta\ket{\Psi_2 (t)}$ est une solution. \end{remark}
+Ce postulat a plusieurs implications:
+\begin{itemize}
+\item Tout système quantique est placé dans un esapce vectoriel : cela implique un \textit{principe de superposition}. De fait, si $\ket{\Psi_1 (t)}$ et $\ket{\Psi_2 (t)}$ sont des vecteurs d'états, alors $\alpha \ket{\Psi_1 (t)} + \beta\ket{\Psi_2 (t)}$ est également un vecteur d'état.
+\item Le produit scalaire $\braket{\Psi|\varphi}$ est sesquilinéaire. Nous pouvons alors effectuer des calculs d'angles et de distances dans $\mathcal{H}$.
+\item Un état du système est bien défini \textit{séparément} des grandeurs observables, celles-ci modifiant son état.
+\end{itemize}
+
 
 \begin{center}
-\fbox{\begin{minipage}{11cm}
+\fbox{\begin{minipage}{15cm}
 \begin{center}
-\textbf{SECOND POSTULAT}
+\textbf{SECOND POSTULAT - Observables $\ket{\hat{P}}$}
 \end{center}
-A toute grandeur observable est associé un opérateur hermitien $A=A^\dag$.
+A toute grandeur classique correspond un \emph{opérateur hermitien} $\hat{P}$ agissant dans $\mathcal{H}$. Le processus de mesure quantique consiste à relever les propriétés fondamentales de ces opérateurs. En d'autres termes, les résultats de la mesure d'une obserable sont les diverses valeurs propres (réelles) de cette observable.
 \end{minipage}}
 \end{center}
 Lorsque l'opérateur $A$ possède une base de vecteurs propres, nous pouvons écrire $A$ sous la forme\begin{equation}
@@ -269,24 +274,27 @@ où $a_n$ est une valeur propre de A et $P_n$ est un projecteur sur le sous-espa
 
 La probabilité d'observer le résultat $a_n$ dans l'état $\ket{\Psi}$ est donnée par $P(a_n) = \braket{\Psi|P_n|\Psi}$ où $P_n$ est un projecteur.\\
 
-Cela représente-il bien un probabilité en son sens classique? Vérifions une série de conditions.
+Nous pouvons vérifier que cela respecte bien les axiomes de la théorie des probabilités:
 \begin{enumerate}
 \item \textbf{Normalisation}: $\sum_n P(a_n) = \sum_n \braket{\Psi|P_n|\Psi} = \braket{\Psi|\sum_n P_n|\Psi} = \braket{\Psi|\mathbb{I}|\Psi} = \braket{\Psi|\Psi} = 1.$
 \item \textbf{Positivité}: $P(a_n) = \braket{\Psi|P_n|\Psi} = \braket{\Psi|P_n^2|\Psi} = \norm{P_n\ket{\Psi}}^2 \geq 0.$
 \item \textbf{Probabilité indépendante de la phase}. En effet, lorsque $\ket{\Psi}\to e^{i\varphi}\ket{\Psi}$, $P(a_n)$ ne change pas.
 \end{enumerate}
-\subsection{Réduction du paquet d'onde}
-Supposons que nous souhaitions mesurer, en un instant $t$ donné, une grandeur physique $\mathcal{A}$. Si nous connaissons $\ket{\Psi}$, nous pouvons\footnote{à travers des techniques qui seront expliquées ultérieurement.} obtenir les probabilité des différents résultats possibles. Cependant, en effectuant l'expérience, nous n'obtiendront qu'un seul des résultats possible: ce faisant après avoir obtenu le résultat $a_n$\footnote{on parle de la valeur propre $a_n$.}, on postule que l'état du sytème change: $\ket{\Psi} \to \ket{u_n}$.
+
 \begin{center}
 \fbox{\begin{minipage}{15cm}
 \begin{center}
-\textbf{TROISIEME POSTULAT - Postulat de la Mesure}
+\textbf{TROISIEME POSTULAT - Interprétation probabiliste}
 \end{center}
-Lors de la mesure de la grandeur physique $\mathcal{A}$ sur un système dans un état $\ket{\Psi}$ donne le résultat $a_n$, l'état dy système immédiatement après la mesure est la projection normée $\frac{P_n\ket{\Psi}}{\sqrt{\braket{\Psi|P_n|\Psi}}}$ de $\ket{\Psi}$ sur le sous-espace propre associé à $a_n$.
+Le résultat d'une mesure sur un opérateur $\hat{A}$ à un instant donné est aléatoire. Si ce résultat est une valeur propre $a$, la probabilité d'obtenir préciséement cette valeur propre plutôt qu'une autre dans le spectre de $\hat{A}$ est donnée par le module carré de la projection de l'état sur l'état propre $\ket{a}$ associé à la valeur propre mesurée.
 \end{minipage}}
 \end{center}
-
-\newpage
+\begin{itemize}
+\item $P_a = \norm{\braket{a|\Psi}}^2$ dans le cas discret, et $dP(a) = \norm{\Psi(a)}^2da$ dans le cas continu.
+\item Nous ne sommes en mesure que d'effectuer des prédictions probabilistes. Il faut dès lors effectuer un grand nombre d'expériences. Nous n'avons accès qu'aux \emph{valeurs moyennes} de $\hat{A}$, et les écart-types associés.
+\item Le Théorème d'Heinsenberg $\Delta A\Delta B \geq \frac{\norm{{[\hat{A},\hat{B}]}}}{2}$ implique que deux observables qui ne commutent pas ne peuvent pas être observées en même temps.
+\item \textit{Règle de Born} : La probabilité de transition entre $\ket{\Psi}$ et $\ket{\varphi}$ est donnée par $\norm{\braket{\varphi|\Psi}}^2$.
+\end{itemize}
 \subsection{Valeur moyenne d'une observable $\mathcal{A}$}
 La moyenne d'une observable physique $\mathbb{A}$ est donnée par $\langle A\rangle =\sum_n a_n P(a_n) = \sum_n a_n \braket{\Psi|P_n|\Psi} = \braket{\Psi|\sum_n a_n P_n | \Psi}$, ce qui implique que $\langle A\rangle = \braket{\Psi|A|\Psi}$.
 \subsection{Ecart quadratique moyen}
@@ -309,20 +317,37 @@ Effectivement, remarquons que $P_nP_{n'}$ revient à $\delta_{nn'}P_n'$.
 
 \begin{remark} Nous ne pouvons pas mesurer simultanément des obserbables qui ne commutent pas. A l'inverse, nous \textbf{pouvons} mesurer simultanément des observables qui commutent: $[A,B] = 0$. \end{remark}
 
+\begin{center}
+\fbox{\begin{minipage}{15cm}
+\begin{center}
+\textbf{QUATRIEME POSTULAT - Postulat de la mesure}
+\end{center}
+Si la mesure de l'observable $\hat{A}$ sur le système dans l'état $\ket{\Psi}$ fournit une valeur propre $\lambda$ (associée au vecteur propre $\ket{\lambda}$), l'état du système immédiatement après la mesure est \emph{projeté} sur le sous-espace propre associé à $\lambda$.
+\end{minipage}}
+\end{center}
+
+\begin{itemize}
+\item La mesure de $\ket{\Psi} \rightarrow \hat{P}\ket{\Psi} \propto \ket{\lambda}$ s'effectue au moyen d'un projetcteur orthogonal $\hat{P}^2 = \hat{P}$, $\hat{P}^\dagger = \hat{P}$.
+\item C'est un processus \textit{irréversible} qui ne conserve pas la probabilité. Après une mesure, on parle de "perte de la cohérence quantique".
+\item Aux échelles microscopiques, toute mesure perturbe fortement le système (exemple: Effet Compton). 
+\end{itemize}
+
 \subsection{Evolution des systèmes dans le temps}
 \begin{center}
 \fbox{\begin{minipage}{15cm}
 \begin{center}
-\textbf{QUATRIEME POSTULAT - Évolution des États}
+\textbf{CINQUIEME POSTULAT - Évolution des États}
 \end{center}
-Soit $H(t)$ l'obserbable associée à l'énergie totale du système\footnote{Souvent, elle est appelée l'Hamiltonien du système}. Alors, l'évolution temporelle est donnée par l'équation
-\begin{equation}
-i\h \partial_t \ket{\Psi(t)} = H(t)\ket{\Psi(t)}
-\label{Postulat 4}
-\end{equation}
+A tout système peut-être associé un opérateur hermitien $\hat{H}$ appelé Hamiltonien et représentant l'énergie totale du système. Cet opérateur régit l'évolution temporelle du vecteur d'état $\ket{\Psi (t,\bm{x})}$ au moyen de l'équation de Schrödinger
+\begin{equation*}
+i\h \frac{d}{dt} \ket{\Psi(t,\bm{x})} = \hat{H}\ket{\Psi (t,\bm{x})}
+\end{equation*}
 \end{minipage}}
 \end{center}
-
+\begin{itemize}
+\item L'évolution est \textit{unitaire}, c'est à dire $\ket{\Psi (t,\bm{x})} = \hat{U} (t,t_0)\ket{\Psi (t_0,\bm{x})}$ par conservation de la probabilité.
+\item Un état stationnaire est un état propre de l'hamiltonien.
+\end{itemize}
 Soit une base $\Big\{\ket{u_i}\Big\}$ orthonormée. Alors,
 \begin{align}
 \ket{\Psi(t)} &= \sum_i c_i(t)\ket{u_i}\\
@@ -345,6 +370,23 @@ Dès lors,
 \end{proof}
 
 \begin{remark} Nous prenons $\braket{\Psi(t)|\Psi(t)} = 1.$ \end{remark}
+
+\subsection{Réduction du paquet d'onde}
+Supposons que nous souhaitions mesurer, en un instant $t$ donné, une grandeur physique $\mathcal{A}$. Si nous connaissons $\ket{\Psi}$, nous pouvons\footnote{à travers des techniques qui seront expliquées ultérieurement.} obtenir les probabilité des différents résultats possibles. Cependant, en effectuant l'expérience, nous n'obtiendront qu'un seul des résultats possible: ce faisant après avoir obtenu le résultat $a_n$\footnote{on parle de la valeur propre $a_n$.}, on postule que l'état du sytème change: $\ket{\Psi} \to \ket{u_n}$.
+
+\begin{center}
+\fbox{\begin{minipage}{15cm}
+\begin{center}
+\textbf{SIXIEME POSTULAT - Réduction du paquet d'onde}
+\end{center}
+Si la mesure de la grandeur physique A, à l'instant t, sur un système représenté par le vecteur $\ket{\Psi}$ donne comme résultat la valeur propre $a_n$, alors l'état du système immédiatement après la mesure est projecté sur le sous-espace propre associé à $a_n$.
+\begin{equation*}
+\ket{\Psi'} = \frac{\hat{P}_n\ket{\Psi}}{\sqrt{P(a_n)}}
+\end{equation*}
+Où $P(a_n)$ est la probabilité de trouver comme résultat la valeur propre $a_n$, et $\hat{P}_n$ est l'opérateur projecteur défini par $\hat{P}_n = \sum_{k=1}^{g_n} \ket{u_{n,k}}\bra{u_{n,k}}$, où $g_n$ est le degré de dégénérescence de la valeur propre $a_n$ et les $\ket{u_{n,k}}$ sont les vecteurs de son sous-espace propre.
+\end{minipage}}
+\end{center}
+
 
 \subsection{Hamiltonien indépendant du temps}
 Lorsque l'Hamiltonien ne dépend pas du temps, nous parlons de système \emph{conservatif}. Rappelons l'équation aux valeurs propres $\eqref{kikoo}$:
@@ -459,8 +501,39 @@ Avec la condition initiale $U(t_0,t_0) = \mathbb{I}$.\\
 \end{align}
 Nous avons alors que $U(t,t_0)$ est une matrice unitaire. \end{Property}
 
-\subsection{Fonction d'Opérateurs/de Matrices}
+\section{Fonction d'Opérateurs/de matrices}
+Soit f: $\begin{pmatrix}
+\mathbb{C} & \rightarrow & \mathbb{C}\\
+x & \rightarrow & \sum_{n = 0}^{\infty} c_nx^n
+\end{pmatrix}$ une fonction qui peut-être représentée par une série. Soit $A\in\mathbb{C}^{N\times N}$ une matrice. Alors on étend f à une fonction sur les matrices par
+\begin{equation}
+f: \begin{pmatrix}
+\mathbb{C}^{N\times N} & \rightarrow & \mathbb{C}^{N\times N}\\
+A & \rightarrow & \lim_{K\to\infty} \sum_{n = 0}^{k} c_n A^n
+\end{pmatrix}
+\end{equation}
+lorsque cette limite existe.
 
+\begin{Property} Si V est une matrice inversible $VV^{-1} = V^{-1}V = \mathbb{I}$, alors $f(V^{-1}AV) = V^{-1}f(A)V$ \end{Property}
+\begin{proof}
+\begin{align*}
+f(V^{-1}AV) = \sum_{n = 0}^{\infty} c_n (V^{-1}AV)^n = \sum_{n = 0}^{\infty} c_n V^{-1} A^n V = V^{-1}f(A)V
+\end{align*}
+\end{proof}
 
+\begin{Property}
+Si D est une matrice diagonale $D = \begin{pmatrix}
+\lambda_1 & 0 & ... & 0\\
+0 & \lambda_2 & ... & 0\\
+0 & 0 & ... & \lambda_N
+\end{pmatrix}$, est $f(D)$ est diagonale et $f(D) = \begin{pmatrix}
+f(\lambda_1) & 0 & ... & 0\\
+0 & f(\lambda_2) & ... & 0\\
+0 & 0 & ... & f(\lambda_N)
+\end{pmatrix}$.
+\end{Property}
+\begin{lemma} Si A est une matrice diagonalisale, alors il existe V inversible tel que $V^{-1}AV = D$ est diagonal. Alors, $f(A) = V^{-1}f(D)V$. \end{lemma}
+\begin{lemma} Si A est hermitien $A=A^\dag$, alors il existe V unitaire $U^{-1} = U^\dag$ tel que $A = U^{\dag}DU$ où $D$ est diagonal réel. Alors, $f(A) = U^{\dag}f(D)U$. \end{lemma}
 
+\begin{remark} En notation de Dirac, $A = \sum_j a_j \ket{j}\bra{j}$ et $f(A) = \sum_j f(a_j) \ket{j}\bra{j}$. \end{remark}
 \end{document}
