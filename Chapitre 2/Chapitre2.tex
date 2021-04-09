@@ -67,7 +67,7 @@ E = \frac{p^2}{2m} + V(\bm{r},t)
 Dès lors, nous obtenons l'équation de Schrödinger pour une particule:
 \begin{equation}
 \label{Schrodinger}
-i \h \partial_t \Psi = -\frac{\h^2}{2m} \Delta \Psi + V(\bm{r},t) \Psi \doteq H \Psi
+i \h \frac{\partial \Psi}{\partial t} = -\frac{\h^2}{2m} \Delta \Psi + V(\bm{r},t) \Psi \doteq H \Psi
 \end{equation}
 \newpage
 \textbf{Note.} Nous avons alors que l'opérateur $H \doteq -\frac{\h^2}{2m} \Delta + V (\bm{r},t)$.
@@ -79,21 +79,16 @@ Remarquons que:
 
 \section{Particule libre}
 
-Dans une première approximation, supposons que le potentiel $V(\bm{r},t)$ soit nul. L'équation de Schrödinger ($\ref{Schrodinger}$) se réduit alors à
-\begin{equation*}
-i\h \partial_t \Psi = - \frac{\h^2}{2m} \Delta \Psi
-\end{equation*}
-Où $\omega = \frac{\h \bm{k}^2}{2m}$. Cela correspond à $E = \frac{p^2}{2m}$.\\
-
-Cette équation différentielle admet visiblement des solutions de la forme
+Dans une première approximation, supposons que le potentiel $V(\bm{r},t)$ soit nul. L'équation de Schrödinger ($\ref{Schrodinger}$) se réduit alors à $i\h \partial_t \Psi = - \frac{\h^2}{2m} \Delta \Psi$. De plus, l'énergie s'exprime alors par $E = \frac{p^2}{2m}$. Cette équation différentielle admet visiblement des solutions de la forme
 \begin{equation}
 \label{Solution directe}
 \Psi (\bm{r},t) = Ce^{i(\bm{k} \cdot \bm{x} - \omega t)}
 \end{equation}
-Où C est une constante. Par la principe de superposition, toute combinaison linaire d'ondes planes vérifiant l'expression de $\omega$ sera également une solution de $\ref{Solution directe}$. La solution générale est alors donnée par 
+
+Où C est une constante, et $\omega = \frac{\h \norm{\bm{k}}^2}{2m}$. Par la principe de superposition, toute combinaison linaire d'ondes planes vérifiant l'expression de $\omega$ sera également une solution de $\ref{Solution directe}$. La solution générale est alors donnée par 
 \begin{equation}
 \label{Solution générale}
-\Psi (\bm{r},t) = \frac{1}{\left( 2 \pi \right)^{\frac{3}{2}}}\int d^3k g(\bm{k})) e^{-i \omega t + \bm{k} \cdot \bm{r}}
+\Psi (\bm{r},t) = \frac{1}{\left( 2 \pi \right)^{\frac{3}{2}}}\int d^3k g(\bm{k}) e^{-i \omega t + \bm{k} \cdot \bm{r}}
 \end{equation}
 Où g($\bm{k}$) est la transformation de Fourier de $\Psi (\bm{r},t = 0)$:
 \begin{equation}
