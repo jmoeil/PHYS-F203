@@ -3,9 +3,16 @@
 \begin{document}
 \part{Formalisme de Dirac} \label{Formalisme de Dirac}
 \section{Expérience de Stern-Gerlach}
-L'expérience consister à faire passer des atomes d'argent dans un champ magnétique non uniforme. Classiquement, les atomes d'argent, ayant un moment cinétique et un moment magnétique orbital également nul, ne devraient pas subir l'influence du champ magnétique. L'expérience montre que le faisceau se \textbf{sépare en deux}. Nous expliquons ce résultat en introduisant le moment cinétique de spin.\\
+L'expérience de Stern-Gerlach (1922) consistait à faire passer des atomes d'argent dans un champ magnétique non uniforme (fig \ref{fig:chap4-sterngerlach}). Classiquement, les atomes d'argent, ayant un moment cinétique et un moment magnétique orbital également nul, ne devraient pas subir l'influence du champ magnétique. L'expérience montre que le faisceau se \textbf{sépare en deux}. Ce résultat, inexpliqué par la compréhension "classique" de la matière, a trouvé une explication en physique quantique, avec l'introduction du moment cinétique de spin.\\
 
-Mathématiquement, rappellons à toute fin utile que:
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\linewidth]{Stern-Gerlach}
+\caption{Dispositif expérimental de l'\href{https://fr.wikipedia.org/wiki/Expérience_de_Stern_et_Gerlach}{expérience de Stern-Gerlach (\textit{lien cliquable})}}
+\label{fig:chap4-sterngerlach}
+\end{figure}
+
+Mathématiquement, rappelons à toute fin utile que:
 \begin{align}
 \text{Moment angulaire } \bm{L} &= m\bm{r}\ti\bm{v} \label{Moment angulaire}\\
 \text{Moment magnétique } \bm{m} &= I\bm{S}	= \frac{ev}{2\pi r} \pi r^2 = \frac{1}{2}evr = \frac{1}{2}\frac{e}{m}L	&I = \frac{ev}{2\pi r}\\
@@ -36,9 +43,115 @@ S = \pm \frac{\h}{2}
 \end{figure}
 \end{center}
 \newpage
+\section{Espace mathématique des fonctions d'onde}
+\begin{center}
+\textit{La section actuelle ne figure pas dans les notes de Prof. Massar. Les notes sont tirées de l'ouvrage de référence.}
+\end{center}
+Jusqu'à présent, nous avons mentionné les fonctions d'onde à plusieurs reprises sans s'être définis un \textbf{espace de fonctions} auxquelles elles appartiennent. Or c'est un objet mathématique, il ne faudrait pas commettre trop de pêchés sans connaître sa nature (même si on est physicien). Nous savons qu'une fonction d'onde doit respecter 
 
+$$ \int_{\mathbb R ^3} |\psi(\bm{r}, t)| ^2 \; \d ^3 \bm{r} \; ,$$
+donc nous nous savons déjà qu'elle doit être de carré sommable.
+$$\psi \in L^2$$
+L'espace des fonctions de carré sommable est bien trop vaste. Pour décrire des quantités physiques, nous voulons de notre fonction qu'elle soit également continue et infiniment dérivable (afin de ne pas rencontrer de discontinuités à très petite échelle). Nous nommons $\mathcal F$ l'espace ainsi obtenu. Cet espace, des fonctions de carré sommable, continues et infiniment dérivables, contient les fonctions partout définies (une particule dans le vide) comme les fonctions à support borné (une particule dans un laboratoire). Nous notons alors $\psi \in \mathcal{F}$.
+$$\psi \in \mathcal{F} \subset L^2$$
+
+\subsection{Structure de $\mathcal{F}$}
+\begin{itemize}
+\item L'\textit{espace des fonctions} (c'est la terminologie que nous utiliserons pour $\mathcal F$) est un \textbf{espace vectoriel}. \\
+\item Un produit scalaire $(\cdot, \cdot)$ est défini sur $\mathcal F$.
+\begin{equation}
+\forall \varphi, \psi \in \mathcal F : \quad (\varphi, \psi)\;   \doteq \int_{\mathbb R ^3} \varphi ^\star(\bm{r}) \psi(\bm{r}) \; \d ^3 r
+\end{equation}
+Le produit scalaire est \textbf{sesquilinéaire}, et vérifie une égalité similaire à celle de Cauchy-Schwarz : 
+$$ \forall \varphi_1, \varphi_2 \; : \; (\varphi_1, \varphi_2) \leq \sqrt{(\varphi_1, \varphi_1)}\sqrt{(\varphi_2, \varphi_2)} \; .$$
+\end{itemize}
+
+\subsection{Opérateurs linéaires pour $\mathcal F$}
+Nous pouvons parler des opérateurs linéaires qui agissent sur des fonctions de $\mathcal F$. $A$ est un tel opérateur si et seulement si $$\forall \varphi \in \mathcal F \; : \; A\varphi = \psi \quad \in 
+\mathcal F$$
+Soient $A$ et $B$ deux tels opérateurs. Alors, nous pouvons les prendre en produit et définir un troisième opérateur $AB$ défini comme suit :
+$$AB : \mathcal F \rightarrow \mathcal F : \varphi \longmapsto A[B(\varphi)]\; .$$
+Similairement, nous pouvons définir
+$$BA : \mathcal F \rightarrow \mathcal F : \varphi \longmapsto B[A(\varphi)]\; ,$$
+et si nous faisons ça c'est parce qu'en général, $AB \neq BA$ : on dit que les opérateurs ne \textbf{commutent pas}. On en profite pour définir un troisième opérateur, qui lui, prend deux opérateurs et vérifie s'ils commutent :
+$$[\cdot, \cdot] : A, B \longmapsto AB-BA$$
+et on appelle cet opérateur \textbf{commutateur de $A$ et de $B$}.
+
+\subsection{Bases orthonormées discrètes dans $\mathcal F$}
+\subsubsection{Base ? Orthonormée ?}
+Continuons dans notre lancée matheuse ! Après avoir parlé de structure, d'opérateurs, parlons de base. Soit une base de $\mathcal F$, $\{u_i(\bm{r})\}$. Par définition, 
+\begin{equation}
+\label{eq:base_orthonormee_F}
+\forall \varphi \in \mathcal F \; : \quad \exists \{c_i\}_{i=1, ...} \; \mathrm{t.q} \quad \varphi(\bm{r}) = \sum_i c_i u_i(\bm{r}) \; ,
+\end{equation}
+où les coefficients $c_i$ sont dits qu'ils \textit{représentent} $\varphi$ dans la base $\{u_i(\bm{r})\}$.\\
+
+La base est orthonormée pourvu que 
+\begin{equation}
+\label{eq:orthonorm_F}
+(u_i, u_j) = \int_{\mathbb R ^3} u_i ^\star(\bm{r}) u_j(\bm{r}) \; \d ^3 \bm{r} = \delta_{ij} \; .
+\end{equation}
+
+Avec la représentation de toute fonction dans la base, nous pouvons réécrire le produit scalaire entre des fonctions $\varphi$ et $\psi$ représentés par des coefficients $b_i$ et $c_i$ comme :
+$$(\varphi, \psi) = \sum_i b_i ^\star c_i$$
+Ceci a pour implication directe 
+\begin{equation}
+\label{eq:base_orthonormee_coeffsci}
+(\psi, \psi) = \sum_i |c_i|^2
+\end{equation}
+
+\subsubsection{Relation de fermeture}
+La \textit{relation de fermeture} exprime que $\{u_i(\bm{r})\}$ est une base. Elle sera d'application pour vérifier à partir d'un ensemble de fonctions qu'elles forment bien une base de $\mathcal F$.
+
+$$\{u_i(\bm{r})\} \; \text{est une base} \; \iff \forall \psi \in \mathcal F, \;\text{on a }$$
+\begin{eqnarray}
+\psi(\bm{r}) &=& \sum_i (u_i, \psi) u_i(r) \\
+&=& \sum_i \left[\int_{\mathbb R ^3} u_i ^\star(\bm{r}') \psi(\bm{r}') \; \d ^3 \bm{r}'\right] u_i(\bm{r}) \\
+&=& \int_{\mathbb R ^3}\d ^3  \underbrace{\left[\sum_iu_i ^\star(\bm{r}')u_i(\bm{r}) \right]}_{G(\bm{r}, \bm{r}')}\psi(\bm{r}') \\
+&=& \int_{\mathbb R ^3}\d ^3 G(\bm{r}, \bm{r}')\psi(\bm{r}') \\
+&\iff& G(\bm{r}, \bm{r}') = \delta(\bm{r}-\bm{r}') \\
+&\iff& \sum_iu_i ^\star(\bm{r}')u_i(\bm{r}) = \delta(\bm{r}-\bm{r}') 
+\end{eqnarray}
+La dernière égalité est la \textbf{relation de fermeture}.
+\subsection{Généralisation de la notion de base}
+En mécanique quantique, il existe des bases qui n'appartiennent \textbf{pas} à $\mathcal F$, sur lesquelles il est tout de même important de compter pour développer des fonctions d'onde. Tout de suite, un exemple avec les ondes planes.
+\subsubsection{L'exemple des ondes planes}
+\paragraph{Un produit scalaire}
+L'espace des ondes planes,
+$$\left\{ v_p(x) = e^{ipx/\h}\right\}\; ,$$
+n'est pas de carré sommable. Par contre, si nous commettons un pêché et écrivons un produit scalaire (à une constante près) entre une fonction $\psi$ de $\mathcal F$ et un $v_p$ comme s'il était dans $\mathcal F$ (soyons fous!) :
+$$(\psi, v_p) = \dfrac{1}{\sqrt{2\pi\h}} \int_{\mathbb R}\d x \; \psi(x) e^{-ipx/\h}$$
+Nous voyons que si nous définissons une fonction de $p$ pour l'égalité ci-dessus, notre pêché se serait résumé en une Transformée de Fourier de $\psi$, soit quelque chose qui existe\footnote{C'est beau d'être physicien. On fait n'importe quoi tant que ça marche, et ça sera au matheux de vérifier.} ! Ceci motive à considérer notre ensemble d'ondes planes comme une base et de considérer la Transformée de Fourier comme un produit scalaire avec un $v_p$.
+$$\bar{\psi}(p) = \dfrac{1}{\sqrt{2\pi\h}} \int_{\mathbb R}\d x \; \psi(x) e^{-ipx/\h}$$
+\paragraph{Des composantes}
+D'autre part, nous pouvons interpréter la transformée inverse
+$$\psi(x) = \dfrac{1}{\sqrt{2\pi\h}} \int_{\mathbb R}\d p \; \bar\psi(p) e^{ipx/\h}$$
+comme l'expression de $\psi$ dans la base des $v_p$, avec comme composantes $\bar \psi(p)$, l'équivalent des $c_i$ de l'équation \eqref{eq:base_orthonormee_F}. \\
+
+Par l'identité de Parseval, nous avons aussi l'équivalent de la relation \eqref{eq:base_orthonormee_coeffsci} :
+$$(\psi, \psi) = \int_{\mathbb R} |\bar \psi(p)|^2 \; \d p$$
+\paragraph{Une relation d'orthonormalisation}
+Avec la relation (cf. livre de référence) 
+$$\dfrac{1}{2\pi} = \int_{\mathbb R} \d k e^{iku} = \delta(u) \; ,$$
+nous pouvons obtenir une relation qui ressemble à une belle relation d'orthonormalisation :
+$$(v_p, v_{p'}) = ... = \delta(p-p')$$
+En comparant à \eqref{eq:orthonorm_F}, nous avons ici des indices continus, et avant on avait des indices discrets. Attention, ici, lorsque $p = p'$, nous n'avons pas $1$ : ça diverge. On dit que $v_p$ et $v_{p'}$ sont \textbf{orthonormés au sens de Dirac}. \\
+
+Cet exemple des ondes planes motive l'extension du concept de base à des objets qui ne sont pas dans $\mathcal{F}$.
+
+\subsubsection{Notion générale de base "orthonormée" continue}
+Une base orthonormée continue sera un ensemble de fonctions qui ont les propriétés suivantes.
+\begin{enumerate}
+\item Il s'agit d'un ensemble de fonctions $\{ w_\alpha(\bm{r})\}$ repérées par un indice continu. \\
+
+\item Les fonctions satisfont une \textbf{relation d'orthonormalisation} :
+$$(w_{\alpha}, w_{\alpha'}) \doteq \int w_{\alpha}(\bm{r})^\star w_{\alpha'}(\bm{r}) = \delta(w_{\alpha} - w_{\alpha'})$$
+
+\item Les fonctions satisfont une \textbf{relation de fermeture} :
+$$\int w_{\alpha}(\bm{r})^\star w_{\alpha}(\bm{r}') = \delta(\bm{r}-\bm{r}')$$
+\end{enumerate}
 \section{Notations propre à la Mécanique Quantique}
-Dans le cadre de la Mécanique Quantique, nous nous placerons dans des expaces de Hilbert $\mathbb{H}$ séparables.\\
+Dans le cadre de la Mécanique Quantique, nous nous placerons dans des expaces de Hilbert $\mathbb{H}$ séparables. Un espace de Hilbert est un espace pré-hilbertien (c'est-à-dire, muni d'un produit scalaire hermitien) dans lequel toute suite de Cauchy converge. \\
 
 Nous introduisons:
 \begin{itemize}
