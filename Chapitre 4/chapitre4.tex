@@ -44,6 +44,7 @@ S = \pm \frac{\h}{2}
 \end{center}
 \newpage
 \section{Espace mathématique des fonctions d'onde}
+\label{Espace mathématique des fonctions d'onde}
 \begin{center}
 \textit{La section actuelle ne figure pas dans les notes de Prof. Massar. Elles sont tirées de l'ouvrage de référence.}
 \end{center}
@@ -61,9 +62,20 @@ $$\psi \in \mathcal{F} \subset L^2$$
 \item Un produit scalaire $(\cdot, \cdot)$ est défini sur $\mathcal F$.
 \begin{equation}
 \forall \varphi, \psi \in \mathcal F : \quad (\varphi, \psi)\;   \doteq \int_{\mathbb R ^3} \varphi ^\star(\bm{r}) \psi(\bm{r}) \; \d ^3 r
+\label{Produit scalaire - Espace des fonctions d'onde}
 \end{equation}
+$(\varphi,\psi)$ est le produit scalaire de $\psi(\bm{r})$ par $\varphi(\bm{r})$ : elle converge toujours si $\varphi$ et $\psi$ appartiennent à $\mathcal{F}$.\\
+
 Le produit scalaire est \textbf{sesquilinéaire}, et vérifie une égalité similaire à celle de Cauchy-Schwarz : 
 $$ \forall \varphi_1, \varphi_2 \; : \; (\varphi_1, \varphi_2) \leq \sqrt{(\varphi_1, \varphi_1)}\sqrt{(\varphi_2, \varphi_2)} \; .$$
+
+Ci-contre, une série de propriétés découlant de $\ref{Produit scalaire - Espace des fonctions d'onde}$:
+\begin{align*}
+(\varphi,\psi) &= (\psi,\varphi)^*\\
+(\varphi,\lambda_1\psi_1 + \lambda_2\psi_2) &= \lambda_1 (\varphi,\psi_1) + \lambda_2 (\varphi,\psi_2)\\
+(\lambda_1\varphi_1 + \lambda_2\varphi_2,\psi) &= \lambda_1^* (\varphi_1,\psi) + \lambda_2^* (\varphi_2,\psi)
+\end{align*}
+Le produit scalaire est \emph{linéaire} par rapport à la seconde fonction du couple, et \emph{anti-linéaire} par rapport à la première.
 \end{itemize}
 
 \subsection{Opérateurs linéaires pour $\mathcal F$}
@@ -112,9 +124,13 @@ $$\{u_i(\bm{r})\} \; \text{est une base} \; \iff \forall \psi \in \mathcal F, \;
 &\iff& G(\bm{r}, \bm{r}') = \delta(\bm{r}-\bm{r}') \\
 &\iff& \sum_iu_i ^\star(\bm{r}')u_i(\bm{r}) = \delta(\bm{r}-\bm{r}') 
 \end{eqnarray}
-La dernière égalité est la \textbf{relation de fermeture}.
+La dernière égalité est la \textbf{relation de fermeture}. Nous pouvons alors montrer que toute fonction $\psi(\bm{r})$ quelconque peut s'écrire sous la forme
+\begin{equation}
+\psi(\bm{r}) = \int d^3r' \; \psi(\bm{r}') \delta (\bm{r} - \bm{r}')
+\label{implication relation de fermeture}
+\end{equation}
 \subsection{Généralisation de la notion de base}
-En mécanique quantique, il existe des bases qui n'appartiennent \textbf{pas} à $\mathcal F$, sur lesquelles il est tout de même important de compter pour développer des fonctions d'onde. Tout de suite, un exemple avec les ondes planes.
+En mécanique quantique, il existe des bases qui n'appartiennent \textbf{pas} à $\mathcal F$, sur lesquelles il est tout de même important de compter pour développer des fonctions d'onde. Voici une série d'exemples particulièrement importants.
 \subsubsection{L'exemple des ondes planes}
 \paragraph{Un produit scalaire}
 L'espace des ondes planes,
@@ -138,6 +154,14 @@ $$(v_p, v_{p'}) = ... = \delta(p-p')$$
 En comparant à \eqref{eq:orthonorm_F}, nous avons ici des indices continus, et avant on avait des indices discrets. Attention, ici, lorsque $p = p'$, nous n'avons pas $1$ : ça diverge. On dit que $v_p$ et $v_{p'}$ sont \textbf{orthonormés au sens de Dirac}. \\
 
 Cet exemple des ondes planes motive l'extension du concept de base à des objets qui ne sont pas dans $\mathcal{F}$.
+\subsubsection{L'exemple des fonctions delta}
+Soit $\bm{r_0} = (x_0,y_0,z_0)$. On intrduit un ensemble de fonctions définies par $\zeta_{r_0} (\bm{r}) = \delta(r-r_0)$. L'ensemble $\{\zeta_{r_0}(\bm{r})\}$ est la base des fonctions delta centrées en un point $\bm{r}_0$ ; $\zeta_{r_0} (\bm{r})$ n'étant pas de carré sommable, nous avons que $\zeta_{r_0} (\bm{r}) \notin \mathcal{F}$.\\
+
+Nous pouvons alors réécrire la relation $\eqref{implication relation de fermeture}$ sous la forme
+\begin{align}
+\psi (\bm{r}) &= \int d^3r_0 \; \psi(\bm{r}_0)\zeta_{r_0} (\bm{r})\\
+\psi (\bm{r}_0) &= \int d^3r \; \zeta_{\bm{r}_0}^* \psi(\bm{r})
+\end{align}
 
 \subsubsection{Notion générale de base "orthonormée" continue}
 Une base orthonormée continue sera un ensemble de fonctions qui ont les propriétés suivantes.

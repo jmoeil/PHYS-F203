@@ -6,6 +6,8 @@ Dans ce chapitre, nous allons de nouveau considérer une particule ; en particul
 
 Nous allons travailler dans les espaces de Hilbert $L_2(\mathbb{R})$ ou $L_2 (\mathbb{R}^3)$. Nous aurons alors des fonctions de carré sommable. Dans ces espaces, \emph{les opérateurs position X et impulsion P n'ont pas de vecteurs propres}. Nous pouvons néamoins faire comme si ils en avaient : nous expliqueront ultérieurement comment nous pouvons justifier cette approche.\\
 
+Dans cette section, nous utiliserons intensément les résultats obtenus en $\ref{Espace mathématique des fonctions d'onde}$.\\
+
 Introduisons les notations:
 \begin{center}
 \begin{tabular}{c|c}
@@ -15,31 +17,96 @@ $\ket{p_0} $ & Etat propre de l'opérateur P de valeur propre $p_0$. Cela corres
 \end{center}
 
 Nous pouvons effectuer plusieurs opérations sur ces objets. 
-\begin{enumerate}
-\item \textbf{Normalisation}\\
+
+\paragraph{Normalisation}
 Nous voulons calculer $\braket{x_0|x_0'}$ et $\braket{p_0|p_0'}$. 
 	\begin{align*}
 \braket{x_0|x_0'} &= \int dx \delta (x-x_0)\delta(x-x_0') = \delta (x_0 - x_0)\\
-\braket{p_0|p_0'} &= \int dx \frac{e^{-i \frac{p_0 x}{\h}}}{\sqrt{2\pi\h}} \frac{e^{i \frac{p_0'x}{\h}}}{\sqrt{2\pi\h}}\\
-&= \int du \frac{e^{-i (p_0 - p_0')u)}}{2\pi}		&u = \frac{x}{\h}\\
-&= \delta (p_0-p_0')
+\braket{p_0|p_0'} &= \int dx \frac{e^{-i \frac{p_0 x}{\h}}}{\sqrt{2\pi\h}} \frac{e^{i \frac{p_0'x}{\h}}}{\sqrt{2\pi\h}} = \int du \frac{e^{-i (p_0 - p_0')u}}{2\pi}	= \delta (p_0-p_0')	&u = \frac{x}{\h}\\
 	\end{align*}
-Ce faisant, nous montrons que les deux bases définies par ces opérations sont orthonormées.\\
+Ce faisant, nous montrons que les deux bases définies par ces opérations sont orthonormées.
 
-\item A partir de là, nous obtenons les relations fondamentales suivantes:
+\paragraph{Relation de complétude} \label{complétude}
+A partir de là, nous obtenons les relations fondamentales suivantes:
 \begin{center}
 \begin{tabular}{c|c}
 $\braket{x_0|x_0'} = \delta (x_0 - x_0)$ & $\braket{p_0|p_0'} = \delta (p_0-p_0')$\\
-$\int d^3x_0 \ket{x_0}\bra{x_0} = \mathbb{I}$ & $\int dp_0 \ket{p_0}\bra{p_0} = \mathbb{I}$
+$\int d^3 \; \ket{x_0}\bra{x_0} = \mathbb{I}$ & $\int dp_0 \; \ket{p_0}\bra{p_0} = \mathbb{I}$
 \end{tabular}
 \end{center}
 Nous avons alors deux relations de \emph{complétude}, ou de \emph{fermeture}.
 
-\item Considérons un état quantique $\ket{\Psi}$, correspondant à la fonction d'onde $\Psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
+\paragraph{Composante d'un ket}
+Considérons un état quantique $\ket{\Psi}$, correspondant à la fonction d'onde $\Psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
 \begin{align}
-\ket{\Psi} &= \int d^3x_0 \ket{x_0} \bra{x_0} \ket{\Psi}\\
-\ket{\Psi} &= \int d^3p_0 \ket{p_0} \bra{p_0} \ket{\Psi}
+\ket{\Psi} &= \int d^3x_0 \; \ket{x_0} \bra{x_0} \ket{\Psi}\\
+\ket{\Psi} &= \int d^3p_0 \; \ket{p_0} \bra{p_0} \ket{\Psi}
 \end{align}
-\end{enumerate}
+On pose $\psi(x) = \braket{x|\psi}$. Observons que
+\begin{align}
+\ket{\psi} &= \int dx \; \ket{x}\bra{x} \; \ket{\psi} = \int dx \; \ket{X} \braket{x|\psi}\\
+&= \int \psi(x)\ket{x}.
+\end{align}
+En particulier, en prenant $\ket{\psi} = \ket{p}$, nous avons que
+\begin{equation}
+\braket{x|p} = \frac{1}{\sqrt{2\pi\h}}e^{i \frac{px}{\h}}
+\end{equation}
+Dès lors, 
+\begin{align}
+\braket{p|\psi} &= \braket{p|\mathbb{I}|\psi}\notag\\
+&= \braket{p|\int dx \ket{x}\bra{x} \ket{\psi}}\notag\\
+&= \int dx \braket{p|x}\braket{x|\psi}\notag\\
+\braket{p|\psi} &= \frac{1}{\sqrt{2\pi\h}}\int dx \; e^{i \frac{px}{\h}}\psi(x) = \tilde{\psi}(p)
+\end{align}
+Où $\tilde{\psi}(p)$ est par définition la transformée de Fourier de $\psi(r)$.\\
 
+Pour résumer, nous avons que 
+\begin{align}
+\braket{\bm{r}|\psi} &= \psi(\bm{r})\\
+\braket{\bm{p}|\psi} &= \tilde{\psi}(\bm{p})
+\end{align}
+\paragraph{Produit scalaire de deux vecteurs}
+En vertue des relations de complétude $\ref{complétude}$, il est possible de retrouver le produit scalaire $\eqref{Produit scalaire - Espace des fonctions d'onde}$.
+
+\begin{align}
+\braket{\varphi|\psi} &= \braket{\varphi|\int dx \; \ket{x}\bra{x}|\ket{\psi}} & \braket{\varphi|\psi} &= \braket{\varphi|\int dp \; \ket{p}\bra{p}|\psi}\notag\\
+&= \int dx \; \braket{\varphi|x}\braket{x|\psi} & &= \int dp \; \braket{\varphi|p}\braket{p|\psi}\notag\\
+\braket{\varphi|\psi} &= \int dx \; \varphi^*(x) \psi (x) & \braket{\varphi|\psi} &= \int dp \tilde{\varphi}^* (p) \tilde{\psi}(p) 
+\end{align}
+
+\paragraph{Opérateurs X et P}
+Soit $\ket{\psi}$ un ket quelconque et $\braket{\bm{r}|\psi} \doteq \psi (x,y,z)$ la fonction d'onde correspondante. On définit l'opérateur X de sorte que
+\begin{equation}
+\ket{\psi'} = X\ket{\psi}
+\end{equation}
+soit définit à travers la base $\{\bm{r}\}$ par la fonction $\braket{\bm{r}|\psi'} = \psi'(\bm{r})$, où
+\begin{equation}
+\psi' (\bm{r}) = x\psi(x,y,z).
+\end{equation}
+Dans cette base, l'opérateur X représente donc la multiplication par x. De manière analogue, nous introduisons les opérateurs Y et Z:
+\begin{align}
+\braket{\bm{r}|X|\psi} &= x\braket{\bm{r}|\psi} & \braket{\bm{r}|Y|\psi} &= y\braket{\bm{r}|\psi} & \braket{\bm{r}|Z|\psi} &= z\braket{\bm{r}|\psi}
+\end{align}
+Similairement, on définit l'opérateur $\bm{P}$, dont l'action dans la base $\ket{\bm{p}}$ est donnée par
+\begin{align}
+\braket{\bm{p}|P_x|\psi} &= p_x \braket{\bm{p}|\psi} = p_x\tilde{\psi}(p_x) & \braket{\bm{p}|P_y|\psi} &= p_y \braket{\bm{p}|\psi} = p_y\tilde{\psi} (p_y) & \braket{\bm{p}|P_z|\psi} &= p_z \braket{\bm{p}|\psi} = p_z\tilde{\psi}(p_z)
+\end{align}
+\begin{Property} $\braket{x|P|\psi} = -i\h\partial_x\braket{x|\psi}$. \end{Property}
+\begin{proof}
+\begin{align}
+\braket{x|P|\psi} &= \int dp \; \braket{x|p}\braket{p|P|\psi}\notag\\
+&= \int dp \; \frac{e^{i \frac{px}{\h}}}{\sqrt{2\pi\h}}p\tilde{\psi} (p)\notag\\
+&= -i\h \partial_x (\int dp \; \frac{e^{i \frac{px}{\h}}}{\sqrt{2\pi\h}} \tilde{\psi} (p)\notag\\
+\braket{x|P|\psi} &=-i\h\partial_x\psi(x)
+\end{align}
+\end{proof}
+
+\begin{Property} $[X,P] = i\h\mathbb{I}$ \end{Property}
+\begin{proof}
+La preuve est détaillée dans le livre de référence.
+\end{proof}
+Nous pouvons en déduire que 
+\begin{align}
+[R_i,R_j] &= 0 & [P_i,P_j] &= 0 & [R_i,P_j] = i\h\delta_{ij}
+\end{align}
 \end{document}
