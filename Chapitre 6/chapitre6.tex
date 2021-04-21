@@ -1,4 +1,4 @@
-\documentclass[../notesdecours.tex]{subfiles}
+\documentclass[../Notesdecours.tex]{subfiles}
 
 \begin{document}
 \part{Représentations de la position et de l'impulsion en $\mathcal{M}$écanique $\mathcal{Q}$uantique}
@@ -18,7 +18,8 @@ $\ket{p_0} $ & Etat propre de l'opérateur P de valeur propre $p_0$. Cela corres
 
 Nous pouvons effectuer plusieurs opérations sur ces objets. 
 
-\paragraph{Normalisation}
+\section{Espace vectoriel des opérateurs X et P}
+\subsection{Normalisation}
 Nous voulons calculer $\braket{x_0|x_0'}$ et $\braket{p_0|p_0'}$. 
 	\begin{align*}
 \braket{x_0|x_0'} &= \int dx \delta (x-x_0)\delta(x-x_0') = \delta (x_0 - x_0)\\
@@ -26,7 +27,7 @@ Nous voulons calculer $\braket{x_0|x_0'}$ et $\braket{p_0|p_0'}$.
 	\end{align*}
 Ce faisant, nous montrons que les deux bases définies par ces opérations sont orthonormées.
 
-\paragraph{Relation de complétude} \label{complétude}
+\subsection{Relation de complétude} \label{complétude}
 A partir de là, nous obtenons les relations fondamentales suivantes:
 \begin{center}
 \begin{tabular}{c|c}
@@ -36,7 +37,7 @@ $\int d^3 \; \ket{x_0}\bra{x_0} = \mathbb{I}$ & $\int dp_0 \; \ket{p_0}\bra{p_0}
 \end{center}
 Nous avons alors deux relations de \emph{complétude}, ou de \emph{fermeture}.
 
-\paragraph{Composante d'un ket}
+\subsection{Composante d'un ket}
 Considérons un état quantique $\ket{\Psi}$, correspondant à la fonction d'onde $\Psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
 \begin{align}
 \ket{\Psi} &= \int d^3x_0 \; \ket{x_0} \bra{x_0} \ket{\Psi}\\
@@ -65,7 +66,7 @@ Pour résumer, nous avons que
 \braket{\bm{r}|\psi} &= \psi(\bm{r})\\
 \braket{\bm{p}|\psi} &= \tilde{\psi}(\bm{p})
 \end{align}
-\paragraph{Produit scalaire de deux vecteurs}
+\subsection{Produit scalaire de deux vecteurs}
 En vertue des relations de complétude $\ref{complétude}$, il est possible de retrouver le produit scalaire $\eqref{Produit scalaire - Espace des fonctions d'onde}$.
 
 \begin{align}
@@ -74,7 +75,7 @@ En vertue des relations de complétude $\ref{complétude}$, il est possible de r
 \braket{\varphi|\psi} &= \int dx \; \varphi^*(x) \psi (x) & \braket{\varphi|\psi} &= \int dp \tilde{\varphi}^* (p) \tilde{\psi}(p) 
 \end{align}
 
-\paragraph{Opérateurs X et P}
+\section{Opérateurs X et P}
 Soit $\ket{\psi}$ un ket quelconque et $\braket{\bm{r}|\psi} \doteq \psi (x,y,z)$ la fonction d'onde correspondante. On définit l'opérateur X de sorte que
 \begin{equation}
 \ket{\psi'} = X\ket{\psi}
@@ -103,10 +104,152 @@ Similairement, on définit l'opérateur $\bm{P}$, dont l'action dans la base $\k
 
 \begin{Property} $[X,P] = i\h\mathbb{I}$ \end{Property}
 \begin{proof}
-La preuve est détaillée dans le livre de référence.
+La preuve est assez simple:
+\begin{align*}
+	\braket{\bm{r}|[X,P]|\psi} &= \braket{\bm{r}|XP-PX|\psi}\\
+	&= \braket{\bm{r}|XP|\psi} - \braket{\bm{r}|PX|\psi}\\
+	&= x\braket{\bm{r}|P|\psi} -\frac{\h}{i}\frac{\partial}{\partial x}\braket{\bm{r}|X|\psi}\\
+	&= \frac{\h x}{i}\frac{\partial}{\partial x}\braket{\bm{r}|\psi} - \frac{\h}{i} \frac{\partial}{\partial x}x\braket{\bm{r}|\psi}\\
+	&= i\h \braket{\bm{r}|\psi}
+\end{align*}
+Cela étant vrai pour tout $\bm{r}$ et tout $\psi$, il s'ensuit que $[X,P] = i\h$.
 \end{proof}
 Nous pouvons en déduire que 
 \begin{align}
 [R_i,R_j] &= 0 & [P_i,P_j] &= 0 & [R_i,P_j] = i\h\delta_{ij}
 \end{align}
+Pour tout $i,j = 1,2,3$.
+
+\section{Opérateur translation}
+\begin{definition}
+	Soit $P,Q$, deux observables reliées par la relation $[P,Q] = i\h\mathbb{I}$. On définit l'\emph{opérateur translation} $S(\lambda)$ par
+	\begin{equation}
+		S(\lambda) = e^{-i\frac{\lambda P}{\h}}
+	\end{equation}
+	Pour tout $\lambda\in\mathbb{R}$.
+\end{definition}
+Observons que cet opérateur est unitaire : effectivement, $S^\dagger (\lambda) = S(-\lambda)$. De plus, $S(\lambda)S(\lambda') = S(\lambda + \lambda')$.\\
+
+Nous voulons déterminer la valeur de $[X,S(\lambda)]$. Commecons par remarquer les propriétés suivantes de l'opérateur commutateur.
+\subsection{Quelques propriétés de l'opétateur commutateur}
+\begin{Property}
+	Pour tout opérateur A,B et C,
+	\begin{equation}
+		[A,BC] = [A,B]C + B[A,C]
+	\end{equation}
+\end{Property}
+\begin{Property}
+	\label[]{Commutateur dérivée}
+	Pour tout opérateur X et P et tout naturel n,
+	\begin{equation}
+		[X,P^n] = i\h nP^{n-1}
+	\end{equation}
+\end{Property}
+\begin{proof}
+	Il s'agit d'une preuve par réccurence. La base se prouve assez facilement ; passons directement à l'étape d'induction:
+	\begin{equation*}
+		[X,P^{n+1}] = [X,P^n \; P] = [X,P^n]P + P^n[X,P] = i\h nP^n + i\h P^n = i\h (n+1)P^n
+	\end{equation*}
+\end{proof}
+Généralisons $\ref{Commutateur dérivée}$ à une fonction pouvant être représentée comme une série, supposée convergente.
+\begin{Property}
+\label[]{Lien commutateur dérivée}
+	Soit $F(P) = \sum_{n = 0}^\infty a_nP^n$ une fonction de P. Alors,
+	\begin{equation}
+		[X,F(P)] = i\h F'(P)
+	\end{equation}
+\end{Property}
+\begin{proof}
+	\begin{align*}
+		[X,F(P)] &= \sum_n a_n [X,P^n] = \sum_n a_n i\h nP^{n-} = i\h F'(P)
+	\end{align*}
+\end{proof}
+
+Cette dernière proposition permet de répondre à la question posée : 
+\begin{equation}
+	[X,S(\lambda)] = \lambda S(\lambda).	
+\end{equation}
+ Nous pouvons reformuler cette égalité sous la forme
+\begin{equation}
+	QS(\lambda) = S(\lambda)[Q+\lambda].
+\end{equation}
+
+\section{Valeurs propres et vecteurs propres de Q}
+\subsection{Spectre de Q}
+
+\begin{Property}
+	Soit $\ket{x_0}$ le vecteur propre de X, de valeur propre $x_0$. Alors,
+	\begin{equation}
+		S(\lambda)\ket{x_0} = \ket{x_0+\lambda}
+	\end{equation}
+\end{Property}
+\begin{proof}
+	\begin{align*}
+		XS(\lambda)\ket{x_0} &= (S(\lambda)X+\lambda S(\lambda))\ket{x_0}\\
+		&= S(\lambda)x_0\ket{x_0} + \lambda S(\lambda)\ket{x_0} = (x_0+\lambda)S(\lambda)\ket{x_0}
+	\end{align*}
+\end{proof}
+
+Cette propriété exprime que $S(\lambda)\ket{x_0}$ est un autre vecteur propre non nul de X, de valeur propre ($x_0+\lambda$). A partir d'un vecteur propre de X, nous pouvons alors en construire un autre : le spectre de X est continu, composé de toutes les valeurs de l'axe réelle.
+
+\begin{Property}
+	Si $\ket{\psi}$ est un vecteur de la fonction d'onde $\Psi$, alors $S(\lambda)\ket{\psi}$ est un ket d ela fonction d'onde $\Psi(x-\lambda)$.
+\end{Property}
+
+\begin{remark}
+	Nous avons vu que $S(\lambda)\ket{x_0} = \ket{x_0+\lambda}$. Remarquons que l'expression adjointe s'écrit
+	\begin{equation}
+		\bra{x_0}S^\dagger (\lambda) = \bra{x_0+\lambda}
+	\end{equation}
+	Soit alors,
+	\begin{equation}
+		\bra{x_0}S(\lambda) = \bra{x_0-\lambda}
+	\end{equation}
+\end{remark}
+
+\begin{Property}
+	On remarque alors que si $\ket{\psi}$ est un ket de la fonction d'onde $\Psi(x)$, alors $S(\lambda)\ket{\psi}$ est le ket associé à la fonction d'onde $\Psi(x-\lambda)$.
+\end{Property}
+\begin{proof}
+	\begin{align*}
+		\braket{x|\psi} &= \Psi(x)\\
+		\braket{x|S(\lambda)|\psi} &= \braket{x-\lambda|\psi} = \Psi(x-\lambda)
+	\end{align*}
+\end{proof}
+
+Ces propriétés de $S(\lambda)$ lui valent le nom de \emph{opérateur de translation}.
+
+\subsection{Invariance par translation}
+Supposons que le système est invariant par translation, c'est à dire que, pour tout $t,\lambda,\ket{\psi}$:
+\begin{equation}
+	e^{-i\frac{Ht}{\h}}S(\lambda)\ket{\psi} = S(\lambda)e^{-i\frac{Ht}{\h}}\ket{\psi}
+\end{equation}
+
+Nous pouvons alors montrer que $HP\ket{\psi} = PH\ket{\psi}$, c'est à dire que $[H,P] = 0$.\\
+
+L'invariance de translation implique la conservation du générateur des translations ; c'est à dire la conservation de l'impulsion. Ce résultat (\emph{non démontré dans le cadre de ce cours}) exploite le Théorème d'Emmy Nöther.
+
+\section{Relations d'incertitudes}
+Soient A,B des observables et $\ket{\psi}$ un état.
+
+\begin{remark}
+	Nous notons $<A^n> = \braket{\psi|A^n|\psi}$, $\Delta A^2 = <A^2> - <A>^2$. De plus, on intoduit $A' = A-<A>$ afin de pouvoir noter $\Delta A^2 = <A'^2>$. On note que $[A,B] = [A',B']$.
+\end{remark}
+
+\begin{theorem}
+	Soit A,B deux obserables. Alors,
+	\begin{equation}
+		\Delta A\Delta B \geq \frac{1}{2} \norm{<[A,B]>}
+	\end{equation}
+\end{theorem}
+
+\begin{proof}
+	La preuve est laissée en exercice pour le lecteur.
+\end{proof}
+
+Pour les opérateurs X et P, nous avons alors que $[X,P]$ valent $i\h$ ; il s'ensuit que
+\begin{equation*}
+	\Delta X \Delta P \geq \frac{\h}{2},
+\end{equation*}
+ce qui est exactement la relation $\eqref{Heinsenberg}$.
 \end{document}

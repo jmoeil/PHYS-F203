@@ -5,3 +5,5 @@
 *.lot
 *.toc
 *.synctex.gz
+*.fdb_latexmk
+*.fls
