@@ -2,4 +2,129 @@
 
 \begin{document}
 \part{Oscillateur Harmonique Quantique}
+\section{De l'importance de l'Oscillateur Hamonique}
+L'importance de l'Oscillateur Harmonique en Physique ne peut pas être sous-estimé. Des exemples d'applications sont légion ; prenont la $\mathcal{M}$écanique $\mathcal{C}$lassique pour l'exemple.\\
+
+Le plus simple reste de considérer une particule de masse $m$ se déplaçant dans un potentiel central de la forme 
+\begin{align}
+    V(x) &= \frac{1}{2}kx^2     &\forall k\in\mathbb{R^+}
+\end{align}
+Dès lors, la particule effectue un mouvement oscillatoire autour du plan $x = 0$, avec une force de rappel 
+\begin{equation}
+    F_x = -\frac{dV}{dx} = -kx
+\end{equation}
+Cette situation est régie par l'équation d'un Oscillateur Harmonique, soit
+\begin{equation}
+    m\ddot{x} = -kx
+\end{equation}
+On pose alors souvent $\omega = \sqrt{\frac{k}{x}}$ ; il s'agit de la pulsation du mouvement. La solution générale de cette équation est donnée par la relation 
+\begin{align}
+    x(t) &= Acos \left(\omega t-\varphi\right)       &\forall A\in\mathbb{R}^+,\forall\varphi\in [0,2\pi]
+\end{align}
+En particulier, nous avons que l'énergie totale de la particule s'exprime par la relation
+\begin{equation}
+    E = T+V = \frac{1}{2}m\omega^2A^2 = \frac{p^2}{2m}+\frac{kx^2}{2} \doteq H
+\end{equation}
+
+\begin{remark}
+    L'oscillateur harmonique joue un rôle fondamental en Physique ; il permet de décrire (du moins, de manière rapprochée) les mouvements d'osccilations autour d'une position d'équilibre.
+\end{remark}
+
+\begin{remark}
+    En Mécanique Quantique, l'Oscillateur Harmonique est le problème exactement soluble ayant le plus d'applications.
+\end{remark}
+
+\section{L'Oscillateur Harmonique en Mécanique Quantique}
+Dans les discussions quantiques, nous remplacons les grandeurs classiques $x$ et $p$ par les observables $X$ et $P$, vérifiant la relation $[X,P]=i\h$ (voir le chapitre $\ref{Chapitre 6}$ pour plus de détails et une preuve détaillée). L'Hamiltonien quantique est donc donné par 
+\begin{equation*}
+    H = \frac{P^2}{2m}+\frac{kX^2}{2}
+\end{equation*}
+
+Effectuons - pour facilier les notations - les transformations canoniques suivantes:
+\begin{subequations}
+    \begin{equation}
+        \hat{X} = \sqrt{\frac{m\omega}{\h}}X
+    \end{equation}
+    \begin{equation}
+        \hat{Y} = \frac{1}{\sqrt{m\h\omega}}P
+    \end{equation}
+\end{subequations}
+En particulier, nous avons alors que $[\hat{X},\hat{X}]=i$, et que $H=\h\omega\hat{H}$, où
+\begin{equation}
+    \hat{H} = \frac{1}{2}\left(\hat{X}^2+\hat{P}^2\right).
+    \label{Hamiltonien quantique hat}
+\end{equation}
+Observons que:
+\begin{itemize}
+    \item Puisque le potentiel est une fonction paire, les fonctions propres de H possèdent une parité définie. On peut alors rechercher les fonctions propres de H parmi les fonctions ayant une parité définie. 
+    \item Le spectre d'énergie est discret. 
+\end{itemize}
+Nous allons à présent tenter de retrouver ces résultats.
+\subsection{Valeurs propres de l'Hamiltonien}
+Nous allons tenter de résoudre l'équation aux valeurs propres 
+\begin{equation}
+    H\ket{\psi} = E\ket{\psi},
+\end{equation}
+c'est à dire tenter de déterminer le spectre et les valeurs propres de l'Hamiltonien.\\
+
+Si $\hat{X}$ et $\hat{P}$ étaient des nombres et non des observables, nous pourrions réécrire leur somme quadratique dans $\eqref{Hamiltonien quantique hat}$ sous la forme $(\hat{X}-i\hat{P})(\hat{X}+i\hat{P})$ : comme ce sont des opérateurs, ils ne commutent en générale pas\footnote{C'est bien le cas ici ; voir la valeur du commutateur de X et de P.}. Nous allons montrer que l'introduction d'opérateurs proportionnels à $\hat{X}$ et à $\hat{P}$ permet de simplifier la recherche des vecteurs et valeurs propres de $\hat{H}$. On pose alors
+\begin{align}
+    a &= \frac{1}{\sqrt{2}}(X+iP)   & X &= \frac{1}{\sqrt{2}}(a+a^\dagger)\\
+    a^\dagger &= \frac{1}{\sqrt{2}}(X-iP)    & P &= \frac{i}{\sqrt{2}}(a^\dagger-a)
+\end{align}
+Observons que $[a,a^\dagger] = 1$. En introduisant le nombre $N = a^\dagger a = \frac{1}{2}\left(X^2+P^2-1\right)$, nous avons donc
+\begin{equation}
+    \hat{H} = N+\frac{1}{2}.
+\end{equation}
+Les vecteurs propres de $\hat{H}$ sont les vecteurs propres de $N$, et inversement. Avant de passer à la détermination du spectre, effectuons quelques observations:
+\begin{itemize}
+    \item N est hermitien : $N^\dagger = a^\dagger \left(a^\dagger\right)^\dagger = a^\dagger a = N$.
+    \item N est positif : $\forall \ket{\varphi}$,
+    \begin{align*}
+        \braket{\varphi|N|\varphi} &= \braket{\varphi|a^\dagger a |\varphi}\\
+        &= \norm{a\ket{\varphi}}^2\\
+        &\geq 0
+    \end{align*}
+    Les valeurs propres de N sont également positives.
+\end{itemize}
+
+\subsection{Analyse des valeurs et vecteurs propres de N}
+
+\begin{Property}[Coucou]
+    $[N,a]=-a$ et $[N,a^\dagger] = a^\dagger$
+\end{Property}
+\begin{proof}
+    \begin{align*}
+        [N,a] &= [a^\dagger a,a] = [a^\dagger,a]a+a^\dagger [a,a] = -a\\
+        [N,a^\dagger] &= [a^\dagger,a^\dagger]a+a^\dagger [a,a^\dagger] = a^\dagger
+    \end{align*}
+    Ce qui prouve l'assertion.
+\end{proof}
+
+\begin{Property}
+    Soit $\ket{\varphi}$ un vecteur propre de N de valeur propre $\nu$ : $N\ket{\varphi} = \nu\ket{\varphi}$. Alors,
+    \begin{itemize}
+        \item $a\ket{\varphi}$ est vecteur propre de N de valeur propre $\nu-1$.
+        \item Si $\nu = 0$, alors $a\ket{\varphi} = 0$.
+    \end{itemize}
+\end{Property}
+\begin{proof}
+    \begin{align*}
+        N a\ket{\varphi} &= (aN-a)\ket{\varphi} = (a\nu-a)\ket{\varphi} = (\nu-1)a\ket{\varphi}\\
+        \norm{a\ket{\varphi}} &= \braket{\varphi|a^\dagger a|\varphi} = \nu \braket{\varphi|\varphi} = 0 \iff \nu = 0
+    \end{align*}
+\end{proof}
+\begin{Property}
+    Soit $\ket{\varphi}$ un vecteur propre de N de valeur propre $\nu$ : $N\ket{\varphi} = \nu\ket{\varphi}$. Alors,
+    \begin{itemize}
+        \item $a^\dagger\ket{\varphi}$ est non nul.
+        \item $a^\dagger\ket{\varphi}$ est un vecteur propre de valeur propre $\nu+1$.
+    \end{itemize}
+\end{Property}
+\begin{proof}
+    \begin{align*}
+        N \left(a^\dagger \ket{\varphi}\right) &= \left(a^\dagger N + a^\dagger\right)\ket{\varphi} = \left(\nu+1\right)a^\dagger\ket{\varphi}\\
+        \norm{a\ket{\varphi}}^2 &= \braket{\varphi|a^\dagger a|\varphi}
+    \end{align*}
+\end{proof}
 \end{document}
