@@ -1,4 +1,4 @@
-\documentclass[../notesdecours.tex]{subfiles}
+\documentclass[../Notesdecours.tex]{subfiles}
 
 \begin{document}
 \part{Oscillateur Harmonique Quantique}
@@ -69,28 +69,31 @@ c'est à dire tenter de déterminer le spectre et les valeurs propres de l'Hamil
 
 Si $\hat{X}$ et $\hat{P}$ étaient des nombres et non des observables, nous pourrions réécrire leur somme quadratique dans $\eqref{Hamiltonien quantique hat}$ sous la forme $(\hat{X}-i\hat{P})(\hat{X}+i\hat{P})$ : comme ce sont des opérateurs, ils ne commutent en générale pas\footnote{C'est bien le cas ici ; voir la valeur du commutateur de X et de P.}. Nous allons montrer que l'introduction d'opérateurs proportionnels à $\hat{X}$ et à $\hat{P}$ permet de simplifier la recherche des vecteurs et valeurs propres de $\hat{H}$. On pose alors
 \begin{align}
-    a &= \frac{1}{\sqrt{2}}(X+iP)   & X &= \frac{1}{\sqrt{2}}(a+a^\dagger)\\
-    a^\dagger &= \frac{1}{\sqrt{2}}(X-iP)    & P &= \frac{i}{\sqrt{2}}(a^\dagger-a)
+    a &= \frac{1}{\sqrt{2}}(\hat{X}+i\hat{X})   & \hat{X} &= \frac{1}{\sqrt{2}}(a+a^\dagger)\label{a et X hat}\\
+    a^\dagger &= \frac{1}{\sqrt{2}}(\hat{X}-i\hat{P})    & \hat{P} &= \frac{i}{\sqrt{2}}(a^\dagger-a) \label[]{a dag et P hat}
 \end{align}
 Observons que $[a,a^\dagger] = 1$. En introduisant le nombre $N = a^\dagger a = \frac{1}{2}\left(X^2+P^2-1\right)$, nous avons donc
 \begin{equation}
     \hat{H} = N+\frac{1}{2}.
 \end{equation}
 Les vecteurs propres de $\hat{H}$ sont les vecteurs propres de $N$, et inversement. Avant de passer à la détermination du spectre, effectuons quelques observations:
-\begin{itemize}
-    \item N est hermitien : $N^\dagger = a^\dagger \left(a^\dagger\right)^\dagger = a^\dagger a = N$.
-    \item N est positif : $\forall \ket{\varphi}$,
+\begin{Property}
+    N est hermitien : $N^\dagger = a^\dagger \left(a^\dagger\right)^\dagger$.
+\end{Property}
+\begin{Property}
+    \label{N positif}
+    Les valeurs propres de N sont positives.
+\end{Property}
+\begin{proof}
+    Soit $\ket{\varphi}$ une valeur propre de N. Dès lors,
     \begin{align*}
-        \braket{\varphi|N|\varphi} &= \braket{\varphi|a^\dagger a |\varphi}\\
-        &= \norm{a\ket{\varphi}}^2\\
-        &\geq 0
+        \braket{\varphi|a^\dagger a|\varphi} &= \norm{a\ket{\varphi}}^2 \geq 0
     \end{align*}
-    Les valeurs propres de N sont également positives.
-\end{itemize}
+\end{proof}
 
 \subsection{Analyse des valeurs et vecteurs propres de N}
 
-\begin{Property}[Coucou]
+\begin{Property}
     $[N,a]=-a$ et $[N,a^\dagger] = a^\dagger$
 \end{Property}
 \begin{proof}
@@ -102,6 +105,7 @@ Les vecteurs propres de $\hat{H}$ sont les vecteurs propres de $N$, et inverseme
 \end{proof}
 
 \begin{Property}
+    \label{Vp destruction}
     Soit $\ket{\varphi}$ un vecteur propre de N de valeur propre $\nu$ : $N\ket{\varphi} = \nu\ket{\varphi}$. Alors,
     \begin{itemize}
         \item $a\ket{\varphi}$ est vecteur propre de N de valeur propre $\nu-1$.
@@ -124,7 +128,190 @@ Les vecteurs propres de $\hat{H}$ sont les vecteurs propres de $N$, et inverseme
 \begin{proof}
     \begin{align*}
         N \left(a^\dagger \ket{\varphi}\right) &= \left(a^\dagger N + a^\dagger\right)\ket{\varphi} = \left(\nu+1\right)a^\dagger\ket{\varphi}\\
-        \norm{a\ket{\varphi}}^2 &= \braket{\varphi|a^\dagger a|\varphi}
+        \norm{a\ket{\varphi}}^2 &= \braket{\varphi|a^\dagger a|\varphi} = \braket{\varphi|a^\dagger a+1|\varphi}\\
+        &= \braket{\varphi|N+1|\varphi} = \left(\nu+1\right)\braket{\varphi|\varphi} \geq 0
     \end{align*}
 \end{proof}
+
+\begin{Property}
+    Soit $N=aa^\dagger$. Alors, le spectre de N $\subseteq \mathbb{N}$.
+\end{Property}
+\begin{proof}
+    Supposons par l'absurde que $N\ket{\varphi} = \nu\ket{\varphi}$ et que $n < \nu < n+1$. En vertue de la propriété $\ref{Vp destruction}$, $a^{n+1}\ket{\varphi}$ est non nul et est vecteur propre de N de valeur propre $\nu-n-1 < 0$: cela constitue une contradiction avec la propriété $\ref{N positif}$. La conclusion s'ensuit.
+\end{proof}
+
+\begin{corollary}
+    Si il existe un vecteur propre $\ket{\varphi}$ de valeur propre $\nu\in\mathbb{N}$, alors le spectre de $N$ est $\mathbb{N}$.
+\end{corollary}
+
+\begin{Property}
+    \label{Niveaux harmonique non degeneres}
+    L'état fondamental d'un oscillateur harmonique est non dégénéré.
+\end{Property}
+
+\begin{proof}
+    En vertue de $\ref{Vp destruction}$, la valeur propre associée à l'état fondamental est 0, de sorte que tout vecteur propre fondamental doive respecter 
+    \begin{equation}
+        a\ket{\varphi} = 0
+    \end{equation}
+    En rappelant les défintions $\eqref{a et X hat}$ et $\eqref{a dag et P hat}$, 
+    \begin{align*}
+        \frac{1}{\sqrt{2}}\left(\hat{X}+i\hat{P}\right)\ket{\varphi} &= 0\\
+        \frac{1}{\sqrt{2}}\left(x\varphi(x)+\h\partial_x \varphi(x)\right) &= 0
+    \end{align*}
+    L'unique solution de ce système est donné par 
+    \begin{equation}
+        \varphi(x) = ce^{-\frac{x^2}{\h}}
+    \end{equation}
+    où c est une constante d'intégration.
+\end{proof}
+
+\begin{Property}
+    Tous les niveaux d'un oscillateur harmonique sont non dégénérés.
+\end{Property}
+\begin{proof}
+    Supposons par l'absurde qu'il existe un niveau $n\in\mathbb{N}$ tel que $\ket{\varphi},\ket{varphi'}$ sont des vecteurs propres de N, c'est à dire tel quelque 
+    \begin{align}
+        N\ket{\varphi} &= n\ket{\varphi}\\
+        N\ket{\varphi'} &= n\ket{\varphi'}\\
+        \braket{\varphi|\varphi'} &= 0
+    \end{align}
+    Il s'ensuit que $a\ket{\varphi}$ et $a\ket{\varphi'}$ sont des vecteurs propres de N de valeur propre $n-1$, orthogonaux.
+    \begin{equation*}
+        \left(\bra{\varphi'}a^\dagger\right)\left(a\ket{\varphi}\right) = \braket{\varphi'|N|\varphi} = n\braket{\varphi'|\varphi} = 0
+    \end{equation*}
+    Par récurrence, on voit que $a^n\ket{\varphi}$ et $a^n\ket{\varphi'}$ sont des vecteurs propres de N de valeur propre 0, orthogonaux. Cela constitue une contradiction avec $\ref{Niveaux harmonique non degeneres}$.
+\end{proof}
+
+Nous pouvons constuire une base orthonormée de vecteurs propres selon 
+\begin{equation}
+    \ket{n} = \frac{\left(a^\dagger\right)^n}{\sqrt{n!}}\ket{0}
+\end{equation}
+Cela est la construction d'une base orthonormée dans l'espace de $\mathcal{H}$ilbert. Nous avons dès lors la relation de fermeture
+\begin{equation}
+    \sum_{n = 0}^{\infty} \ket{n}\bra{n} = \mathbb{I}
+\end{equation}
+De plus, le spectre de l'oscillateur harmonique est donné par 
+\begin{equation}
+    \h\omega\left(N+\frac{1}{2}\right)
+\end{equation}
+pour tout $n\in\mathbb{N}$. L'énergie de point zéro, comme nous le montrons en $\ref{Application à l'Oscillateur Harmonique}$, est alors donné par
+\begin{equation}
+    E_0 = \frac{1}{2}\h\omega
+\end{equation}
+
+\subsection{Evolution temporelle}
+Effectuons à présent une directe application du $\ref{Postulat 5}$ de la mécanique quantique. Considérons un oscillateur harmonique dont l'état est donné à l'instant $t = 0$ par
+\begin{equation}
+    \ket{\psi (0)} = \sum_{n = 0}^{\infty} c_n\ket{n}
+\end{equation}
+En vertue du postulat d'évolution des états, nous avons alors que l'état du système à un temps t sera donné par
+\begin{equation}
+    \ket{\psi (t)} = \sum_{n = 0}^{\infty} c_n e^{-i \frac{E_n t}{\h}}\ket{n} = \sum_{n = 0}^{\infty} c_n e^{-i\left(n+\frac{1}{2}\right)\omega t}\ket{n}
+\end{equation}
+
+La valeur moyenne au cours du temps d'une grandeur physique A est alors donnée par
+\begin{equation}
+    \braket{\psi(t)|A|\psi(t)} = \sum_m \sum_n c_m^* (0)c_n (0)A_{mn}e^{i\left(m-n\right)\omega t}
+\end{equation}
+
+\color{red} \textit{Je ne comprend pas la suite des notes de cette section.}
+
+\color{black}
+
+\subsection{Fonctions d'ondes de l'oscillateur harmonique}
+
+Une démonstration par récurrence exploitant l'opérateur de création $\hat{a}^\dagger$ montre que les états propre de l'opérateur nombre $\hat{N} = \hat{a}^\dagger\hat{a}$ s'écrivent
+\begin{equation}
+    \ket{n}=\frac{\left(a^\dagger\right)^n}{\sqrt{n!}}\ket{0}
+\end{equation}
+Dans la représentation position, il suffit de substituer l'expression de $\hat{a}$ et de $\psi_0 (x) = \braket{x|0}$ pour obtenir l'expression de la fonction d'onde $\psi_n (x) = \braket{x|n}$, soit
+\begin{equation}
+    \psi_n (x) = \frac{1}{\sqrt{2^n n!}}\left(x-\partial_x\right)^n\psi_0(x) = \frac{1}{\pi^{\frac{1}{4}}}\frac{e^{-\frac{x^2}{2}}}{\sqrt{2^nn!}}H_n(x)
+\end{equation}
+où $H_n(x)$ est le polynôme d'Hermite, définie par $H_n(x) = \left(x-\frac{d}{dx}\right)^n$. \color{red} D'où vient le facteur $\frac{1}{\pi^\frac{1}{4}}$ ? \color{black}
+
+\subsection{Résolution de l'équation aux valeurs propres par la méthode polynômiale}
+\subsubsection{Forme asymptotique de $\psi(x)$}
+
+Nous voulons résoudre l'équation de l'oscillateur harmonique analytiquement : nous n'allons pas utiliser les opérateurs de création et de destruction.\\
+
+Dans la représentation position, l'équation aux valeurs propres de H s'écrit 
+\begin{equation}
+    \label{VP H}
+    \frac{1}{2}\left(-\frac{d^2}{dx^2}+x^2\right)\psi = E\psi 
+\end{equation}
+
+Observons que le potentiel est paire : dès lors, les solutions sont soit paires soit impaires.\\
+
+Nous pouvons réécrire l'équation $\eqref{VP H}$ sous la forme
+\begin{equation}
+    \label{Equa etudiee}
+    \big\{\frac{d^2}{dx^2}-\left(x^2-2E\right)\big\}\psi = 0
+\end{equation}
+Recherchons des solutions intuitives de cette équation pour des x très grands. Observons que les fonctions
+\begin{equation}
+    G_{\pm}(x) = e^{\pm \frac{x^2}{2}}
+\end{equation}
+sont solutions des équations différentielles
+\begin{equation}
+    \big\{\frac{d^2}{dx^2}-(x^2\pm 1)\big\}G_{\pm}(x) = 0
+    \label{Equa grand x}
+\end{equation}
+\begin{remark}
+    Observons que lorsque x tend vers l'infini,
+    \begin{align*}
+        x^2\pm 1 \sim x^2 \sim x^2-2E
+    \end{align*}
+\end{remark}
+
+Dès lors, les solutions des équations $\eqref{Equa etudiee}$ et $\eqref{Equa grand x}$ ont la même forme pour des grands x. On s'attend donc que, sous cette hypothèse, les solutions de $\eqref{Equa etudiee}$ soient de la forme
+\begin{align}
+    \label{Solution equa etudiee}
+    \varphi_-(x) &= e^{-\frac{x^2}{2}} & &\underbrace{\varphi_+(x) = e^{\frac{x^2}{2}}}_{\text{A exclure !}}
+\end{align}
+
+En comparant $\eqref{Solution equa etudiee}$ et $\eqref{Equa etudiee}$, nous obtenons le résultat
+\begin{equation}
+    \frac{d^2}{dx^2}\varphi_-(x) \color{red}- 2x\frac{d}{dx}\varphi_-(x) \color{black} + \left(2E-1\right)\varphi_-(x) = 0
+\end{equation}
+
+Nous allons à présent montrer une technique de résolution de cette équation différentielle consistant à développer en série $\varphi(x) \doteq \varphi_-(x)$.
+
+\subsubsection{Calcul de $\varphi_-(x)$ sous forme d'un développement en série entière}
+
+Nous avons vu que les solutions de $\eqref{Equa etudiee}$ sont soit paires, soit impaires. $\varphi_-(x)$ étant paire, nous recherchons une solution de la forme
+\begin{equation}
+    \varphi_-(x) = \sum_{m = 0}^\infty a_{2m}x^{2m+p}
+\end{equation}
+
+Observons alors que
+\begin{align}
+    h' &= \sum_{m = 0}^{\infty}\left(2m+p\right)a_{2m}x^{2m+p-1} & h'' &= \sum_{m = 0}^{\infty}\left(2m+p\right)\left(2m+p-1\right)a_{2m}x^{2m+p-2}
+\end{align}
+
+Pour que $\eqref{Solution equa etudiee}$ soit satisfaite en vertue de nos résultats, il faut que le développement en série du premier membre soit nul terme à terme, c'est à dire qui vérifie
+\begin{equation}
+    p(p-1)a_0x^{p-2} = 0
+\end{equation}
+comme $a_0 \neq 0$, on a soit $p = 0$, soit $p = 1$.Les autres termes donnent alors la récurrence
+\begin{align}
+    \left(2m+p\color{red}+2\color{black}\right)\left(2m+p\color{red}+\color{black}1\right)a_{2m\color{red}+2\color{black}}&= \left(4m+2p+1-2E\right)a_{2m} \\
+    a_{2m\color{red}+2\color{black}} &= \frac{\left(4m+2p+1-2E\right)}{\left(2m+p\color{red}+2\color{black}\right)\left(2m+p\color{red}+\color{black}1\right)}a_{2m}  \label{recurrence}
+\end{align}
+
+Pour de grands m, nous aurons la relation $a_{2m+2} \approx \frac{1}{m}a_{2m}$. Cela correspond au développement en série de $e^{x^2}$:
+\begin{align}
+    e^{x^2} &= \sum_m \frac{x^{2m}}{m!} = \sum_m c_{2m}x^{2m} & \frac{c_{2m+2}}{c_{2m}} &= \frac{1}{m}
+\end{align}
+
+Il s'agit d'un comportement asymptotique $e^{-\frac{x^2}{2}}e^{x^2} = e^{\frac{x^2}{2}}$ : cela n'est pas acceptable physiquement. La série n'a pas de forme asymptotique si et seulement si la récurrence $\eqref{recurrence}$ se termine après un nombre fini de termes. On considère alors une énergie $E_m$ tel que $4m+2p+1-2E_m = 0$ où $p = 0,1$. Dès lors, nous déduisons la quantification de l'énergie de l'oscillateur harmonique quantique:
+\begin{align}
+    E_n &= n+\frac{1}{2} & n &= 2m+p
+\end{align}
+
+\begin{remark}
+    Le coefficient $a_0$ n'est pas déterminé par la recurrence : nous le choisissons de sorte à normaliser la solution.
+\end{remark}
+
 \end{document}

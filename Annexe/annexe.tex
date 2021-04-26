@@ -75,4 +75,50 @@ Soit $\mathbb{H}$ un espace de Hilbert. $\mathbb{H}$ est séparable si il possè
 \begin{remark}
 Soit $u_i$ une base $\forall i\in\mathbb{N}$. Par Gram-Schmidt, nous pouvons prendre la base orthonormée $(u_i,u_j) = \delta_{ij}$.
 \end{remark}
+
+
+% \section{Approximation BKW}
+
+% Soit $\psi$ la fonction d'onde solution de l'équation de Schrodinger d'une particule de masse $m$ dans un potentiel central $V(\bm{r})$. L'approximation BKW consiste à écrire la fonction d'onde sous la forme
+% \begin{equation}
+% 	\psi (\bm{r}) = \frac{C_+}{\sqrt{\norm{\psi(\bm{r})}}}e^{\frac{i}{\h}\int p} + \frac{C_-}{\sqrt{\norm{\psi(\bm{r})}}}e^{-\frac{i}{\h}\int p}
+% \end{equation}
+% où $\psi(\bm{r}) = \sqrt{2m\left(E-V(\bm{r})\right)}$ est l'impulsion locale de la particule.
+
+% \subsection{Application à l'équation de Schrodinger indépendant du temps à une dimension}
+
+% Nous voulons résoudre l'équation 
+% \begin{equation*}
+% 	\frac{d^2 \psi(x)}{dx^2} = \frac{2m}{\h^2}\left(V(x)-E\right)\psi(x)
+% \end{equation*}
+% Prenons l'ansatz standard $\Psi(x) = e^{\Phi(x)}$ (avec $\Phi(x)$ un coefficient potentiellement complexe), de sorte à avoir \color{red}par quelle magie? \color{black}
+% \begin{equation}
+% 	\Phi''(x) + \left(\Phi'(x)\right)^2 = \frac{2m}{\h^2}(V(x)-E)
+% \end{equation}
+
+% Nous pouvons écrire $\Phi'(x)$ en ses parties réelles et complexes en introduisant les fonctions réelles $A(x)$ et $B(x)$,
+% \begin{equation}
+% 	\Phi'(x) = A(x) + iB(x)
+% \end{equation}
+
+% L'amplitude de la fonction d'onde est dès lors exprimée par la reation $\exp \{\int_{x_0}^{x}A(x') \; dx'\}$ et la phase par la relation (similaire) $\int_{x_0}^{x} B(x') \; dx'$. L'équation de Schrodinger se réécrit alors, assez simplement, en
+% \begin{subequations}
+% 	\begin{equation}
+% 		A'(x) + A^2 (x)-B^2 (x) = \frac{2m}{\h^2}\left(V(x)-E\right),
+% 	\end{equation}
+% 	\begin{equation}
+% 		B'(x)+2A(x)B(x) = 0.
+% 	\end{equation}
+% \end{subequations}
+% Au $0^{eme}$ degré, nous devons imposer les conditions
+% \begin{align}
+% 	A_0(x)^2 - B_0(x)^2 &= \frac{2m}{\h}\left(V(x)-E\right) & A_0(x)B_0(x) &= 0 
+% \end{align}
+
+% En supposant que la phase varie plus rapidement que l'amplitude (c'est à dire que $A_0(x) = 0$), nous aurons que
+% \begin{equation}
+% 	B_0(x) = \pm \sqrt{2m\left(E-V(x)\right)}
+% \end{equation}
+
+% Dans ce cas, nous aurons 
 \end{document}
