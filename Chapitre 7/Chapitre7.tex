@@ -80,9 +80,10 @@ c'est à dire tenter de déterminer le spectre et les valeurs propres de l'Hamil
 
 Si $\hat{X}$ et $\hat{P}$ étaient des nombres et non des observables, nous pourrions réécrire leur somme quadratique dans $\eqref{Hamiltonien quantique hat}$ sous la forme $(\hat{X}-i\hat{P})(\hat{X}+i\hat{P})$ : comme ce sont des opérateurs, ils ne commutent en générale pas\footnote{C'est bien le cas ici ; voir la valeur du commutateur de X et de P.}. Nous allons montrer que l'introduction d'opérateurs proportionnels à $\hat{X}$ et à $\hat{P}$ permet de simplifier la recherche des vecteurs et valeurs propres de $\hat{H}$. On pose alors
 \begin{align}
-    a &= \frac{1}{\sqrt{2}}(\hat{X}+i\hat{X})   & \hat{X} &= \frac{1}{\sqrt{2}}(a+a^\dagger)\label{a et X hat}\\
+    a &= \frac{1}{\sqrt{2}}(\hat{X}+i\hat{P})   & \hat{X} &= \frac{1}{\sqrt{2}}(a+a^\dagger)\label{a et X hat}\\
     a^\dagger &= \frac{1}{\sqrt{2}}(\hat{X}-i\hat{P})    & \hat{P} &= \frac{i}{\sqrt{2}}(a^\dagger-a) \label[]{a dag et P hat}
 \end{align}
+
 Observons que $[a,a^\dagger] = 1$. En introduisant le nombre $N = a^\dagger a = \frac{1}{2}\left(X^2+P^2-1\right)$, nous avons donc
 \begin{equation}
     \hat{H} = N+\frac{1}{2}.
