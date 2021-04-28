@@ -46,14 +46,25 @@ Effectuons - pour facilier les notations - les transformations canoniques suivan
         \hat{X} = \sqrt{\frac{m\omega}{\h}}X
     \end{equation}
     \begin{equation}
-        \hat{Y} = \frac{1}{\sqrt{m\h\omega}}P
+        \hat{P} = \frac{1}{\sqrt{m\h\omega}}P
     \end{equation}
+\label{opérateurs hat}
 \end{subequations}
-En particulier, nous avons alors que $[\hat{X},\hat{X}]=i$, et que $H=\h\omega\hat{H}$, où
-\begin{equation}
-    \hat{H} = \frac{1}{2}\left(\hat{X}^2+\hat{P}^2\right).
-    \label{Hamiltonien quantique hat}
-\end{equation}
+Dès lors, nous obtenons les relations suivantes.
+\begin{Property}
+    En vertue des conventions $\eqref{opérateurs hat}$, la relation de commutation est donnée par
+    \begin{equation}
+        [\hat{X},\hat{P}] = \frac{1}{\h}[X,P] = i
+    \end{equation}
+\end{Property}
+
+\begin{Property}
+    L'Hamiltonien est donné par $H = \h\omega\hat{H}$, où
+    \begin{equation}
+        \hat{H} = \frac{1}{2}\left(\hat{X}^2+\hat{P}^2\right).
+        \label{Hamiltonien quantique hat}
+    \end{equation}
+\end{Property}
 Observons que:
 \begin{itemize}
     \item Puisque le potentiel est une fonction paire, les fonctions propres de H possèdent une parité définie. On peut alors rechercher les fonctions propres de H parmi les fonctions ayant une parité définie. 
@@ -118,6 +129,11 @@ Les vecteurs propres de $\hat{H}$ sont les vecteurs propres de $N$, et inverseme
         \norm{a\ket{\varphi}} &= \braket{\varphi|a^\dagger a|\varphi} = \nu \braket{\varphi|\varphi} = 0 \iff \nu = 0
     \end{align*}
 \end{proof}
+
+\begin{remark}
+    Cela justifie le nom que porte l'opérateur $\hat{a}$ : l'opérateur destruction.
+\end{remark}
+
 \begin{Property}
     Soit $\ket{\varphi}$ un vecteur propre de N de valeur propre $\nu$ : $N\ket{\varphi} = \nu\ket{\varphi}$. Alors,
     \begin{itemize}
@@ -132,6 +148,10 @@ Les vecteurs propres de $\hat{H}$ sont les vecteurs propres de $N$, et inverseme
         &= \braket{\varphi|N+1|\varphi} = \left(\nu+1\right)\braket{\varphi|\varphi} \geq 0
     \end{align*}
 \end{proof}
+
+\begin{remark}
+    Cela justifie le nom que porte l'opérateur $\hat{a}^\dagger$ : l'opérateur création.
+\end{remark}
 
 \begin{Property}
     Soit $N=aa^\dagger$. Alors, le spectre de N $\subseteq \mathbb{N}$.
@@ -170,7 +190,7 @@ Les vecteurs propres de $\hat{H}$ sont les vecteurs propres de $N$, et inverseme
     Tous les niveaux d'un oscillateur harmonique sont non dégénérés.
 \end{Property}
 \begin{proof}
-    Supposons par l'absurde qu'il existe un niveau $n\in\mathbb{N}$ tel que $\ket{\varphi},\ket{varphi'}$ sont des vecteurs propres de N, c'est à dire tel quelque 
+    Supposons par l'absurde qu'il existe un niveau $n\in\mathbb{N}$ tel que $\ket{\varphi},\ket{\varphi'}$ sont des vecteurs propres de N, c'est à dire tel que 
     \begin{align}
         N\ket{\varphi} &= n\ket{\varphi}\\
         N\ket{\varphi'} &= n\ket{\varphi'}\\
@@ -265,7 +285,7 @@ sont solutions des équations différentielles
     \end{align*}
 \end{remark}
 
-Dès lors, les solutions des équations $\eqref{Equa etudiee}$ et $\eqref{Equa grand x}$ ont la même forme pour des grands x. On s'attend donc que, sous cette hypothèse, les solutions de $\eqref{Equa etudiee}$ soient de la forme
+Dès lors, les solutions des équations $\eqref{Equa etudiee}$ et $\eqref{Equa grand x}$ ont la même forme pour des grands x. On s'attend donc que, sous cette hypothèse, que les solutions de $\eqref{Equa etudiee}$ soient de la forme
 \begin{align}
     \label{Solution equa etudiee}
     \varphi_-(x) &= e^{-\frac{x^2}{2}} & &\underbrace{\varphi_+(x) = e^{\frac{x^2}{2}}}_{\text{A exclure !}}
@@ -273,24 +293,25 @@ Dès lors, les solutions des équations $\eqref{Equa etudiee}$ et $\eqref{Equa g
 
 En comparant $\eqref{Solution equa etudiee}$ et $\eqref{Equa etudiee}$, nous obtenons le résultat
 \begin{equation}
+    \label{solution}
     \frac{d^2}{dx^2}\varphi_-(x) \color{red}- 2x\frac{d}{dx}\varphi_-(x) \color{black} + \left(2E-1\right)\varphi_-(x) = 0
 \end{equation}
 
-Nous allons à présent montrer une technique de résolution de cette équation différentielle consistant à développer en série $\varphi(x) \doteq \varphi_-(x)$.
+Nous allons à présent montrer une technique de résolution de cette équation différentielle consistant à développer en série $\Psi(x) \doteq \varphi_-(x)$.
 
-\subsubsection{Calcul de $\varphi_-(x)$ sous forme d'un développement en série entière}
+\subsubsection{Calcul de $\Psi(x)$ sous forme d'un développement en série entière}
 
-Nous avons vu que les solutions de $\eqref{Equa etudiee}$ sont soit paires, soit impaires. $\varphi_-(x)$ étant paire, nous recherchons une solution de la forme
+Nous avons vu que les solutions de $\eqref{Equa etudiee}$ sont soit paires, soit impaires. $\Psi (x)$ étant paire, nous recherchons une solution de la forme
 \begin{equation}
-    \varphi_-(x) = \sum_{m = 0}^\infty a_{2m}x^{2m+p}
+    \Psi(x) = \sum_{m = 0}^\infty a_{2m}x^{2m+p}
 \end{equation}
 
 Observons alors que
 \begin{align}
-    h' &= \sum_{m = 0}^{\infty}\left(2m+p\right)a_{2m}x^{2m+p-1} & h'' &= \sum_{m = 0}^{\infty}\left(2m+p\right)\left(2m+p-1\right)a_{2m}x^{2m+p-2}
+    \Psi' &= \sum_{m = 0}^{\infty}\left(2m+p\right)a_{2m}x^{2m+p-1} & \Psi'' &= \sum_{m = 0}^{\infty}\left(2m+p\right)\left(2m+p-1\right)a_{2m}x^{2m+p-2}
 \end{align}
 
-Pour que $\eqref{Solution equa etudiee}$ soit satisfaite en vertue de nos résultats, il faut que le développement en série du premier membre soit nul terme à terme, c'est à dire qui vérifie
+Pour que $\eqref{solution}$ soit satisfaite en vertue de nos résultats, il faut que le développement en série du premier membre soit nul terme à terme, c'est à dire qui vérifie
 \begin{equation}
     p(p-1)a_0x^{p-2} = 0
 \end{equation}

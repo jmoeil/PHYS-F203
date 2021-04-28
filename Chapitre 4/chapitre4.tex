@@ -434,7 +434,14 @@ Le résultat d'une mesure sur un opérateur $\hat{A}$ à un instant donné est a
 \item \textit{Règle de Born} : La probabilité de transition entre $\ket{\Psi}$ et $\ket{\varphi}$ est donnée par $\norm{\braket{\varphi|\Psi}}^2$.
 \end{itemize}
 \subsection{Valeur moyenne d'une observable $\mathcal{A}$}
-La moyenne d'une observable physique $\mathbb{A}$ est donnée par $\langle A\rangle =\sum_n a_n P(a_n) = \sum_n a_n \braket{\Psi|P_n|\Psi} = \braket{\Psi|\sum_n a_n P_n | \Psi}$, ce qui implique que $\langle A\rangle = \braket{\Psi|A|\Psi}$.
+
+\begin{definition}
+	La moyenne d'une observable physique $\mathcal{A}$ est donnée par
+	\begin{align}
+		\braket{A} &= \sum_n a_n P(a_n) = \sum_n a_n \braket{\Psi|P_n|\Psi} = \braket{\Psi|\sum_n a_n P_n | \Psi} & \braket{A} &= \braket{\psi|A|\psi}
+	\end{align}
+\end{definition}
+
 \subsection{Ecart quadratique moyen}
 \begin{lemma}
 $A^2 = \sum_n a_n^2P_n$
