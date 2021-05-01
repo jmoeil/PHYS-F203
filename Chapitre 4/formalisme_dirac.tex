@@ -1,0 +1,57 @@
+\documentclass[../notesdecours.tex]{subfiles}
+
+\newcommand{\hcal}{\mathcal{H}}
+\newcommand{\hcals}{\mathcal{H} ^\star}
+
+\begin{document}
+\section{Formalisme de Dirac}
+Une des idées principales de la Mécanique Quantique est que les états sont quantifiés : un système physique a plusieurs états possibles. Nous n'avons pas encore défini ce qu'était un \textit{état}. Nous définirons alors dans cette section l'\textbf{espace des états} en tant que structure mathématique (un espace vectoriel avec certaines propriétés). \\
+
+Le \textbf{dual} de cet espace a aussi une importance particulière.
+
+\subsection{Corps}
+Le corps sur lequel seront définis les espaces mentionnés est le corps des complexes $\mathbb{C}$.
+
+\subsection{Espace des états $\mathcal{H}$ -- Espace de Hilbert}
+Les états d'un système quantique appartiennent à un espace vectoriel complexe nommé "Espace de Hilbert" et noté $\mathcal{H}$. Plus précisément, il s'agit d'un espace préhilbertien complet, c'est-à-dire muni d'un produit scalaire hermitien et tel que toute suite de Cauchy converge. Il est dit \textbf{séparable} s'il possède une base \textbf{dénombrable} : une base $\{\bm{u_i}\}$ telle que, en développant tout vecteur $\bm{x}$ dessus, comme \eqref{ch4:espace de Hilbert - décomp base}, 
+\begin{equation}\label{ch4:espace de Hilbert - décomp base}
+    \forall \bm{x} \in \mathcal{H} \; : \; \bm{x} = \sum_i x_i \bm{u}_i \; ,
+\end{equation}
+la norme du vecteur $\bm{x}$ converge (\eqref{ch4:espace de Hilbert - convergence norme}).
+\begin{equation} \label{ch4:espace de Hilbert - convergence norme}
+    (\bm{x}, \bm{x}) \doteq \sum_i |x_i| ^2 < \infty
+\end{equation}
+En mécanique quantique, $\mathcal{H}$ est séparable. \\
+
+Résumé pour $\mathcal{H}$ :
+\begin{itemize}
+    \item Espace vectoriel complexe
+    \item Produit scalaire hermitien
+    \item Suites de Cauchy convergent
+    \item Peut être séparable si il respecte \eqref{ch4:espace de Hilbert - convergence norme}
+\end{itemize}
+
+\subsection{Espace dual $\hcals$}
+A tout espace vectoriel, en particulier $\hcal$, on peut associer un espace de formes linéaires, appelé espace dual $\hcals$. $\hcals$ est donc l'espace des formes linéaires sur $\hcal$, c'est-à-dire des formes de $\hcal$ dans $\hcal$. \\
+
+Un élément du dual de $\hcal$ est donc une forme qui transforme tout vecteur $\bm{x}$ de $\hcal$ en un vecteur $\bm{x}'$ de $\hcal$. Les éléments de $\hcals$ agissent sur ceux de $\hcal$.\\
+
+Par le théorème de Riesz (rappelé ci-dessous), l'action d'une forme linéaire sur un vecteur peut être équivalente à celle d'un produit scalaire entre $\bm{x}$ et un unique vecteur de $\hcal$.
+
+\begin{theorem}
+    Théorème de Riesz. 
+    \begin{equation}
+        \forall \varphi \in \hcals , \; \forall x \in \hcal, \exists 1! \; \bm{y} \in \hcal \; : \; \varphi(\bm{x}) = (\bm{y}, \bm{x})
+    \end{equation}
+\end{theorem}
+
+Ce théorème est intéressant car il permet de voir l'action d'une forme linéaire comme un produit scalaire avec un certain vecteur de $\hcal$, qui est unique à chaque fois.
+
+La définition suivante n'a pas d'utilité pour le moment mais sera mentionnée par la suite.
+\begin{definition} \label{def:crochet de dualité}
+    Le crochet de dualité est la forme bilinéaire non-dégénérée
+    \begin{equation}
+        \langle \; \cdot \; , \; \cdot \; \rangle : \hcals \times \hcal \longrightarrow \mathbb{C}\; \quad \varphi, \bm{x} \longmapsto \langle\varphi, \bm{x}\rangle \doteq \varphi(\bm{x})
+    \end{equation}
+\end{definition}
+\end{document}
