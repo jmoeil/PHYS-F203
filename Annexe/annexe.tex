@@ -37,6 +37,10 @@ Nous pouvons utiliser l'algorithme de Gram-Schmidt pour ortogonaliser une base d
 
 \begin{definition} Une matrice $a \in$ Mat($\mathbb{C}$) est Hermitienne si $\bar{a}^T = a$. \label{Hermitienne}\end{definition}
 
+\begin{remark}
+	Dans le formalisme de Dirac, un opérateur $\hat{A}$ est dit hermitien si et seulement si $\hat{A}^\dagger = \hat{A}$.
+\end{remark}
+
 \begin{Property} A est une isométrie si et seulement si a est unitaire (si $V_\mathbb{C}$). \end{Property}
 
 Voici une série de propriétés classiques des isométries:
@@ -75,6 +79,16 @@ Soit $\mathbb{H}$ un espace de Hilbert. $\mathbb{H}$ est séparable si il possè
 \begin{remark}
 Soit $u_i$ une base $\forall i\in\mathbb{N}$. Par Gram-Schmidt, nous pouvons prendre la base orthonormée $(u_i,u_j) = \delta_{ij}$.
 \end{remark}
+
+\begin{definition}[Base de Hilbert]
+	On dit que F est une base de Hilbert de H si et seulement si
+	\begin{itemize}
+		\item F est une famille orthonormale de H ;
+		\item la famille est complète, c'est à dire que \begin{align}
+			\forall x\in\mathcal{H}, \exists \left(\lambda_i\right)_{i\in I} \text{tel que } \sum_{i\in I} \lambda_ie_i = x.
+		\end{align}
+	\end{itemize}
+\end{definition}
 
 
 \section{Approximation BKW}
@@ -127,6 +141,47 @@ Soit $u_i$ une base $\forall i\in\mathbb{N}$. Par Gram-Schmidt, nous pouvons pre
 
 \section{Opérateur parité}
 
-\color{blue} \textbf{En cours de rédaction.}
+\color{blue} \textbf{En cours de rédaction.} \color{black}
+
+
+\section{Changement de base dans le formalisme de Dirac}
+
+Nous allons ici tenter de changer de représentation d'un ket (ou d'un bra, ou encore d'un opérateur) en une autre. Concrètement, nous voulons trouver la relation de changement de base.\\
+
+Supposons donc que nous souhaitons passer d'une base orthonormée $\left\{\ket{u_i}\right\}$ à une autre base orthonormée $\left\{\ket{e_l}\right\}$. On définit le changement de base comme la donnée de chaque composante du ket étudié dans l'ancienne et la nouvelle base. On définit alors
+\begin{align}
+	\hat{U}_{il} &= \braket{u_i|e_l} & \hat{U}^\dagger &= \braket{e_l|u_i} 
+\end{align}
+où U est la matrice de changement de base. Dans la suite, nous utiliserons les deux relations relations de fermetures
+\begin{subequations}
+	\begin{equation}
+		\sum_l \ket{e_l}\bra{e_l} = \hat{\mathcal{I}}
+	\end{equation}
+
+	\begin{equation}
+		\sum_i \ket{u_i}\bra{u_i} = \hat{\mathcal{I}}
+	\end{equation}
+\label{Rfermeture}
+\end{subequations}
+
+\subsection{Changement de base d'un ket et d'un bra}
+
+Le calcul est extrêmement simple. Nous insérons la relation de fermeture $\eqref{Rfermeture}$ idoine le braket $\braket{e_l|\psi}$:
+
+\begin{align}
+	\braket{e_l|\psi} &= \braket{e_l|\mathcal{I}|\psi} = \sum_i \braket{e_l|u_i}\braket{u_l|\psi} = \sum_i \hat{S}^\dagger \braket{u_l|\psi}
+\end{align}
+
+Similairement, nous pouvons démontrer la relation de transformation inverse et la loi de transformation d'un bra.
+
+\begin{Property}
+	Soit $\ket{\psi}$ un ket défini au sein d'un espace de $\mathcal{H}$ilbert. En particulier, les relations de changement de base entre $\left\{\ket{u_i}\right\}$ et $\left\{\ket{e_l}\right\}$ pour $\ket{\psi}$ et $\bra{\psi}$ seront
+	\begin{align}
+		\braket{e_l|\psi} &= \sum_i \hat{U}^\dagger_{li} \braket{u_l|\psi} & \braket{u_i|\psi} &= \sum_l \hat{U}_{il} \braket{u_l|\psi} 
+	\end{align}
+\end{Property}
+
+\subsection{Changement de base d'un opérateur}
+
 
 \end{document}
