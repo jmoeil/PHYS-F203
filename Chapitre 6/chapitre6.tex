@@ -132,38 +132,60 @@ Pour tout $i,j = 1,2,3$.
 Observons que cet opérateur est unitaire : effectivement, $S^\dagger (\lambda) = S(-\lambda)$. De plus, $S(\lambda)S(\lambda') = S(\lambda + \lambda')$.\\
 
 Nous voulons déterminer la valeur de $[X,S(\lambda)]$. Commencons par remarquer les propriétés suivantes de l'opérateur commutateur.
-\subsection{Quelques propriétés de l'opétateur commutateur}
+\subsection{Propriétés générales du commutateur}
 \begin{Property}
 	Pour tout opérateur A,B et C,
 	\begin{equation}
 		[A,BC] = [A,B]C + B[A,C]
 	\end{equation}
 \end{Property}
-\begin{Property}
-	\label[]{Commutateur dérivée}
-	Pour tout opérateur X et P et tout naturel n,
+
+\begin{Property}[Identité de Jacobi]
+	Le commutateur est un opérateur bilinéaire, antisymétrique et vérifiant l'identité de Jacobi, c'est à dire que
 	\begin{equation}
-		[X,P^n] = i\h nP^{n-1}
+		[[\hat{A},\hat{B}],\hat{C}] + [[\hat{B},\hat{C}],\hat{A}] + [[\hat{C},\hat{A}],\hat{B}] = 0
+	\end{equation}
+\end{Property}
+
+\begin{Property}
+	Pour tout opérateur $\hat{A},\hat{B}$ commutant avec $[\hat{A},\hat{B}]$, 
+	\begin{equation}
+		\exp\left(\hat{A}\right)+\exp\left(\hat{B}\right) = \exp\left(\hat{A}+\hat{B}\right)\exp\left(\frac{[\hat{A},\hat{B}]}{2}\right)
+	\end{equation}
+	Il s'agit d'un cas particulier de l'identité de $Backer-Hausdorff$.
+\end{Property}
+
+
+\begin{Property}
+	\label{Commutateur dérivée}
+	Soit $\hat{A}$,$\hat{B}$ deux opérateurs commutant avec $[\hat{A},\hat{B}]$. Alors, pour tout naturel $n$,
+	\begin{equation}
+		[\hat{A},\hat{B}^n] = n\hat{B}^{n-1}[\hat{A},\hat{B}]
 	\end{equation}
 \end{Property}
 \begin{proof}
-	Il s'agit d'une preuve par réccurence. La base se prouve assez facilement ; passons directement à l'étape d'induction:
-	\begin{equation*}
-		[X,P^{n+1}] = [X,P^n \; P] = [X,P^n]P + P^n[X,P] = i\h nP^n + i\h P^n = i\h (n+1)P^n
-	\end{equation*}
-\end{proof}
-Généralisons $\ref{Commutateur dérivée}$ à une fonction pouvant être représentée comme une série, supposée convergente.
-\begin{Property}
-\label[]{Lien commutateur dérivée}
-	Soit $F(P) = \sum_{n = 0}^\infty a_nP^n$ une fonction de P. Alors,
-	\begin{equation}
-		[X,F(P)] = i\h F'(P)
-	\end{equation}
-\end{Property}
-\begin{proof}
+	Remarquons en particulier que puisque les opérateurs commutent avec $[\hat{A},\hat{B}]$, nous aurons que
+	\begin{align}
+		\hat{A}[\hat{A},\hat{B}] &= [\hat{A},\hat{B}]\hat{A} & \hat{B}[\hat{A},\hat{B}] &= [\hat{A},\hat{B}]\hat{B}
+	\end{align}
+	Travaillons par récursion. La base s'obtient assez facilement. Passons de suite à l'étape d'induction:
 	\begin{align*}
-		[X,F(P)] &= \sum_n a_n [X,P^n] = \sum_n a_n i\h nP^{n-} = i\h F'(P)
+		[\hat{A},\hat{B}\hat{B}^n] &= [\hat{A},\hat{B}]\hat{B}^n + \hat{B}[\hat{A},\hat{B}^n] = \hat{B}^n [\hat{A},\hat{B}] + n\hat{B}\hat{B}^{n-1}[\hat{A},\hat{B}] = \left(n+1\right)\hat{B}^n[\hat{A},\hat{B}]
 	\end{align*}
+\end{proof}
+Généralisons cette dernière proposition à une fonction analytique ; c'est à dire une fonction pouvant être localement développée en série.
+\begin{theorem}
+\label{Lien commutateur dérivée}
+	Soient $\hat{A},\hat{B}$ deux opérateurs commutant avec $[\hat{A},\hat{B}]$ et soit une fonction analytique $F(\hat{B}) \doteq \sum_{n = 0}^{\infty} a_n\hat{B}^n$. Alors, pour tout naturel n,
+	\begin{equation}
+		[\hat{A},F(\hat{B})] = [\hat{A},\hat{B}]F'(\hat{B})
+	\end{equation}
+\end{theorem}
+\begin{proof}
+	Remarquons que les hypothèses de $\ref{Commutateur dérivée}$ sont respectées. Dès lors, l'assertion se démontre sans peine:
+	\begin{align*}
+		[\hat{A},F(\hat{B})] &= \sum_{n = 0}^\infty [\hat{A},\hat{B}^n] = \sum_{n = 0}^\infty a_nn\hat{B}^{n-1} [\hat{A},\hat{B}] \doteq F'(\hat{B})[\hat{A},\hat{B}]
+	\end{align*} 
 \end{proof}
 
 Cette dernière proposition permet de répondre à la question posée : 
@@ -228,7 +250,7 @@ Supposons que le système est invariant par translation, c'est à dire que, pour
 
 Nous pouvons alors montrer que $HP\ket{\psi} = PH\ket{\psi}$, c'est à dire que $[H,P] = 0$.\\
 
-L'invariance de translation implique la conservation du générateur des translations ; c'est à dire la conservation de l'impulsion. Ce résultat (\emph{non démontré dans le cadre de ce cours}) exploite le Théorème d'Emmy Nöther.
+L'invariance de translation implique la conservation du générateur des translations ; c'est à dire la conservation de l'impulsion. Ce résultat exploite le Théorème d'Emmy Nöther (\emph{pour une démonstration, le lecteur est invité à suivre le cours de}  $\href{https://www.ulb.be/fr/programme/math-f204}{\text{\emph{Mécanique Analytique - MATH-F204}}}$).
 
 \section{Relations d'incertitudes}
 Soient A,B des observables et $\ket{\psi}$ un état.
@@ -238,9 +260,9 @@ Soient A,B des observables et $\ket{\psi}$ un état.
 \end{remark}
 
 \begin{theorem}
-	Soit A,B deux obserables. Alors,
+	Soit A,B deux observables. Alors,
 	\begin{equation}
-		\Delta A\Delta B \geq \frac{1}{2} \norm{<[A,B]>}
+		\Delta A\Delta B \geq \frac{1}{2} \norm{\braket{[A,B]}}
 	\end{equation}
 \end{theorem}
 
