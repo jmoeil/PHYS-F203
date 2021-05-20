@@ -67,14 +67,14 @@ E = \frac{p^2}{2m} + V(\bm{r},t)
 Dès lors, nous obtenons l'équation de Schrödinger pour une particule:
 \begin{equation}
 \label{Schrodinger}
-i \h \frac{\partial \Psi}{\partial t} = -\frac{\h^2}{2m} \Delta \Psi + V(\bm{r},t) \Psi \doteq H \Psi
+-\frac{\h^2}{2m} \Delta \Psi + V(\bm{r},t) \Psi \doteq H \Psi = i \h \frac{\partial \Psi}{\partial t}
 \end{equation}
 \newpage
 \textbf{Note.} Nous avons alors que l'opérateur $H \doteq -\frac{\h^2}{2m} \Delta + V (\bm{r},t)$.
 Remarquons que:
 \begin{itemize}
 \item L'équation de Schrödinger est linéaire\footnote{Si $\Psi_1$ et $\Psi_2$ sont des solutions de \ref{Schrodinger}, alors $\Psi_1 + \Psi_2$ est également une solution de \ref{Schrodinger}.} et satisfait les relations de Broglie.
-\item L'opérateur H est hermitien ; cela garantit la conservation de la probabilité, que ses valeurs propres sont réelles et que ses vecteurs propres constituent une base de l'espace considéré. Tous ces éléments font l'objet de la section \ref{Formalisme de Dirac}.
+\item L'opérateur H est hermitien ; cela garantit la conservation de la probabilité, que ses valeurs propres sont réelles et que ses vecteurs propres constituent une base de l'espace considéré. Tous ces éléments font l'objet de la section $\ref{Formalisme de Dirac}$.
 \end{itemize}
 
 \section{Particule libre}
@@ -97,7 +97,7 @@ g(\bm{k},t=0) = \frac{1}{\sqrt{2\pi}} \int \Psi (\bm{r},0)e^{-i\bm{k}x} dx
 
 \section{Interprétation probabiliste}
 
-Soit $\Psi (\bm{r},t)$ une solution de ($\ref{Schrodinger}$). Nous pouvons vérifier que $\Psi$ est normaliée : effectivement, $\int d\bm{r} \norm{\Psi(\bm{r},t)}^2 = 1$. Il est possible de montrer que si c'est le cas à un instant donné, ça l'est à tout moment.\\
+Soit $\Psi (\bm{r},t)$ une solution de ($\ref{Schrodinger}$). Nous pouvons vérifier que $\Psi$ est normaliée : effectivement, $\int d\bm{r} \norm{\Psi(\bm{r},t)}^2 = 1$. Il est possible de montrer que si c'est le cas à un instant donné, ça l'est à tout moment : il s'agit de la condition de normalisation, imposée par les postulats de la Mécanique Quantique - tel que nous le présenterons dans la section \ref{Postulats de la Mecanique Quantique}.
 
 Posons donc que $\rho (\bm{r},t) = \norm{\Psi (\bm{r},t)}^2 = \bar{\Psi} \Psi$ la densité de probabilité de trouver la particule en $\bm{r}$ à l'instant t.\\
 
@@ -143,7 +143,7 @@ L'équation de continuité $\eqref{Equation de Continuité}$ explique que rien n
 \end{align}
 Où $P_A$ est la probabilité de trouver une particule dans la région A, et $F_A$ est le flux de cette particule à travers le bord de la région A. L'équation \eqref{Conservation des particules} décrit la conservation des particules à travers la surface A.\\
 
-Nous pouvons également définir les coefficients de \textbf{réflexion} et de \textbf{transmission} comme suit:
+Nous pouvons également définir les coefficients de réflexion et de transmission comme suit:
 \begin{align}
 R &= \frac{J_- [\leftarrow]}{J_- [\rightarrow]},	&T = \frac{J_+ [\rightarrow]}{J_- [\rightarrow]}
 \end{align}
@@ -291,16 +291,20 @@ H \varphi(\bm{r}) &= E \varphi(\bm{r})  \label{kikoo}
 \end{align}
 En posant $c_1 = 1$ dans \eqref{Solution temporelle}, nous obtenons alors la fonction
 \begin{equation}
-\Psi (\bm{r},t) = \varphi(\bm{r})e^{-i\omega t}
+\Psi (\bm{r},t) = \varphi(\bm{r})e^{-i\omega t} = \varphi\left(\bm{r}\right)e^{-\frac{i}{\h}Et}
+\label{Evolution des états}
 \end{equation}
 qui est solution de l'équation de Schrödinger, si $\varphi(\bm{r})$ est solution de \eqref{Schrodinger spacial}. On dit que l'on a séparé les variables de \textbf{temps} et d'\textbf{espace}.\\
 
-\textbf{Note.} Dans \eqref{Equations aux valeurs propres}, $H$ est un opérateur différentiel \emph{linéaire}. Effectivement, si $\lambda_1$ et $\lambda_2$ sont des constantes, alors 
+\begin{remark} Dans \eqref{Equations aux valeurs propres}, $H$ est un opérateur différentiel \emph{linéaire}. Effectivement, si $\lambda_1$ et $\lambda_2$ sont des constantes, alors 
 \begin{align}
 &H \left[\lambda_1 \varphi_1(\bm{r}) + \lambda_2 \varphi_2(\bm{r})\right] = \lambda_1 H \varphi_1(\bm{r}) + \lambda_2 H \varphi_2(\bm{r})							&\forall \lambda_1,\lambda_2 \in \mathbb{R}
 \end{align}
+\end{remark}
 
-\textbf{Note.} L'équation $\eqref{Equations aux valeurs propres}$ est souvent décrite comme "l'équation aux valeurs propres".
+\begin{remark}
+    L'équation $\eqref{Equations aux valeurs propres}$ est une \textit{équation aux valeurs propres}.
+\end{remark} 
 
 \subsection{Potentiels à une dimension: description quantitative}
 
@@ -530,5 +534,5 @@ La particule alpha a une énergie E. Pour $R>R_\alpha$, nous avons une énergie 
 \gamma &\approx \frac{\pi}{2\h} \sqrt{2m_\alpha} \left[\frac{z_\alpha ze^2}{4\pi\epsilon_0}\right]\frac{1}{\sqrt{E}}\\
 &\rightarrow \log T_{\frac{1}{2}} = a\frac{z}{\sqrt{E}} + b
 \end{align}
-Cette loi est bien vérifiée expérimentalement. Elle explique pourquoi il n'y a pas de désintégration des noyaux les plus lourds.
+Cette loi est bien vérifiée expérimentalement. Elle explique pourquoi il n'y a pas de désintégration des noyaux les plus lourds.\\
 \end{document}

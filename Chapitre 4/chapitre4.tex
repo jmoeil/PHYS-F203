@@ -372,6 +372,7 @@ Une application linéaire $\Psi$ tel que $\Psi^2 = \Psi$ est dite idempotente. \
 
 \newpage
 \part{Postulats de la Mécanique Quantique}
+\label{Postulats de la Mecanique Quantique}
 Dans ce chapitre, nous allons énoncer les postulats de la mécanique quantique selon le formalisme développé en \ref{Formalisme de Dirac}. Ils permettront de répondre aux questions suivantes:
 \begin{enumerate}
 \item Comment décrire mathématiquement l'état d'un système quantique à un instant donné?
@@ -385,7 +386,7 @@ Dans ce chapitre, nous allons énoncer les postulats de la mécanique quantique 
 \begin{center}
 \textbf{PREMIER POSTULAT - Vecteur d'état $\ket{\Psi}$}
 \end{center}
-A tout système quantique correspond au moins un $\emph{espace de }\mathcal{H}ilbert$ complexe et séparable $\mathbb{H}$ dans lequel la théorique quantique du système peut-être formulée. Tout état accessible du système quantique correspond alors à un \emph{vecteur normé $\ket{\Psi}$} dans $\mathcal{H}$ dont la phase globale est arbitraire. 
+A tout système quantique correspond au moins un $\emph{espace de }\mathcal{H}ilbert$ complexe et séparable $\mathbb{H}$ dans lequel la théorie quantique du système peut-être formulée. Tout état accessible du système quantique correspond alors à un \emph{vecteur normé $\ket{\Psi}$} dans $\mathcal{H}$ dont la phase globale est arbitraire. 
 \end{minipage}}
 \end{center}
 Ce postulat a plusieurs implications:
@@ -428,15 +429,17 @@ Le résultat d'une mesure sur un opérateur $\hat{A}$ à un instant donné est a
 \end{minipage}}
 \end{center}
 \begin{itemize}
-\item $P_a = \norm{\braket{a|\Psi}}^2$ dans le cas discret, et $dP(a) = \norm{\Psi(a)}^2da$ dans le cas continu.
 \item Nous ne sommes en mesure que d'effectuer des prédictions probabilistes. Il faut dès lors effectuer un grand nombre d'expériences. Nous n'avons accès qu'aux \emph{valeurs moyennes} de $\hat{A}$, et les écart-types associés.
 \item Le Théorème d'Heinsenberg $\Delta A\Delta B \geq \frac{\norm{{[\hat{A},\hat{B}]}}}{2}$ implique que deux observables qui ne commutent pas ne peuvent pas être observées en même temps.
-\item \textit{Règle de Born} : La probabilité de transition entre $\ket{\Psi}$ et $\ket{\varphi}$ est donnée par $\norm{\braket{\varphi|\Psi}}^2$.
+\item \textit{Règle de Born} (spectre discret) : La probabilité de transition entre les états $\ket{\Psi}$ et $\ket{\varphi}$ est donnée par $P_\varphi = \norm{\braket{\varphi|\Psi}}^2$ lorsque le spectre est discret non-dégénéré.
+
+\item \textit{Règle de Born} (spectre continu) : La probabilité $dP(\alpha)$ d'obtenir un résultat entre $\alpha$ et $\alpha+d\alpha$ est donnée par $dP = \norm{\braket{u_\alpha|\psi}}^2d\alpha$.
 \end{itemize}
-\subsection{Valeur moyenne d'une observable $\mathcal{A}$}
+
+\subsection{Valeur moyenne d'une observable $\mathcal{\hat{A}}$}
 
 \begin{definition}
-	La moyenne d'une observable physique $\mathcal{A}$ est donnée par
+	La moyenne $\braket{\hat{\mathcal{A}}}$ d'une observable $\mathcal{\hat{A}}$ par rapport à un état $\ket{\psi}$ est donnée par
 	\begin{align}
 		\braket{A} &= \sum_n a_n P(a_n) = \sum_n a_n \braket{\Psi|P_n|\Psi} = \braket{\Psi|\sum_n a_n P_n | \Psi} & \braket{A} &= \braket{\psi|A|\psi}
 	\end{align}
@@ -452,13 +455,22 @@ A^2 = (\sum_n a_nP_n)(\sum_{n'} a_nP_n) = \sum_{nn'} a_na_{n'}P_nP_{n} = \sum_n 
 \end{equation*}
 Effectivement, remarquons que $P_nP_{n'}$ revient à $\delta_{nn'}P_n'$.
 \end{proof}
-\begin{align*}
-\Delta A^2 &= \sum_n a_n^2 P(a_n) - \langle A\rangle^2\\
-&= \sum_n a_n^2 \braket{\Psi|P_n|\Psi} - \langle A\rangle^2\\
-&= \sum_n a_n^2 \braket{\Psi|P_n|\Psi} - \langle A\rangle^2\\
-&= \braket{\Psi|\sum_n a_n^2 P_n|\Psi} - \langle A\rangle^2\\
-&= \braket{\Psi|A^2|\Psi} - \braket{\Psi|A|\Psi}^2.
-\end{align*}
+
+\begin{Property}
+	L'incertitude d'une observable $\mathcal{\hat{A}}$ est donnée par
+	\begin{equation}
+		\Delta \hat{A} = \sqrt{\braket{\Psi|A^2|\Psi} - \braket{\Psi|A|\Psi}^2}
+	\end{equation}
+\end{Property}
+\begin{proof}
+	\begin{align*}
+		\Delta A^2 &= \sum_n a_n^2 P(a_n) - \langle A\rangle^2\\
+		&= \sum_n a_n^2 \braket{\Psi|P_n|\Psi} - \langle A\rangle^2\\
+		&= \sum_n a_n^2 \braket{\Psi|P_n|\Psi} - \langle A\rangle^2\\
+		&= \braket{\Psi|\sum_n a_n^2 P_n|\Psi} - \langle A\rangle^2\\
+		&= \braket{\Psi|A^2|\Psi} - \braket{\Psi|A|\Psi}^2.
+		\end{align*}	
+\end{proof}
 
 \begin{remark} Nous ne pouvons pas mesurer simultanément des obserbables qui ne commutent pas. A l'inverse, nous \textbf{pouvons} mesurer simultanément des observables qui commutent: $[A,B] = 0$. Ceci constitue une réécriture et généralisation du principe d'incertitude d'Heinsenberg \eqref{Heinsenberg}.\end{remark}
 
@@ -491,8 +503,13 @@ i\h \frac{d}{dt} \ket{\Psi(t,\bm{x})} = \hat{H}\ket{\Psi (t,\bm{x})}
 \end{minipage}}
 \end{center}
 \begin{itemize}
-\item L'évolution est \textit{unitaire}, c'est à dire $\ket{\Psi (t,\bm{x})} = \hat{U} (t,t_0)\ket{\Psi (t_0,\bm{x})}$ par conservation de la probabilité.
-\item Un état stationnaire est un état propre de l'hamiltonien.
+\item L'évolution est \textit{unitaire}, c'est à dire que $\ket{\Psi (t,\bm{x})} = \hat{U} (t,t_0)\ket{\Psi (t_0,\bm{x})}$ par conservation de la probabilité.
+\item Un état stationnaire est un état propre de l'hamiltonien. 
+\item Dans un potentiel stationnaire, l'évolution des états s'écrit
+\begin{equation}
+	U(t,t_0) = e^{-i\omega t} = e^{-\frac{i}{\h}Et}
+\end{equation}
+comme nous l'explique l'équation \eqref{Evolution des états}.
 \end{itemize}
 Soit une base $\Big\{\ket{u_i}\Big\}$ orthonormée. Alors,
 \begin{align}
