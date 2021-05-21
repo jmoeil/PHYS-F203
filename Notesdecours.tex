@@ -1,5 +1,5 @@
 \documentclass[a4paper]{article}
-\usepackage{hyperref}
+\usepackage[allcolors=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{amsmath,amsfonts,amsmath,amsthm,amssymb}
 \usepackage{caption}
@@ -20,22 +20,23 @@
 \usepackage{braket}
 \usepackage{chngcntr}
 \usepackage{geometry}
- \geometry{
- a4paper,
- total={170mm,257mm},
- left=20mm,
- top=20mm,
+\geometry{
+     a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
  }
 
 \numberwithin{equation}{part}
 \counterwithin*{section}{part}
-\renewcommand{\thepart}{\arabic{part}}
+
 
 \pgfplotsset{width=10cm,compat=1.16}
 
 \newcommand{\ti}{\times}
 \newcommand{\h}{\hbar}
 \renewcommand{\d}{\mathrm{d}}
+\renewcommand{\thepart}{\arabic{part}}
 
 
 \titleformat{\paragraph}
@@ -79,10 +80,16 @@
 
 \newpage
 \begin{abstract}
-\textit{Ces notes traitent de l'interprétation de Copenhague de la Mécanique Quantique. De plus, le symbôle $\doteq$ sera intensément employé, pour signifier "par définition". Finalement, les vecteurs seront indiqués en gras, selon $\vec{x} \doteq \bm{x}$ Insistons que ces notes ont été rédigées par des étudiant.e.s, et qu'elles contiennent probablement des fautes. N'hésitez pas à contacter $\href{mailto:juian.moeil@ulb.be}{\text{MOEIL Juian}}$}. 
-\end{abstract}
+\textit{Ces notes traitent de l'interprétation de Copenhague de la Mécanique Quantique, telle qu'enseignée dans le cadre du cours $\href{https://www.ulb.be/fr/programme/phys-f203}{\text{PHYS-F203}}$ en 2020-2021.} \end{abstract}
+\begin{remark}
+    Le symbole $\doteq$ est employé pour dire "par définition". Les vecteurs $\bm{x}$ sont indiqués en gras.
+\end{remark}
 
-\textit{Merci à BELLET Björn pour sa relecture.}
+\begin{remark}
+    Ces notes ont été rédigées par des étudiant.e.s. Aussi, n'hésitez pas à contacter $\href{mailto:juian.moeil@ulb.be}{\text{MOEIL Juian}}$ pour toute question ou remarque. 
+\end{remark}
+
+\textit{Merci à Bellet Björn pour sa relecture.}
 
 \subfile{Chapitre 1/chapitre1.tex}
 \newpage
