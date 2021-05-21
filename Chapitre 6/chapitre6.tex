@@ -39,10 +39,10 @@ $\int d^3 \; \ket{x_0}\bra{x_0} = \mathbb{I}$ & $\int dp_0 \; \ket{p_0}\bra{p_0}
 Nous avons alors deux relations de \emph{complétude}, ou de \emph{fermeture}.
 
 \subsection{Composante d'un ket}
-Considérons un état quantique $\ket{\Psi}$, correspondant à la fonction d'onde $\Psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
+Considérons un état quantique $\ket{\psi}$, correspondant à la fonction d'onde $\psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
 \begin{align}
-\ket{\Psi} &= \int d^3x_0 \; \ket{x_0} \bra{x_0} \ket{\Psi}\\
-\ket{\Psi} &= \int d^3p_0 \; \ket{p_0} \bra{p_0} \ket{\Psi}
+\ket{\psi} &= \int d^3x_0 \; \ket{x_0} \bra{x_0} \ket{\psi}\\
+\ket{\psi} &= \int d^3p_0 \; \ket{p_0} \bra{p_0} \ket{\psi}
 \end{align}
 On pose $\psi(x) = \braket{x|\psi}$. Observons que
 \begin{align}
@@ -216,7 +216,7 @@ Cette dernière proposition permet de répondre à la question posée :
 Cette propriété exprime que $S(\lambda)\ket{x_0}$ est un autre vecteur propre non nul de X, de valeur propre ($x_0+\lambda$). A partir d'un vecteur propre de X, nous pouvons alors en construire un autre : le spectre de X est continu, composé de toutes les valeurs de l'axe réelle.
 
 \begin{Property}
-	Si $\ket{\psi}$ est un vecteur de la fonction d'onde $\Psi$, alors $S(\lambda)\ket{\psi}$ est un ket d ela fonction d'onde $\Psi(x-\lambda)$.
+	Si $\ket{\psi}$ est un vecteur de la fonction d'onde $\psi$, alors $S(\lambda)\ket{\psi}$ est un ket d ela fonction d'onde $\psi(x-\lambda)$.
 \end{Property}
 
 \begin{remark}
@@ -231,12 +231,12 @@ Cette propriété exprime que $S(\lambda)\ket{x_0}$ est un autre vecteur propre 
 \end{remark}
 
 \begin{Property}
-	On remarque alors que si $\ket{\psi}$ est un ket de la fonction d'onde $\Psi(x)$, alors $S(\lambda)\ket{\psi}$ est le ket associé à la fonction d'onde $\Psi(x-\lambda)$.
+	On remarque alors que si $\ket{\psi}$ est un ket de la fonction d'onde $\psi(x)$, alors $S(\lambda)\ket{\psi}$ est le ket associé à la fonction d'onde $\psi(x-\lambda)$.
 \end{Property}
 \begin{proof}
 	\begin{align*}
-		\braket{x|\psi} &= \Psi(x)\\
-		\braket{x|S(\lambda)|\psi} &= \braket{x-\lambda|\psi} = \Psi(x-\lambda)
+		\braket{x|\psi} &= \psi(x)\\
+		\braket{x|S(\lambda)|\psi} &= \braket{x-\lambda|\psi} = \psi(x-\lambda)
 	\end{align*}
 \end{proof}
 

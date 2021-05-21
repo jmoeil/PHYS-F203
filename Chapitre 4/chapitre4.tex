@@ -179,24 +179,24 @@ Dans le cadre de la Mécanique Quantique, nous nous placerons dans des expaces d
 
 Nous introduisons:
 \begin{itemize}
-\item Vecteur $\in \mathbb{H}$ : $\ket{\Psi}$. Il s'agit d'un vecteur colonne $v$, appelé le ket.
-\item Vecteur transposé conjugué $\in \mathbb{H}$ : $\bra{\Psi}$. Il s'agit du vecteur ligne\footnote{Nous pouvons également le voir comme un élément du dual $\mathbb{H}^*$} $\overline{v}^T$, appelé le bra.
-\item Le produit scalaire $\braket{\varphi,\Psi}$, appelé le braket.
+\item Vecteur $\in \mathbb{H}$ : $\ket{\psi}$. Il s'agit d'un vecteur colonne $v$, appelé le ket.
+\item Vecteur transposé conjugué $\in \mathbb{H}$ : $\bra{\psi}$. Il s'agit du vecteur ligne\footnote{Nous pouvons également le voir comme un élément du dual $\mathbb{H}^*$} $\overline{v}^T$, appelé le bra.
+\item Le produit scalaire $\braket{\varphi,\psi}$, appelé le braket.
 \end{itemize}
 \subsection{Correspondance entre bra et ket}
-Si $\ket{\Psi} = \alpha \ket{\Phi} + \beta\ket{\Phi'}$, alors $\bra{\Psi} = \overline{\alpha}\bra{\Phi}+\overline{\beta}\bra{\Phi'}$ : la correspondance bra $\rightarrow$ ket est donc antilinéaire. 
-\begin{remark} Si $\lambda$ est un nombre complexe et $\ket{\Psi}$ un ket, alors $\lambda\ket{\Psi}$ est un ket. Nous l'écrirons parfois $\ket{\lambda\Psi}$. Il faudra alors faire attention que la relation entre bra et ket étant anti-linéaire, $\bra{\lambda\Psi} = \overline{\lambda}\ket{\Psi}$. \end{remark}
+Si $\ket{\psi} = \alpha \ket{\Phi} + \beta\ket{\Phi'}$, alors $\bra{\psi} = \overline{\alpha}\bra{\Phi}+\overline{\beta}\bra{\Phi'}$ : la correspondance bra $\rightarrow$ ket est donc antilinéaire. 
+\begin{remark} Si $\lambda$ est un nombre complexe et $\ket{\psi}$ un ket, alors $\lambda\ket{\psi}$ est un ket. Nous l'écrirons parfois $\ket{\lambda\psi}$. Il faudra alors faire attention que la relation entre bra et ket étant anti-linéaire, $\bra{\lambda\psi} = \overline{\lambda}\ket{\psi}$. \end{remark}
 
 Notons que les états quantiques sont:
 \begin{enumerate}
 \item \emph{normalisés}:
 \begin{equation}
-\braket{\Psi|\Psi} = 1
+\braket{\psi|\psi} = 1
 \end{equation}
 en raison de l'interprétation probabiliste.
 \item \emph{définis à une phrase prêt}:
 \begin{align}
-&\ket{\Psi} 	&e^{i\varphi}\ket{\Psi}
+&\ket{\psi} 	&e^{i\varphi}\ket{\psi}
 \end{align}
 représentent le même état quantique.
 \end{enumerate}
@@ -204,7 +204,7 @@ Nous sommes dans un espace projectif de Hilbert. Dès lors,
 
 \begin{center}
 \begin{tabular}{ c c c } 
-$\ket{\Psi} \thicksim \ket{\varphi}$ & quand & $\ket{\Psi} = \lambda\ket{\varphi}$  
+$\ket{\psi} \thicksim \ket{\varphi}$ & quand & $\ket{\psi} = \lambda\ket{\varphi}$  
 \end{tabular}
 \end{center}
 
@@ -213,44 +213,44 @@ $\ket{\Psi} \thicksim \ket{\varphi}$ & quand & $\ket{\Psi} = \lambda\ket{\varphi
 
 Nous pouvons définir un état arbitraire:
 \begin{equation}
-\ket{\Psi} = \cos\frac{\theta}{2} \ket{\uparrow}+e^{i\varphi}\sin\frac{\theta}{2}\ket{\downarrow}
+\ket{\psi} = \cos\frac{\theta}{2} \ket{\uparrow}+e^{i\varphi}\sin\frac{\theta}{2}\ket{\downarrow}
 \end{equation}
 Où $\theta\in[0,\pi]$ et $\varphi \in [0,2\pi]$ et $\theta,\varphi$ appartiennent à la sphère de Bloch.\\
 
 Si $\ket{\varphi} = \cos\frac{\theta'}{2}\ket{\uparrow}+e^{i\varphi'}\sin\frac{\theta'}{2}\ket{\downarrow}$, alors le produit scalaire donnera
 \begin{equation}
-\braket{\varphi|\Psi} = \cos\frac{\theta}{2}\cos\frac{\cos'}{2}+e^{\varphi-\varphi'}\sin\frac{\theta}{2}\sin\frac{\theta'}{2}
+\braket{\varphi|\psi} = \cos\frac{\theta}{2}\cos\frac{\cos'}{2}+e^{\varphi-\varphi'}\sin\frac{\theta}{2}\sin\frac{\theta'}{2}
 \end{equation}
 
 \textbf{Oscillateur harmonique:} base orthonormée = $\bigg\{\ket{n} : n=0,1,2,...\bigg\}$ et les états d'énergies sont donnés par $E_n = \h\omega\bigg\{n+\frac{1}{2}\bigg\}$.\\
 
-Nous pouvons définir un état arbitraire par $\ket{\Psi} = \sum_n c_n \ket{n}$ avec $\sum_n \norm{c_n}^2 = 1$.
+Nous pouvons définir un état arbitraire par $\ket{\psi} = \sum_n c_n \ket{n}$ avec $\sum_n \norm{c_n}^2 = 1$.
 
 \section{Opérateurs linéaires}
-Soit $A : \mathbb{H} \rightarrow \mathbb{H} : \ket{\Psi} \rightarrow A\ket{\Psi}$ un opérateur linéaire, c'est à dire tel quel $A(a\ket{\Psi}+b\ket{\varphi}) = a(A\ket{\Psi})+b(A\ket{\varphi})$. Soit $B$ un (autre) isomorphisme\footnote{Demander vérification à Massar.} sur le même ensemble $\mathbb{H}$. Nous pouvons définir plusieurs opérations:
+Soit $A : \mathbb{H} \rightarrow \mathbb{H} : \ket{\psi} \rightarrow A\ket{\psi}$ un opérateur linéaire, c'est à dire tel quel $A(a\ket{\psi}+b\ket{\varphi}) = a(A\ket{\psi})+b(A\ket{\varphi})$. Soit $B$ un (autre) isomorphisme\footnote{Demander vérification à Massar.} sur le même ensemble $\mathbb{H}$. Nous pouvons définir plusieurs opérations:
 \begin{itemize}
-\item \textbf{Produit d'opérateurs}: $(AB)\ket{\Psi} = A(B\ket{\Psi})$. B agit d'abord sur ket $\ket{\psi}$ pour donner $B\ket{\Psi}$, et A agira ensuite sur $A\ket{\Psi}$.
+\item \textbf{Produit d'opérateurs}: $(AB)\ket{\psi} = A(B\ket{\psi})$. B agit d'abord sur ket $\ket{\psi}$ pour donner $B\ket{\psi}$, et A agira ensuite sur $A\ket{\psi}$.
 \item En général, $AB\neq BA$, le commutateur [A,B] de A,B est par définition [A,B] = AB-BA.
 \item \textbf{Anticommutateur} : $\bigg\{A,B\bigg\} = AB+BA$.
 \end{itemize}
-Action de A sur le dual/les bras. Soit $A: \mathbb{H}^* \rightarrow \mathbb{H}^* : \bra{\varphi} \rightarrow \bra{\varphi}A$ est défini par $\Big\{\bra{\varphi}A\Big\}\ket{\Psi} = \bra{\varphi}\Big\{A\ket{\Psi}\Big\}$, pour tout$\ket{\varphi},\ket{\Psi}$. Nous le noterons $\braket{\varphi|A|\Psi}$.
+Action de A sur le dual/les bras. Soit $A: \mathbb{H}^* \rightarrow \mathbb{H}^* : \bra{\varphi} \rightarrow \bra{\varphi}A$ est défini par $\Big\{\bra{\varphi}A\Big\}\ket{\psi} = \bra{\varphi}\Big\{A\ket{\psi}\Big\}$, pour tout$\ket{\varphi},\ket{\psi}$. Nous le noterons $\braket{\varphi|A|\psi}$.
 \begin{remark} Observons que l'ordre dans lequel apparaît les symbols a une importance capital. Seul les nombres complexes peuvent être déplacés sans influencer le résultat. \end{remark}
 
 \begin{exemple} 
-Soit $\ket{\Psi}$ et $\ket{\Theta}$ deux kets. Ecrivons les dans l'ordre inverse: $\bra{\Psi}$ et $\bra{\Theta}$. Considérons 
+Soit $\ket{\psi}$ et $\ket{\Theta}$ deux kets. Ecrivons les dans l'ordre inverse: $\bra{\psi}$ et $\bra{\Theta}$. Considérons 
 \begin{equation}
-\ket{\Psi}\bra{\Theta}
+\ket{\psi}\bra{\Theta}
 \label{ket bra}
 \end{equation}
 Prenons un ket $\ket{\gamma}$ tel que
 \begin{equation}
-\ket{\Psi}\braket{\Theta|\gamma}
+\ket{\psi}\braket{\Theta|\gamma}
 \end{equation}
-Nous avons que $\braket{\Theta|\gamma}$ est un nombre complexe ; par conséquent, nous avons que un bra $\bra{\Psi}$ multiplié par un scalaire. Nous avons alors que $\eqref{ket bra}$ appliqué à un ket donne un nouveau ket.
+Nous avons que $\braket{\Theta|\gamma}$ est un nombre complexe ; par conséquent, nous avons que un bra $\bra{\psi}$ multiplié par un scalaire. Nous avons alors que $\eqref{ket bra}$ appliqué à un ket donne un nouveau ket.
 \end{exemple}
 
 \section{Opérateur adjoint $A^\dag$}
-\begin{definition} Soit $A$: $\mathbb{H} \rightarrow \mathbb{H}$ un opérateur linéaire. Nous définissons l'opérateur adjoint $A^\dag : \mathbb{H} \rightarrow \mathbb{H}$ par $\braket{\Psi|A^\dag|\varphi} = \braket{\varphi|A|\Psi}^*$ pour tout $\ket{\Psi},\ket{\varphi}$. \end{definition}
+\begin{definition} Soit $A$: $\mathbb{H} \rightarrow \mathbb{H}$ un opérateur linéaire. Nous définissons l'opérateur adjoint $A^\dag : \mathbb{H} \rightarrow \mathbb{H}$ par $\braket{\psi|A^\dag|\varphi} = \braket{\varphi|A|\psi}^*$ pour tout $\ket{\psi},\ket{\varphi}$. \end{definition}
 
 Si $\big\{\ket{u_i}\big\}$ forme une base orthonormée, alors:
 \begin{itemize}
@@ -276,9 +276,9 @@ Nous donnons ici une série de propriétés de l'opérateur adjoint $A^\dag$.
 \begin{enumerate}
 \item Soit $A=\ket{\alpha}\bra{\beta}$. Alors,
 \begin{align}
-\braket{\varphi|A|\Psi} &= \braket{\varphi|\Big\{\ket{\alpha}\bra{\beta}\Big\}|\Psi}\\
-&= \braket{\varphi|\alpha}\braket{\beta|\Psi}\\
-\text{Et } A\ket{\Psi} &= \ket{\alpha}\braket{\beta|\Psi}
+\braket{\varphi|A|\psi} &= \braket{\varphi|\Big\{\ket{\alpha}\bra{\beta}\Big\}|\psi}\\
+&= \braket{\varphi|\alpha}\braket{\beta|\psi}\\
+\text{Et } A\ket{\psi} &= \ket{\alpha}\braket{\beta|\psi}
 \end{align}
 \item Soit $\Big\{(u_i)\Big\}$ une base orthonormée. Nous avons que $\braket{u_i|u_j} = \delta_{ij}$. De plus, nous appelons \emph{éléments de la matrice A} l'opérateur
 \begin{equation}
@@ -305,26 +305,26 @@ Un opérateur Hermitien est dit observable lorsqu'il possède une base de vecteu
 \subsection{Equation aux vecteurs propres}
 Soit 
 \begin{equation}
-A\ket{\Psi} = \lambda\ket{\Psi}.
+A\ket{\psi} = \lambda\ket{\psi}.
 \end{equation}
 \begin{Property}
 Lorsque $A=A^\dag$ est Hermitien, les valeurs propres sont réelles.
 \end{Property}
 \begin{proof}
-$\lambda = \braket{\Psi|A|\Psi} = \braket{\Psi|A^\dag|\Psi} = \overline{\braket{\Psi|A|\Psi}} = \overline{\lambda}$.
+$\lambda = \braket{\psi|A|\psi} = \braket{\psi|A^\dag|\psi} = \overline{\braket{\psi|A|\psi}} = \overline{\lambda}$.
 \end{proof}
 \begin{Property}
 Lorsqu'un opérateur est Hermitien, alors les vecteurs propres associés à des valeurs propres distinctes sont orthogonaux.
 \begin{align}
-A\ket{\Psi} &= \lambda\ket{\Psi}		&A\ket{\Phi} = \lambda'\ket{\Phi}
+A\ket{\psi} &= \lambda\ket{\psi}		&A\ket{\Phi} = \lambda'\ket{\Phi}
 \end{align}
 \end{Property}
 \begin{proof}
 \begin{align*}
-\lambda\braket{\Phi|\Psi} &= \bra{\Phi}(A\ket{\Psi}) = \braket{\Phi|A^\dag|\Psi} = \braket{\Psi|A|\Phi}^*\\
-&= \bra{\Psi}(\lambda'\ket{\Phi})^* = \lambda'^* \braket{\Psi|\Phi}^* = \lambda' \braket{\Phi|\Psi}
+\lambda\braket{\Phi|\psi} &= \bra{\Phi}(A\ket{\psi}) = \braket{\Phi|A^\dag|\psi} = \braket{\psi|A|\Phi}^*\\
+&= \bra{\psi}(\lambda'\ket{\Phi})^* = \lambda'^* \braket{\psi|\Phi}^* = \lambda' \braket{\Phi|\psi}
 \end{align*}
-Nous avons en général que $\lambda - \lambda' \neq 0$. Dès lors, il s'ensuit que $\braket{\Phi|\Psi} = 0$ : la conclusion s'ensuit.
+Nous avons en général que $\lambda - \lambda' \neq 0$. Dès lors, il s'ensuit que $\braket{\Phi|\psi} = 0$ : la conclusion s'ensuit.
 \end{proof}
 \begin{Property}
 Pour un opérateur Hermitien $A$, nous avons que:
@@ -345,18 +345,18 @@ Cette propriété n'est pas démontrée. Pour une preuve détaillée, se référ
 \end{cases}$. Les valeurs propres sont alors soit 0, soit 1.
 \begin{proof}
 \begin{align*}
-\pi\ket{\Psi} &= \lambda\ket{\Psi}\\
-\lambda\braket{\Psi|\Psi} &= \braket{\Psi|\pi|\Psi} = \braket{\Psi|\pi^2|\Psi}\\
-&= (\bra{\Psi}\pi)(\pi\ket{\Psi})\\
-&= \lambda \overline{\lambda} \braket{\Psi|\Psi}		&\lambda\in\mathbb{R}\\
+\pi\ket{\psi} &= \lambda\ket{\psi}\\
+\lambda\braket{\psi|\psi} &= \braket{\psi|\pi|\psi} = \braket{\psi|\pi^2|\psi}\\
+&= (\bra{\psi}\pi)(\pi\ket{\psi})\\
+&= \lambda \overline{\lambda} \braket{\psi|\psi}		&\lambda\in\mathbb{R}\\
 \end{align*}
 Dès lors, nous avons que $\lambda^2 = \lambda$ : soit donc $\lambda = 0$ ou $\lambda = 1$.
 \end{proof}
 
-Nous avons alors que $\ket{\Psi}$ et $\bra{\Psi}$ sont des projecteurs $\forall\ket{\Psi}$.\\
+Nous avons alors que $\ket{\psi}$ et $\bra{\psi}$ sont des projecteurs $\forall\ket{\psi}$.\\
 
 \begin{remark}
-Une application linéaire $\Psi$ tel que $\Psi^2 = \Psi$ est dite idempotente. \end{remark}
+Une application linéaire $\psi$ tel que $\psi^2 = \psi$ est dite idempotente. \end{remark}
 
 \begin{definition} Si $\Big\{\ket{u_i}: i\in\mathbb{N} \Big\}$ est une base orthonomée et si I est un sous-ensemble de $\mathbb{N}$, alors $\pi = \sum_{i\in I} \ket{u_i}\bra{u_i}$ est un projecteur. \end{definition}
 
@@ -365,7 +365,7 @@ Une application linéaire $\Psi$ tel que $\Psi^2 = \Psi$ est dite idempotente. \
 	\item[$\blacksquare$] Opérateur destruction: $a\ket{n} = \sqrt{n}\ket{n-1}$ et $a\ket{0} = 0$. En particulier, les éléments de la matrice de a sont donnés par $\braket{m|a|n} = \sqrt{n}\delta_{m}^{n-1}$.
 	\item[$\blacksquare$] Opérateur création: Soit $a^\dag$ l'hermitien conjugué de $a$. Nous avons alors que $a^\dag\ket{n} = \sqrt{n+1}\ket{n+1}$.
 	\end{itemize}
-\item \underline{\textbf{Opérateur identité}}: Soit $\mathbb{I}\ket{\Psi} = \ket{\Psi}$ pour tout $\ket{\Psi}$ sur une base orthonormée $\Big\{\ket{u_i}: n\in\mathbb{N} \Big\}$. Alors, nous avons que $\mathbb{I} = \sum_i \ket{u_i}\bra{u_i}$. Il s'agit de la définition de l'opérateur identité.
+\item \underline{\textbf{Opérateur identité}}: Soit $\mathbb{I}\ket{\psi} = \ket{\psi}$ pour tout $\ket{\psi}$ sur une base orthonormée $\Big\{\ket{u_i}: n\in\mathbb{N} \Big\}$. Alors, nous avons que $\mathbb{I} = \sum_i \ket{u_i}\bra{u_i}$. Il s'agit de la définition de l'opérateur identité.
 \item \underline{\textbf{Spin $\frac{1}{2}$}}: Soit une base orthonormée \bigg\{$\ket{\uparrow}$,$\ket{\downarrow}$\bigg\}.
 \end{itemize}
 
@@ -384,15 +384,15 @@ Dans ce chapitre, nous allons énoncer les postulats de la mécanique quantique 
 \begin{center}
 \fbox{\begin{minipage}{15cm}
 \begin{center}
-\textbf{PREMIER POSTULAT - Vecteur d'état $\ket{\Psi}$}
+\textbf{PREMIER POSTULAT - Vecteur d'état $\ket{\psi}$}
 \end{center}
-A tout système quantique correspond au moins un $\emph{espace de }\mathcal{H}ilbert$ complexe et séparable $\mathbb{H}$ dans lequel la théorie quantique du système peut-être formulée. Tout état accessible du système quantique correspond alors à un \emph{vecteur normé $\ket{\Psi}$} dans $\mathcal{H}$ dont la phase globale est arbitraire. 
+A tout système quantique correspond au moins un $\emph{espace de }\mathcal{H}ilbert$ complexe et séparable $\mathbb{H}$ dans lequel la théorie quantique du système peut-être formulée. Tout état accessible du système quantique correspond alors à un \emph{vecteur normé $\ket{\psi}$} dans $\mathcal{H}$ dont la phase globale est arbitraire. 
 \end{minipage}}
 \end{center}
 Ce postulat a plusieurs implications:
 \begin{itemize}
-\item Tout système quantique est placé dans un esapce vectoriel : cela implique un \textit{principe de superposition}. De fait, si $\ket{\Psi_1 (t)}$ et $\ket{\Psi_2 (t)}$ sont des vecteurs d'états, alors $\alpha \ket{\Psi_1 (t)} + \beta\ket{\Psi_2 (t)}$ est également un vecteur d'état.
-\item Le produit scalaire $\braket{\Psi|\varphi}$ est sesquilinéaire. Nous pouvons alors effectuer des calculs d'angles et de distances dans $\mathcal{H}$.
+\item Tout système quantique est placé dans un esapce vectoriel : cela implique un \textit{principe de superposition}. De fait, si $\ket{\psi_1 (t)}$ et $\ket{\psi_2 (t)}$ sont des vecteurs d'états, alors $\alpha \ket{\psi_1 (t)} + \beta\ket{\psi_2 (t)}$ est également un vecteur d'état.
+\item Le produit scalaire $\braket{\psi|\varphi}$ est sesquilinéaire. Nous pouvons alors effectuer des calculs d'angles et de distances dans $\mathcal{H}$.
 \item Un état du système est bien défini \textit{séparément} des grandeurs observables, celles-ci modifiant son état.
 \end{itemize}
 
@@ -410,13 +410,13 @@ A = \sum_n a_nP_n
 \end{equation}
 où $a_n$ est une valeur propre de A et $P_n$ est un projecteur sur le sous-espace propre de $A$ de la valeur propre $a_n$.\\
 
-La probabilité d'observer le résultat $a_n$ dans l'état $\ket{\Psi}$ est donnée par $P(a_n) = \braket{\Psi|P_n|\Psi}$ où $P_n$ est un projecteur.\\
+La probabilité d'observer le résultat $a_n$ dans l'état $\ket{\psi}$ est donnée par $P(a_n) = \braket{\psi|P_n|\psi}$ où $P_n$ est un projecteur.\\
 
 Nous pouvons vérifier que cela respecte bien les axiomes de la théorie des probabilités:
 \begin{enumerate}
-\item \textbf{Normalisation}: $\sum_n P(a_n) = \sum_n \braket{\Psi|P_n|\Psi} = \braket{\Psi|\sum_n P_n|\Psi} = \braket{\Psi|\mathbb{I}|\Psi} = \braket{\Psi|\Psi} = 1.$
-\item \textbf{Positivité}: $P(a_n) = \braket{\Psi|P_n|\Psi} = \braket{\Psi|P_n^2|\Psi} = \norm{P_n\ket{\Psi}}^2 \geq 0.$
-\item \textbf{Probabilité indépendante de la phase}. En effet, lorsque $\ket{\Psi}\to e^{i\varphi}\ket{\Psi}$, $P(a_n)$ ne change pas.
+\item \textbf{Normalisation}: $\sum_n P(a_n) = \sum_n \braket{\psi|P_n|\psi} = \braket{\psi|\sum_n P_n|\psi} = \braket{\psi|\mathbb{I}|\psi} = \braket{\psi|\psi} = 1.$
+\item \textbf{Positivité}: $P(a_n) = \braket{\psi|P_n|\psi} = \braket{\psi|P_n^2|\psi} = \norm{P_n\ket{\psi}}^2 \geq 0.$
+\item \textbf{Probabilité indépendante de la phase}. En effet, lorsque $\ket{\psi}\to e^{i\varphi}\ket{\psi}$, $P(a_n)$ ne change pas.
 \end{enumerate}
 
 \begin{center}
@@ -431,7 +431,7 @@ Le résultat d'une mesure sur un opérateur $\hat{A}$ à un instant donné est a
 \begin{itemize}
 \item Nous ne sommes en mesure que d'effectuer des prédictions probabilistes. Il faut dès lors effectuer un grand nombre d'expériences. Nous n'avons accès qu'aux \emph{valeurs moyennes} de $\hat{A}$, et les écart-types associés.
 \item Le Théorème d'Heinsenberg $\Delta A\Delta B \geq \frac{\norm{{[\hat{A},\hat{B}]}}}{2}$ implique que deux observables qui ne commutent pas ne peuvent pas être observées en même temps.
-\item \textit{Règle de Born} (spectre discret) : La probabilité de transition entre les états $\ket{\Psi}$ et $\ket{\varphi}$ est donnée par $P_\varphi = \norm{\braket{\varphi|\Psi}}^2$ lorsque le spectre est discret non-dégénéré.
+\item \textit{Règle de Born} (spectre discret) : La probabilité de transition entre les états $\ket{\psi}$ et $\ket{\varphi}$ est donnée par $P_\varphi = \norm{\braket{\varphi|\psi}}^2$ lorsque le spectre est discret non-dégénéré.
 
 \item \textit{Règle de Born} (spectre continu) : La probabilité $dP(\alpha)$ d'obtenir un résultat entre $\alpha$ et $\alpha+d\alpha$ est donnée par $dP = \norm{\braket{u_\alpha|\psi}}^2d\alpha$.
 \end{itemize}
@@ -441,7 +441,7 @@ Le résultat d'une mesure sur un opérateur $\hat{A}$ à un instant donné est a
 \begin{definition}
 	La moyenne $\braket{\hat{\mathcal{A}}}$ d'une observable $\mathcal{\hat{A}}$ par rapport à un état $\ket{\psi}$ est donnée par
 	\begin{align}
-		\braket{A} &= \sum_n a_n P(a_n) = \sum_n a_n \braket{\Psi|P_n|\Psi} = \braket{\Psi|\sum_n a_n P_n | \Psi} & \braket{A} &= \braket{\psi|A|\psi}
+		\braket{A} &= \sum_n a_n P(a_n) = \sum_n a_n \braket{\psi|P_n|\psi} = \braket{\psi|\sum_n a_n P_n | \psi} & \braket{A} &= \braket{\psi|A|\psi}
 	\end{align}
 \end{definition}
 
@@ -459,16 +459,16 @@ Effectivement, remarquons que $P_nP_{n'}$ revient à $\delta_{nn'}P_n'$.
 \begin{Property}
 	L'incertitude d'une observable $\mathcal{\hat{A}}$ est donnée par
 	\begin{equation}
-		\Delta \hat{A} = \sqrt{\braket{\Psi|A^2|\Psi} - \braket{\Psi|A|\Psi}^2}
+		\Delta \hat{A} = \sqrt{\braket{\psi|A^2|\psi} - \braket{\psi|A|\psi}^2}
 	\end{equation}
 \end{Property}
 \begin{proof}
 	\begin{align*}
 		\Delta A^2 &= \sum_n a_n^2 P(a_n) - \langle A\rangle^2\\
-		&= \sum_n a_n^2 \braket{\Psi|P_n|\Psi} - \langle A\rangle^2\\
-		&= \sum_n a_n^2 \braket{\Psi|P_n|\Psi} - \langle A\rangle^2\\
-		&= \braket{\Psi|\sum_n a_n^2 P_n|\Psi} - \langle A\rangle^2\\
-		&= \braket{\Psi|A^2|\Psi} - \braket{\Psi|A|\Psi}^2.
+		&= \sum_n a_n^2 \braket{\psi|P_n|\psi} - \langle A\rangle^2\\
+		&= \sum_n a_n^2 \braket{\psi|P_n|\psi} - \langle A\rangle^2\\
+		&= \braket{\psi|\sum_n a_n^2 P_n|\psi} - \langle A\rangle^2\\
+		&= \braket{\psi|A^2|\psi} - \braket{\psi|A|\psi}^2.
 		\end{align*}	
 \end{proof}
 
@@ -479,12 +479,12 @@ Effectivement, remarquons que $P_nP_{n'}$ revient à $\delta_{nn'}P_n'$.
 \begin{center}
 \textbf{QUATRIEME POSTULAT - Postulat de la mesure}
 \end{center}
-Si la mesure de l'observable $\hat{A}$ sur le système dans l'état $\ket{\Psi}$ fournit une valeur propre $\lambda$ (associée au vecteur propre $\ket{\lambda}$), l'état du système immédiatement après la mesure est \emph{projeté} sur le sous-espace propre associé à $\lambda$.
+Si la mesure de l'observable $\hat{A}$ sur le système dans l'état $\ket{\psi}$ fournit une valeur propre $\lambda$ (associée au vecteur propre $\ket{\lambda}$), l'état du système immédiatement après la mesure est \emph{projeté} sur le sous-espace propre associé à $\lambda$.
 \end{minipage}}
 \end{center}
 
 \begin{itemize}
-\item La mesure de $\ket{\Psi} \rightarrow \hat{P}\ket{\Psi} \propto \ket{\lambda}$ s'effectue au moyen d'un projetcteur orthogonal $\hat{P}^2 = \hat{P}$, $\hat{P}^\dagger = \hat{P}$.
+\item La mesure de $\ket{\psi} \rightarrow \hat{P}\ket{\psi} \propto \ket{\lambda}$ s'effectue au moyen d'un projetcteur orthogonal $\hat{P}^2 = \hat{P}$, $\hat{P}^\dagger = \hat{P}$.
 \item C'est un processus \textit{irréversible} qui ne conserve pas la probabilité. Après une mesure, on parle de "perte de la cohérence quantique".
 \item Aux échelles microscopiques, toute mesure perturbe fortement le système (exemple: Effet Compton). 
 \end{itemize}
@@ -496,14 +496,14 @@ Si la mesure de l'observable $\hat{A}$ sur le système dans l'état $\ket{\Psi}$
 \begin{center}
 \textbf{CINQUIEME POSTULAT - Évolution des États}
 \end{center}
-A tout système peut-être associé un opérateur hermitien $\hat{H}$ appelé Hamiltonien et représentant l'énergie totale du système. Cet opérateur régit l'évolution temporelle du vecteur d'état $\ket{\Psi (t,\bm{x})}$ au moyen de l'équation de Schrödinger
+A tout système peut-être associé un opérateur hermitien $\hat{H}$ appelé Hamiltonien et représentant l'énergie totale du système. Cet opérateur régit l'évolution temporelle du vecteur d'état $\ket{\psi (t,\bm{x})}$ au moyen de l'équation de Schrödinger
 \begin{equation*}
-i\h \frac{d}{dt} \ket{\Psi(t,\bm{x})} = \hat{H}\ket{\Psi (t,\bm{x})}
+i\h \frac{d}{dt} \ket{\psi(t,\bm{x})} = \hat{H}\ket{\psi (t,\bm{x})}
 \end{equation*}
 \end{minipage}}
 \end{center}
 \begin{itemize}
-\item L'évolution est \textit{unitaire}, c'est à dire que $\ket{\Psi (t,\bm{x})} = \hat{U} (t,t_0)\ket{\Psi (t_0,\bm{x})}$ par conservation de la probabilité.
+\item L'évolution est \textit{unitaire}, c'est à dire que $\ket{\psi (t,\bm{x})} = \hat{U} (t,t_0)\ket{\psi (t_0,\bm{x})}$ par conservation de la probabilité.
 \item Un état stationnaire est un état propre de l'hamiltonien. 
 \item Dans un potentiel stationnaire, l'évolution des états s'écrit
 \begin{equation}
@@ -513,38 +513,38 @@ comme nous l'explique l'équation \eqref{Evolution des états}.
 \end{itemize}
 Soit une base $\Big\{\ket{u_i}\Big\}$ orthonormée. Alors,
 \begin{align}
-\ket{\Psi(t)} &= \sum_i c_i(t)\ket{u_i}\\
+\ket{\psi(t)} &= \sum_i c_i(t)\ket{u_i}\\
 H(t) &= \sum_{i i'} \ket{u_i}\bra{u_{i'}} H_{ii'} (t)
 \end{align}
 
-\begin{Property} Soit $\ket{\Psi(t)}$ une solution de l'équation de Schrödinger $\eqref{Schrodinger}$. Alors, le produit scalaire $\braket{\Psi(t)|\Psi(t)}$ est constante. \end{Property}
+\begin{Property} Soit $\ket{\psi(t)}$ une solution de l'équation de Schrödinger $\eqref{Schrodinger}$. Alors, le produit scalaire $\braket{\psi(t)|\psi(t)}$ est constante. \end{Property}
 \begin{proof}
 \begin{equation}
-\frac{d}{dt} \braket{\Psi(t)|\Psi(t)} = (\frac{d}{dt}\bra{\Psi(t)})\ket{\Psi(t)} + \bra{\Psi(t)}(\frac{d}{dt}\ket{\Psi(t)})
+\frac{d}{dt} \braket{\psi(t)|\psi(t)} = (\frac{d}{dt}\bra{\psi(t)})\ket{\psi(t)} + \bra{\psi(t)}(\frac{d}{dt}\ket{\psi(t)})
 \end{equation}
 Remarquons que $H$ est un opérateur hamiltonien. Dès lors,
 \begin{align}
-\bra{\Psi(t)}H &= -i\frac{d}{dt}\bra{\Psi(t)}		&H^\dag = H.
+\bra{\psi(t)}H &= -i\frac{d}{dt}\bra{\psi(t)}		&H^\dag = H.
 \end{align}
 Dès lors,
 \begin{align}
-\frac{d}{dt} \braket{\Psi(t)|\Psi(t)} = i \braket{\Psi(t) | H(t) | \Psi(t)} - i \braket{\Psi(t)|H(t)|\Psi(t)} = 0.
+\frac{d}{dt} \braket{\psi(t)|\psi(t)} = i \braket{\psi(t) | H(t) | \psi(t)} - i \braket{\psi(t)|H(t)|\psi(t)} = 0.
 \end{align}
 \end{proof}
 
-\begin{remark} Nous prenons $\braket{\Psi(t)|\Psi(t)} = 1.$ \end{remark}
+\begin{remark} Nous prenons $\braket{\psi(t)|\psi(t)} = 1.$ \end{remark}
 
 \subsection{Réduction du paquet d'onde}
-Supposons que nous souhaitions mesurer, en un instant $t$ donné, une grandeur physique $\mathcal{A}$. Si nous connaissons $\ket{\Psi}$, nous pouvons\footnote{à travers des techniques qui seront expliquées ultérieurement.} obtenir les probabilité des différents résultats possibles. Cependant, en effectuant l'expérience, nous n'obtiendront qu'un seul des résultats possible: ce faisant après avoir obtenu le résultat $a_n$\footnote{on parle de la valeur propre $a_n$.}, on postule que l'état du sytème change: $\ket{\Psi} \to \ket{u_n}$.
+Supposons que nous souhaitions mesurer, en un instant $t$ donné, une grandeur physique $\mathcal{A}$. Si nous connaissons $\ket{\psi}$, nous pouvons\footnote{à travers des techniques qui seront expliquées ultérieurement.} obtenir les probabilité des différents résultats possibles. Cependant, en effectuant l'expérience, nous n'obtiendront qu'un seul des résultats possible: ce faisant après avoir obtenu le résultat $a_n$\footnote{on parle de la valeur propre $a_n$.}, on postule que l'état du sytème change: $\ket{\psi} \to \ket{u_n}$.
 
 \begin{center}
 \fbox{\begin{minipage}{15cm}
 \begin{center}
 \textbf{SIXIEME POSTULAT - Réduction du paquet d'onde}
 \end{center}
-Si la mesure de la grandeur physique A, à l'instant t, sur un système représenté par le vecteur $\ket{\Psi}$ donne comme résultat la valeur propre $a_n$, alors l'état du système immédiatement après la mesure est projecté sur le sous-espace propre associé à $a_n$.
+Si la mesure de la grandeur physique A, à l'instant t, sur un système représenté par le vecteur $\ket{\psi}$ donne comme résultat la valeur propre $a_n$, alors l'état du système immédiatement après la mesure est projecté sur le sous-espace propre associé à $a_n$.
 \begin{equation*}
-\ket{\Psi'} = \frac{\hat{P}_n\ket{\Psi}}{\sqrt{P(a_n)}}
+\ket{\psi'} = \frac{\hat{P}_n\ket{\psi}}{\sqrt{P(a_n)}}
 \end{equation*}
 Où $P(a_n)$ est la probabilité de trouver comme résultat la valeur propre $a_n$, et $\hat{P}_n$ est l'opérateur projecteur défini par $\hat{P}_n = \sum_{k=1}^{g_n} \ket{u_{n,k}}\bra{u_{n,k}}$, où $g_n$ est le degré de dégénérescence de la valeur propre $a_n$ et les $\ket{u_{n,k}}$ sont les vecteurs de son sous-espace propre.
 \end{minipage}}
@@ -562,14 +562,14 @@ Où les $\ket{\varphi_{n,\tau}}$ forment une base de vecteurs propres (H est une
 \end{equation}
 Nous allons montrer que $E_n$ et $\ket{\varphi_{n,\tau}}$ suffisent à déterminer les solutions de l'équation de Schrödinger.\\
 
-Notons que $\ket{\varphi_{n,\tau}}$ formant une base, nous pouvons pour chaque valeur de t développer un état du système $\ket{\Psi}$ dans la base:
+Notons que $\ket{\varphi_{n,\tau}}$ formant une base, nous pouvons pour chaque valeur de t développer un état du système $\ket{\psi}$ dans la base:
 \begin{equation}
-\ket{\Psi (t)} = \sum_{n,\tau} c_{n,\tau} (t)\ket{\varphi_{n,\tau}}
+\ket{\psi (t)} = \sum_{n,\tau} c_{n,\tau} (t)\ket{\varphi_{n,\tau}}
 \end{equation}
-Où $c_{n,\tau}(t) = \braket{\varphi_{n,\tau}|\Psi (t)}$. Projetons alors l'équation de Schrödinger sur chacun des états $\ket{\varphi_{n,\tau}}$. Nous obtenons que:
+Où $c_{n,\tau}(t) = \braket{\varphi_{n,\tau}|\psi (t)}$. Projetons alors l'équation de Schrödinger sur chacun des états $\ket{\varphi_{n,\tau}}$. Nous obtenons que:
 \begin{align*}
-i\h\frac{\partial}{\partial t}\braket{\varphi_{n,\tau}|\Psi (t)} &= \braket{\varphi_{n,\tau} | H | \Psi (t)}\\
-i\h\partial_tc_{n,\tau}(t) &= E_n \braket{\varphi_{n,\tau}|\Psi(t)} = E_nc_{n,\tau}
+i\h\frac{\partial}{\partial t}\braket{\varphi_{n,\tau}|\psi (t)} &= \braket{\varphi_{n,\tau} | H | \psi (t)}\\
+i\h\partial_tc_{n,\tau}(t) &= E_n \braket{\varphi_{n,\tau}|\psi(t)} = E_nc_{n,\tau}
 \end{align*}
 Nous obtenons alors l'équation différentielle d'ordre 1 en $c_{n,\tau} (t)$
 \begin{equation}
@@ -579,12 +579,12 @@ Sa solution générale est donné par
 \begin{equation}
 c_{n,\tau} (t) = c_{n,\tau} (t_0) e^{-i \frac{E_n}{\h} (t-t_0)}
 \end{equation}
-Dès lors, le vecteur d'état $\ket{\Psi(t)}$ vaudra
+Dès lors, le vecteur d'état $\ket{\psi(t)}$ vaudra
 \begin{equation}
-\ket{\Psi(t)} = \sum_n c_n(t_0)e^{-i\frac{E_n}{\h}(t-t_0)} \ket{\varphi_{n,\tau}}
+\ket{\psi(t)} = \sum_n c_n(t_0)e^{-i\frac{E_n}{\h}(t-t_0)} \ket{\varphi_{n,\tau}}
 \end{equation}
 
-Pour résoudre l'équation de Schrödinger avec un Hamiltonien indépendant du temps, il suffit de \underline{diagonaliser} l'Hamiltonien et de connaitre la \underline{décomposition} de $\ket{\Psi}$ à l'instant initial dans la base des vecteurs propres de $\mathcal{H}$.\\
+Pour résoudre l'équation de Schrödinger avec un Hamiltonien indépendant du temps, il suffit de \underline{diagonaliser} l'Hamiltonien et de connaitre la \underline{décomposition} de $\ket{\psi}$ à l'instant initial dans la base des vecteurs propres de $\mathcal{H}$.\\
 
 \begin{remark}
 	Nous venons de dériver un résultat obtenu précédemment, précisement dans la discussion autour de l'équation \eqref{Evolution des états}.
@@ -596,14 +596,14 @@ La notion d'unité est introduite en $\ref{AppendeiceA}$ ; plus spécifiquement 
 U^{-1} &= U^\dag\\
 UU^\dag &= U^\dag U = \mathbb{I}
 \end{align}
-\begin{Property} Soit U une application unitaire. Soient $\ket{\Psi}$, $\ket{\varphi}$ deux kets. Notons
+\begin{Property} Soit U une application unitaire. Soient $\ket{\psi}$, $\ket{\varphi}$ deux kets. Notons
 \begin{align*}
-\ket{\tilde{\Psi}} &= U\ket{\Psi}\\
+\ket{\tilde{\psi}} &= U\ket{\psi}\\
 \ket{\tilde{\varphi}} &= U\ket{\varphi}.
 \end{align*}
 Alors, le produit scalaire est conservé:
 \begin{equation}
-\braket{\tilde{\Psi}|\tilde{\Psi}} = \braket{\Psi|\varphi}.
+\braket{\tilde{\psi}|\tilde{\psi}} = \braket{\psi|\varphi}.
 \end{equation}
 \end{Property}
 
@@ -618,9 +618,9 @@ est la matrice de changement de base.
 \begin{Property}
 Si U et V sont des matrices unitaires, alors UV est unitaire. \end{Property}
 
-\begin{Property} Si U est unitaire et $\ket{\Psi}$ est un vecteur propre de U
+\begin{Property} Si U est unitaire et $\ket{\psi}$ est un vecteur propre de U
 \begin{align}
-U\ket{\Psi} &= \lambda\ket{\Psi}		&\rightarrow \norm{\lambda}^2 = 1.
+U\ket{\psi} &= \lambda\ket{\psi}		&\rightarrow \norm{\lambda}^2 = 1.
 \end{align}
 De plus, $\lambda = e^{i\varphi}$. Nous pouvons diagonaliser une matrice unitaire 
 \begin{equation}
@@ -629,12 +629,12 @@ U = \sum_j e^{i\varphi_j}\ket{i}\bra{j}
 Où $\{\ket{j}\}$ est une base orthonormée de vecteurs propres. \end{Property}
 
 \begin{theorem}
-Si U est une matrice $n\ti n$ telle que $\braket{\Psi|U^\dag U|\Psi} = \braket{\Psi|\Psi}$ pour tout $\ket{\Psi}$, alors U est unitaire\footnote{La matrice U appartient à $U_n$, l'ensemble des matrices de taille $n\ti n$ définie en \ref{Unitaire}} et donc $U^\dag U = \mathbb{I}$.
+Si U est une matrice $n\ti n$ telle que $\braket{\psi|U^\dag U|\psi} = \braket{\psi|\psi}$ pour tout $\ket{\psi}$, alors U est unitaire\footnote{La matrice U appartient à $U_n$, l'ensemble des matrices de taille $n\ti n$ définie en \ref{Unitaire}} et donc $U^\dag U = \mathbb{I}$.
 \end{theorem}
 \begin{proof}
-En utilisant le premier postulat de la Mécanique Quantique, nous pouvons écrire tout état sous la forme $\ket{\Psi} = \ket{\alpha} + e^{i\varphi}\ket{\beta}$. Dès lors,
+En utilisant le premier postulat de la Mécanique Quantique, nous pouvons écrire tout état sous la forme $\ket{\psi} = \ket{\alpha} + e^{i\varphi}\ket{\beta}$. Dès lors,
 \begin{align*}
-\braket{\Psi|U^\dag U|\Psi} &= \braket{\Psi|\Psi}\\
+\braket{\psi|U^\dag U|\psi} &= \braket{\psi|\psi}\\
 (\ket{\alpha} + e^{-i\varphi}\ket{\beta})(U^\dag U)(\ket{\alpha} + e^{i\varphi}\ket{\beta}) &= (\ket{\alpha} + e^{-i\varphi}\ket{\beta})(\ket{\alpha} + e^{i\varphi}\ket{\beta})\\
 \braket{\alpha|U^\dag U|\alpha} + e^{-i\varphi}\braket{\beta|U^\dag U|\alpha} + e^{i\varphi}\braket{\alpha|U^\dag U|\beta} + \braket{\beta|U^\dag U|\beta} &= \braket{\alpha|\alpha} + e^{-i\varphi}\braket{\beta|\alpha} + e^{i\varphi}\braket{\alpha|\beta} + \braket{\beta|\beta}
 \end{align*}
@@ -650,21 +650,21 @@ Dès lors,
 Ce qui implique alors que $U^\dag U = \mathbb{I}$.
 \end{proof}
 
-\begin{Property} Si $\ket{\Psi}$ est une solution de l'équation de Schrödinger, alors il existe un opérateur linéaire $U(t,t_0)$ tel que
+\begin{Property} Si $\ket{\psi}$ est une solution de l'équation de Schrödinger, alors il existe un opérateur linéaire $U(t,t_0)$ tel que
 \begin{equation}
-\ket{\Psi (t,t_0)} = U(t,t_0)\ket{\Psi(t_0)}.
+\ket{\psi (t,t_0)} = U(t,t_0)\ket{\psi(t_0)}.
 \end{equation} \label{1}\end{Property}
 
 En utilisant ce résultat, nous obtenons que
 \begin{align*}
-i\partial_t U(t,t_0)\ket{\Psi(t_0)} &= H(t)U(t,t_0)\ket{\Psi(t_0)}		&\forall\ket{\Psi(t_0)}\\
+i\partial_t U(t,t_0)\ket{\psi(t_0)} &= H(t)U(t,t_0)\ket{\psi(t_0)}		&\forall\ket{\psi(t_0)}\\
 i\partial_t U(t,t_0) &= H(t)U(t,t_0)
 \end{align*}
 Avec la condition initiale $U(t_0,t_0) = \mathbb{I}$.\\
 
-\begin{Property} Comme $\braket{\Psi(t_0)|\Psi(t)}$ est indépendant de t, il s'ensuit que 
+\begin{Property} Comme $\braket{\psi(t_0)|\psi(t)}$ est indépendant de t, il s'ensuit que 
 \begin{align}
-\braket{\Psi(t_0)|U^\dag (t,t_0)U(t,t_0)|\Psi(t_0)} &= \braket{\Psi(t_0)|\Psi(t_0)}		&\forall\ket{\Psi(t_0)}.
+\braket{\psi(t_0)|U^\dag (t,t_0)U(t,t_0)|\psi(t_0)} &= \braket{\psi(t_0)|\psi(t_0)}		&\forall\ket{\psi(t_0)}.
 \end{align}
 Nous avons alors que $U(t,t_0)$ est une matrice unitaire. \end{Property}
 
