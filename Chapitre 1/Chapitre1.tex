@@ -1,85 +1,144 @@
 \documentclass[../Notes de cours]{subfiles}
 
 \begin{document}
-\part{Principe d'incertitude d'Heisenberg}
-Empiriquement, il est impossible de déterminer à la fois la position $x$ et l'impulsion $p$ d'une particule au delà d'une certaine précision
+\chapter{Principe d'incertitude d'Heisenberg}
+
+\section{La relation d'Incertitude}
+Pour commencer ce cours, il est important de souligner le fait qu'en Mécanique Quantique (MQ), l'on ne peut plus considérer le résultat d'une mesure comme en mécanique classique. 
+Une manière de représenter cela est d'introduire le principe d'incertitude de Heisenberg. 
+Concrètement, ce principe nous dit que : empiriquement, il est impossible de déterminer simultanément par une mesure la position $x$ et l'impulsion $p$ d'une particule au delà d'une certaine précision limitée par : 
 
 \begin{equation}
 \label{Heinsenberg}
 \Delta x \Delta p \geq \frac{\hbar}{2}
 \end{equation}
 
-où $\Delta x$,$\Delta p$ sont les \textbf{écart-types} des grandeurs liées. Il s'agit de l'Incertitude de Heisenberg.\\
+où 
+\begin{itemize}[label=\textbullet]
+	\item $\Delta x$ et $\Delta p$ sont les \textbf{écart-types} de la mesure des grandeurs liées, $x$ et $p$
+	\item $\hbar = \frac{h}{2\pi}$ avec $h = 6,626 \times 10^{-34}$ J.s où $h$ est la constante de Planck. 
+\end{itemize}
 
-Nous avons donc que pour tout état quantique, $x$ et $p$ sont incertains : leurs incertitude obéissent à la relation $\ref{Heinsenberg}$. Cela est liée au caractère probabiliste de la Mécanique Quantique : chaque résultat d'une mesure est aléatoire. Cela fait l'objet de la discussion \ref{Postulat3}.\\
+\paragraph{} Cette inéquation représente ce qu'on appelle la relation d'incertitude ou encore la relation d'Heisenberg.
+\newline Nous avons donc que pour tout état quantique, $x$ et $p$ sont incertains : leurs incertitude obéissent à la relation $\ref{Heinsenberg}$. \\
 
-Notons la relation de longueur d'onde de Broglie : 
-\begin{equation}
-\label{Broglie}
-\lambda = \frac{h}{p}
-\end{equation}
+\textit{Remarque :} qu'entend-on par \textbf{état quantique} ? En effet, de manière plus général, on peut définir un état, en physique, par l'ensemble des aspects qui caractérisent
+    un système, tel que l'on peut prévoir les résultats d'une expérience, d'une mesure. 
+    \newline En mécanique quantique, la notion d'état quantique reste équivalente, mais s'élargit dans un monde probabiliste. On va donc attribuer à tout état quantique d'un corpuscule une fonction d'onde $\psi(\Vec{r},t)$, de sorte que son module au carré sera interprété comme une densité de probabilité de présence à un endroit $\Vec{r}$ à un instant $t$. Nous reviendrons sur les détails plus tard. 
+    \newline Notons également la différence entre un état dans la physique classique et dans la physique quantique. L'état dans la physique classique permet de déterminer un résultat d'une mesure 
+    de manière absolue, tandis que celui dans la physique quantique permet seulement de prévoir des probabilités aux résultats d'une mesure. \\
+
+A quoi est-ce que l'incertitude de $x$ et de $p$ est-elle liée ? 
+\begin{enumerate}
+    \item Cela est liée au caractère \textbf{probabiliste} de la Mécanique Quantique : chaque résultat d'une mesure est aléatoire. Cela fera l'objet de la discussion d'un postulat très important en MQ. 
+    \item Cela est également lié à la longueur d'onde de de Broglie. En effet, la relation qui fait intervenir cette longueur d'onde est un résultat en conséquence du fait que l'on associe une longueur d'onde à un une particule ; c'est ce qu'on appelle la \textit{dualité onde-corpuscule}. 
+    \newline On note cette relation par : 
+    \begin{equation}
+    \label{Broglie}
+    \lambda = \frac{h}{p}
+    \end{equation}
+    \newline On peut donc facilement voir que la longueur d'onde correspondant à une particule de masse $m$ et de vitesse $v$ est d'autant plus grande que $m$ et $v$ sont petits. Ainsi, on peut considérer l'existence d'une limite pour la masse et pour la vitesse à partir de laquelle la longueur d'onde associée devient négligeable, c'est-à-dire une limite à partir de laquelle nous nous retrouvons en physique classique. Autrement dit, les propriétés ondulatoires de la matière est impossible à mettre en évidence dans le domaine macroscopique. 
+\end{enumerate}
+
+\paragraph{} \textit{Remarque :} \begin{itemize}[label=\textbullet]
+    \item $E = h \nu$ (Energie d'un photon)
+    \item $\lambda = \frac{h}{p}$ (Longueur d'onde de de Broglie)
+\end{itemize}
+Ces deux relations restent valables dans le cas relativiste. 
+\newline Rappelons rapidement l'expression de l'énergie d'une particule, de masse au repos $m_0$, d'impulsion $p$, dans le cas relativiste : $E = \sqrt{p^2c^2 + m_0^2c^4}$
 
 \section{Applications du Principe d'Incertitude}
-Les différents calculs qui vont suivre servent à déterminer un ordre de grandeur : nous ne prêtons pas attention aux constantes multiplicatives tel que le facteur $\frac{1}{2}$ devant $\ref{Heinsenberg}$.
-\subsection{Application à l'atome d'Hydrogène}
-Empiquement, nous trouvons que l'énergie d'un atome d'hydrogène est donné par la relation
-\begin{equation}
-\label{Energie hydrogène}
-E = \frac{p^2}{2m} - \frac{e^2}{r}
-\end{equation}
-Où $e^2 = \frac{q_e^2}{4 \pi \epsilon_0}$.\\
 
-Or, nous avons que l'électron de l'atome sera confiné dans une zone de rayon r. Dès lors, en utilisant $\ref{Heinsenberg}$, nous aurons que $\Delta p \approx \frac{\hbar}{r}$. Dès lors,
+\paragraph{} Nous allons voir ici quelques différentes applications du principe que nous venons de voir. 
+\newline Notons également que ce qui importe ici sera de déterminer des ordres de grandeurs plutôt que des valeurs précises. Nous pouvons dès lors ne pas prêter attention au facteur $\frac{1}{2}$ qui apparaît dans la relation d'Heisenberg $\ref{Heinsenberg}$.
+
+\subsection{L'atome d'Hydrogène}
+Le but ici est de comprendre la stabilité des atomes et de retrouver l'ordre de grandeur de l'énergie de l'atome d'hydrogène dans son état fondamental. \\
+
+En effet, l'énergie mécanique totale d'un atome d'hydrogène peut s'écrire comme la somme de son énergie cinétique (mouvement de l'électron) et de son énergie potentiel (coulombien) : 
+\begin{align}
+\label{Energie hydrogène}
+E &= \frac{p^2}{2m} + \frac{q^2}{4\pi \epsilon_0 r} \notag \\
+&= \frac{p^2}{2m} - \frac{e^2}{4 \pi \epsilon_0 r} \notag \\
+\implies E &= \frac{p^2}{2m} - \frac{\mathcal{E}^2}{r}
+\end{align}
+Où $\mathcal{E}^2 = \frac{e^2}{4 \pi \epsilon_0}$.\\
+
+Or, on peut considérer que l'électron de l'atome est confiné dans une zone de rayon $r$ du à l'attraction coulombienne. 
+Dès lors, en utilisant la relation d'Heisenberg $\ref{Heinsenberg}$, nous avons que $\Delta p \approx \frac{\hbar}{r}$. Ainsi : 
 \begin{equation}
-E \approx \frac{\hbar^2}{2mr^2} - \frac{e^2}{r}
+\label{Energie hydrogene approx}
+E \approx \frac{\hbar^2}{2mr^2} - \frac{\mathcal{E}^2}{r}
 \end{equation}
-Il suffit alors de dériver cette dernière pour obtenir l'énergie minimale:
-\begin{align*}
-E_{min} &= \frac{d}{dr} (\frac{\hbar^2}{2mr^2} - \frac{e^2}{r}) = 0\\
-&= - \frac{2 \h^2}{2mr^3} + \frac{e^2}{r^2} = 0\\
-&= \frac{1}{r^2} \left[e^2 - \frac{\h^2}{mr} \right] = 0
-\end{align*}
-Il s'ensuit dès lors que 
-\begin{center}
-\begin{tabular}{c c}
-$r = \frac{\hbar^2}{me^2}$ & $E_{min} = - \frac{me^4}{2 \hbar^2}$
-\end{tabular}
-\end{center}
-Nous pouvons en déduire la valeur du $\textbf{rayon de Bohr}$ - soit la distance séparant, dans l'atome d'hydrogène, le proton de l'électron. Il s'agit donc d'un ordre de grandeur du rayon des atomes. Il correspond à 
-\begin{equation}
-\label{Rayon de Bohr}
-a_0 = \frac{\hbar^2}{me^2}
+\paragraph{} A présent, déterminons les valeurs de $r$ pour lesquelles l'énergie est minimale. Pour ce faire, calculons les racines de la dérivée de l'énergie :
+\begin{align}
+\label{rayon d'energie minimale}
+\frac{dE}{dr} &= \frac{d}{dr} \left( \frac{\hbar^2}{2mr^2} - \frac{\mathcal{E}^2}{r} \right) \notag \\
+&= - \frac{2\hbar^2}{2mr^3} + \frac{\mathcal{E^2}}{r^2} \notag \\
+&= \frac{1}{r^2} \left( \mathcal{E}^2 - \frac{\hbar^2}{mr} \right) = 0 \notag \\
+\iff r&= \frac{\hbar^2}{m\mathcal{E}^2}
+\end{align}
+
+\paragraph{} Nous avons donc trouvé un rayon $r$ pour lequel l'énergie de l'atome d'Hydrogène est minimale, et cette énergie minimale vaut alors, en combinant \ref{rayon d'energie minimale} et \ref{Energie hydrogene approx}: \begin{equation}
+    \label{Energie minimale}
+    E_{min} = - \frac{m\mathcal{E}^4}{2 \hbar^2}
 \end{equation}
-Similairement, nous avons l'énergie de liaison de l'atome d'Hydrogène - également appelée \textbf{énergie de Rydberg} :
-\begin{equation}
-R_y = \frac{me^4}{2 \hbar^2}
-\end{equation}
-Nous pouvons retrouver les états liés en suivant
+
+\paragraph{} En fait, le rayon $r$ donné par la relation \ref{rayon d'energie minimale} et l'énergie minimale qui lui est associée en \ref{Energie minimale} correspondent respectivement au rayon du modèle de Bohr $a_0$ (où $a_0 = \frac{\hbar^2}{m\mathcal{E}^2} \equiv$ la distance séparant, dans l'atome d'hydrogène, le proton de l'électron) et à l'énergie de Rydberg $R_y$ (où $R_y = \frac{m\mathcal{E}^4}{2\hbar^2} \equiv$ l'énergie de liaison de l'atome d'Hydrogène). 
+
+Plus particulièrement, il est possible de trouver l'énergie des états liés, qui est en fait un multiple de l'énergie de Rydberg :
 \begin{equation}
 \label{Etats liés}
-E_n = - R_y \frac{1}{n^2} = - \frac{me^4}{2 \hbar^2} \frac{1}{n^2}
+E_n = - R_y \frac{1}{n^2}
 \end{equation}
-Où n = 1,2,3, ...
+où n = 1,2,3, ...
 
-\subsection{Application à l'Oscillateur Harmonique}
-\label{Application à l'Oscillateur Harmonique}
-Soit $E = \frac{p^2}{2m} + \frac{kx^2}{2}$. Posons $w = \sqrt{\frac{k}{m}}$, la fréquence angulaire. Par définition, l'état fondamental est de longueur $\Delta x$. Dès lors, $\ref{Heinsenberg}$ nous implique que l'impulsion est donnée par $\Delta p = \frac{\hbar}{\Delta x}$. En partant de là,
+\paragraph{} \textit{Remarque :} Nous pouvons brièvement définir un état lié comme un état étant piégé entre le minimum et le maximum d'un potentiel, mais nous verrons cela plus tard dans les problèmes à une dimension. 
+
+\subsection{Application à l'Oscillateur Harmonique (Quantique) }
+\label{Application à l'Oscillateur Harmonique Quantique}
+
+\paragraph{} Rappelons avant tout qu'en général, on définit un oscillateur comme un système qui évolue périodiquement dans le temps, et l'on dit qu'il est en plus harmonique lorsque cette évolution est une fonction sinusoïdale. 
+\newline Nous allons à nouveau faire appel au principe d'incertitude afin de déterminer l'énergie de l'oscillateur harmonique. 
+
+\paragraph{} \textit{Remarque :} Il est important de savoir que l'oscillateur harmonique joue un rôle fondamentale en physique ; il est à la base d'un très grand nombre d'applications et de théorie. Gardez cela bien en tête car nous y reviendrons plus tard dans le cours, et vous le rencontrerez certainement plusieurs fois dans le reste de votre parcours en physique!
+\newline Un petit exemple d'application parmis tant d'autres en MQ serait d'utiliser l'oscillateur harmonique pour décrire le mouvement oscillatoire d'une particule autour de sa position d'équilibre. 
+
+\paragraph{} Nous allons procéder comme précédemment ; écrivons l'énergie mécanique totale, de manière classique, de l'oscillateur harmonique : \begin{equation}
+    \label{Energie OHC}
+    E = \frac{p^2}{2m} + \frac{kx^2}{2}
+\end{equation}
+Posons $w = \sqrt{\frac{k}{m}}$, la fréquence angulaire. 
+\newline Notons $\Delta x \equiv$ l'étendue de l'oscillateur harmonique dans son état fondamental. 
+\newline Utilisant la relation d'Heisenberg, on trouve dès lors que 
+\newline l'impulsion est donnée par $\Delta p \approx \frac{\hbar}{\Delta x}$
+\newline En partant de ces hypothèses, on trouve que l'énergie de l'état fondamental est donnée par : 
 \begin{equation}
 E \left(\Delta x \right) = \frac{\hbar^2}{2m\Delta x^2} + \frac{1}{2} k \Delta x^2
 \end{equation}
-En dérivant cette dernière équations, nous avons que le minimum d'énergie est donnée en $\Delta x \approx \frac{\hbar^{\frac{1}{2}}}{\left(mk\right)^{\frac{1}{4}}}$. Cela implique que
-\begin{equation}
-\label{Energie OH}
-E_{min} \approx \sqrt{\frac{k}{m}} \hbar \approx w \hbar
-\end{equation}
-
-La relation exacte correspond effectivement. En effet :
+Ensuite, nous pouvons trouver, en déterminant les racines de la dérivée de cette dernière équation, que l'énergie est minimale en $\Delta x \approx \frac{\hbar^{1/2}}{\left(mk\right)^{1/4}}$. 
+En réinjectant l'expression de l'étendue $\Delta x$ pour laquelle l'énergie est minimale, dans l'expression de l'énergie de l'oscillateur même, on trouve ainsi l'énergie minimale : 
 \begin{align}
-\label{Energie quantifiée OH}
-E_n &= \hbar w \left( n + \frac{1}{2} \right)\\
-E_0 &= \frac{1}{2} \hbar w
+\label{Energie OH}
+E_{min} &\approx \hbar \sqrt{\frac{k}{m}} \notag \\
+& \approx \hbar \omega 
 \end{align}
-Notons que cette dernière est ce que nous appelons l'\textbf{énergie de point zéro}.
+
+\paragraph{} De cette expression, nous pouvons en tirer une conclusion très importante qui est que l'énergie à l'état fondamental de l'oscillateur harmonique est non nul, contrairement aux résultats prédits par la physique classique. 
+
+\paragraph{} Lorsque nous aurons les outils nécessaires pour aborder l'oscillateur harmonique quantique (OHQ) en détail, nous verrons que les valeurs que peuvent prendre l'énergie de l'OHQ sont quantifiés et vérifient la relation suivante :
+\begin{align}
+\label{Energie quantifiée OHQ}
+E_n = \hbar \omega \left( n + \frac{1}{2} \right) \mbox{ ; $n \in \mathbb{N} $}
+\end{align}
+De cette expression \ref{Energie quantifiée OHQ}, nous observons que : 
+\begin{itemize}[label=\textbullet]
+    \item D'une part, le spectre des énergies est discrets ; ainsi une certaine quantité d'énergie définie doit être fournie au système afin de passer d'un état $n$ à un état supérieur (et à l'inverse, le système doit "perdre" une certaine quantité d'énergie pour passer à un état inférieur) ; 
+    \item D'autre part, l'énergie fondamentale, pour $n=0$, vaut $$ E_0 = \frac{1}{2} \hbar \omega $$
+    On l'appelle également \textbf{Energie de point zéro} (venant de l'anglais, "\textit{zero point energy}", et est bien non nulle. 
+    \newline L'expression que l'on a obtenu en utilisant le principe d'incertitude concorde donc bien, en terme d'ordre de grandeur (puisque l'on avait la même expression à un facteur $\frac{1}{2}$ près seulement). 
+\end{itemize} 
+
 \subsection{Application au cas relativiste}
 L'incertitude d'Heisenberg est également valide dans le cas relativiste. La relation de dispersion nous donne que $E^2 = m^2 c^4 + p^2 c^2$ pour une particule libre relativiste. En posant $\Delta x \approx \frac{\hbar}{mc}$, nous avons que $\Delta p \approx mc$ : il s'agit d'une particule relativiste. Dès lors,
 \begin{itemize}
