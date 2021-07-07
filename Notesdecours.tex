@@ -61,6 +61,30 @@
 
 \setcounter{tocdepth}{2}
 
+\usepackage{enumitem}
+
+%%% Début ajouts Sami
+% Definition boite grise avec couleur grise définie
+\definecolor{BGgris}{RGB}{222,230,230}
+\newcommand\bg[2]{
+\begin{center}
+\fcolorbox{white}{BGgris}{\parbox{.9\linewidth}{\begin{large} \textit{#1} \end{large} \\
+
+#2 }}
+\end{center}}
+% Boite d'alerte
+\definecolor{BGorange}{RGB}{255, 216, 154}
+\newcommand\probleme[1]{
+\begin{center}
+\fcolorbox{white}{BGorange}{\parbox{.9\linewidth}{\begin{large} \textbf{Problème} \end{large} \\
+
+#1}}
+\end{center}}
+
+\setlength{\fboxsep}{2em} % espace entre le bord d'une boite et le texte dedans
+
+%%% Fin ajouts Sami
+
 \begin{document}
 
 \maketitle

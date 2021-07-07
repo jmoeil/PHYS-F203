@@ -1,5 +1,6 @@
 \documentclass[../Notes de cours]{subfiles}
 
+
 \begin{document}
 \chapter{Principe d'incertitude d'Heisenberg}
 
@@ -14,43 +15,47 @@ Concrètement, ce principe nous dit que : empiriquement, il est impossible de d�
 \end{equation}
 
 où 
-\begin{itemize}[label=\textbullet]
+\begin{itemize}[label = \textbullet]
 	\item $\Delta x$ et $\Delta p$ sont les \textbf{écart-types} de la mesure des grandeurs liées, $x$ et $p$
 	\item $\hbar = \frac{h}{2\pi}$ avec $h = 6,626 \times 10^{-34}$ J.s où $h$ est la constante de Planck. 
 \end{itemize}
 
-\paragraph{} Cette inéquation représente ce qu'on appelle la relation d'incertitude ou encore la relation d'Heisenberg.
-\newline Nous avons donc que pour tout état quantique, $x$ et $p$ sont incertains : leurs incertitude obéissent à la relation $\ref{Heinsenberg}$. \\
 
-\textit{Remarque :} qu'entend-on par \textbf{état quantique} ? En effet, de manière plus général, on peut définir un état, en physique, par l'ensemble des aspects qui caractérisent
-    un système, tel que l'on peut prévoir les résultats d'une expérience, d'une mesure. 
-    \newline En mécanique quantique, la notion d'état quantique reste équivalente, mais s'élargit dans un monde probabiliste. On va donc attribuer à tout état quantique d'un corpuscule une fonction d'onde $\psi(\Vec{r},t)$, de sorte que son module au carré sera interprété comme une densité de probabilité de présence à un endroit $\Vec{r}$ à un instant $t$. Nous reviendrons sur les détails plus tard. 
-    \newline Notons également la différence entre un état dans la physique classique et dans la physique quantique. L'état dans la physique classique permet de déterminer un résultat d'une mesure 
-    de manière absolue, tandis que celui dans la physique quantique permet seulement de prévoir des probabilités aux résultats d'une mesure. \\
+Cette inéquation représente ce qu'on appelle la relation d'incertitude ou encore la relation d'Heisenberg. \\
+Nous avons donc que pour tout état quantique, $x$ et $p$ sont incertains : leurs incertitude obéissent à la relation $\ref{Heinsenberg}$. \\
 
-A quoi est-ce que l'incertitude de $x$ et de $p$ est-elle liée ? 
+\bg{Remarque : les états quantiques}{Qu'entend-on par \textbf{état quantique} ? De manière plus générale, on peut définir un état, en physique, par l'ensemble des aspects qui caractérisent un système, de sorte à ce que l'on puisse prévoir les résultats d'une expérience, d'une mesure. \\
+
+En mécanique quantique, la notion d'état reste présente : on parle alors d'\textbf{état quantique}. Cependant, cette notion s'élargit dans un monde \textbf{probabiliste}. On va donc attribuer à tout état quantique d'un corpuscule une fonction d'onde $\psi(\Vec{r},t)$, de sorte que son module au carré sera interprété comme une densité de probabilité de présence à un endroit $\Vec{r}$ à un instant $t$. Nous reviendrons sur les détails plus tard. \\
+
+Notons également la différence entre un état dans la physique classique et dans la physique quantique. L'état dans la physique classique permet de déterminer un résultat d'une mesure de manière absolue, tandis que celui dans la physique quantique permet seulement de prévoir des probabilités aux résultats d'une mesure.}
+
+\subsection{Origine de l'incertitude sur $x$ et sur $p$}
+L'incertitude sur l'impulsion et sur la position peut trouver ses intuitions physiques des raisonnements suivants :
 \begin{enumerate}
-    \item Cela est liée au caractère \textbf{probabiliste} de la Mécanique Quantique : chaque résultat d'une mesure est aléatoire. Cela fera l'objet de la discussion d'un postulat très important en MQ. 
-    \item Cela est également lié à la longueur d'onde de de Broglie. En effet, la relation qui fait intervenir cette longueur d'onde est un résultat en conséquence du fait que l'on associe une longueur d'onde à un une particule ; c'est ce qu'on appelle la \textit{dualité onde-corpuscule}. 
-    \newline On note cette relation par : 
+    \item Cela est lié au caractère \textbf{probabiliste} de la Mécanique Quantique : chaque résultat d'une mesure est aléatoire. Cela fera l'objet de la discussion d'un postulat très important en MQ. 
+    \item Cela est également lié à la longueur d'onde de de Broglie. En effet, la relation qui fait intervenir cette longueur d'onde est un résultat en conséquence du fait que l'on associe une longueur d'onde à un une particule ; c'est ce qu'on appelle la \textit{dualité onde-corpuscule}. \\
+    On note cette relation par : 
     \begin{equation}
     \label{Broglie}
     \lambda = \frac{h}{p}
     \end{equation}
-    \newline On peut donc facilement voir que la longueur d'onde correspondant à une particule de masse $m$ et de vitesse $v$ est d'autant plus grande que $m$ et $v$ sont petits. Ainsi, on peut considérer l'existence d'une limite pour la masse et pour la vitesse à partir de laquelle la longueur d'onde associée devient négligeable, c'est-à-dire une limite à partir de laquelle nous nous retrouvons en physique classique. Autrement dit, les propriétés ondulatoires de la matière est impossible à mettre en évidence dans le domaine macroscopique. 
+    On peut donc facilement voir que la longueur d'onde correspondant à une particule de masse $m$ et de vitesse $v$ est d'autant plus grande que $m$ et $v$ sont petits. Ainsi, on peut considérer l'existence d'une limite pour la masse et pour la vitesse à partir de laquelle la longueur d'onde associée devient négligeable, c'est-à-dire une limite à partir de laquelle nous nous retrouvons en physique classique. Autrement dit, les propriétés ondulatoires de la matière est impossible à mettre en évidence dans le domaine macroscopique.  \\
 \end{enumerate}
 
-\paragraph{} \textit{Remarque :} \begin{itemize}[label=\textbullet]
+
+\bg{Remarque : relations de De Broglie}{
+\begin{itemize}[label=\textbullet]
     \item $E = h \nu$ (Energie d'un photon)
     \item $\lambda = \frac{h}{p}$ (Longueur d'onde de de Broglie)
 \end{itemize}
-Ces deux relations restent valables dans le cas relativiste. 
-\newline Rappelons rapidement l'expression de l'énergie d'une particule, de masse au repos $m_0$, d'impulsion $p$, dans le cas relativiste : $E = \sqrt{p^2c^2 + m_0^2c^4}$
+Ces deux relations restent valables dans le cas relativiste. \\
+Rappelons rapidement l'expression de l'énergie d'une particule, de masse au repos $m_0$, d'impulsion $p$, dans le cas relativiste : $E = \sqrt{p^2c^2 + m_0^2c^4}$}
 
 \section{Applications du Principe d'Incertitude}
 
-\paragraph{} Nous allons voir ici quelques différentes applications du principe que nous venons de voir. 
-\newline Notons également que ce qui importe ici sera de déterminer des ordres de grandeurs plutôt que des valeurs précises. Nous pouvons dès lors ne pas prêter attention au facteur $\frac{1}{2}$ qui apparaît dans la relation d'Heisenberg $\ref{Heinsenberg}$.
+Nous allons voir ici quelques différentes applications du principe que nous venons de voir.\\
+Notons également que ce qui importe ici sera de déterminer des ordres de grandeurs plutôt que des valeurs précises. Nous pouvons dès lors ne pas prêter attention au facteur $\frac{1}{2}$ qui apparaît dans la relation d'Heisenberg $\ref{Heinsenberg}$.
 
 \subsection{L'atome d'Hydrogène}
 Le but ici est de comprendre la stabilité des atomes et de retrouver l'ordre de grandeur de l'énergie de l'atome d'hydrogène dans son état fondamental. \\
@@ -62,7 +67,7 @@ E &= \frac{p^2}{2m} + \frac{q^2}{4\pi \epsilon_0 r} \notag \\
 &= \frac{p^2}{2m} - \frac{e^2}{4 \pi \epsilon_0 r} \notag \\
 \implies E &= \frac{p^2}{2m} - \frac{\mathcal{E}^2}{r}
 \end{align}
-Où $\mathcal{E}^2 = \frac{e^2}{4 \pi \epsilon_0}$.\\
+où $\mathcal{E}^2 = \frac{e^2}{4 \pi \epsilon_0}$.\\
 
 Or, on peut considérer que l'électron de l'atome est confiné dans une zone de rayon $r$ du à l'attraction coulombienne. 
 Dès lors, en utilisant la relation d'Heisenberg $\ref{Heinsenberg}$, nous avons que $\Delta p \approx \frac{\hbar}{r}$. Ainsi : 
@@ -84,39 +89,37 @@ E \approx \frac{\hbar^2}{2mr^2} - \frac{\mathcal{E}^2}{r}
     E_{min} = - \frac{m\mathcal{E}^4}{2 \hbar^2}
 \end{equation}
 
-\paragraph{} En fait, le rayon $r$ donné par la relation \ref{rayon d'energie minimale} et l'énergie minimale qui lui est associée en \ref{Energie minimale} correspondent respectivement au rayon du modèle de Bohr $a_0$ (où $a_0 = \frac{\hbar^2}{m\mathcal{E}^2} \equiv$ la distance séparant, dans l'atome d'hydrogène, le proton de l'électron) et à l'énergie de Rydberg $R_y$ (où $R_y = \frac{m\mathcal{E}^4}{2\hbar^2} \equiv$ l'énergie de liaison de l'atome d'Hydrogène). 
+En fait, le rayon $r$ donné par la relation \ref{rayon d'energie minimale} et l'énergie minimale qui lui est associée en \ref{Energie minimale} correspondent respectivement au rayon du modèle de Bohr $a_0$ (où $a_0 = \frac{\hbar^2}{m\mathcal{E}^2} \equiv$ la distance séparant, dans l'atome d'hydrogène, le proton de l'électron) et à l'énergie de Rydberg $R_y$ (où $R_y = \frac{m\mathcal{E}^4}{2\hbar^2} \equiv$ l'énergie de liaison de l'atome d'Hydrogène). \\
 
 Plus particulièrement, il est possible de trouver l'énergie des états liés, qui est en fait un multiple de l'énergie de Rydberg :
 \begin{equation}
 \label{Etats liés}
 E_n = - R_y \frac{1}{n^2}
 \end{equation}
-où n = 1,2,3, ...
+où $n$ = 1,2,3, ...
 
-\paragraph{} \textit{Remarque :} Nous pouvons brièvement définir un état lié comme un état étant piégé entre le minimum et le maximum d'un potentiel, mais nous verrons cela plus tard dans les problèmes à une dimension. 
+\bg{Remarque : les états liés}{Nous pouvons brièvement définir un état lié comme un état étant piégé entre le minimum et le maximum d'un potentiel, mais nous verrons cela plus tard dans les problèmes à une dimension.}
 
 \subsection{Application à l'Oscillateur Harmonique (Quantique) }
 \label{Application à l'Oscillateur Harmonique Quantique}
 
-\paragraph{} Rappelons avant tout qu'en général, on définit un oscillateur comme un système qui évolue périodiquement dans le temps, et l'on dit qu'il est en plus harmonique lorsque cette évolution est une fonction sinusoïdale. 
-\newline Nous allons à nouveau faire appel au principe d'incertitude afin de déterminer l'énergie de l'oscillateur harmonique. 
+Rappelons avant tout qu'en général, on définit un \textbf{oscillateur} comme un système qui évolue périodiquement dans le temps, et l'on dit qu'il est en plus harmonique lorsque cette évolution est une fonction sinusoïdale\footnote{de fréquence et d'amplitude constantes.}. \\
+Nous allons à nouveau faire appel au principe d'incertitude afin de déterminer l'énergie de l'oscillateur harmonique. 
 
-\paragraph{} \textit{Remarque :} Il est important de savoir que l'oscillateur harmonique joue un rôle fondamentale en physique ; il est à la base d'un très grand nombre d'applications et de théorie. Gardez cela bien en tête car nous y reviendrons plus tard dans le cours, et vous le rencontrerez certainement plusieurs fois dans le reste de votre parcours en physique!
-\newline Un petit exemple d'application parmis tant d'autres en MQ serait d'utiliser l'oscillateur harmonique pour décrire le mouvement oscillatoire d'une particule autour de sa position d'équilibre. 
+\bg{Remarque : l'importance de l'oscillateur harmonique quantique}{Il est important de savoir que l'oscillateur harmonique joue un rôle fondamentale en physique ; il est à la base d'un très grand nombre d'applications et de théorie. Gardez cela bien en tête car nous y reviendrons plus tard dans le cours, et vous le rencontrerez certainement plusieurs fois dans le reste de votre parcours en physique! {\color{red}{trop mignon tu parles aux futurs étudiants}}}
 
-\paragraph{} Nous allons procéder comme précédemment ; écrivons l'énergie mécanique totale, de manière classique, de l'oscillateur harmonique : \begin{equation}
+Un petit exemple d'application parmi tant d'autres en MQ serait d'utiliser l'oscillateur harmonique pour décrire le mouvement oscillatoire d'une particule autour de sa position d'équilibre. Nous allons alors procéder comme précédemment ; écrivons l'énergie mécanique totale, de manière classique, de l'oscillateur harmonique : \begin{equation}
     \label{Energie OHC}
     E = \frac{p^2}{2m} + \frac{kx^2}{2}
 \end{equation}
-Posons $w = \sqrt{\frac{k}{m}}$, la fréquence angulaire. 
+Posons $w = \sqrt{k/m}$, la fréquence angulaire. 
 \newline Notons $\Delta x \equiv$ l'étendue de l'oscillateur harmonique dans son état fondamental. 
-\newline Utilisant la relation d'Heisenberg, on trouve dès lors que 
-\newline l'impulsion est donnée par $\Delta p \approx \frac{\hbar}{\Delta x}$
+\newline Utilisant la relation d'Heisenberg, on trouve dès lors que l'impulsion est donnée par $\Delta p \approx \hbar/\Delta x$
 \newline En partant de ces hypothèses, on trouve que l'énergie de l'état fondamental est donnée par : 
 \begin{equation}
 E \left(\Delta x \right) = \frac{\hbar^2}{2m\Delta x^2} + \frac{1}{2} k \Delta x^2
 \end{equation}
-Ensuite, nous pouvons trouver, en déterminant les racines de la dérivée de cette dernière équation, que l'énergie est minimale en $\Delta x \approx \frac{\hbar^{1/2}}{\left(mk\right)^{1/4}}$. 
+Ensuite, nous pouvons trouver, en déterminant les racines de la dérivée de cette dernière équation, que l'énergie est minimale en $$\Delta x \approx \frac{\hbar^{1/2}}{\left(mk\right)^{1/4}}\; .$$ 
 En réinjectant l'expression de l'étendue $\Delta x$ pour laquelle l'énergie est minimale, dans l'expression de l'énergie de l'oscillateur même, on trouve ainsi l'énergie minimale : 
 \begin{align}
 \label{Energie OH}
@@ -151,7 +154,7 @@ De cette expression \ref{Energie quantifiée OHQ}, nous observons que :
 \begin{itemize}[label=\textbullet]
 \item Cela autorise la particule à être relativiste 
 \item En utilisant l'équation \ref{Energie relativiste particule libre}, l'incertitude sur l'énergie vérifie alors la relation 
-\newline $ \Delta E \geq mc^2$. Dans le cas où elle excède $mc^2$, il y a suffisamment d'énergie que pour donner naissance à une paire : l'électron avec son positron associé. C'est ainsi que la notion de \textit{"une particule"} perd son sens dans la mécanique quantique relativiste. 
+\newline $ \Delta E \geq mc^2$. Dans le cas où elle excède $mc^2$, il y a suffisamment d'énergie que pour donner naissance à une paire : l'électron avec son positron associé. C'est ainsi que la notion de \textit{"une particule"} perd son sens dans la mécanique quantique relativiste. On ne peut pas parler d'"une particule" car l'incertitude d'Heisenberg fait qu'il peut y avoir une paire créée à tout moment (car l'énergie est incertaine au point de créer une particule identique).
 \end{itemize}
 
 \paragraph{} Fixons à présent $\Delta p = mc$, de sorte que, par la relation d'Heisenberg, on a que $\Delta x \geq \frac{\hbar}{2mc}$. 
