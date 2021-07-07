@@ -139,12 +139,27 @@ De cette expression \ref{Energie quantifiée OHQ}, nous observons que :
     \newline L'expression que l'on a obtenu en utilisant le principe d'incertitude concorde donc bien, en terme d'ordre de grandeur (puisque l'on avait la même expression à un facteur $\frac{1}{2}$ près seulement). 
 \end{itemize} 
 
-\subsection{Application au cas relativiste}
-L'incertitude d'Heisenberg est également valide dans le cas relativiste. La relation de dispersion nous donne que $E^2 = m^2 c^4 + p^2 c^2$ pour une particule libre relativiste. En posant $\Delta x \approx \frac{\hbar}{mc}$, nous avons que $\Delta p \approx mc$ : il s'agit d'une particule relativiste. Dès lors,
-\begin{itemize}
-\item L'incertitude sur l'énergie sera de l'ordre $\Delta E \approx mc^2$.
-\item Supposons que nous avons un électron $e^(-)$ dans une boite de taille $\approx \frac{\hbar}{mc}$. L'incertitude sur l'énergie permet alors de créer des paires d'électrons et de positrons. \textbf{La notion de particule perd son sens dans le cadre de la mécanique quantique relativiste}. Cette taille est appelée à longueur d'onde de Compton, et vaut exactement $\lambda_C = \frac{\hbar}{mc}$.
+\subsection{Principe d'incertitude dans le cas relativiste}
+\paragraph{} Il se trouve que la relation d'Heisenberg est encore valable dans un cadre relativiste ; or nous savons que dans ce cadre, l'impulsion d'une particule libre relativiste est exprimée dans la relation : 
+\begin{equation}
+    \label{Energie relativiste particule libre}
+    E^2 = m^2 c^4 + p^2 c^2
+\end{equation}
+\newline Supposons en plus que l'on "confine" un électron dans une boîte de taille $\approx \frac{\hbar}{mc}$, de sorte que l'incertitude sur sa position $\Delta x \approx \frac{\hbar}{mc}$ ; autrement dit, cela revient à vouloir déterminer la position de l'électron de manière très précise (en considérant que $\frac{\hbar}{mc}$ est très petit).
+\newline Ainsi, le principe d'Heisenberg contraint l'incertitude de l'impulsion à être plus grande ou égale à environ $mc$ ; $\Delta p \geq mc$. 
+\newline En effet, nous pouvons alors remarquer que : 
+\begin{itemize}[label=\textbullet]
+\item Cela autorise la particule à être relativiste 
+\item En utilisant l'équation \ref{Energie relativiste particule libre}, l'incertitude sur l'énergie vérifie alors la relation 
+\newline $ \Delta E \geq mc^2$. Dans le cas où elle excède $mc^2$, il y a suffisamment d'énergie que pour donner naissance à une paire : l'électron avec son positron associé. C'est ainsi que la notion de \textit{"une particule"} perd son sens dans la mécanique quantique relativiste. 
 \end{itemize}
+
+\paragraph{} Fixons à présent $\Delta p = mc$, de sorte que, par la relation d'Heisenberg, on a que $\Delta x \geq \frac{\hbar}{2mc}$. 
+\newline Alors une grandeur qui caractérise cette limitation à la mesure de la position d'une particule, lorsque l'on combine mécanique quantique à la relativité restreinte, est ce qu'on appelle la longueur d'onde de Compton $\lambda_C$. Cette longueur se définit comme : \begin{equation}
+    \label{longueur d'onde de compton}
+    \lambda_C = \frac{h}{mc}
+\end{equation}
+\newline Ainsi, cela signifie qu'en terme d'ordre de grandeur, l'incertitude de la position est minorée par longueur de Compton $\lambda_C$. 
 
 \subsection{Application à la Masse de Planck}
 Considérons une particule de masse M confinée dans une boule de rayon R.
