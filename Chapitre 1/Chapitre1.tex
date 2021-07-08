@@ -2,7 +2,7 @@
 
 
 \begin{document}
-\part{Principe d'incertitude d'Heisenberg}
+\chapter{Principe d'incertitude d'Heisenberg}
 
 \section{La relation d'Incertitude}
 Pour commencer ce cours, il est important de souligner le fait qu'en Mécanique Quantique (MQ), l'on ne peut plus considérer le résultat d'une mesure comme en mécanique classique. 
@@ -57,7 +57,7 @@ Rappelons rapidement l'expression de l'énergie d'une particule, de masse au rep
 Nous allons voir ici quelques différentes applications du principe que nous venons de voir.\\
 Notons également que ce qui importe ici sera de déterminer des ordres de grandeurs plutôt que des valeurs précises. Nous pouvons dès lors ne pas prêter attention au facteur $\frac{1}{2}$ qui apparaît dans la relation d'Heisenberg $\ref{Heinsenberg}$.
 
-\subsection{L'atome d'Hydrogène}
+\subsection{Application à l'atome d'Hydrogène}
 Le but ici est de comprendre la stabilité des atomes et de retrouver l'ordre de grandeur de l'énergie de l'atome d'hydrogène dans son état fondamental. \\
 
 En effet, l'énergie mécanique totale d'un atome d'hydrogène peut s'écrire comme la somme de son énergie cinétique (mouvement de l'électron) et de son énergie potentiel (coulombien) : 
@@ -199,7 +199,7 @@ Pour un objet de la dimension d'une particule élémentaire, cette masse représ
 \paragraph{} \textit{Remarque :} Notons que nous avons fixé la taille de l'objet avant de comparer sa masse afin de raisonner en terme de \textbf{densité} d'énergie. 
 En effet, nous ne pourrions pas conclure que la Terre soit un trou noir, car bien que sa masse soit bien plus importante que la masse de Planck, sa densité d'énergie est faible.
 
-\subsection{Masse des étoiles}
+\subsection{Application à la Masse des étoiles}
 Considérons N atomes d'hydrogène dans une boule de rayon R, soumis à l'attraction gravitationelle, et notons les approximations suivantes : 
 \begin{itemize}[label = \textbullet]
     \item Ordre de grandeur du volume par atome $\approx \frac{R^3}{N}$ ;
@@ -267,19 +267,30 @@ Ainsi, la masse d'une étoile est environ de l'ordre de $M \approx 10^{30}$ kg. 
     Il existe des étoiles pour lesquelles $R$ est proche de $R^*$, mais il faudrait plus de connaissances approfondies en astrophysique pour comprendre cela. 
 \end{itemize}
 
-\subsection{Masse de Chandrasekhar}
-Reprenons $E(R)$ pour $N$ atomes d'hydrogènes dans une boule de rayon R, à température nulle et en tenant compte les effets relativistes.
+\subsection{La Masse de Chandrasekhar}
+
+Reprenons $E(R)$ pour $N$ atomes d'hydrogènes dans une boule de rayon R et à température nulle. \\
+La raison pour laquelle nous nous plaçons sous ces hypothèses est la suivante : comme on l'a dit précédemment, la fusion thermonucléaire dégage de l'énergie, et augmente la température et la pression au centre de l'étoile. Par conséquent, la masse volumique est faible. Or si l'on se met à température nulle, ou du moins suffisamment faible pour qu'elle ne change pas la masse volumique, on peut considérer la limite de Chandrasekhar que nous discuterons ici. \\
+
+En tenant compte à présent des effets relativistes, l'expression de l'énergie du système $E(R)$ donne lieu à : 
 \begin{equation}
-E(R) \approx - \frac{GN^2 m_p^2}{R} + N m_p c^2 + N \sqrt{m_e^2c^4 + \frac{\h^2N^{2/3}}{R^2}c^2}
+E(R) \approx - \frac{GN^2 m_p^2}{R} + N m_p c^2 + N \sqrt{m_e^2c^4 + \frac{\hbar^2N^{2/3}}{R^2}c^2} \\
 \end{equation}
-Soit $N^*$ une valeur limite. Lorsque $N = N^*$:
+Selon la valeur de $N$, la manière dont se comporte $E(R)$ peut différer ; tantôt $E(R)$ peut décroître en $1/R$, tantôt il est possible de trouver une valeur critique $N = N^*$ tel que $E(R)$ s'annule à la limite où $R$ tend vers 0. Déterminons cette valeur critique $N^*$ : 
 \begin{align}
-\lim_{R\to 0} E(R) &= 0\\
-\lim_{R\to 0} - \frac{GN^2 m_p^2}{R} + \frac{N^{\frac{4}{3}}\h c}{R} &= 0\\
-N^* &= \left( \frac{\h c}{G} \frac{1}{m_p^3} \right) = \frac{M_{Pl}^3}{m_p^3}
+\lim_{R\to 0} E(R) &= \lim_{R\to 0} \frac{-GN^2m^2_p + RNm_pc^2 + \sqrt{N^2m^2_ec^4R^2 + \hbar^2 N^{2/3} c^2}}{R} \notag \\
+&= \lim_{R\to 0} - \frac{GN^2 m_p^2}{R} + \frac{\hbar N^{4/3} c}{R} = 0 \notag \\
+\iff N^{2/3} &= \frac{\hbar c}{Gm^2p} \notag \\
+\iff N &= \left( \frac{\hbar c}{G} \right)^{3/2} \frac{1}{m_p^3} = \frac{M_{p}^3}{m_p^3} \notag \\
+\implies N &= N^* = \left( \frac{M_p}{m_p} \right)^3
 \end{align}
-A tempéature nulle, si $N > \frac{M_{Pl}^3}{m_p^3} = N^*$, alors la boule ne peut pas résister à son attraction gravitationnelle : elle se collapse en un trou noir.\\
 
-La masse limite à la masse de Chandrasekhar : elle vaut approximativement $1.4 M_\odot$. Il s'agit de l'origine des trous noirs et des supernovae.
+% Schéma du Comportement de E(R) 
 
+\paragraph{} Comment pouvons-nous interpréter cette valeur critique ? \\
+A tempéature nulle, si $N > N^*$, alors la boule ne peut pas résister à son attraction gravitationnelle : il y a alors ce qu'on appelle un effondrement gravitationnel, qui fait que la boule se transforme en un trou noir. \\
+La masse de Chandrasekhar représente en fait cette limite à partir de laquelle il peut y avoir un effondrement gravitationnel, et vaut approximativement $1,4 M_{\astrosun}$. \\
+
+En particulier, une fois que les réactions nucléaires ont terminé de transformer le noyau d'une étoile massive en un noyau inerte (le plus souvent constitué de fer), d'autres réactions continues d'apporter des éléments inertes sur le noyau, ce dernier accumule donc de la masse ; enfin, si le noyau passe à la limite de Chandrasekhar en ayant accumulé de la matière, il s'effondre et provoque une supernova de type II (ce qui donne soit un trou noir soit une étoile à neutron).\\
+L'hypothèse à température nulle était donc nécessaire pour considérer le cas où il n'y a plus d'augmentation conséquente de la masse volumique à cause des réactions nucléaires ayant lieu dans le noyau de l'étoile. 
 \end{document}
