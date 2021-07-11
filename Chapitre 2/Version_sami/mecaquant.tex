@@ -608,17 +608,51 @@ En posant $p(x) = \sqrt{2m[E - V(x)]}$, on obtient aisemment
   S(x) = \pm \int ^x \d x' p(x')
 \end{equation}
 Et la fonction d'onde prend alors la forme suivante :
-\begin{equation}
+\begin{equation} \label{eq:ch2-WKB-solution}
   \psi(x) = \pm \dfrac{A_0}{\sqrt{p(x)}} e^{\pm i \; \int ^x \d x' p(x')/\hbar}
 \end{equation}
 
 \subsection{Interprétation de la solution}
+
+\subsubsection{La vitesse de groupe du paquet d'onde est la vitesse classique}
 L'impulsion de la particule est donnée par la fonction $p$. Calculons le nombre d'onde par la relation de De Broglie pour le nombre d'onde. Ce résultat sera important pour obtenir la vitesse de groupe. Il est important de saisir ici que le nombre d'onde dépend de la position.
 $$k(x) = \dfrac{p(x)}{\hbar}$$
 La vitesse de groupe $v_g$ est donnée par $\d\omega/\d k$. Alors on fait les physiciens et on renverse la fraction pour dériver $k$ par rapport à $\omega$ qu'on exprime comme $E/\hbar$. Alors :
-$$\dfrac{\d k}{\d \omega} = \dfrac{\d (p/\hbar)}{E/\hbar} = \dfrac{\d p }{\d E} = \dfrac{m}{p(x)}=  \dfrac{1}{v_{\text{classique}}}$$
-Ainsi, nous voyons que l'approximation semi-classique mène à une solution de l'équation de Schrödinger qui, une fois utilisée pour construire des paquets d'onde pour construire une particule, donne une vitesse de groupe égale à la vitesse classique de la particule.
+$$\dfrac{1}{v_g} = \dfrac{\d k}{\d \omega} = \dfrac{\d (p/\hbar)}{E/\hbar} = \dfrac{\d p }{\d E} = \dfrac{m}{p(x)}=  \dfrac{1}{v_{\text{classique}}}$$
+Ainsi, nous voyons que l'approximation semi-classique mène à une solution de l'équation de Schrödinger qui, une fois utilisée pour construire des paquets d'onde pour constituer une particule, donne une vitesse de groupe égale à la vitesse classique de la particule.
 
+\subsubsection{Région classiquement permise et région classiquement interdite}
+La région classiquement permise est définie par l'ensemble des $x$ où $V(x) < E$. Dans cette région, on peut voir par la forme \ref{eq:ch2-WKB-solution} de la fonction d'onde que la probabilité de présence de la particule est inversement proportionnelle à l'impulsion. Ceci est le cas car pour $E>V$, $p\in \mathbb{R}$ donc l'exponentielle dans \ref{eq:ch2-WKB-solution} reste imaginaire donc son module reste 1. On voit alors que la probabilité de présence diminue quand l'impulsion de la particule augmente, ce qui rejoint notre intuition\footnote{De toute façon quand ça parle de mécanique classique, tout rejoint un peu notre intuition.}.
+\begin{center}
+  Région classiquement permise : $E>V(x) \quad \Rightarrow \quad |\psi|^2 \propto \dfrac{1}{p}$
+\end{center}
+
+Dans la zone interdite, $E<V$ et l'impulsion devient alors imaginaire. L'exponentielle devient réelle et la probabilité de présence devient proportionnelle à une exponentielle négative, mais pas nulle ! On retrouve ici l'effet tunnel déjà discuté, mais ici pour un potentiel quelconque qui est supérieur à l'énergie. Attention : on ne retrouve que l'exponentielle négative car les considérations physiques (fonction d'onde bornée) imposent un coefficient nul à l'exponentielle croissante (pour éviter qu'elle explose à l'infini).
+\begin{center}
+  Région classiquement interdite : $E<V(x) \quad \Rightarrow \quad |\psi|^2 \propto e^{-\int ^x p(x') \d x'}$
+\end{center}
+
+Les figures ci-dessous reprennent un cas de potentiel et l'allure de la fonction d'onde correspondante. On voit aux lignes verticales pointillées, qui correspondent aux frontières entre les régions permise et interdite, que la probabilité devient exponentiellement décroissante mais non nulle (effet tunnel).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.4\linewidth]{WKB_approximation_example.svg.png} \\ \includegraphics[width=.4\linewidth]{WKB_approximation_example_2.svg.png}
+  \caption{Graphe d'une fonction d'onde et de sa densité de probabilité de présence sous l'approximation WKB.}
+\end{figure}
+
+\subsubsection{Etats liés}
+Si nous sommes dans le cas d'une solution qui décroit exponentiellement à grande distance, en notant $b$ et $a$ les points de rebroussement de la trajectoire classique, les états liés, dans la région permise donc, sont décrits par les fonctions suivantes, selon si on est proche de la frontière gauche avec la région interdite ou la frontière droite :
+\begin{equation}
+  \begin{array}{llr}
+    \psi(x) &= \dfrac{1}{\sqrt{k(x)}} \; \cos\left[\int_b ^x k(x')\; \d x' \quad - \pi/4\right] & x>b \\   
+    \psi(x) &= \dfrac{1}{\sqrt{k(x)}} \; \cos\left[\int_x ^a k(x')\; \d x' \quad + \pi/4\right] & x<a    
+  \end{array}
+\end{equation}
+Une condition de quantification est que la somme des phases des cosinus soit égale à un multiple de $\pi/2$ \rouge{confirmation needed, source wikipedia}. En sommant sur le domaine d'intégration, on obtient l'intégrale du nombre d'onde entre les deux points de rebroussement (les points de frontière).
+\begin{center}
+  Condition de quantification semi-classique : $\dfrac{1}{\hbar} \int_b ^a \dx \sqrt{2m(E-V(x))} \quad = \left(n+\dfrac{1}{2}\right) \pi$
+\end{center}
+\subsection{Application de l'approximation WKB en physique nucléaire}
+\rouge{A compléter.}
 
 
 
