@@ -528,6 +528,108 @@ de sorte à ce qu'il soit réel, et séparer en zones comme fait pour le puit de
   $$
 Les considérations physiques et les conditions de raccord impliquent encore des relations entre les coefficients. Notamment :
 
+\begin{align}
+  A_1 &= \left[\cos(k_2 L) - i \; \dfrac{k_1 ^2 + k_2 ^2}{2k_1k_2} \; \sin(k_2L) \right] e^{ik_1L}A_3 \\
+  A_1 ' &= i \; \dfrac{k_2 ^2 - k_1 ^2}{2k_1 k_2}\; \sin(k_2L) \; e^{ik_1L} A_3
+\end{align}
+
+Une manière d'interpréter la physique du système est d'observer les ainsi nommés \textbf{coefficients de transmission et de réflexion}. Comme leur nom l'indique, ces coefficients quantifient la probabilité que la particule traverse la barrière et la probabilité qu'elle soit réfléchie en la rencontrant. Ainsi, ces coefficients seront toujours exprimés comme un rapport où le dénominateur est $A_1$ : le coefficient de la partie de la fonction d'onde qui symbolise une particule se dirigant vers les $x>0$ avec un nombre d'onde $k_1$, soit l'état initial de la particule.\\
+
+De là, la réflexion de la particule sera lue dans le coefficient $A_1'$, qui correspond à une fonction d'onde dans la zone 1 de nombre d'onde $k_1$ se propageant vers la gauche.
+
+$$ R = \left|\dfrac{A_1'}{A_1}\right|^2$$
+
+La transmission sera caractérisée par le coefficient $A_3$, qui multiplie une fonction d'onde dans la zone 3 se déplaçant avec un nombre d'onde $k_1$ vers la droite.
+
+$$ T = \left|\dfrac{A_3}{A_1}\right|^2$$
+
+Les calculs dans ce cas précis montrent que :
+\begin{align}
+  R &= \dfrac{(k_1 ^2 - k_2 ^ 2) ^2 \sin^2(k_2 L)}{4k_1 ^2 k_2 ^2 + (k_1 ^2 - k_2 ^ 2) ^2\sin(k_2L)} \\
+  T &= \dfrac{4k_1 ^2 k_2 ^2}{4k_1 ^2 k_2 ^2 + (k_1 ^2 - k_2 ^ 2) ^2\sin(k_2L)} 
+\end{align}
+Chose chouette : 
+$$ R + T = 1 \; .$$
+Compte tenu des définitons des $k_i$, le coefficient de transmission peut se réécrire en fonction de $E$ sous la forme suivante :
+\begin{equation}
+  T = \dfrac{4E (E-V_0)}{4E(E-V_0) + V_0 ^2 \sin ^ 2\left[\sqrt{2m(E-V_0)} L/\hbar\right]}
+\end{equation}
+On voit que le coefficient de transmission est périodique en $E$ et que sa valeur maximale est 1, lorsque le sinus s'annule. Ceci est le phénomène de \textbf{résonnance} et arrive lorsque $k_2L = n\pi$, $n\in \mathbb{Z}$.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{marche_potentiel_transmission.pdf}
+  \caption{Variation du coefficient de transmission de la barrière de potentiel en fonction de sa largeur. Résonnances aux multiples de $\pi/k_2$.}
+\end{figure}
+
+\subsubsection{Résolution lorsque $E < V_0$}
+Une résolution similaire, voire même identique, s'obtient en posant $$k_2 \longrightarrow -i\rho_2 \qquad \rho_2 = \sqrt{2m(V_0-E)/\hbar ^2} \; \in \mathbb{R} $$ aux résultats déjà obtenus. Ainsi :
+\begin{align}
+  T = \left|\dfrac{A_3}{A_1}\right|^2 &= \dfrac{-4k_1 ^2 \rho_2 ^2}{-4k_1 ^2 \rho_2 ^2 + (k_1 ^2 + \rho_2 ^ 2) ^2\sin(-i\rho_2 L)} \\
+  &= \dfrac{4E (V_0-E)}{4E(V_0-E) + V_0 ^2 \sinh ^ 2(\rho_2 L)}
+\end{align}
+Observons ce qui se passe lorsque la barrière est très imposante par rapport à l'énergie de la particule : $\rho_2L \gg 1$. Le sinus hyperbolique peut subir une approximation et la fraction peut se simplifier largement.
+\begin{align}
+\sinh(x) = \dfrac{e^{x} - e^{-x}}{2} &\Rightarrow \sinh^2(x)_{|_{x\gg 1}} \sim e^{2x}/4 \\
+&\Rightarrow T \approx \dfrac{16(V_0-E)}{V_0 ^2} \; e^{-2\rho_2 L}
+\end{align}
+Nous voyons que lorsque la barrière est imposante (large et à haut potentiel), la particule a tout de même une probabilité non-nulle de la franchir. Ceci est propre à la mécanique quantique et ne serait jamais arrivé en mécanique classique. Ce phénomène porte le nom d'\textbf{Effet Tunnel} et possède comme application notable le microscope à effet tunnel.
+
+\newpage
+\section{Approximation semi-classique (WKB)}
+Toujours dans le cadre de l'étude de l'équation de Schrödinger, nous allons dans cette section étudier une solution \textbf{approximative} de cette équation, valable dans la limite $\hbar \longrightarrow0$. Cette approximation est nommée en l'honneur de Léon Brillouin, Hendrik Anthony Kramers et Gregor Wentzel. L'idée est la suivante : en poussant $\hbar$ vers zéro, nous devrions retrouver des résultats de la mécanique classique. Abordons donc cela en écrivant premièrement l'équation de Schrödinger. Ensuite, inteprétons la solution obtenue.
+\subsection{Résolution de l'équation de Schrödinger}
+
+\begin{equation}\label{eq:ch2-WKB-schrod}
+  -\dfrac{\hbar^2}{2m} \partial_x ^2 \phi + V(x)\psi = E\psi
+\end{equation}
+
+Posons $\psi(x) = A(x) e^{i\; S(x)/\hbar}$. Pour remplacer dans \ref{eq:ch2-WKB-schrod}, calculons d'abord les dérivées de $\psi$ en fonction de $A$ et $S$ et écrivons ce que donne l'équation de Schrödinger.
+\begin{align}
+  \psi' &= \left[ A' + \dfrac{i}{\hbar} S' A\right]e^{i\; S/\hbar} \\
+  \psi'' &= \left[A'' + \dfrac{i}{\hbar} (S''\; A + S'\; A') - \dfrac{1}{\hbar ^2} S^{\prime 2} A + \dfrac{i}{\hbar} S' \; A'\right] e ^{i\; S/\hbar} \\
+  \Rightarrow -&\dfrac{\hbar ^2 }{2m} \left[A'' + \dfrac{i}{\hbar} (S''\; A + S'\; A') - \dfrac{1}{\hbar ^2} S^{\prime 2} A + \dfrac{i}{\hbar} S' \; A'\right] e ^{i\; S/\hbar} + VA e ^{i\; S/\hbar} = EA e ^{i\; S/\hbar} \label{eq:ch2-WKB-SchrodAS}
+\end{align}
+En séparant les parties réelle et imaginaire de l'équation \ref{eq:ch2-WKB-SchrodAS}, on obtient le système suivant. Ce système est l'équivalent de \ref{eq:ch2-WKB-schrod}.
+\begin{align}
+      2S' \; A' + A \; S'' &= 0 \label{eq:ch2-WKB-SchrodAS-Im} \\
+      \dfrac{S^{\prime 2}}{2m} - \dfrac{\hbar ^2}{2m} \dfrac{A''}{A} + V &= E \label{eq:ch2-WKB-SchrodAS-Re} 
+\end{align}
+L'équation \ref{eq:ch2-WKB-SchrodAS-Im} a une solution exacte. Elle est donnée par 
+\begin{equation}
+  A(x) = \dfrac{A_0}{\sqrt{S'(x)}}
+\end{equation}
+L'équation \ref{eq:ch2-WKB-SchrodAS-Re} peut être modifiée par notre approximation $\hbar \longrightarrow 0$, car alors $\hbar ^2/2m \longrightarrow 0$. L'équation obtenue est \textbf{l'équation de Hamilton-Jacobi}\footnote{Retenez bien ce nom car il m'a valu 4 points sur 20 à l'examen de Mécanal}.
+\begin{equation}
+  \dfrac{S^{\prime 2}}{2m} + V(x) = E
+\end{equation}
+En posant $p(x) = \sqrt{2m[E - V(x)]}$, on obtient aisemment
+\begin{equation}
+  S(x) = \pm \int ^x \d x' p(x')
+\end{equation}
+Et la fonction d'onde prend alors la forme suivante :
+\begin{equation}
+  \psi(x) = \pm \dfrac{A_0}{\sqrt{p(x)}} e^{\pm i \; \int ^x \d x' p(x')/\hbar}
+\end{equation}
+
+\subsection{Interprétation de la solution}
+L'impulsion de la particule est donnée par la fonction $p$. Calculons le nombre d'onde par la relation de De Broglie pour le nombre d'onde. Ce résultat sera important pour obtenir la vitesse de groupe. Il est important de saisir ici que le nombre d'onde dépend de la position.
+$$k(x) = \dfrac{p(x)}{\hbar}$$
+La vitesse de groupe $v_g$ est donnée par $\d\omega/\d k$. Alors on fait les physiciens et on renverse la fraction pour dériver $k$ par rapport à $\omega$ qu'on exprime comme $E/\hbar$. Alors :
+$$\dfrac{\d k}{\d \omega} = \dfrac{\d (p/\hbar)}{E/\hbar} = \dfrac{\d p }{\d E} = \dfrac{m}{p(x)}=  \dfrac{1}{v_{\text{classique}}}$$
+Ainsi, nous voyons que l'approximation semi-classique mène à une solution de l'équation de Schrödinger qui, une fois utilisée pour construire des paquets d'onde pour construire une particule, donne une vitesse de groupe égale à la vitesse classique de la particule.
+
+
+
+
+
+
+
+
+
+
+
+
 \begin{appendix}
 \chapter{Calculs des coefficients des fonctions d'onde}
   \section{Puits de potentiel fini} \label{annexe-CalculCoefficients-PuitsFini}
