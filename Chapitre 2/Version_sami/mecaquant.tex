@@ -317,14 +317,21 @@ La constante $\hbar \omega$ correspond bien à l'énergie de la particule. En r�
 
 Une telle fonction est appelée \textbf{solution stationnaire de l'équation de Schrödinger}, car elle conduit à une densité de probabilité indépendante du temps. On remarque que pour une solution stationnaire, \textbf{une seule pulsation apparaît} : les états d'énergie y sont bien définis. Là où en classique on insiste sur le fait que l'énergie doit bien être conservée, ici on insiste sur le fait que les états d'énergie doivent être bien définis, qu'il existe une énergie bien déterminée. \\
 
-La résolution de \eqref{eq:resol_stat_pos} dépend de la forme du potentiel. Nous en explorons quelques exemples.
+La résolution de \eqref{eq:resol_stat_pos} dépend de la forme du potentiel. Nous en explorons quelques exemples. Nous pouvons déjà noter que pour faire apparaître des effets quantiques, les potentiels doivent présenter des variations sur des faibles longueurs, typiquement plus faibles que la longueur d'onde des ondes correspondant aux particules en jeu.
 
 
-\section{Equation de Schrödinger en puits de potentiel carré}
-\subsection{Définition d'un puits de potentiel carré}
-Un puits de potentiel est une région de l'espace où le potentiel atteint un minimum. Cette notion existe en mécanique classique, alors nous pourrions parler ici de puits quantique pour parler d'un puits dont les dimensions sont si petites qu'elles ne peuvent nous protéger d'entrer dans la mécanique quantique (le chapitre 1 [\rouge{insérer référence}] a su poser ces limites). Mais nous garderons la dénomination de "puits de potentiel" car ce document ne concerne que la mécanique quantique. \\
-
-Pour mettre en évidence les effets quantiques, nous allons donc considérer des potentiels qui varient sur des faibles distances, typiquement plus petites que les longueurs d'onde des ondes correspondant aux particules en jeu. De tels potentiels peuvent s'approximer par un potentiel carré : il paraît discontinu à certains endroits. L'approximation en potentiel carré est en général une excellente approximation (figure \ref{fig:potentiel_carre}) mais n'est plus valable dans le cas d'une particule de haute énergie (car elle aurait une petite longueur d'onde). \\
+\section{Equation de Schrödinger en potentiel carré}
+Dans cette sections nous traitons plusieurs cas de potentiels, qui ont pour point commun de répondre à la définition de "potentiel carré" présentée à la section suivante. Nous pouvons les organiser de la sorte :
+\begin{itemize}
+  \item Puits de potentiel : on mettra en évidence la présence \textbf{d'états liés}
+    \begin{itemize}[label = $\star$]
+      \item Infini
+      \item Fini
+    \end{itemize}
+  \item Marche de potentiel : on verra l'effet tunnel
+\end{itemize}
+\subsection{Définition d'un potentiel carré} \label{ch2-subsection-Definition_pot_carre}
+Un potentiel carré est un potentiel présentant des discontinuités sous la forme de "marches" \footnote{Synonymes : potentiel en marche d'escalier, potentiels continus par morceaux}. Une grandeur physique ne pouvant pas présenter de discontinuité en réalité, le potentiel carré en est néanmoins souvent une excellente \textbf{approximation}.
 
 \begin{figure}[h]
 \centering
@@ -332,8 +339,12 @@ Pour mettre en évidence les effets quantiques, nous allons donc considérer des
 \caption{Illustration d'un puits de potentiel carré en comparaison avec un puits de potentiel réel.}
 \label{fig:potentiel_carre}
 \end{figure}
+
+Un puits de potentiel est une région de l'espace où le potentiel atteint un minimum. Cette notion existe en mécanique classique, alors nous pourrions parler ici de puits quantique pour parler d'un puits dont les dimensions sont si petites qu'elles ne peuvent nous protéger d'entrer dans la mécanique quantique (cf. début de section). Mais nous garderons la dénomination de "puits de potentiel" car ce document ne concerne que la mécanique quantique. \\
+
+
 \subsection{Puits de potentiel infini}
-Un puits de potentiel est un cas particulier de puits de potentiel où le potentiel présente des discontinuités tendant vers l'infini. Une illustration d'un puits de potentiel peut être la suivante :
+Un puits de potentiel infini a des discontinuités tendant vers l'infini. Il peut s'apparenter à une "boîte", c'est pourquoi on parle souvent de "particule dans une boîte". Par ailleurs, intuitivement, comme une particule ne peut pas exister dans une région où règne un potentiel infini, la particule sera \textbf{confinée dans une boîte}.
 \begin{figure}[h]
 \centering
 \scalebox{1}{\input{images/puits_potentiel.tex}}
@@ -391,68 +402,68 @@ Un puits de potentiel fini est un cas assez basique de potentiel carré. Une ima
 \begin{equation}
   -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E-V(x)) \varphi 
   \quad \Rightarrow \quad \ \left\{ 
-  \begin{array}{lll}
-    \text{Zone I} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
-    \text{Zone II} & V = -V_0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E+V_0) \varphi \\
-    \text{Zone III} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
-  \end{array}
-  \right. 
-\end{equation}
-Ces équations sont simples à résoudre, et donnent :
-\begin{align}
-  \varphi_{I}(x) &= B_1 e^{\rho x} + B' _1 e^{-\rho x} \\
-  \varphi_{II}(x) &= A_2 e^{i\kappa x} + A' _2 e^{-i\kappa x} \\
-  \varphi_{III}(x) &= B_3 e^{\rho x} + B' _3 e^{-\rho x} 
-\end{align}
-où
-\begin{align}
-  \rho &= \sqrt{-\dfrac{2mE}{\hbar}} \quad \in \mathbb{C} \\
-  \kappa &= \sqrt{\dfrac{2m(E+V_0)}{\hbar}} \quad \in \mathbb{R} \\
-\end{align}
-Les coeffiecients apparaissant dans la forme de la fonction d'onde doivent être déterminés. C'est la physique du problème qui nous les offira. Les conditions les plus simples auxquelles une fonction d'onde doit répondre sont :
-\begin{table}[h!]
-  \centering
-  \begin{tabular}{r|p{10cm}}
-    \bleu{\textbf{Fonction bornée}} & pour que la fonction soit de carré sommable (ch.4) \\ \rule{0pt}{20pt}
-    \bleu{\textbf{Fonction continue}} & garantit la conservation de la probabilité \\\rule{0pt}{20pt}
-    \bleu{\textbf{Dérivée continue}} & offre une quantification de l'énergie 
-\end{tabular}
-\caption{Conditions de raccord lors de la résolution d'une équation de Schrödinger qui peut s'étudier en différentes zones distinctes.}
-\label{tab:chap2-conditions_de_raccord}
-\end{table}
-
-Dans le cas d'un puits de potentiel fini, il n'y a pas d'autres conditions particulières à imposer. La première impose $B_1' = B_3 = 0$. \\
-
-Les deux suivantes imposent ensembles :
-\begin{equation}
-  \left(\dfrac{\rho - i\kappa}{\rho + i\kappa} \right) ^2 = e ^{2ika}
-\end{equation}
-Ce qui possède deux solutions.
-\begin{enumerate}[label = (\roman*)]
-  \item $\dfrac{\rho - i\kappa}{\rho + i\kappa} = -e^{ika}$ \\
-      Nous avons dans le membre de gauche un quotient de deux nombres complexes $z_1/z_2$. Le module de ce nombre est $\bar z_1/\bar z_2$ (soit 1 ici) et sa phase est $\phi(z_1) - \phi(z_2)$ où $\phi(z) = b/a$. Alors, le membre de gauche est de module 1 et de phase $-2\times \arctan(k/\rho)$. Grâce à ça nous pouvons écrire :
-      \begin{eqnarray*}
-        1\times e^{-2i\arctan(k/\rho)} &=& - e^{ika} \\
-        \iff \dfrac{k}{\rho} &=& \tan\left(\dfrac{ka}{2}\right)
-      \end{eqnarray*}
-
-      Posons à présent $k_0 = \sqrt{k^2 + \rho ^2}$ et exploitons la relation trigonométrique $$\dfrac{1}{\cos ^2(x)} = \tan^2(x) +1$$ en l'appliquant à $ka/2$. Il vient :
-      $$\dfrac{1}{\cos ^2\left(\dfrac{ka}{2}\right)} = \tan^2\left(\dfrac{ka}{2}\right) +1  = \dfrac{k^2 + \rho^2}{k^2} = \left(\dfrac{k}{k_0}\right)^2$$
-      La solution s'obtient donc en résolvant le système d'équations suivant :
-      \begin{equation}
-        \left\{ \begin{array}{ll}
-          \left| \cos \left(\dfrac{ka}{2}\right)\right| &= \dfrac{k}{k_0} \\
-          \tan \left(\dfrac{ka}{2}\right) &>0
-        \end{array}\right.
-      \end{equation}
-
-      qui peut se résoudre graphiquement en traçant les intersections de la droite $k/k_0$ avec des arcs de cosinusoïdes. \\
-  \item $\dfrac{\rho - i\kappa}{\rho + i\kappa} = e^{ika}$ \\
+    \begin{array}{lll}
+      \text{Zone I} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+      \text{Zone II} & V = -V_0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E+V_0) \varphi \\
+      \text{Zone III} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+    \end{array}
+    \right. 
+  \end{equation}
+  Ces équations sont simples à résoudre, et donnent :
+  \begin{align}
+    \varphi_{\mathrm{I}}(x) &= B_1 e^{\rho x} + B' _1 e^{-\rho x} \\
+    \varphi_{\mathrm{II}}(x) &= A_2 e^{ik x} + A' _2 e^{-ik x} \\
+    \varphi_{\mathrm{III}}(x) &= B_3 e^{\rho x} + B' _3 e^{-\rho x} 
+  \end{align}
+  où
+  \begin{align}
+    \rho &= \sqrt{-\dfrac{2mE}{\hbar}} \quad \in \mathbb{C} \\
+    k &= \sqrt{\dfrac{2m(E+V_0)}{\hbar}} \quad \in \mathbb{R} \\
+  \end{align}
+  Les coeffiecients apparaissant dans la forme de la fonction d'onde doivent être déterminés. C'est la physique du problème qui nous les offira. Les conditions les plus simples auxquelles une fonction d'onde doit répondre sont :
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{r|p{10cm}}
+      \bleu{\textbf{Fonction bornée}} & pour que la fonction soit de carré sommable (ch.4) \\ \rule{0pt}{20pt}
+      \bleu{\textbf{Fonction continue}} & garantit la conservation de la probabilité \\\rule{0pt}{20pt}
+      \bleu{\textbf{Dérivée continue}} & offre une quantification de l'énergie 
+    \end{tabular}
+    \caption{Conditions de raccord lors de la résolution d'une équation de Schrödinger qui peut s'étudier en différentes zones distinctes.}
+    \label{tab:chap2-conditions_de_raccord}
+  \end{table}
   
-  Par une démarche similaire à la précédente, les résultats sont aussi similaires. Nous avons :
+  Dans le cas d'un puits de potentiel fini, il n'y a pas d'autres conditions particulières à imposer. La première impose $B_1' = B_3 = 0$. \\
+  
+  Les deux suivantes imposent ensembles :
   \begin{equation}
-    \left\{ \begin{array}{ll}
-      \left| \sin \left(\dfrac{ka}{2}\right)\right| &= \dfrac{k}{k_0} \\
+    \left(\dfrac{\rho - ik}{\rho + ik} \right) ^2 = e ^{2ika}
+  \end{equation}
+  Ce qui possède deux solutions.
+  \begin{enumerate}[label = (\roman*)]
+    \item $\dfrac{\rho - ik}{\rho + ik} = -e^{ika}$ \\
+    Nous avons dans le membre de gauche un quotient de deux nombres complexes $z_1/z_2$. Le module de ce nombre est $\bar z_1/\bar z_2$ (soit 1 ici) et sa phase est $\phi(z_1) - \phi(z_2)$ où $\phi(z) = b/a$. Alors, le membre de gauche est de module 1 et de phase $-2\times \arctan(k/\rho)$. Grâce à ça nous pouvons écrire :
+    \begin{eqnarray*}
+      1\times e^{-2i\arctan(k/\rho)} &=& - e^{ika} \\
+      \iff \dfrac{k}{\rho} &=& \tan\left(\dfrac{ka}{2}\right)
+    \end{eqnarray*}
+    
+    Posons à présent $k_0 = \sqrt{k^2 + \rho ^2}$ et exploitons la relation trigonométrique $$\dfrac{1}{\cos ^2(x)} = \tan^2(x) +1$$ en l'appliquant à $ka/2$. Il vient :
+    $$\dfrac{1}{\cos ^2\left(\dfrac{ka}{2}\right)} = \tan^2\left(\dfrac{ka}{2}\right) +1  = \dfrac{k^2 + \rho^2}{k^2} = \left(\dfrac{k}{k_0}\right)^2$$
+    La solution s'obtient donc en résolvant le système d'équations suivant :
+    \begin{equation}
+      \left\{ \begin{array}{ll}
+        \left| \cos \left(\dfrac{ka}{2}\right)\right| &= \dfrac{k}{k_0} \\
+        \tan \left(\dfrac{ka}{2}\right) &>0
+      \end{array}\right.
+    \end{equation}
+    
+    qui peut se résoudre graphiquement en traçant les intersections de la droite $k/k_0$ avec des arcs de cosinusoïdes. \\
+    \item $\dfrac{\rho - ik}{\rho + ik} = e^{ika}$ \\
+    
+    Par une démarche similaire à la précédente, les résultats sont aussi similaires. Nous avons :
+    \begin{equation}
+      \left\{ \begin{array}{ll}
+        \left| \sin \left(\dfrac{ka}{2}\right)\right| &= \dfrac{k}{k_0} \\
       \tan \left(\dfrac{ka}{2}\right) &<0
     \end{array}\right.
   \end{equation}
@@ -470,7 +481,52 @@ Dépendant de la pente $1/k_0$, un certain nombre d'états liés peuvent exister
 
 
 
+\subsection{Marche de potentiel}
+Une marche de potentiel est similaire au puits fini mais avec un potentiel positif. Ce potentiel s'oppose donc à l'énergie de la particule et c'est pour cette raison qu'on parle souvent de "barrière de potentiel".
 
+\begin{figure}[h]
+  \centering
+  \scalebox{1.2}{\input{images/marche_potentiel.tex}}
+  \caption{Illustration d'un puits de potentiel fini de largeur $a$ et de profondeur $V_0$.}
+  \label{fig:chap2-marche_potentiel}
+\end{figure}
+
+\subsubsection{Comparaison avec la mécanique classique}
+\begin{wrapfigure}{r}{0.6\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{marche_potentiel_classique.pdf}
+  \caption{Impact sur la trajectoire dans l'espace des phases (axes : position et impulsion, vitesse constante = ligne droite) d'une particule qui passe à travers une marche de potentiel.}
+  \label{fig:ch2-marche_potentiel_classique}
+\end{wrapfigure}
+
+Etudier ce cas est très intéressant car une marche de potentiel en physique quantique donne un résultat extrêmement différent de la physique classique. En effet, en physique classique, une particule arrivant avec une énergie inférieure à $V_0$ rebondira. Avec une énergie supérieure à $V_0$, elle sera ralentie dans le potentiel (potentiel constant veut dire "force nulle" donc la particule a quoi qu'il arrive une vitesse constante) et repart avec sa vitesse initiale. Avec une énergie $E= V_0$, elle s'arrête.  Ces discussions sont reprises sur la figure ci-contre. \\
+
+Pour ce qui est de la physique quantique, il faut passer par une résolution de l'équation de Schrödinger. Comme pour le puits de potentiel, écrivons l'équation dans les différentes zones et écrivons les conditions de raccordement. Notons que la forme des solutions obtenues diffère selon si $E>$ ou $< V_0$.
+\subsubsection{Résolution lorsque $E > V_0$}
+Nous pouvons poser le nombre 
+$$k_2 = \sqrt{\dfrac{2m(E-V_0)}{\hbar}}$$
+de sorte à ce qu'il soit réel, et séparer en zones comme fait pour le puit de potentiel fini.
+\begin{equation}
+  -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E-V(x)) \varphi 
+  \quad \Rightarrow \quad \ \left\{ 
+    \begin{array}{lll}
+      \text{Zone I} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+      \text{Zone II} & V = V_0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E-V_0) \varphi \\
+      \text{Zone III} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+    \end{array}
+    \right. 
+  \end{equation}
+  Ces équations sont simples à résoudre, et donnent :
+  \begin{align}
+    \varphi_{\mathrm{I}}(x) &= A_1 e^{k_1 x} + A' _1 e^{-k_1 x} \\
+    \varphi_{\mathrm{II}}(x) &= A_2 e^{ik_2 x} + A' _2 e^{-ik_2 x} \\
+    \varphi_{\mathrm{III}}(x) &= A_3 e^{k_1 x} + A' _3 e^{-k_1 x} 
+  \end{align}
+  où
+  $$
+    k_1 = \sqrt{-\dfrac{2mE}{\hbar}} \quad \in \mathbb{C} 
+  $$
+Les considérations physiques et les conditions de raccord impliquent encore des relations entre les coefficients. Notamment :
 
 \begin{appendix}
 \chapter{Calculs des coefficients des fonctions d'onde}
