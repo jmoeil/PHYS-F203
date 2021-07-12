@@ -65,46 +65,72 @@ Remarquons que $\mathcal{G}(f)(k)$ n'est rien d'autre que $\mathcal{F}(f)(-k)$
 \end{theorem}
 
 \begin{remark}
-Si $f$ est à support borné et $\{-\frac{T}{2},\frac{T}{2}\}$ contraint le support, alors $C_n = \frac{\sqrt{2\pi}}{T}\hat{f}(\frac{2\pi n}{T})$.
+Si $f$ est à support borné et $ \left[ -\frac{T}{2},\frac{T}{2} \right] $ est un intervalle contenant le support, alors sa transformée de Fourier est 
+en fait à support infini, et l'on peut écrire les coefficients de Fourier sous la forme : 
+    \begin{equation}
+    c_n = \frac{\sqrt{2\pi}}{T}\hat{f} \left( \frac{2\pi n}{T} \right) 
+    \end{equation}
+En effet, nous avons alors que :
+    \begin{align}
+\rightarrow f(x) &= \sum_{n = -\infty}^{+\infty} \frac{\sqrt{2\pi}}{T}\hat{f} \left( \frac{2\pi n}{T} \right) e^{i\frac{2\pi n}{T}x}\\
+&= \sum_{n = -\infty}^{+\infty} \hat{f}(k_n)\frac{e^{ik_nx}}{\sqrt{2\pi}} \Delta k \quad \mbox{(où : $k_n \equiv \frac{2\pi n}{T}$ et $\Delta k \equiv \frac{2\pi}{T}$)}\\
+&= \int_{-\infty}^{+\infty} dk \hat{f}(k) \frac{e^{ikx}}{\sqrt{2\pi}}
+    \end{align}
+La transformée de Fourier de $f$ est donc bien à support infini. 
 \end{remark}
-\begin{align}
-\rightarrow f(x) &= \sum_{n = -\infty}^{+\infty} \frac{\sqrt{2\pi}}{T}\hat{f}(\frac{2\pi n}{T})e^{i\frac{2\pi n}{T}x}\\
-&= \sum_{n = -\infty}^{+\infty} \hat{f}(k_n)\frac{e^{ik_nx}}{\sqrt{2\pi}} \Delta k		&k_n = \frac{2\pi n}{T} \textbf{ et } \Delta k = \frac{2\pi}{T}\\
-&\approx \int_{-\infty}^{+\infty} dk \hat{f}(k) \frac{e^{ikx}}{\sqrt{2\pi}}
-\end{align}
-\begin{remark}
-Ces fonctions suivent certaines propriétés intéressantes. Soit $h(x)$ et $\hat{h}(x)$ deux fonctions reliées par une transformations de Fourier. Dès lors,
-\begin{itemize}
-\item Si $h(x)$ est linéaire, alors $\hat{h}(x)$ l'est également : $h(x) = af(x) + bg(x)$, alors $\hat{h}(k) = a\hat{f}(k) + b\hat{g}(k)$.
-\item Si $h(x) = f(x-x_0)$, alors $\hat{h}(k) = e^{-ikx_0}\hat{f}(k)$. Il s'agit d'une translation. Inversement, la propriété de modulation s'écrit $h(x) = f(x)e^{ik_0x}$, alors $\hat{h}(k) = \hat{f}(k-k_0)$.
-\item Si $h(x) = f(ax)$, le changement d'échelle implique que $\hat{h}(k) = \frac{1}{a}\hat{f}(\frac{k}{a})$.
-\item La relation de conjuguaison sous une transformation de Fourier est que $h(x) = \bar{f}(x)$ implique $\hat{h}(k) = \bar{\hat{f(-k)}}$. Notons que si $f(x)$ est réel, alors $\hat{f}(k) = -\hat{f}(k)$.
-\item $\hat{f}(0) = \int_{-\infty}^{\infty} dxf(x)$.
-\item La dérivée de $\hat{f}(k)$ est $ik\hat{f}(k)$. Cela se généralise à $\hat{f^(n)} = (ik)^n\hat{f}(k)$. En particulier, si $f(x)x^n$ est intégrable, alors $\hat{f}(k)$ est n-fois dérivable. Inversement, si $f(x)$ est n-fois intégrable, alors $\hat{f}(k)k^n$ est intégrable.
-\item La propriété de convolution établit que si $h(x) = (f\circ h)(x) = \int dy f(y)g(x-y)$, alors $\hat{h}(k) = \hat{f}(k)\ti\hat{g}(k)$.
+
+\begin{Property}
+Mentionnons les différentes propriétés que suivent la transformée de Fourier. \\
+On considère les fonctions $f$, $g$ et $h$ ; 
+\begin{itemize}[label = \textbullet]
+\item \textit{Linéarité} : Si $h(x) = af(x) + bg(x)$, alors $\hat{h}(k) = a\hat{f}(k) + b\hat{g}(k)$ ;
+\item \textit{Translation} : Si $h(x) = f(x-x_0)$, alors $\hat{h}(k) = e^{-ikx_0}\hat{f}(k)$ ; 
+\item \textit{Modulation} : Si $h(x) = f(x) e^{ik_0 x}$, alors $\hat{h}(k) = \hat{f}(k-k_0)$ ;
+\item \textit{Changement d'échelle} : Si $h(x) = f(ax)$, alors $\hat{h}(k) = \frac{1}{a}\hat{f}(\frac{k}{a})$.
+\item \textit{Conjugaison} : Si $h(x) = \overline{f(x)}$, alors $\hat{h}(k) = \overline{\hat{f}(-k)}$. \\
+Notons que si $f(x)$ est réel, alors $\hat{f}(-k) = \overline{\hat{f}(k)}$ ;
+\item $\hat{f}(0) = \int_{-\infty}^{+\infty} dxf(x)$.
+\item \textit{Dérivation} : $\widehat{f \textquotesingle (k)} =ik \hat{f}(k)$. Cela se généralise à la dérivée $n^{\mbox{ième}}$ : \\
+$\widehat{f^n (k)} = (ik)^n \hat{f}(k)$. 
+\item Si $f(x)x^n$ est intégrable, alors $\hat{f}(k)$ est n-fois dérivable ; 
+\item Si $f(x)$ est n-fois dérivale, alors $\hat{f}(k)k^n$ est intégrable ; 
+\item Soit $S$ l'espace des fonctions \textit{C}$^{\infty}$ à décroissance rapide (tel que $fx^n$ est intégrable $\forall n$), alors $\mathcal{F}(S) = S$. 
+Autrement dit, $S$ est stable par la transformée de Fourier ;
+\item \textit{Transformée de Fourier d'une convolution} : Si $h(x) = (f \star h)(x) = \int dy f(y)g(x-y)$, \\
+alors $\hat{h}(k) = \hat{f}(k)\ti\hat{g}(k)$ (à un facteur près) ;
+\item \textit{Identité de Plancherel} : $\int dx \abs{f(x)}^2 = \int dk \abs{\hat{f}(k)}^2$ ; 
+\item \textit{Identité de Plancherel polarisée} : $\int dx f(x)\overline{g(x)} = \int dk \hat{f}(k)\overline{\hat{g}(k)}$ 
 \end{itemize}
+\end{Property}
 
-\end{remark}
-\begin{theorem}[Plancherel]
-Soit $f(x)$ une fonction, et $\hat{f}(k)$ sa transformée de Fourier. Nous avons alors l'équivalence des intégrales:
-\begin{equation}
-\int dx f(x)\bar{g}(x) = \int dk \hat{f}(k)\bar{\hat{g}}(k)
-\end{equation}
-\end{theorem}
-\begin{theorem}[Égalité de Parceval]
-Soit $f(x)$ une fonction, et $\hat{f}(k)$ sa transformée de Fourier. Alors,
-\begin{equation}
-\int dx \norm{f(x)}^2 = \int dk \norm{\hat{f}(k)}^2
-\end{equation}
-\end{theorem}
+\section{Distributions}
+Les distributions sont des objets mathématiques qui ont pour but de généraliser la notion de fonction. \\
+Ce ne sont pas des fonctions à proprement parlé, mais sont définis en laissant la possibilité de faire des opérations
+qui nous sont familières, telles que la dérivation, la transformée de Fourier, la convolution; etc... \\
 
-\section{Distribution}
 \subsection{Espace de fonctions test}
-Soient $D$, l'ensemble des fonctions $C^\infty$ à support compact (distrubution D'), et S - l'ensemble des fonctions $C^\infty$ à décroissance rapide (distrubtion tempérée S').  Imposons une notion de continuité/topologie sur les fonctions test:
+
+Définissons ici les deux ensembles suivants: 
+\begin{enumerate}
+    \item $D = \left\{ \mbox{ fonctioncs \textit{C}$^{\infty}$ à support compact } \right\}$ ; cet ensemble, muni d'une certaine structure, est ce qu'on appelle l'\textbf{espace des fonctions test}.\\ 
+    Les distributions agissent sur des fonctions test, et l'on note l'ensemble des distributions $D \textquotesingle$. \\
+    \item $S = \left\{ \mbox{ fonctions \textit{C}$^{\infty}$ à décroissance rapide } \right\}$ ; c'est un ensemble de fonctions qui décroissent plus vite que $\frac{1}{P}$ pour n'importe quel polynôme $P$. \\
+    Les distributions agissant sur ces fonctions forment un ensemble que l'on appelle l'ensemble des \textbf{distributions tempérées}, et que l'on note $S \textquotesingle$. \\
+    Notons que la densité de $D$ dans $S$ fait que l'ensemble des distributions tempérées $S \textquotesingle$ est inclu dans l'ensemble des distributions $D \textquotesingle$ ;
+    de ce fait, nous pourrons également parler de fonctions test pour les éléments de cet ensemble $S$ puisque les fonctions test sont définis comme des fonctions sur lesquelles agissent les distributions. 
+\end{enumerate}
+
+\paragraph{} Il se trouve que l'espace des fonctions test est constitué des ensembles que nous de définir, 
+et doit être muni d'une structure afin de répondre à la définition d'un espace. 
+Une notion de continuité/topologie doit dès lors être imposée sur les fonctions test, et s'exprime comme suit :
 \begin{equation}
-\varphi_k = \varphi \text{ si et seulement si } (\partial_x^{(\alpha)} \varphi_x) = (\partial_x^{(\alpha)}\varphi)
+\varphi_k \rightarrow \varphi \iff (\partial_x^{(\alpha)} \varphi_k) \xrightarrow[\forall \alpha]{CVU} (\partial_x^{(\alpha)}\varphi)
 \end{equation}
-uniformément pour tout $\alpha$.\\
+où CVU $\equiv$ convergence uniforme.
+
+\subsection{Distributions}
+
+Comment est en fait défini une distribution? 
 
 Soit T des formes linéaires continues sur l'espace des fonctions tests.
 \begin{Property}
