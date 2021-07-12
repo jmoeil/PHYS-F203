@@ -1,27 +1,69 @@
 \documentclass[../notesdecours.tex]{subfiles}
 
 \begin{document}
-\part{Notions mathématiques}
-\section{Série de Fourier}
-Une série de Fourier est une série de la forme
-\begin{subequations}
+    
+\chapter{Notions mathématiques}
+
+\paragraph{} Dans ce chapitre, nous allons rapidement passer en revue plusieurs notions de maths, 
+plus particulièrement d'analyse, qui apparaissent dans le cours de Mécanique Quantique, 
+afin de vous aider dans la compréhension de certains passage de calculs. \\
+Nous allons commencer par de brefs rappels de CDI2 sur les séries et transformées de Fourier, 
+pour ensuite embrayer sur la notion de distribution, qui est certainement neuve dans votre parcours,
+mais cela permettra plus tard de justifier l'utilisation de distribution pour décrire les fonctions d'onde. \\
+
+\section{Séries de Fourier}
+Considérons $f$ une fonction T-périodique ; \\
+
+\begin{definition}[coefficients de Fourier]
+    On définit ses coefficients de Fourier (exponentiels) par la formule : 
 \begin{equation}
-c_n = \frac{1}{T} \int^{T/2}_{-T/2} dx f(x)e^{-2\pi i(\frac{n}{T})x}
+c_n = \frac{1}{T} \int^{T/2}_{-T/2} dx f(x)e^{-2\pi i(\frac{n}{T})x} \\
 \end{equation}
+\end{definition}
+
+\begin{definition}[Série de Fourier]
+    On appelle la série de Fourier associée à $f$, la série de fonctions qui est telle que 
+$\forall n \in \mathbb{N}$, la somme partielle de cette série $S_n(f)$ est donnée par :
 \begin{equation}
-f(x) = \sum_{n = -\infty}^{+\infty}c_ne^{2\pi i (\frac{n}{T})x}
+    \forall n\in \mathbb{N} ; \quad \forall x \in \mathbb{R} ;  \quad S_n(f)(x) = \sum_{k=-n}^{n} c_k(f) e^{2\pi i \left( \frac{k}{T} \right) x} \\
 \end{equation}
-\end{subequations}
+\end{definition}
+
+\begin{theorem}[Théromème de Dirichlet]
+    Le théorème de Dirichlet (global) nous assure que la série de Fourier de $f$ converge uniformément 
+vers la fonction $f$ sur $\mathbb{R}$, ainsi nous pouvons écrire :  
+\begin{equation}
+    \forall x \in \mathbb{R} ; \quad f(x) = \sum_{k = -\infty}^{+\infty}c_ne^{2\pi i (\frac{k}{T})x} \\
+\end{equation}
+Notons que nous pouvons appliquer ce théorème car en physique, nous ne considérons en général que des fonctions très lisses (de classe \textit{C}$^{\infty}$).
+\end{theorem}
+
+
 
 \section{Transformées de Fourier}
-\begin{subequations}
+
+Considérons une fonction $f$ (dans le cours de CDI2, nous faisons l'hypothèse que la fonction 
+appartient à la classe de Schwartz, mais en réalité, la transformée de Fourier et ses propriétés se généralisent 
+à des fonctions bien moins lisses). \\
+
+\begin{definition}[Transformée de Fourier]
+    La fonction  $\mathcal{F}(f)$, que l'on note aussi ici $\hat{f}(k)$, est la transformée 
+    de Fourier de la fonction $f$, et est définie par : 
 \begin{equation}
-\hat{f}(k) = F(k) = \int_{-\infty}^{+\infty} dx f(x) \frac{e^{-i\bm{k}}}{\sqrt{2\pi}}
+\hat{f}(k) = \mathcal{F}(f) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} dx f(x) e^{-ikx}
 \end{equation}
-\begin{equation}
-f(x) = F^{-1}(\hat{h}) = \int d\bm{k}\hat{f}(\bm{k} \frac{e^{i\bm{k}x}}{\sqrt{2\pi}}
-\end{equation}
-\end{subequations}
+\end{definition}
+
+\begin{theorem}[Inversion de la transformée de Fourier] 
+    $\forall x \in \mathbb{R}$, on a $\mathcal{F}(\mathcal{G}(f))(x) = f(x)$ ou $\mathcal{G}(\mathcal{F}(f))(x) = f(x)$, 
+    où $\mathcal{G}(f) = \mathcal{F}^{-1}(f)$ est l'inverse de la transformée de fourier de $f$. \\
+    Ceci s'exprime encore comme : 
+    \begin{equation}
+        f(x) = \mathcal{G}(\hat{f})(x) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} dk\hat{f}(k) e^{ikx}
+    \end{equation}
+Remarquons que $\mathcal{G}(f)(k)$ n'est rien d'autre que $\mathcal{F}(f)(-k)$
+\end{theorem}
+
 \begin{remark}
 Si $f$ est à support borné et $\{-\frac{T}{2},\frac{T}{2}\}$ contraint le support, alors $C_n = \frac{\sqrt{2\pi}}{T}\hat{f}(\frac{2\pi n}{T})$.
 \end{remark}
@@ -121,4 +163,5 @@ Prenons la transformée de Fourier de \eqref{Z}.
 &= \sum_{k = -\infty}^{+\infty} \frac{c_k}{2\pi} \delta (\omega - \frac{2\pi k}{T})
 \end{align}
 Nous appelons $\hat{x}(\omega)$ est la somme des deltas espacés de $\frac{2\pi}{T}$.
+
 \end{document}
