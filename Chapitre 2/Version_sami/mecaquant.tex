@@ -49,23 +49,55 @@
 \thispagestyle{empty}
 \restoregeometry
 \tableofcontents
-\chapter{L'équation de Schrödinger}
-\section*{Acquis -- dualité onde-corpuscule de la matière}
-Nous supposons comme acquis dans ce chapitre les résultats obtenus au chapitre précédent pour la lumière, à savoir :
+\chapter{Principes fondamentaux de la physique quantique}
+
+\section{Dualité onde-corpuscule de la lumière}
+La lumière a toujours été dans l'histoire une source d'interrogation. Elle nous sert à voir littéralement, mais certaines manipulations avec permettent d'en étudier la nature. Corpuscule ? Ondulatoire ? Les deux hypothèses se combattaient au XVIIè siècle, avec Christophe Huygens qui défendait une théorie ondulatoire et Isaac Newton qui défendait une théorie corpusculaire. \\
+
+Au XIXè siècle, des expériences de diffraction (phénomène purement ondulatoire) menées par Thomas Young et Augustin Fresnel ont permis d'affirmer que la lumière possédait des propriétés ondulatoires. Newton part donc avec un point en moins. Un siècle plus tard, Einstein émet une théorie corpusculaire de la lumière, certaines raisons l'ayant poussé à le faire. Parmi eux, les travaux de Planck. \\
+
+Max \textsc{Planck} étudiait les corps noirs (enceinte macroscopique à l'équilibre thermodynamique) et de ses études est ressorti un paramètre qui a les dimensions $\mathrm{E} \times \mathrm{T} \equiv \mathrm{Js}$ ou \textit{action}. Ce paramètre qu'on note $h$ décrit formidablement les propriétés des corps noirs. L'étude de Max Planck aboutissait à une conclusion que l'énergie d'un corps noir est quantifiée. De l'autre côté, Einstein décrit également \textbf{l'effet photoélectrique} \footnote{Effet expliquant l'émission d'électrons par un métal exposé à de la lumière dans certaines conditions.} avec cette constante. Ceci souligne l'importance de $h$ car le corps noir et le métal n'ont \textit{a priori} rien en commun. La constante de Planck est donc une des \textit{constantes de l'Univers}.
+$$h \approx 6.63 ; 10^{-34} \; \mathrm{Js}$$
+
+\subsubsection{Effet photoélectrique}
+En bombardant une plaque métallique de lumière de longueur d'onde $\lambda$ (maintenant qu'on sait que la lumière est une onde), on remarque qu'au-delà d'une certaine fréquence $\nu_0$ ($\lambda$ et $\nu$ sont liées par $\lambda = c/\nu$), des électrons sont émis avec une énergie qui augmente linéairement avec la fréquence, avec une pente de $h$.
+
+$$ T = h\nu - W \qquad \text{où} \quad W = h\nu_0 $$
+$W$ est le travail que fournit la lumière, l'énergie associée à un rayonnement de fréquence $\nu_0$.
+
+\subsubsection{Les particules de lumière}
+Einstein est amené à établir une relation entre la longueur d'onde de la lumière et une impulsion (à travers le nombre d'onde, ou plus précisément, le vecteur d'onde $\vec{k}$). Ce faisant, il donne aux quantas d'énergie toutes les propriétés d'une particule. Comme l'énergie et liée à la pulsation $\omega$ et l'impulsion est lié au vecteur d'onde $\vec{k}$, on peut lier le quadrivecteur $\mathrm{P}$ à un autre quadrivecteur, le \q{quadrivecteur d'onde} $\mathrm{K}$.
+\begin{center}
+$\left\{ \begin{array}{l}
+E \equiv \hbar \omega \quad \text{\small (quantification de l'énergie}) \\
+\vec{p} \equiv \hbar \vec{k}  \quad \text{\small (lien longueur d'onde-impulsion)}
+\end{array} \right.
+\quad \Longrightarrow \quad 
+\left\{ \begin{array}{l}
+\mathrm{P} \equiv (E/c, \vec{p}) \\
+\mathrm{K} \equiv (\omega/c, \vec{k})
+\end{array} \right. \quad \Rightarrow \quad \boxed{\mathrm{P} = \hbar \mathrm{K}}$
+\end{center}
+Pour une particule de lumière, la relation de dispersion, c'est-à-dire le lien entre la pulsation et le nombre d'onde, est donnée par  $\omega = kc$. Ceci implique par la quantification de l'énergie $E = pc$, ce qui est la caractéristique d'une particule de masse nulle. La lumière est ainsi faite de particules de masse nulle. \\
+
+L'introduction d'une particule de lumière, a.k.a le \textbf{photon} n'est pas super appréciée et nécessite donc d'être démontrée. C'est ce qu'a fait Arthur Compton expérimentalement. Il a démontré que lors d'une interaction (une collision) photon-électron, l'impulsion et l'énergie du photon étaient conservées, tout comme une particule classique. Le photon est donc bien une particule. Eeeet c'est aussi une onde (\textit{cf.} franges de Young). 
+\begin{center}
+\begin{large}
+\textit{La lumière est donc une onde \underline{et} faite de particules.}
+\end{large}
+\end{center}
+
+\subsection{Observation de la dualité onde-particule de la lumière}
+On reprend l'expérience des fentes de Young et cette fois-ci en lumière atténuée, pour voir la figure d'interférence se construire progressivement. On alors les impacts un par un, \textbf{photon par photon} mais à long terme on voit se dessiner une figure d'interférence, cela veut dire que la lumière est une onde qui passe par les deux fentes à la fois.
+
 \begin{itemize}
-\item sa nature est à la fois corpusculaire et ondulatoire, car les deux aspects se manifestent lors d'une même expérience ;
-\item les prévisions sur le comportement d'un photon ne peuvent être que probabilistes ;
-\item l'information que nous pouvons obtenir sur un photon à l'instant  $t$ est donnée par une fonction $E(\vec r, t)$ qui est une solution à une équation d'onde (solution aux équations de Maxwell), et que $|E(\vec r, t)| ^2$ est inteprété comme une densité de probabilité.
-\end{itemize}
+\item Nature corpusculaire : les impacts individuels.
+\item Nature ondulatoire : la lumière passe par les deux fentes à la fois (figure d'interférence).
+\item Dualité onde-particule : la lumière est à la fois partout et à un seul endroit. \end{itemize}
 
-Nous supposons également connu le principe de décomposition spectrale dans le cas d'un photon et de son état de polarisation. L'expérience a su montrer que lors du passage du photon à travers un filtre analyseur, aucune \textit{fraction} de photon n'était détectée : le photon était entièrement capté ou ne l'était pas du tout. On ne peut pas observer quel photon est absorbé ou non, mais on peut en calculer la probabilité. Les états "absorbés" et "non absorbés" sont les états possibles et sont appelés \textit{états propres}. Leurs probabilités respectives vérifient le \textit{principe de décomposition spectrale} :
-\begin{equation}
-\mathrm{P}(\text{absorbé}) + \mathrm{P}(\text{non-absorbé}) = 1
-\end{equation}
-
-Enfin, nous observons que la mesure de l'état d'un photon figera son état : sa probabilité d'être dans ce même état lors d'une mesure ultérieure (s'il n'a pas été perturbé entre temps) est de 1.
-
+Une grande morale à cette section est que mine de rien, Einstein a développé et cru en une théorie qui allait à l'encontre de ce qui a été imaginé et prouvé par l'expérience depuis le siècle le précédant, et ce malgré la splendide explication théorie de l'électromagnétisme de Maxwell. Aucune invalidité dans un modèle prouvé par l'expérience ! Mais il y avait visiblement de la place pour une autre théorie. 
 \section{Dualité onde-corpuscule de la matière}
+L'aspect corpusculaire de la matière n'a pas besoin d'être introduit. En revanche, son aspect ondulatoire nourrit les interrogations rien qu'à l'usage de l'expression. C'est Louis de Broglie le véritable héros derrière cette hypothèse.
 \subsection{Hypothèse de De Broglie}
 L'aspect corpuscule de la lumière a été observé lors de l'effet Compton. L'effet photoélectrique permet de donner un lien entre les nature corpuscule et ondulatoire de la lumière : un rayonnement de fréquence $\nu$ est porteur d'une énergie $E = h\nu$. Une autre relation peut être déduite par calcul pour obtenir l'impulsion correspondant à ce photon. Ce sont les relations onde-corpuscule de la lumière :
 \begin{equation}
@@ -80,7 +112,7 @@ E &= h\nu \\
 $$E_{ij} = h\nu_{ij} = |E_i - E_j| \; .$$
 Cet effet a d'ailleurs été confirmé par Franck et Hertz. \\
 
-\wrap{14}{r}{0.4}{\centering \vspace{-0.5cm}
+\wrap{15}{r}{0.4}{\centering \vspace{-0.5cm}
 \includegraphics[width=0.6\linewidth]{Louis_de_Broglie}
 \caption{Louis de Broglie. Il obtint le prix Nobel en 1929 à 37 ans pour la découverte de la nature ondulatoire de l'électron.}}
 
@@ -92,27 +124,16 @@ E &= \hbar \omega \\
 \vec p &= \hbar \vec k
 \end{array} \right. } 
 \end{equation}
-\subsection{Fonction d'onde et équation de Schrödinger}
-En suivant l'analyse de la nature du photon effectuée au chapitre précédent, on va dans cette section essayer d'étudier la nature ondulatoire de la matière. En particulier, nous obtiendrons les analogies/substistutions suivantes :
-\begin{itemize}
-\item Notion de trajectoire $\longrightarrow$ Notion d'\textit{état}, caractérisé par une \textit{fonction d'onde} $\psi(\vec r,t)$.
-\item Interprétation probabiliste de $\psi(\vec r, t)$ comme une amplitude de probabilité de présence. L'ensemble des probabilités forme un continuum : nous pouvons isoler un volume infinitésimal dans l'espace tridimensionnel $\d^3 r = \dx \; \dy\; \dz$ et y observer une probabilité de $ \d ^3 r \; \psi(\vec r, t)$ d'y trouver la particule. Ainsi, 
-\begin{equation}
-\int_{\mathbb{R}^3} \d ^3 r \; |\psi(\vec r, t)|^2 \; = 1
-\end{equation}
-et $|\psi(\vec r, t)|^2$ peut être interprété comme une densité de probabilité.
 
-\item Le principe de décomposition spectrale est d'application : pour des états propres $\psi_a(\vec r, t)$ avec comme résultat propre $c_a$, on aura :
-$$\psi(\vec r, t) = \sum_a c_a \psi_a(\vec r, t) \; ,$$
+Il faut bien comprendre l'étape à laquelle nous sommes de la construction d'une nouvelle physique. En tout premier lieu, \textbf{quelque chose n'allait pas} dans le modèle actuel et c'était les propriétés ondulatoire et corupusculaire de la lumière : les deux étaient prouvés expérimentalement. En introduisant la dualité onde-corpuscule, ce problème disparaissait et tous les résultats tenaient. Ce concept a été formulé par De Broglie pour les particules de matières telles que l'électron et a fini par être également vérifié. De Broglie généralise les relations d'Einstein pour le photon et nous avons donc à notre disposition des \textit{relations} pour décrire les particules au niveau microscopique (\ref{eq:debroglie}). \\
 
-toujours avec le fait que la mesure détruit l'état quantique, dans le sens où si la mesure offre comme résultat $c_a$, alors la fonction d'onde après la mesure est $\psi_a(\vec r, t)$.
-\end{itemize}
+Pour obtenir une \textit{physique}, il faut encore (au moins) avoir une équation qui décrit le comportement d'une particule. Une particule est également une onde. Ce qui peut alors être fait est de décrire une particule par une équation d'onde (l'équation d'onde EM pour le photon), et d'obtenir son énergie et son impulsion par les relations de De Broglie. Mais pour se faire, il faut avoir à disposition une équation d'onde. L'équation qui décrit une particule quantique (et plus tard, son évolution) est l'équation de Schrödinger. La section qui suit montre comment \textbf{construire} une fonction d'onde à partir d'analogies mathématiques avec la fonction d'onde EM et à partir des relations que nous venons d'obtenir (\ref{eq:debroglie}).
 
-\subsubsection{Construction d'une fonction d'onde}
-Tout comme pour l'équation d'onde du photon, établissons une équation d'onde dont la solution sera la fonction d'onde d'un corpuscule matériel. La première étape sera d'\textbf{établir une règle de correspondance} entre des grandeurs physiques et des opérateurs. Ensuite, il suffira de relier les grandeurs physiques entre elles et on obtiendra une équation liant plusieurs aspects de la fonction d'onde (mélange d'opérateurs). \\
+\subsection{Vers l'équation de Schrödinger}
+Tout comme pour l'équation d'onde du photon, établissons une équation d'onde dont la solution sera la fonction d'onde d'un corpuscule matériel. La première étape sera d'\textbf{établir une équivalence} entre des grandeurs physiques et des opérateurs. Ensuite, il suffira de relier les grandeurs physiques entre elles et on obtiendra une équation liant plusieurs aspects de la fonction d'onde (mélange d'opérateurs).\\
 
 \begin{enumerate}[label =  (\alph*)]
-\item \textit{Règle de correspondance}. \\
+\item \textit{Équivalence entre opérateurs}. \\
 L'équation d'onde du photon est
 $$\left(\dfrac{1}{c^2} \partial_t ^2 - \Delta \right) \vec A = 0$$
 et sa solution est $$
@@ -126,7 +147,7 @@ $$\vec k \longleftrightarrow -\dfrac{i}{A} \vec \nabla A \quad \Rightarrow \quad
 \end{itemize}
 
 \item \textit{Recherche d'une relation à exploiter}. \\
-Dans le cas d'un photon, l'équation d'onde était directement obtenue par les équations de Maxwell, la résolution était simple et on a pu en déduire une règle de correspondance. Dans le cas d'un corpuscule matériel, on souhaite partir d'une règle de correspondance pour construire une équation qu'on espère pouvoir résoudre. Avec la règle de correspondance pour la pulsation et le vecteur d'onde de l'équivalent ondulatoire de notre corpuscule, nous pouvons, pour construire une équation d'onde, l'appliquer à une équation qui lie $\omega$ et $\vec k$, ou une équation qui lie $E$ et $\vec p$, leur étant respectivement proportionnels. Or c'est exactement ce que nous fournit i) la norme du quadri-vecteur énergie-impulsion de la particule dans le cas relativiste, et ii) la conservation de l'énergie dans le cas classique. Écrivons la règle de correspondance pour une particule quantique pour ensuite écrire les relations entre $E$ et $\vec p$ pour construire une équation d'onde.
+Dans le cas d'un photon, l'équation d'onde était directement obtenue par les équations de Maxwell, la résolution était simple et on a pu en déduire une équivalence entre opérateurs. Dans le cas d'un corpuscule matériel, on souhaite partir d'une équivalence pour construire une équation qu'on espère pouvoir résoudre. Avec la règle de correspondance pour la pulsation et le vecteur d'onde de l'équivalent ondulatoire de notre corpuscule, nous pouvons, pour construire une équation d'onde, l'appliquer à une équation qui lie $\omega$ et $\vec k$, ou une équation qui lie $E$ et $\vec p$, leur étant respectivement proportionnels. Or c'est exactement ce que nous fournit i) la norme du quadri-vecteur énergie-impulsion de la particule dans le cas relativiste, et ii) la conservation de l'énergie dans le cas classique. Écrivons la règle de correspondance pour une particule quantique pour ensuite écrire les relations entre $E$ et $\vec p$ pour construire une équation d'onde.
 
 \begin{equation} \label{eq:ch2-correspondance}
 \left\{ \begin{array}{lll}
@@ -636,7 +657,7 @@ Les figures ci-dessous reprennent un cas de potentiel et l'allure de la fonction
 \begin{figure}[h]
   \centering
   \includegraphics[width=.4\linewidth]{WKB_approximation_example.svg.png} \\ \includegraphics[width=.4\linewidth]{WKB_approximation_example_2.svg.png}
-  \caption{Graphe d'une fonction d'onde et de sa densité de probabilité de présence sous l'approximation WKB.}
+  \caption{Graphe d'une fonction d'onde d'une particule et de sa densité de probabilité de présence sous l'approximation WKB.}
 \end{figure}
 
 \subsubsection{Etats liés}
