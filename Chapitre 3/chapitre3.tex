@@ -120,7 +120,7 @@ Définissons ici les deux ensembles suivants:
     de ce fait, nous pourrons également parler de fonctions test pour les éléments de cet ensemble $S$ puisque les fonctions test sont définis comme des fonctions sur lesquelles agissent les distributions. 
 \end{enumerate}
 
-\paragraph{} Il se trouve que l'espace des fonctions test est constitué des ensembles que nous de définir, 
+\paragraph{} Il se trouve que l'espace des fonctions test est constitué des ensembles que nous venons de définir, 
 et doit être muni d'une structure afin de répondre à la définition d'un espace. 
 Une notion de continuité/topologie doit dès lors être imposée sur les fonctions test, et s'exprime comme suit :
 \begin{equation}
@@ -129,34 +129,121 @@ Une notion de continuité/topologie doit dès lors être imposée sur les foncti
 où CVU $\equiv$ convergence uniforme.
 
 \subsection{Distributions}
-
-Comment est en fait défini une distribution? 
-
-Soit T des formes linéaires continues sur l'espace des fonctions tests.
-\begin{Property}
-Soit $T: D \rightarrow \mathbb{R}$ : $\varphi \rightarrow T\cdot\varphi$. Si $\varphi_k = \varphi$, alors $T\cdot\varphi_k \rightarrow T\cdot\varphi$ généralise la notion de fonction.
-\end{Property}
+\begin{description}
+    \item [Définition :] Comment est en fait défini une distribution $T$ ? \\
+    C'est une forme linéaire, continue sur l'espace des fonctions test, tel que 
+    \begin{align*}
+        T : \left( 
+        \begin{array}{lll}
+            D \quad \rightarrow \quad \mathbb{R} \\
+            \varphi \quad \rightarrow \quad <T, \varphi>
+        \end{array} \right)
+    \end{align*}
+    Nous pouvons également dire que les distributions $D \textquotesingle$ et $S \textquotesingle$ sont respectivement le dual de $D$ et de $S$. \\
+    \item [Remarque :]
+    \begin{itemize}[label = \textbullet]
+        \item Si $\varphi_k \rightarrow \varphi$, alors $<T, \varphi_k> \mbox{ } \rightarrow \mbox{ } <T, \varphi>$ ;
+        \item Si $T$ est une distribution et $\varphi$ une fonction test $\in D$, alors nous pouvons également noter le nombre $<T, \varphi>$ comme $T(\varphi)$. 
+    \end{itemize}
+    \item [Exemples :] Donnons maintenant 2 exemples de distributions : 
+    \begin{enumerate}
+        \item Soit $f : \mathbb{R} \rightarrow \mathbb{R}$ une fonction intégrable ; \\
+        Alors on peut définir la distribution $T_f$ telle que : \\
+        \begin{equation}
+            T_f : \varphi \mbox{ } \rightarrow \mbox{ } <T_f, \varphi> = \int_{\mathbb{R}} dx f(x) \varphi(x)
+        \end{equation}
+        \textit{PS : L'application linéaire continue étant injective, on peut confondre $f$ et $T_f$}
+        \item Le "delta de Dirac", que vous avez déjà peut-être rencontré, est en effet un distribution, et est défini comme ceci : \\
+        \begin{equation}
+        \label{delta de dirac}
+            \delta : \varphi \mbox{ } \rightarrow \mbox{ } <\delta, \varphi> = \int_{\mathbb{R}} \delta(x) \varphi(x)dx = \varphi(0)
+        \end{equation}
+        \end{enumerate}
+\end{description}
 
 \subsection{Opérations sur les distributions}
-\begin{Property}[Dérivée d'une distrubution]
-$T'\cdot\varphi = T\cdot(-\varphi')$
-\end{Property}
-\begin{Property}[Multiplication d'une distribution par une fonction test]
-$\Phi T\cdot\varphi = T\cdot\varphi\Phi$
-\textbf{Nous ne pouvons pas multiplier des distributions entre-elles.}
-\end{Property}
-\begin{theorem}[Théorème de structure]
-Localement, une distrubution est égale à la dérivée $\alpha^{eme}$ d'une fonction continue. Elle est dite tempérée lorsqu'elle est égale à la dérivée $\alpha^{eme}$ d'une fonction continue à croissance lente\footnote{ne croissant pas plus vite qu'un polynome.}.
-\end{theorem}
-\subsection{Distributions tempérées}
-A partir de maintenant, nous noterons F une transformée de Fourier, et $\mathbb{S}$ une invariance sous F.
-\begin{definition} Soit $T \in \mathbb{S}$. Alors, FT existe et est défini par $FT\cdot\Phi = T\cdot F\Phi$.
-\end{definition}
 
-Si f est une fonction, alors:
-\begin{align}
-FT_f\cdot\Phi &= T_f\cdot F\Phi		&\text{Où }\int dx (\int dx \frac{e^{-ikx}}{\sqrt{2\pi}}f(x))\Phi(k) \text{ et } \int dx f(x) (\int dk \frac{e^{-ikx}}{\sqrt{2\pi}}\Phi(k))
-\end{align}
+\begin{description}
+    \item [Dérivée d'une distribution :] En notant abusivement $T \textquotesingle$ pour exprimer $T_{f \mbox{\textquotesingle}}$, on peut définir la dérivation d'une distribution de la manière suivante : \\
+    $<T \mbox{\textquotesingle} , \varphi> \mbox{ } = \mbox{ } <T, -\varphi \mbox{\textquotesingle}> $ \\
+    En effet, en reprenant le premier exemple de distribution avec $f$ une fonction intégrable sur $\mathbb{R}$ et $T_f(\varphi) = \int_{\mathbb{R}} dx f(x) \varphi(x)$, 
+    et en faisant une intégration par partie, on voit que : \\
+    \begin{align}
+        \int_{\mathbb{R}} dx f \mbox{\textquotesingle} (x) \varphi(x) &= \left[ f(x) \varphi(x) \right]_{\mathbb{R}} - \int_{\mathbb{R}} dx f(x) \varphi \mbox{\textquotesingle} (x) \notag \\
+        \implies <T_{f \mbox{\textquotesingle}}, \varphi> &= <T, - \varphi \mbox{\textquotesingle}> \quad \mbox{(car $f(x) \varphi(x)$ s'annule en $\pm \infty$ ($\varphi$ étant une fonction test)) }\notag 
+    \end{align}
+    Donnons un exemple d'utilité de cette propriété : \\
+    Considérons la fonction de Heaviside, également appelée fonction indicatrice de $\mathbb{R}^+$, discontinue en $0$, définie comme : 
+    \begin{align}
+    \label{fonction de Heaviside}
+        \theta (x) &= \left\lbrace \begin{array}{lll}
+                1 \quad \mbox{ si $x>0$} \\
+                0 \quad \mbox{ si $x<0$}
+                \end{array}\right. \notag \\
+        \theta \mbox{\textquotesingle} (x) &= \delta (x)
+    \end{align}
+    Notons que la valeur en $0$, $\theta (0)$, n'a pas d'importance car la fonction apparaît le plus souvent dans une intégrale. \\
+    Sa valeur est même en général arbitraire, et il arrive souvent de poser que $\theta (0) = \frac{1}{2}$ pour avoir que la fonction soit symétrique. \\
+    Montrons à présent qu'il possible d'obtenir l'expression de la dérivée de la fonction de Heaviside \ref{fonction de Heaviside} grâce à la règle de dérivation au sens des distributions.  \\
+    En effet, par cette dernière règle, nous avons que : 
+    \begin{align}
+        <\theta \mbox{\textquotesingle}, \phi> &= -<\theta, \phi \mbox{\textquotesingle}> \quad \mbox{(où $\phi$ est une fonction test)} \notag \\
+        \implies <\theta \mbox{\textquotesingle}, \phi> &= - \int_{\mathbb{R}} \theta(x) \phi \mbox{\textquotesingle}(x) \notag \\
+        &= - \int_0^{+ \infty} \phi \mbox{\textquotesingle}(x) \quad \mbox{ (par définition de la fonction $\theta(x)$)} \notag 
+    \end{align}
+    Par le théorème fondamental de l'analyse, $\phi(x)$ est une primitive de $\phi \mbox{\textquotesingle} (x)$. Ainsi, 
+    \begin{equation} 
+        <\theta \mbox{\textquotesingle}, \phi> = - \lim_{x \to +\infty} \phi(x) + \phi(0) = \phi(0) \quad \mbox{car $\phi(x) \to 0$ lorsque $x \to +\infty$ (fonction test)}
+    \end{equation} 
+    Or, par \ref{delta de dirac} (définition du delta de Dirac), on en déduit que : 
+    \begin{align}
+        <\theta \mbox{\textquotesingle}, \phi> &= \phi(0) \notag \\ 
+        \iff \theta \mbox{\textquotesingle} (x) &= \delta (x)
+    \end{align}
+    \item [Multiplication d'une distribution par une fonction test :] $< T\phi, \varphi > \mbox{ } = \mbox{ } <T, \varphi \phi>$ \\
+    \textit{Note importante : }Nous ne pouvons pas multiplier les distributions entre-elles.
+\end{description}
+
+\subsection{Théorèmes de structure}
+
+\begin{description}
+    \item[Structure locale :] Localement, une distribution est égale à la dérivée $\alpha^{\mbox{\small{ième}}}$ d'une fonction continue (par exemple, la fonction $\delta(x)$ peut être exprimée comme la dérivée seconde d'une fonction continue) ;
+    \item[Structure d'une distribution tempérée :]  Une distribution tempérée est équivalent à la dérivée $\alpha^{\mbox{\small{ième}}}$ d'une fonction continue à croissance lente (\textit{i.e} qui ne croît pas plus vite que n'importe quel polynôme)
+\end{description}
+Notons que malgré que ces 2 théorèmes sont surtout à titre informatif étant donné qu'ils ne seront pas de grande utilité dans notre cours, ce sont tout de même des résultats importants qui peuvent souvent être très pratiques, 
+sans même avoir pris connaissance de leur démonstration.
+
+\subsection{Distributions tempérées}
+Rappelons que les distributions tempérées agissent sur les fonctions test appartenant à l'ensemble $S$. \\
+Afin de faciliter l'écriture, nous allons faire usage des notations suivantes : 
+\begin{itemize}[label= \textbullet]
+    \item $F \equiv$ Transformée de Fourier 
+    \item $T \equiv$ forme linéaire $\in S$\textquotesingle  (dual de $S$) 
+\end{itemize}
+Rappelons également que $S$ est invariant sous $F$, autrement dit, la transformée de Fourier d'une fonction de $S$ est elle-même une fonction de $S$. \\
+Nous allons étdendre la notion de transformée de Fourier sur des distributions tempérées. Cela va s'énoncer comme suit : \\
+$\forall T \in S \mbox{\textquotesingle}$ ; $FT$, la transformée de Fourier de $T$, existe et est définie par :
+\begin{equation}
+\label{transformee de fourier de distribution}
+    <FT, \phi> \mbox{ } = \mbox{ } <T, F\phi >
+\end{equation}
+
+\textit{Exemples :} \begin{itemize}[label= \textbullet]
+    \item Si $f$ est une fonction, alors par \ref{transformee de fourier de distribution}, on a que : 
+    \begin{align}
+        <F T_f, \phi> \mbox{ } &= \mbox{ } <T_f, F \phi> \notag \\
+        \implies \int dk \left( \int dx \frac{e^{-ikx}}{\sqrt{2\pi}}f(x) \right) \phi(k) &= \int dx f(x) \left( \int dk \frac{e^{-ikx}}{\sqrt{2\pi}}\Phi(k) \right)
+    \end{align}
+    \item $F \delta = \int_{\mathbb{R}} \delta(x) \frac{e^{-ikx}}{\sqrt{2 \pi}} dx = \frac{1}{\sqrt{2 \pi}} e^{-ik0} = \frac{1}{\sqrt{2 \pi}}$
+    \item $F \delta \mbox{\textquotesingle} = ikF\delta = \frac{ik}{\sqrt{2 \pi}}$
+\end{itemize}
+
+\bg{Remarque :}{Le delta de Dirac est effectivement défini comme une distribution mais il faut savoir qu'en pratique : 
+\begin{itemize}
+    \item On manipule en réalité $\delta$ et ses dérivées comme si c'était des fonctions (telles que l'on connaît) ; 
+    \item On utilise la définition suivante : $\delta(k) = \int dx \frac{e^{-ikx}}{2 \pi}$. Ceci nous permet de voir plus facilement cette distribution comme une fonction, et facilite certaines opérations. 
+\end{itemize}
+    }
 
 \subsection{Delta de Dirac}
 \begin{align}
