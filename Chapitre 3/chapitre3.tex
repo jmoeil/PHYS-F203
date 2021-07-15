@@ -241,40 +241,72 @@ $\forall T \in S \mbox{\textquotesingle}$ ; $FT$, la transformée de Fourier de 
 \bg{Remarque :}{Le delta de Dirac est effectivement défini comme une distribution mais il faut savoir qu'en pratique : 
 \begin{itemize}
     \item On manipule en réalité $\delta$ et ses dérivées comme si c'était des fonctions (telles que l'on connaît) ; 
-    \item On utilise la définition suivante : $\delta(k) = \int dx \frac{e^{-ikx}}{2 \pi}$. Ceci nous permet de voir plus facilement cette distribution comme une fonction, et facilite certaines opérations. 
+    \item On utilise la définition suivante : 
+    \begin{equation}
+    \label{definition delta en fonction}
+        \delta(k) = \int dx \frac{e^{-ikx}}{2 \pi}
+    \end{equation} Ceci nous permet de voir plus facilement cette distribution comme une fonction, et facilite certaines opérations. 
 \end{itemize}
     }
 
-\subsection{Delta de Dirac}
+\subsection{$\delta$ de Dirac}
+La distribution de Dirac est quelque chose de très fréquemment utilisé en physique ; elle permet de caractériser le fait qu'un objet, considéré comme une masse ponctuelle par exemple, se trouve à un endroit précis (lorsque la position est la variable), 
+ou encore la vitesse d'une balle de tennis au contact entre la balle et la raquette peut être assimilée à un delta de Dirac. \\
+En fait, cette distribution est souvent utilisée pour approximer les fonctions dont le graphe ressemble à une grande pointe étroite (comme par exemple une gaussienne de très faible largeur). %(Graphe) \\
+Cette distribution est en général défini comme ceci :  
 \begin{align}
-\delta(x) &= \begin{cases}
-+\infty \mbox{ en x = 0}\\
-0 \mbox{ en } x\neq 0
-\end{cases}		&\int^{+\infty}_{-\infty} dx \delta (x) = 1\\
-\delta(x) &= \lim_{x\to 0} f_{\alpha}(x)	&\int^{+\infty}_{-\infty} dx f_\alpha (x) = 1
+    \delta(x-a) = \left\lbrace \begin{array}{lll}
+        +\infty \mbox{ en $x = a$} \\
+        0 \mbox{ en $x \ne a$} 
+    \end{array}\right. \quad \mbox{ est tel que} \quad \int_{-\infty}^{+\infty} \delta(x-a) dx = 1
 \end{align}
-Où $f_\alpha (x)$ est strictement positif.
-\begin{align}
-\int_{-\infty}^{+\infty} dx f(x)\delta(x) &= f(0)\\
-\int_{-\infty}^{+\infty} dx \delta(\Gamma - x)\delta(x- \zeta) &= \delta (\Gamma - \zeta)\\
-\delta '(x) : \int^{+\infty}_{-\infty} \delta '(x)f(x) &= [\delta(x)f(x)]_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty} dx \delta(x)f'(x)\\
-&= -f'(0)\\
-\int_{-\infty}^{+\infty} dx' \delta(x') &= \theta(x)		&\int dx f(x)\delta(x-a) = f(a)\\
-\delta(\alpha x) &= \frac{1}{\norm{\alpha}}\delta(x)	&\delta(g(x)) = \frac{1}{\norm{g'(x_0)}}\delta(x-x_0)
-\delta(-x) &= \delta(x)\\
-\end{align}
+Le delta de Dirac peut également être vu comme la limite d'une fonction $f_{\alpha}$ : \begin{equation} 
+    \delta(x) = \lim_{\alpha \to 0} f_{\alpha} (x) \end{equation}
+avec $f_{\alpha}$ respectant ces conditions : 
+\begin{align*}
+    \left\lbrace \begin{array}{lll}
+        f_{\alpha} (x) > 0 \quad \forall x \\
+        \int_{-\infty}^{+\infty} f_{\alpha} (x) dx = 1
+    \end{array}\right. 
+\end{align*}
+Nous pouvons par exemple prendre la fonction $f_{\alpha}$ suivante qui respecte les conditions que nous avons énoncées : 
+\begin{align*}
+    f_{\alpha} (x) = \left\lbrace \begin{array}{lll}
+        \frac{1}{\alpha} \quad \mbox{lorsque } \frac{- \alpha}{2} < x < \frac{\alpha}{2} \\
+        0 \quad \mbox{lorsque } \abs{x} > \frac{\alpha}{2}    
+    \end{array}\right. 
+\end{align*}
+
+\paragraph{} Enonçons à présent les propriétés de la distribution utilisées le plus fréquemment :
+\begin{itemize}[label = \textbullet]
+    \item $\int_{-\infty}^{+\infty} dx f(x)\delta(x-a) = f(a)$, \\
+    et donc en particulier, pour $a = 0$ (Distribution centrée en 0) :  $\int_{-\infty}^{+\infty} f(x)\delta(x) dx = f(0)$
+    \item $\int_{-\infty}^{x} dx' \delta(x') = \theta(x)$ (où $\theta (x)$ est la fonction de Heaviside définie précédemment)
+    \item \textit{Delta de Dirac lorsque l'argument est lui-même une fonction : }$\delta(g(x)) = \frac{1}{\abs{g'(x_0)}}\delta(x-x_0)$ %+ ajout de démo
+    \item $\delta(\alpha x) = \frac{1}{\abs{\alpha}}\delta(x)$
+    \item $\delta(-x) = \delta(x)$ (par symétrie du delta de Dirac)
+    \item $\int_{-\infty}^{+\infty} \delta(\zeta - x)\delta(x- \eta) dx = \delta (\zeta - \eta)$
+    \item \textit{Dérivation de la distribution de Dirac : } $\delta \mbox{\textquotesingle} (x)$ : 
+    \begin{align}
+        \int^{+\infty}_{-\infty} \delta '(x)f(x) dx &= \left[ \delta(x)f(x) \right]_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty} \delta(x)f'(x) dx \\
+    &= -f'(0)
+    \end{align}
+\end{itemize}
 
 \subsection{Transformée de Fourier d'une fonction périodique}
-Si $x(t)$ est une fonction de période T tel que $x(t+T) = x(t)$. Alors $x(t)$ peut-être représenté comme une série de Fourier.
+Considérons une fonction $x(t)$. Nous avons vu que si elle est périodique, de période T, alors x(t) peut-être représentée par une série de Fourier : 
 \begin{equation}
-x(t) = \sum_{k = -\infty}^{+\infty} c_ke^{2\pi ik\frac{i}{T}}
-\label{Z}
+\label{serie de Fourier de x}
+    x(t) = \sum_{k = -\infty}^{+\infty} c_ke^{\frac{2 \pi i k t}{T}}
 \end{equation}
-Prenons la transformée de Fourier de \eqref{Z}.
-\begin{align}
-\hat{x} (\omega ) = \int dt \frac{e^{-i\omega t}}{\sqrt{2\pi}} x(t) &= \int_{k = -\infty}^{+\infty} c_k \int dt \frac{e^{-i\omega t}}{\sqrt{2\pi}}e^{2\pi i k \frac{t}{T}}\\
-&= \sum_{k = -\infty}^{+\infty} \frac{c_k}{2\pi} \delta (\omega - \frac{2\pi k}{T})
-\end{align}
-Nous appelons $\hat{x}(\omega)$ est la somme des deltas espacés de $\frac{2\pi}{T}$.
 
+Prenons maintenant la transformée de Fourier de cette fonction donnée par \ref{serie de Fourier de x} :
+\begin{align}
+\hat{x} (\omega ) &= \int \frac{e^{-i\omega t}}{\sqrt{2\pi}} x(t) dt \notag \\
+&= \int dt \sum_{k = -\infty}^{+\infty} c_k \frac{e^{-i\omega t}}{\sqrt{2 \pi}} e^{\frac{2 \pi i k t}{T}} \notag \\
+&= \sum_{k = -\infty}^{+\infty} \frac{c_k}{\sqrt{2 \pi}} \int \left( \frac{\sqrt{2 \pi}}{\sqrt{2 \pi}} \right) e^{-it \left( \omega - \frac{2 \pi k}{T} \right)} dt \notag \\
+\implies \hat{x}(\omega) &= \sum_{k = -\infty}^{+\infty} \sqrt{2 \pi} c_k \delta \left( \omega - \frac{2 \pi k}{T} \right) \quad \mbox{ (par la définition du delta de Dirac donnée en \ref{definition delta en fonction})}
+\end{align}
+
+Ainsi, nous trouvons que la transformée de Fourier d'une fonction périodique $\hat{x}(\omega)$ est une somme de deltas espacés de $\frac{2\pi}{T}$. 
 \end{document}
