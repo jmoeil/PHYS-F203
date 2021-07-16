@@ -162,34 +162,62 @@ p^2 &=  \dfrac{i\hbar}{\psi} \partial_t \psi
 \begin{enumerate}[label = \roman*)]
 \item Cas relativiste : 
 $$E^2 = m^2 c^4 + p^2 c^2$$
-La substitution des relations de \eqref{eq:ch2-correspondance} dans cette relation décrit le comportement d'une particule quantique relativiste et constitue l'\textbf{équation de Dirac}, ou de \textbf{Klein-Gordon}.
+La substitution des relations de \eqref{eq:ch2-correspondance} dans cette relation décrit le comportement d'une particule quantique relativiste et constitue l'\textbf{équation de Klein-Gordon}.
 \begin{equation} \label{eq:dirac}
-\boxed{\text{Équation de Dirac} : \quad -\hbar ^2 \partial_t ^2 \phi + c^2 \hbar ^2 \Delta \phi - c^4 m^2 \phi = 0}
+\boxed{\text{Équation de Klein-Gordon} : \quad -\hbar ^2 \partial_t ^2 \phi + c^2 \hbar ^2 \Delta \phi - c^4 m^2 \phi = 0}
 \end{equation}
 Cette équation sera traitée en BA3. De ce que l'on peut voir, elle est d'ordre 2 en le temps ce qui est le signe de fréquences positive et négative, et [...]
 \item Cas non-relativiste :
 $$E = \dfrac{p^2}{2m} + V(\vec r, t)$$
 De manière similaire, on obtient l'équation de \textbf{Schrödinger} :
-\begin{equation} \label{eq:schrodinger}
+\begin{equation} 
 \boxed{\text{Équation de Schrödinger} : \quad
 i\hbar \dfrac{\partial}{\partial t} \psi = -\dfrac{\hbar ^2}{2m} \Delta \psi + V(\vec r, t) \psi}
 \end{equation}
-Ses propriétés sont bien plus appréciables que \eqref{eq:dirac}. En effet, cette équation est 
-\begin{itemize}
-\item linéaire ;
-\item en accord avec les conditions de De Broglie ;
-\item décrite par un opérateur hermitien $\hat{H} := T + V$ où $T$ est l'énergie cinétique de la particule, $p^2/2m \Delta$. Cette propriété sera très intéressante par la suite lorsqu'on abordera les questions mathématiques de la mécanique quantique. Pour ce qui est physique, l'hermiticité de $ \hat{H}$ garantira, par la démonstration faite en section \textbf{\rouge {insérer ref}}, qu'une solution à \eqref{eq:schrodinger} \textbf{conserve la probabilité}.
-\end{itemize}
+
 \end{enumerate}
 \end{enumerate}
-Dans le cadre de ce cours nous traiterons des particules quantiques non-relativistes : ça sera l'équation de Schrödinger \eqref{eq:schrodinger} qui sort grand vainqueur du concours.
+Nous voyons donc qu'en suivant ces deux procédures, nous pouvons arriver à trouver une expression décrivant la physique d'une particule dans certaines situations. Le cas non-relativiste d'une particule est celui que nous allons étudier profondément cette année. C'est d'ailleurs le sujet de tout le chapitre suivant, où ses propriétés et son interprétation sont discutées, et quelques exemples sont traités.
+
+\chapter{L'équation de Schrödinger}
+Les résultats du chapitre précédent ont permis de mettre en évidence certaines observations qui ont fini par constituer les principes fondamentaux de la physique quantique. Son résultat notable a été l'obtention d'une équation qui régit le comportement d'une particule quantique, à la fois celui d'une onde et d'un corpuscule. Dans le régime non-relativiste, cette équation s'appelle \textbf{équation de Schrödinger}. Dans ce chapitre, nous expliciterons son intérêt mathématique, son contenu physique (interprétation), et enfin traiterons quelques exemples de résolution avec différents cas de potentiels. Nous verrons en effet qu'une simple étude de cette équation mène a des résultats qui diffèrent radicalement de la physique classique et qui ont un intérêt non-négligeable, comme l'effet tunnel. 
 
 \bb{Équation de Schrödinger 
-$$i\hbar\;  \dfrac{\partial}{\partial t}\;  \psi \quad = \quad  -\dfrac{\hbar ^2}{2m} \; \Delta \psi + V(\vec r, t) \;  \psi$$}
+\begin{equation}\label{eq:schrodinger}
+  i\hbar\;  \dfrac{\partial}{\partial t}\;  \psi \quad = \quad  -\dfrac{\hbar ^2}{2m} \; \Delta \psi + V(\vec r, t) \;  \psi
+\end{equation}
+}
 
-\section{Description quantique d'une particule -- paquets d'onde}
-\subsection{Cas d'une particule libre}
-\subsubsection{Résolution de \eqref{eq:schrodinger}}
+\section{Étude mathématique}
+Dans cette section nous verrons plusieurs choses :
+\begin{table}[h!]
+  \centering
+  \begin{tabular}{r|p{10cm}}
+    Résolution de l'équation différentielle pour $V = 0$ &$\left\{\begin{array}{l}
+      \textbf{\bleu{Onde plane}} \\
+      \textbf{\bleu{Relation de dispersion}} 
+    \end{array}\right.$ \\ \rule{0pt}{20pt}
+    Solution générale de l'ED & \textbf{\bleu{Paquet d'onde}} \\ \rule{0pt}{20pt}
+    Formation et propagation des paquets d'onde & \textbf{\bleu{Onde plane}} 
+  \end{tabular}
+  \label{tab:chap2-analyse_schrod}
+\end{table}
+\subsection{Propriétés}
+Ses propriétés sont bien plus appréciables que l'équation de Klein-Gordon. En effet, l'équation de Schrödinger est 
+\begin{itemize}
+\item linéaire ;
+\item de premier ordre en le temps : ceci nous permet de pouvoir retracer le passé et pouvoir tracer le futur d'une particule ;
+\item en accord avec les conditions de De Broglie ;
+\item en accord avec la \textbf{conservation de la probabilité} : cette propriété ne se déduit pas si simplement par de l'analyse mais sera effectivement démontrée une fois que le cadre mathématique de la mécanique quantique aura été posé.
+\end{itemize}
+Rendons-nous bien compte : on imagine la particule comme étant également une onde et on lui associe donc une équation d'onde et une fonction d'onde. Cet objet, noté $\psi$ ou parfois $\varphi$, contient l'information nécessaire sur la particule. Prenons comme acquis, et on le justifiera à maintes reprises, que le module au carré de la fonction d'onde, en un point $x$ et un instant $t$, $|\psi(x,t)|^2$ correspond à la densité de probabilité de mesurer la présence de la particule à l'instant $t$ à la position $x$. Ainsi : 
+\begin{equation}
+  \int_{\mathbb{R}^3} |\psi(x,t)|^2 \; \dx = 1
+\end{equation}
+Les fonctions d'onde doivent donc être au moins de carré sommable. Une étude plus profonde de l'espace des fonctions d'ondes est faite au chapitre \rouge{4 (réf)}.
+
+\subsection{Description quantique d'une particule -- paquets d'onde}
+\subsubsection{Cas d'une particule libre}
 La résolution de l'équation de Schrödinger offre une solution de la forme 
 \begin{equation}\label{eq:solution_schrod}
 \psi(\vec r, t) = A \; e^{-i\omega(k) t} \; e ^{i \vec k \cdot \vec r} \; ,
@@ -198,6 +226,7 @@ avec
 \begin{equation}\label{eq:relation_dispersion}
 \omega(k) = \dfrac{\hbar k^2}{2m} \quad \text{(relation de dispersion)}
 \end{equation}
+Prenons à présent comme \textbf{acquis} que le module au carré d'une fonction d'onde
 et une densité de probabilité donnée simplement par $A^2$, uniforme dans l'espace. Une solution de type "onde plane" n'est donc pas une solution physiquement acceptable. Seule une solution de carré sommable peur représenter une solution physique.
 \subsubsection{Solution générale à \eqref{eq:schrodinger}}
 Le principe de superposition (équation linéaire) implique que toute combinaison de solutions à \eqref{eq:schrodinger} est encore une solution de \eqref{eq:schrodinger}. On peut écrire cette combinaison comme :
@@ -211,49 +240,6 @@ On voit sur cette équation que $g(k)$ n'est rien autre que la transformée de F
 $$g(k) = \int_{-\infty} ^{+\infty} \psi(x,0) e^{-ikr} \; \d x $$
 Ceci a une implication particulière. Premièrement, $g(k)$ et $\psi(x,0)$ ont même module, par le théorème de Plancherel. Ensuite, le fait que $g(k)$ et $\psi(x,0)$ soient les transformées de Fourier de l'un et de l'autre implique qu'une TF permet de passer de coordonnées de l'espace tridimensionnel aux coordonnées de l'espace des phases. Ceci est, mathématiquement, la raison du principe d'incertitude de Heisenberg.
 
-\subsection{Interprétation probabiliste de la mécanique quantique}
-Dans cette section, nous abordons le cas de la conservation de la probabilité, une nécessité que doit offrir une solution à \eqref{eq:schrodinger} pour être physiquement acceptable. La conservation de la probabilité se déclinera selon 2 faits démontrés plus bas :
-\begin{enumerate}[label= (\alph*)]
-\item L'intégrale de $|\psi|^2$ sur tout l'espace est indépendante du temps. Cela permettra de la fixer à 1 en normalisant $\psi$ et ainsi considérer $|\psi|^2$ comme une densité de probabilité.
-\item La densité de probabilité est localement conservée : elle répond à une équation de continuité. \\
-\end{enumerate}
-Démontrons ces deux énoncés.
-\begin{enumerate}[label= (\alph*)]
-\item \begin{proof}
-Ultérieurement.
-\end{proof}
-\item \begin{proof}
-Utilisant que $\hat{H}$ est hermitique,
-\begin{eqnarray*}
-\hat{H}\psi &=& \hat{H} \bar{\psi} \\
- \Rightarrow \quad i\hbar \partial_t \bar{\psi} &=& -\dfrac{\hbar^2}{2m} \Delta \bar{\psi}+ V \bar{\psi} 
-\end{eqnarray*}
-Or $$i\hbar \partial_t \psi = -i\hbar \partial_t \bar{\psi} \; .$$
-De plus, par définition, 
-$$\rho = |\psi|^2 = \psi \bar{\psi} \; .$$
-Ainsi, en dérivant $\rho$ par rapport au temps et en multipliant par $i\hbar$ :
-\begin{eqnarray*}
-i\hbar \partial_t \rho &=& \left(-\dfrac{\hbar^2}{2m} \Delta \psi\right) \bar{\psi} \quad - \quad \left(-\dfrac{\hbar^2}{2m} \Delta \bar{\psi}\right)\psi \\
-&=& -\dfrac{\hbar^2}{2m} \left( \bar{\psi} \Delta \psi - \psi \Delta \bar{\psi} \right) \\
-\Rightarrow 0 &=& \quad \partial_t \rho + \dfrac{\hbar}{2mi} \vec \nabla \left( \bar{\psi} \Delta \psi - \psi \Delta \bar{\psi} \right) 
-\end{eqnarray*}
-En définissant 
-\begin{equation} \label{eq:courant_proba}
-\vec J := \dfrac{1}{m} \; \mathcal{I}m \;\left[\hbar \bar{\psi}(\vec \nabla \psi)\right] 
-\end{equation} 
-Nous pouvons écrire l'équation de continuité suivante :
-\begin{equation} \label{eq:continuite_proba}
-\boxed{\dfrac{\partial}{\partial t} \rho(\vec x, t) + \mathrm{div} \vec J = 0}
-\end{equation}
-\end{proof}\end{enumerate}
-La grandeur $\vec J$ apparaît en réagissant à la variation de la densité de probabilité dans le temps. Une variation non nulle fait apparaître un $\vec J$ pour compenser. Cette grandeur est appelée \textbf{courant de probabilité}, et l'équation \eqref{eq:continuite_proba} démontre que l'équation de Schrödinger offre une conservation locale de la probabilité. Un \textbf{courant de probabilité} apparaît aux endroits où la densité de probabilité a baissé. Ce n'est ni une cause ni une conséquence, juste une équation qui explique que rien ne se crée, rien ne se perd, tout se conserve.
-
-\bg{Exemple d'une onde plane}{Pour une onde plane $A \; e^{-i\omega t} \; e ^{i \vec k \cdot \vec r}$, un calcul montre que le courant de probabilité est donné par $$\vec J = \dfrac{\vec p }{m} A^2 \; ,$$ soit directement lié à la vitesse de la particule.}
-
-\bg{Origine de l'interprétation probabiliste : étude des collisions}{
-Max Born étudiait les collisions dans son laboratoire. Il connaissait les travaux de Schrödinger et trouvait que son équation s'appliquait bien dans le cas d'une collision. Son raisonnement arrive à une étape où, en résolvant l'équation de Schrödinger en tenant compte de la composante diffusée, la fonction d'onde du système obtenu est :
-$$ \psi(\vec r) = A e^{i \vec k \cdot \vec r} \quad + \underbrace{\int \d ^3 \vec k \; e^{i \vec k \cdot \vec r} \; C(\vec k)}_{\text{composante diffusée}} $$
-L'équation de Schödinger donne donc une solution qui fait intervenir la diffusion dans \textbf{toutes les directions à la fois} (à travers l'intégrale), alors que dans le laboratoire on ne voit la diffusion que dans une seule direction. Il en déduit alors que ce que prend en compte la solution à \eqref{eq:schrodinger} est la \textbf{probabilité de diffusion} dans une direction, et que la mécanique quantique est probabiliste.}
 
 \subsection{Formation de paquets d'onde à une dimension}
 Une onde plane \eqref{eq:solution_schrod}, bien que solution à l'équation de Schrödinger, n'est pas une solution physiquement acceptable. Une solution générale du style \eqref{eq:schrod_sol_gen} l'est. Dans cette section, nous établissons les propriétés de telles fonctions (vitesse).
@@ -297,6 +283,51 @@ ce qui montre que la dispersion spatiale dépend du temps. En revanche, celle su
 $$\Delta k = |g(k,t=0)|^2 = \dfrac{1}{a}$$
 est constante : il n'y a donc pas d'étalement sur l'impulsion.
 
+
+
+\section{Interprétation probabiliste de la mécanique quantique}
+Dans cette section, nous abordons le cas de la conservation de la probabilité, une nécessité que doit offrir une solution à \eqref{eq:schrodinger} pour être physiquement acceptable. La conservation de la probabilité se déclinera selon 2 faits démontrés plus bas :
+\begin{enumerate}[label= (\alph*)]
+\item L'intégrale de $|\psi|^2$ sur tout l'espace est indépendante du temps. Cela permettra de la fixer à 1 en normalisant $\psi$ et ainsi considérer $|\psi|^2$ comme une densité de probabilité.
+\item La densité de probabilité est localement conservée : elle répond à une équation de continuité. \\
+\end{enumerate}
+Démontrons ces deux énoncés.
+\begin{enumerate}[label= (\alph*)]
+\item \begin{proof}
+Ultérieurement.
+\end{proof}
+\item \begin{proof}
+Utilisant que $\hat{H}$ est hermitique,
+\begin{eqnarray*}
+\hat{H}\psi &=& \hat{H} \bar{\psi} \\
+ \Rightarrow \quad i\hbar \partial_t \bar{\psi} &=& -\dfrac{\hbar^2}{2m} \Delta \bar{\psi}+ V \bar{\psi} 
+\end{eqnarray*}
+Or $$i\hbar \partial_t \psi = -i\hbar \partial_t \bar{\psi} \; .$$
+De plus, par définition, 
+$$\rho = |\psi|^2 = \psi \bar{\psi} \; .$$
+Ainsi, en dérivant $\rho$ par rapport au temps et en multipliant par $i\hbar$ :
+\begin{eqnarray*}
+i\hbar \partial_t \rho &=& \left(-\dfrac{\hbar^2}{2m} \Delta \psi\right) \bar{\psi} \quad - \quad \left(-\dfrac{\hbar^2}{2m} \Delta \bar{\psi}\right)\psi \\
+&=& -\dfrac{\hbar^2}{2m} \left( \bar{\psi} \Delta \psi - \psi \Delta \bar{\psi} \right) \\
+\Rightarrow 0 &=& \quad \partial_t \rho + \dfrac{\hbar}{2mi} \vec \nabla \left( \bar{\psi} \Delta \psi - \psi \Delta \bar{\psi} \right) 
+\end{eqnarray*}
+En définissant 
+\begin{equation} \label{eq:courant_proba}
+\vec J := \dfrac{1}{m} \; \mathcal{I}m \;\left[\hbar \bar{\psi}(\vec \nabla \psi)\right] 
+\end{equation} 
+Nous pouvons écrire l'équation de continuité suivante :
+\begin{equation} \label{eq:continuite_proba}
+\boxed{\dfrac{\partial}{\partial t} \rho(\vec x, t) + \mathrm{div} \vec J = 0}
+\end{equation}
+\end{proof}\end{enumerate}
+La grandeur $\vec J$ apparaît en réagissant à la variation de la densité de probabilité dans le temps. Une variation non nulle fait apparaître un $\vec J$ pour compenser. Cette grandeur est appelée \textbf{courant de probabilité}, et l'équation \eqref{eq:continuite_proba} démontre que l'équation de Schrödinger offre une conservation locale de la probabilité. Un \textbf{courant de probabilité} apparaît aux endroits où la densité de probabilité a baissé. Ce n'est ni une cause ni une conséquence, juste une équation qui explique que rien ne se crée, rien ne se perd, tout se conserve.
+
+\bg{Exemple d'une onde plane}{Pour une onde plane $A \; e^{-i\omega t} \; e ^{i \vec k \cdot \vec r}$, un calcul montre que le courant de probabilité est donné par $$\vec J = \dfrac{\vec p }{m} A^2 \; ,$$ soit directement lié à la vitesse de la particule.}
+
+\bg{Origine de l'interprétation probabiliste : étude des collisions}{
+Max Born étudiait les collisions dans son laboratoire. Il connaissait les travaux de Schrödinger et trouvait que son équation s'appliquait bien dans le cas d'une collision. Son raisonnement arrive à une étape où, en résolvant l'équation de Schrödinger en tenant compte de la composante diffusée, la fonction d'onde du système obtenu est :
+$$ \psi(\vec r) = A e^{i \vec k \cdot \vec r} \quad + \underbrace{\int \d ^3 \vec k \; e^{i \vec k \cdot \vec r} \; C(\vec k)}_{\text{composante diffusée}} $$
+L'équation de Schödinger donne donc une solution qui fait intervenir la diffusion dans \textbf{toutes les directions à la fois} (à travers l'intégrale), alors que dans le laboratoire on ne voit la diffusion que dans une seule direction. Il en déduit alors que ce que prend en compte la solution à \eqref{eq:schrodinger} est la \textbf{probabilité de diffusion} dans une direction, et que la mécanique quantique est probabiliste.}
 \section{Equation de Schrödinger en potentiel stationnaire}
 Reprenons la forme standard de l'équation de Schrödinger, en supposant cette fois que le \textbf{potentiel ne dépend pas du temps}. Nous obtenons l'équation \eqref{eq:schrodinger_stationnaire}, où le potentiel est dit \textbf{stationnaire}. 
 \begin{equation} \label{eq:schrodinger_stationnaire}
