@@ -27,20 +27,8 @@
 \documentname{Introduction à la mécanique quantique}{B2-PHYS : PHYS-F203 -- Pr. \textsc{Massar}}{pqs-cover_1}{pqs-cover_2}
 \author{Sami \textsc{Abdul Sater}}
 \date{\hspace{-0cm}Année académique 2020-2021}
+
 \begin{document}
-
-
-
-
-\newgeometry{margin=1.1cm, lmargin=1.4cm, top=0cm}
-%%begin novalidate
-\pretitle{\begin{flushleft} \fontsize{30}{34}\selectfont}
-\posttitle{\end{flushleft}}
-\preauthor{\begin{flushleft} \linespread{1.4} \large}
-\postauthor{\end{flushleft}}
-\predate{} % remove extra space
-\postdate{} % remove extra space
-%%end novalidate
 
 \maketitle
 \vfill
@@ -672,11 +660,32 @@ Une condition de quantification est que la somme des phases des cosinus soit ég
 \begin{center}
   Condition de quantification semi-classique : $\dfrac{1}{\hbar} \int_b ^a \dx \sqrt{2m(E-V(x))} \quad = \left(n+\dfrac{1}{2}\right) \pi$
 \end{center}
+
 \subsection{Application de l'approximation WKB en physique nucléaire}
-\rouge{A compléter.}
+Illustrons les résultats obtenus concernant l'approximation WKB d'un exemple d'application qui est celui de la désintégration-$\alpha$,
+mettant en avant la loi de Geiger-Nuttal. \\
+%Explication sur la raison pour laquelle cette approximation est d'application 
 
+Avant de rentrer dans les détails, rappelons ce que sont un temps de demi-vie $t_{1/2}$ et la désintégration alpha : 
+\begin{itemize}[label = \textbullet]
+  \item \textbf{Désintégration $\alpha$} $\equiv$ (wikipédia {\color{red}{à vérifier}}) forme de désintégration radioactive où un noyau atomique éjecte une particule $\alpha$
+  ( $= He^{++}$) et se transforme en un noyau plus léger ; 
+  \item \textbf{Demi-vie $t_{1/2}$} d'un isotope radioactif $\equiv$ (wikipédia) c'est le temps au bout duquel la moitié des noyaux de cet isotope initiaux se sont désintégrés. \\
+  Notons qu'il est important de reconnaître la différence entre cette définition et celle d'un temps moyen : 2 fois le temps de demi-vie $\ne$ la vie complète!!  
+\end{itemize}
 
+Considérons un noyau de rayon $R$ qui contient des particules $\alpha$ possédant une énergie $E$. 
+Les particules $\alpha$ sont confinées dans le noyau, autrement dit leur énergie est plus faible que le potentiel qui les retient.
+Or, nous avons déjà vu qu'une particule pouvait traverser une zone classiquement interdite par effet tunnel, et se propage comme une onde "evanescente" (qui décroît exponentiellement) dans cette zone. \\
+C'est en fait ce qu'il va se passer ici pour les particules $\alpha$, initialement confinées dans le noyau. 
+A la sortie du noyau, le potentiel ressenti par les particules $\alpha$ est simplement le potentiel coulombien créé par les charges du noyau. Ainsi, pour tout $r > R$, le potentiel s'écrit comme suit :
+\begin{equation}
+  V(r) = \frac{z_{\alpha} z e^2}{4 \pi \epsilon_0 r} %pour un potentiel crée par une charge z, on ne devrait pas avoir juste z dans cette expression au lieu de z_alpha *z ?
+\end{equation}
+où $z_{\alpha}$, $z$ $\equiv$ charges du noyau
+%+ graphe qui illustre le potentil vu par les particules alpha
 
+Notons $R_{\alpha}$ la distance à partir de laquelle l'énergie $E$ de la particule devient plus grande que le potentiel coulombien ressenti $V(r)$, autrement dit, $R_{\alpha}$ est la distance au noyau à partir de laquelle la particue devient libre et peut se propager de manière semi-classique (c'est-à-dire tel que la longueur d'onde varie très peu sur une distance égale à la longueur d'onde même).
 
 
 
@@ -703,4 +712,5 @@ Les \textit{conditions de raccord} imposent que la fonction soit \textit{continu
   \varphi_{\mathrm{II}}'(a/2) =  \varphi_{\mathrm{III}}'(a/2)
 \end{align}
 \end{appendix}
+
 \end{document}
