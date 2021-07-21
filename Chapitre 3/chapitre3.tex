@@ -7,12 +7,13 @@
 \paragraph{} Dans ce chapitre, nous allons rapidement passer en revue plusieurs notions de maths, 
 plus particulièrement d'analyse, qui apparaissent dans le cours de Mécanique Quantique, 
 afin de vous aider dans la compréhension de certains passage de calculs. \\
+
 Nous allons commencer par de brefs rappels de CDI2 sur les séries et transformées de Fourier, 
 pour ensuite embrayer sur la notion de distribution, qui est certainement neuve dans votre parcours,
 mais cela permettra plus tard de justifier l'utilisation de distribution pour décrire les fonctions d'onde. \\
 
 \section{Séries de Fourier}
-Considérons $f$ une fonction T-périodique ; \\
+Considérons $f$ une fonction T-périodique de $\mathbb{R}$ dans un corps $\mathbb{K}$ quelconque, pour traiter à la fois le cas où $f$ est réelle, et les cas où $f$ est complexe (enfin une écriture inclusive lisible!).\\
 
 \begin{definition}[coefficients de Fourier]
     On définit ses coefficients de Fourier (exponentiels) par la formule : 
@@ -22,16 +23,18 @@ c_n = \frac{1}{T} \int^{T/2}_{-T/2} dx f(x)e^{-2\pi i(\frac{n}{T})x} \\
 \end{definition}
 
 \begin{definition}[Série de Fourier]
-    On appelle la série de Fourier associée à $f$, la série de fonctions qui est telle que 
-$\forall n \in \mathbb{N}$, la somme partielle de cette série $S_n(f)$ est donnée par :
+    On appelle la série de Fourier associée à $f$, la série de fonctions de terme général 
+    $$u_k(f) (x) = c_{-k}(f) e^{-2\pi i \left(\frac{k}{T}\right) x} + c_{k}(f) e^{2\pi i \left(\frac{k}{T}\right) x}\; .$$
+    
+Ainsi, $\forall n \in \mathbb{N}$, sa n-ème somme partielle $S_n(f)$ est donnée par :
 \begin{equation}
     \forall n\in \mathbb{N} ; \quad \forall x \in \mathbb{R} ;  \quad S_n(f)(x) = \sum_{k=-n}^{n} c_k(f) e^{2\pi i \left( \frac{k}{T} \right) x} \\
 \end{equation}
 \end{definition}
 
 \begin{theorem}[Théromème de Dirichlet]
-    Le théorème de Dirichlet (global) nous assure que la série de Fourier de $f$ converge uniformément 
-vers la fonction $f$ sur $\mathbb{R}$, ainsi nous pouvons écrire :  
+    Le théorème de Dirichlet (global) nous assure que si $f$ est (en plus d'être $2\pi$-périodique) continue et $C^1$ par morceaux sur $\mathbb{R}$, alors la série de Fourier qui lui est associée converge uniformément 
+    vers la fonction $f$ sur $\mathbb{R}$. Nous pouvons alors écrire :  
 \begin{equation}
     \forall x \in \mathbb{R} ; \quad f(x) = \sum_{k = -\infty}^{+\infty}c_ne^{2\pi i (\frac{k}{T})x} \\
 \end{equation}
@@ -57,11 +60,15 @@ appartient à la classe de Schwartz, mais en réalité, la transformée de Fouri
 \begin{theorem}[Inversion de la transformée de Fourier] 
     $\forall x \in \mathbb{R}$, on a $\mathcal{F}(\mathcal{G}(f))(x) = f(x)$ ou $\mathcal{G}(\mathcal{F}(f))(x) = f(x)$, 
     où $\mathcal{G}(f) = \mathcal{F}^{-1}(f)$ est l'inverse de la transformée de fourier de $f$. \\
+    
     Ceci s'exprime encore comme : 
     \begin{equation}
         f(x) = \mathcal{G}(\hat{f})(x) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} dk\hat{f}(k) e^{ikx}
     \end{equation}
-Remarquons que $\mathcal{G}(f)(k)$ n'est rien d'autre que $\mathcal{F}(f)(-k)$
+
+    Remarquons qu'en écrivant $\mathcal{G}$ agissant sur $f$ (et non sur $\hat f$ ; l'intégrale porte donc sur les $x$ et la fonction obtenue est de $k$),
+    $$\mathcal{G}(f)(k) = \dfrac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} dx \; f(x) e ^{ikx} \quad ,$$
+    on peut voir immédiatement que $\mathcal{G}(f)(k)$ n'est rien d'autre que $\mathcal{F}(f)(-k)$
 \end{theorem}
 
 \begin{remark}
@@ -81,12 +88,12 @@ La transformée de Fourier de $f$ est donc bien à support infini.
 
 \begin{Property}
 Mentionnons les différentes propriétés que suivent la transformée de Fourier. \\
-On considère les fonctions $f$, $g$ et $h$ ; 
+On considère les fonctions $f$, $g$ et $h$, toutes de mêmes propriétés que $f$ définie en début de section. 
 \begin{itemize}[label = \textbullet]
-\item \textit{Linéarité} : Si $h(x) = af(x) + bg(x)$, alors $\hat{h}(k) = a\hat{f}(k) + b\hat{g}(k)$ ;
-\item \textit{Translation} : Si $h(x) = f(x-x_0)$, alors $\hat{h}(k) = e^{-ikx_0}\hat{f}(k)$ ; 
-\item \textit{Modulation} : Si $h(x) = f(x) e^{ik_0 x}$, alors $\hat{h}(k) = \hat{f}(k-k_0)$ ;
-\item \textit{Changement d'échelle} : Si $h(x) = f(ax)$, alors $\hat{h}(k) = \frac{1}{a}\hat{f}(\frac{k}{a})$.
+\item \textit{Linéarité} : Pour $a,b \in \mathbb{K}$, si $h(x) = af(x) + bg(x)$, alors $\hat{h}(k) = a\hat{f}(k) + b\hat{g}(k)$ ;
+\item \textit{Translation} : pour $x_0 \in \mathbb{R}$, si $h(x) = f(x-x_0)$, alors $\hat{h}(k) = e^{-ikx_0}\hat{f}(k)$ ; 
+\item \textit{Modulation} : pour $k_0 \in \mathbb{R}$, si $h(x) = f(x) e^{ik_0 x}$, alors $\hat{h}(k) = \hat{f}(k-k_0)$ ;
+\item \textit{Changement d'échelle} : pour $a \in \mathbb{R}$, si $h(x) = f(ax)$, alors $\hat{h}(k) = \frac{1}{|a|}\hat{f}(\frac{k}{a})$.
 \item \textit{Conjugaison} : Si $h(x) = \overline{f(x)}$, alors $\hat{h}(k) = \overline{\hat{f}(-k)}$. \\
 Notons que si $f(x)$ est réel, alors $\hat{f}(-k) = \overline{\hat{f}(k)}$ ;
 \item $\hat{f}(0) = \int_{-\infty}^{+\infty} dxf(x)$.
@@ -105,8 +112,8 @@ alors $\hat{h}(k) = \hat{f}(k)\ti\hat{g}(k)$ (à un facteur près) ;
 
 \section{Distributions}
 Les distributions sont des objets mathématiques qui ont pour but de généraliser la notion de fonction. \\
-Ce ne sont pas des fonctions à proprement parlé, mais sont définis en laissant la possibilité de faire des opérations
-qui nous sont familières, telles que la dérivation, la transformée de Fourier, la convolution; etc... \\
+Ce ne sont pas des fonctions à proprement parler, mais sont définies en laissant la possibilité de faire des opérations
+qui nous sont familières, telles que la dérivation, la transformée de Fourier, la convolution, etc.\\
 
 \subsection{Espace de fonctions test}
 
