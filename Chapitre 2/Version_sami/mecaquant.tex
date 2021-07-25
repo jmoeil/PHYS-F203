@@ -693,11 +693,16 @@ Une condition de quantification est que la somme des phases des cosinus soit ég
 \end{center}
 
 \subsection{Application de l'approximation WKB en physique nucléaire}
-Illustrons les résultats obtenus concernant l'approximation WKB d'un exemple d'application qui est celui de la désintégration-$\alpha$,
-mettant en avant la loi de Geiger-Nuttal. \\
-%Explication sur la raison pour laquelle cette approximation est d'application 
+Par la section précédente, nous avons compris que l'approximation WKB consistait à prendre la limite $\hbar \to 0$, mais dans quel cas pouvons-nous réellement passer à une application de cette approximation? \\
+{\color{red}{Tentative d'explication mais le paragraphe en entier est à vérifier :}} Il se trouve que cette approximation peut être valable lorsque l'on veut considérer des effets quantiques qui s'appliquent sur un système, pendant que ce dernier peut également être décrit d'un point de vue classique, 
+ainsi que lorsqu'il n'est pas possible de trouver de solution analytique sans faire aucune approximation. \\
 
-Avant de rentrer dans les détails, rappelons ce que sont un temps de demi-vie $t_{1/2}$ et la désintégration alpha : 
+Nous allons ici illustrer un exemple d'application de l'approximation WKB qui est celui de la désintégration-$\alpha$, et qui en particulier
+met en avant la loi de Geiger-Nuttal. \\
+Nous allons prendre en compte le fait que des particules $\alpha$ vont s'échapper d'un noyau par \textit{effet tunnel}, et notre description fera apparaître des \textit{interprétations probabilistes} sur l'émission de ces particules, 
+tout en utilisant les relations données par l'approximation WKB afin d'en tirer une conclusion cohérente avec des données expérimentales. \\
+
+Avant de rentrer dans les détails, rappelons brièvement ce que sont la désintégration alpha et un temps de demi-vie $t_{1/2}$: 
 \begin{itemize}[label = \textbullet]
   \item \textbf{Désintégration $\alpha$} $\equiv$ (wikipédia {\color{red}{à vérifier}}) forme de désintégration radioactive où un noyau atomique éjecte une particule $\alpha$
   ( $= He^{++}$) et se transforme en un noyau plus léger ; 
@@ -705,23 +710,50 @@ Avant de rentrer dans les détails, rappelons ce que sont un temps de demi-vie $
   Notons qu'il est important de reconnaître la différence entre cette définition et celle d'un temps moyen : 2 fois le temps de demi-vie $\ne$ la vie complète!!  
 \end{itemize}
 
+Rentrons à présent dans des détails de calculs. \\
 Considérons un noyau de rayon $R$ qui contient des particules $\alpha$ possédant une énergie $E$. 
 Les particules $\alpha$ sont confinées dans le noyau, autrement dit leur énergie est plus faible que le potentiel qui les retient.
 Or, nous avons déjà vu qu'une particule pouvait traverser une zone classiquement interdite par effet tunnel, et se propage comme une onde "evanescente" (qui décroît exponentiellement) dans cette zone. \\
-C'est en fait ce qu'il va se passer ici pour les particules $\alpha$, initialement confinées dans le noyau. 
-A la sortie du noyau, le potentiel ressenti par les particules $\alpha$ est simplement le potentiel coulombien créé par les charges du noyau. Ainsi, pour tout $r > R$, le potentiel s'écrit comme suit :
+C'est en fait ce qu'il va se passer ici pour les particules $\alpha$ ; on peut, analogiquement, imaginer que les particules sont confinées dans une boîte, faisant des allers-retours. C'est à ces points de rebroussement que peut se produire la transmission de particules par effet tunnel. \\
+
+Une fois sorti du noyau, le potentiel ressenti par les particules $\alpha$ est simplement le potentiel coulombien créé par les charges du noyau. Ainsi, pour tout $r > R$, le potentiel s'écrit comme suit :
 \begin{equation}
   V(r) = \frac{z_{\alpha} z e^2}{4 \pi \epsilon_0 r} %pour un potentiel crée par une charge z, on ne devrait pas avoir juste z dans cette expression au lieu de z_alpha *z ?
 \end{equation}
-où $z_{\alpha}$, $z$ $\equiv$ charges du noyau
+où $z_{\alpha}$, $z$ $\equiv$ charges du noyau. \\
 %+ graphe qui illustre le potentil vu par les particules alpha
 
-Notons $R_{\alpha}$ la distance à partir de laquelle l'énergie $E$ de la particule devient plus grande que le potentiel coulombien ressenti $V(r)$, autrement dit, $R_{\alpha}$ est la distance au noyau à partir de laquelle la particue devient libre et peut se propager de manière semi-classique (c'est-à-dire tel que la longueur d'onde varie très peu sur une distance égale à la longueur d'onde même).
+Notons $R_{\alpha}$ la distance à partir de laquelle l'énergie $E$ de la particule devient plus grande que le potentiel coulombien ressenti $V(r)$, autrement dit, $R_{\alpha}$ est la distance au noyau à partir de laquelle la particue devient libre et peut se propager de manière semi-classique (c'est-à-dire tel que la longueur d'onde varie très peu sur une distance égale à la longueur d'onde même). \\
+L'énergie de la particule étant considérée comme une constante dans ce cas-ci, et puisque l'on considère également que la particule $\alpha$ émise peut se propager au moins jusqu'à une distance $R_{\alpha}$ du noyau, notons son énergie $E$ : $$ E= \frac{z_{\alpha}z e^2}{4 \pi \epsilon_0 R_{\alpha}}$$ 
+Ensuite, il se trouve que la probabilité d'émission de particule alpha par unité de temps se trouve approximativement par l'inverse du temps de demi-vie. Cela illustre bien le fait que plus ce temps de demi-vie est long, moins il n'y a de probabilité qu'une particule alpha soit émise en une seconde. En utilisant les relations de la fonction d'onde obtenues grâce à l'approximation WKB,
+nous avons en particulier que : 
+\begin{align}
+  \frac{P( \mbox{ émission } )}{temps} \approx \frac{1}{t_{1/2}} \approx e^{-2 \gamma} \quad \mbox{ ($\approx \lvert \psi (r) \rvert ^2$ effet tunnel) } 
+\end{align}
+où  \begin{align*}
+  \gamma &= \frac{1}{\hbar} \int_R^{R_{\alpha}} \sqrt{2 m_{\alpha} (V(r) - E)} dr \\
+  &= \frac{1}{\hbar} \sqrt{2 m_{\alpha}} \sqrt{\frac{z_{\alpha} z e^2}{4 \pi \epsilon_0}} \int_R^{R_{\alpha}} \sqrt{\frac{1}{r} - \frac{1}{R_{\alpha}}} dr \\
+  &= \frac{1}{\hbar} \sqrt{2 m_{\alpha}} \sqrt{\frac{z_{\alpha} z e^2}{4 \pi \epsilon_0}} \int_R^{R_{\alpha}} \frac{1}{\sqrt{R_{\alpha}}} \sqrt{\frac{R_{\alpha}}{r} - 1} dr \\
+  &= \frac{1}{\hbar} \sqrt{2 m_{\alpha}} \sqrt{\frac{z_{\alpha} z e^2}{4 \pi \epsilon_0}} \sqrt{R_{\alpha}} \int_0^1 \sqrt{\frac{1-z}{z}} dz \quad \mbox{ (grâce au changement de variable : $z = \frac{r}{R_{\alpha}}$)} \\
+  &\approx \frac{\pi}{2} \sqrt{R_{\alpha}} \quad \mbox{ (intégrale calculée par un changement de variable comme $z = cos^2(x)$ par exmple)} 
+\end{align*}
 
+Enfin, en utilisant le fait que $R_{\alpha} = \frac{z_{\alpha} z e^2}{4 \pi \epsilon_0 E}$, on a :
+\begin{align}
+\label{Loi de Geiger-Nuttal}
+  \gamma &= \frac{\pi}{2 \hbar} \sqrt{2 m_{\alpha}} \left( \frac{z_{\alpha} z e^2}{4 \pi \epsilon_0} \right) \frac{1}{\sqrt{E}} \notag \\
+  \implies & log(t_{1/2}) = a \frac{z}{\sqrt{E}} + b \quad \mbox{ \textbf{Loi de Geiger-Nuttal}} 
+\end{align}
 
+\bg{Remarque : }{\begin{itemize}
+  \item Nous pouvons voir que cette équation \ref{Loi de Geiger-Nuttal} met en relation l'inverse de la racine de l'énergie au logarithme du temps de demi-vie.
+  Cela signifie qu'une grande augmentation du temps $t_{1/2}$ est équivalent à une légère diminution de l'énergie. On peut donc considérer que des isotopes qui émettent des particules alpha, à un temps de demi-vie d'ordres de grandeur assez variés, ont approximativement la même énergie ;
+  \item Cette loi est bien vérifiée expérimentalement ;
+  \item Elle explique également pourquoi la désintégration en noyau plus lourd est impossible (dépendance en $m_{\alpha}$ et $z_{\alpha}$) {\color{red}{Pourquoi???}}
+\end{itemize}
+}
 
-
-
+%Ajout schéma de Massar : graphes des données expérimentales 
 
 
 
