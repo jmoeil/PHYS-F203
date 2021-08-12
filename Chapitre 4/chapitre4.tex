@@ -2,6 +2,11 @@
 
 \begin{document}
 \part{Formalisme de Dirac} \label{Formalisme de Dirac}
+Dans la première section de ce cours traitant de la physique quantique, il a été mention de la mesure de la position d'une particule, de son impulsion, et que pour tout \textbf{état quantique}, les incertitudes liées à la position et à l'impulsion obéissent à une certaine relation : la relation d'incertitude de Heisenberg. Dans la deuxième section, nous établissons les principes fondamentaux de la physique quantique, et dérivons une équation qui tient compte de la dualité onde-corpuscule. En régime non-relativiste, il s'agit de l'équation de Schrödinger. Dans la troisième, nous résolvons cette équation, qui est une équation d'onde, et introduisons donc une fonction solution, que nous appelons \textbf{fonction d'onde}. Une fonction d'onde décrit donc une particule quantique. \\
+
+Dans ces sections, nous n'avons pas défini rigoureusement ce que nous entendons par "état quantique", et n'avons pas caractérisé les fonctions d'onde en termes de continuité, dérivabilité, domaine de définiton, etc. C'est tout le sujet de cette partie : \textbf{formaliser cette nouvelle physique}. \\
+
+Nous allons tout d'abord commencer par décrire les fonctions d'onde à l'aide de notions d'Analyse. Ensuite, nous introduisons le \textbf{formalisme de Dirac} qui sert à décrire et manipuler les \textbf{états quantiques}.
 \section{Expérience de Stern-Gerlach}
 L'expérience de Stern-Gerlach (1922) consistait à faire passer des atomes d'argent dans un champ magnétique non uniforme (fig \ref{fig:chap4-sterngerlach}). Classiquement, les atomes d'argent, ayant un moment cinétique et un moment magnétique orbital également nul, ne devraient pas subir l'influence du champ magnétique. L'expérience montre que le faisceau se \textbf{sépare en deux}. Ce résultat, inexpliqué par la compréhension "classique" de la matière, a trouvé une explication en physique quantique, avec l'introduction du moment cinétique de spin.\\
 
@@ -48,9 +53,9 @@ S = \pm \frac{\h}{2}
 \begin{center}
 \textit{La section actuelle ne figure pas dans les notes de Prof. Massar. Elles sont tirées de l'ouvrage de référence.}
 \end{center}
-Jusqu'à présent, nous avons mentionné les fonctions d'onde à plusieurs reprises sans s'être définis un \textbf{espace de fonctions} auxquelles elles appartiennent. Or c'est un objet mathématique, il ne faudrait pas commettre trop de pêchés sans connaître sa nature (même si on est physicien). Nous savons qu'une fonction d'onde doit respecter 
+Jusqu'à présent, nous avons mentionné les fonctions d'onde à plusieurs reprises sans nous être définis un \textbf{espace de fonctions} auxquelles elles appartiennent. Or c'est un objet mathématique, il ne faudrait pas commettre trop de pêchés sans connaître sa nature (même si on est physicien). Nous savons qu'une fonction d'onde doit respecter 
 
-$$ \int_{\mathbb R ^3} |\psi(\bm{r}, t)| ^2 \; \d ^3 \bm{r} \; ,$$
+$$ \int_{\mathbb R ^3} |\psi(\bm{r}, t)| ^2 \; \d ^3 \bm{r} = 1 \; ,$$
 donc nous nous savons déjà qu'elle doit être de carré sommable.
 $$\psi \in L^2$$
 L'espace des fonctions de carré sommable est bien trop vaste. Pour décrire des quantités physiques, nous voulons de notre fonction qu'elle soit également continue et infiniment dérivable (afin de ne pas rencontrer de discontinuités à très petite échelle). Nous nommons $\mathcal F$ l'espace ainsi obtenu. Cet espace, des fonctions de carré sommable, continues et infiniment dérivables, contient les fonctions partout définies (une particule dans le vide) comme les fonctions à support borné (une particule dans un laboratoire). Nous notons alors $\psi \in \mathcal{F}$.
