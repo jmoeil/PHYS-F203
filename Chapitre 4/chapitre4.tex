@@ -1,7 +1,7 @@
 \documentclass[../notesdecours.tex]{subfiles}
 
 \begin{document}
-\part{Formalisme de Dirac} \label{Formalisme de Dirac}
+\part{Formalisme de la Mécanique Quantique} \label{Formalisme de Dirac}
 Dans la première section de ce cours traitant de la physique quantique, il a été mention de la mesure de la position d'une particule, de son impulsion, et que pour tout \textbf{état quantique}, les incertitudes liées à la position et à l'impulsion obéissent à une certaine relation : la relation d'incertitude de Heisenberg. Dans la deuxième section, nous établissons les principes fondamentaux de la physique quantique, et dérivons une équation qui tient compte de la dualité onde-corpuscule. En régime non-relativiste, il s'agit de l'équation de Schrödinger. Dans la troisième, nous résolvons cette équation, qui est une équation d'onde, et introduisons donc une fonction solution, que nous appelons \textbf{fonction d'onde}. Une fonction d'onde décrit donc une particule quantique. \\
 
 Dans ces sections, nous n'avons pas défini rigoureusement ce que nous entendons par "état quantique", et n'avons pas caractérisé les fonctions d'onde en termes de continuité, dérivabilité, domaine de définiton, etc. C'est tout le sujet de cette partie : \textbf{formaliser cette nouvelle physique}. \\
@@ -74,7 +74,7 @@ $(\varphi,\psi)$ est le produit scalaire de $\psi(\bm{r})$ par $\varphi(\bm{r})$
 Le produit scalaire est \textbf{sesquilinéaire}, et vérifie une égalité similaire à celle de Cauchy-Schwarz : 
 $$ \forall \varphi_1, \varphi_2 \; : \; (\varphi_1, \varphi_2) \leq \sqrt{(\varphi_1, \varphi_1)}\sqrt{(\varphi_2, \varphi_2)} \; .$$
 
-Ci-contre, une série de propriétés découlant de $\ref{Produit scalaire - Espace des fonctions d'onde}$:
+Ci-dessous, une série de propriétés découlant de $\ref{Produit scalaire - Espace des fonctions d'onde}$:
 \begin{align*}
 (\varphi,\psi) &= (\psi,\varphi)^*\\
 (\varphi,\lambda_1\psi_1 + \lambda_2\psi_2) &= \lambda_1 (\varphi,\psi_1) + \lambda_2 (\varphi,\psi_2)\\
@@ -109,7 +109,7 @@ La base est orthonormée pourvu que
 (u_i, u_j) = \int_{\mathbb R ^3} u_i ^\star(\bm{r}) u_j(\bm{r}) \; \d ^3 \bm{r} = \delta_{ij} \; .
 \end{equation}
 
-Avec la représentation de toute fonction dans la base, nous pouvons réécrire le produit scalaire entre des fonctions $\varphi$ et $\psi$ représentés par des coefficients $b_i$ et $c_i$ comme :
+Avec la représentation de toute fonction dans la base, nous pouvons réécrire le produit scalaire entre des fonctions $\varphi$ et $\psi$ représentées respectivement par des coefficients $b_i$ et $c_i$ comme :
 $$(\varphi, \psi) = \sum_i b_i ^\star c_i$$
 Ceci a pour implication directe 
 \begin{equation}
@@ -122,7 +122,7 @@ La \textit{relation de fermeture} exprime que $\{u_i(\bm{r})\}$ est une base. El
 
 $$\{u_i(\bm{r})\} \; \text{est une base} \; \iff \forall \psi \in \mathcal F, \;\text{on a }$$
 \begin{eqnarray}
-\psi(\bm{r}) &=& \sum_i (u_i, \psi) u_i(r) \\
+\psi(\bm{r}) &=& \sum_i (u_i, \psi) u_i(\bm{r}) \\
 &=& \sum_i \left[\int_{\mathbb R ^3} u_i ^\star(\bm{r}') \psi(\bm{r}') \; \d ^3 \bm{r}'\right] u_i(\bm{r}) \\
 &=& \int_{\mathbb R ^3}\d ^3  \underbrace{\left[\sum_iu_i ^\star(\bm{r}')u_i(\bm{r}) \right]}_{G(\bm{r}, \bm{r}')}\psi(\bm{r}') \\
 &=& \int_{\mathbb R ^3}\d ^3 G(\bm{r}, \bm{r}')\psi(\bm{r}') \\
@@ -139,7 +139,7 @@ En mécanique quantique, il existe des bases qui n'appartiennent \textbf{pas} à
 \subsubsection{L'exemple des ondes planes}
 \paragraph{Un produit scalaire}
 L'espace des ondes planes,
-$$\left\{ v_p(x) = e^{ipx/\h}\right\}\; ,$$
+$$\left\{ v_p(x) = e^{ipx/\h} \; , \; p \in \mathbb{R} \right\}\; ,$$
 n'est pas de carré sommable. Par contre, si nous commettons un pêché et écrivons un produit scalaire (à une constante près) entre une fonction $\psi$ de $\mathcal F$ et un $v_p$ comme s'il était dans $\mathcal F$ (soyons fous!) :
 $$(\psi, v_p) = \dfrac{1}{\sqrt{2\pi\h}} \int_{\mathbb R}\d x \; \psi(x) e^{-ipx/\h}$$
 Nous voyons que si nous définissons une fonction de $p$ pour l'égalité ci-dessus, notre pêché se serait résumé en une Transformée de Fourier de $\psi$, soit quelque chose qui existe\footnote{C'est beau d'être physicien. On fait n'importe quoi tant que ça marche, et ça sera au matheux de vérifier.} ! Ceci motive à considérer notre ensemble d'ondes planes comme une base et de considérer la Transformée de Fourier comme un produit scalaire avec un $v_p$.
@@ -153,7 +153,7 @@ Par l'identité de Parseval, nous avons aussi l'équivalent de la relation \eqre
 $$(\psi, \psi) = \int_{\mathbb R} |\bar \psi(p)|^2 \; \d p$$
 \paragraph{Une relation d'orthonormalisation}
 Avec la relation (cf. livre de référence) 
-$$\dfrac{1}{2\pi} = \int_{\mathbb R} \d k e^{iku} = \delta(u) \; ,$$
+$$\dfrac{1}{2\pi} \int_{\mathbb R} \d k e^{iku} = \delta(u) \; ,$$
 nous pouvons obtenir une relation qui ressemble à une belle relation d'orthonormalisation :
 $$(v_p, v_{p'}) = ... = \delta(p-p')$$
 En comparant à \eqref{eq:orthonorm_F}, nous avons ici des indices continus, et avant on avait des indices discrets. Attention, ici, lorsque $p = p'$, nous n'avons pas $1$ : ça diverge. On dit que $v_p$ et $v_{p'}$ sont \textbf{orthonormés au sens de Dirac}. \\
@@ -179,17 +179,34 @@ $$(w_{\alpha}, w_{\alpha'}) \doteq \int w_{\alpha}(\bm{r})^\star w_{\alpha'}(\bm
 \item Les fonctions satisfont une \textbf{relation de fermeture} :
 $$\int w_{\alpha}(\bm{r})^\star w_{\alpha}(\bm{r}') = \delta(\bm{r}-\bm{r}')$$
 \end{enumerate}
-\section{Notations propre à la Mécanique Quantique}
-Dans le cadre de la Mécanique Quantique, nous nous placerons dans des expaces de Hilbert $\mathbb{H}$ séparables. Un espace de Hilbert est un espace pré-hilbertien (c'est-à-dire, muni d'un produit scalaire hermitien) dans lequel toute suite de Cauchy converge. \\
+\section{Formalisme de Dirac}
+Nous venons de voir qu'un état est caractérisé complètement par une fonction d'onde $\psi$. Sa valeur en $\bm{r}$ peut être caractérisée par plusieurs ensembles de composantes différents, dépendant du choix de base (par exemple, la base des fonctions delta). Ainsi, pour généraliser la notion d'état quantique, il est préférable d'introduire des \textbf{vecteurs d'état}, qui correspondent chacun à un état quantique, afin de s'affranchir du choix d'une base (plusieurs ensembles de composantes pouvaient décrire le même état). \\
 
-Nous introduisons:
+C'est dans cette démarche que Paul Dirac établit un formalisme pour la mécanique quantique en 1939, en conférant à une état quantique un aspect \textbf{vectoriel}. 
+\subsection{Espace des états, bras, et kets}
+Le vecteur que nous allons utiliser pour décrire un état quantique doit appartenir à un espace vectoriel. Nous notons l'\textbf{espace des états} $\mathcal{H}$. Celui-ci ne peut pas être quelconque, car il doit représenter quelque chose de physique. La section précédente sur les fonctions d'onde ont imposé que les fonctions d'onde devaient être (au moins) de carré sommable, $\varphi \in L^2$. Ceci nous posera une contrainte sur l'espace des états. Pour l'expliquer, introduisons la définition suivante d'un \textbf{espace de Hilbert}.
+\begin{definition}[Espace de Hilbert]
+	Un \textbf{espace de Hilbert} $\mathcal{H}$ est un espace vectoriel complexe (de dimension finie ou infinie) muni d'un produit scalaire hermitien complet (toute suite de Cauchy converge).
+\end{definition}
+
+La classe $L^2$ est un espace de Hilbert. Alors, l'espace des états $\mathcal{H}$ doit également être un espace de Hilbert. Il sera défini sur le corps des complexes.\\
+
+Les éléments de $\mathcal{H}$ sont des vecteurs. Ils sont appelés "\textbf{kets}" et sont notés par le symbole $\ket \cdot$. Entre kets, il existe un produit scalaire $(\cdot, \cdot)$. Nous notons $$(\ket \varphi , \ket \psi ) \in \mathbb{C}\; .$$
+
+Les éléments du dual de $\mathcal{H}$ sont appelés "bras" et notés $\bra \cdot$. Ces éléments sont des formes linéaires sur $\mathcal{H}$. Ainsi, pour le nombre $\bra \chi (\ket \varphi) \in \mathbb{C}$, nous simplifierons l'écriture en écrivant $\braket{\chi | \varphi}{\varphi}$ (ceci est un nombre !).
+\subsection{Correspondance entre ket et bra, et produit scalaire}
+Admettons sans démonstration les résultats suivants :
 \begin{itemize}
-\item Vecteur $\in \mathbb{H}$ : $\ket{\psi}$. Il s'agit d'un vecteur colonne $v$, appelé le ket.
-\item Vecteur transposé conjugué $\in \mathbb{H}$ : $\bra{\psi}$. Il s'agit du vecteur ligne\footnote{Nous pouvons également le voir comme un élément du dual $\mathbb{H}^*$} $\overline{v}^T$, appelé le bra.
-\item Le produit scalaire $\braket{\varphi,\psi}$, appelé le braket.
+	\item A tout ket correspond un bra. Soit $\ket \varphi$ un ket. Le bra associé $\bra \varphi$ est la fonctionnelle linéaire de $\mathcal{H}^\star$ telle que pour tout ket $\ket \psi \in \mathcal{H}$, $$\braket{\varphi | \psi}= (\ket \varphi, \ket \psi) \; .$$
+	
+	\item La correspondance bra $\rightarrow$ ket est antilinéaire. $$\ket{\psi} = \alpha \ket{\Phi} + \beta\ket{\Phi'} \quad \Rightarrow \quad \bra{\psi} = \overline{\alpha}\bra{\Phi}+\overline{\beta}\bra{\Phi'}$$  
+	\item A tout bra ne correspond pas forcément un ket.
 \end{itemize}
-\subsection{Correspondance entre bra et ket}
-Si $\ket{\psi} = \alpha \ket{\Phi} + \beta\ket{\Phi'}$, alors $\bra{\psi} = \overline{\alpha}\bra{\Phi}+\overline{\beta}\bra{\Phi'}$ : la correspondance bra $\rightarrow$ ket est donc antilinéaire. 
+
+La correspondance ket $\rightarrow$ bra est très intéressante. Si nous considérons le produit scalaire $(\ket \varphi, \ket \psi)$ et que nous considérons le bra $\bra \varphi$ associé au ket $\ket \varphi$, nous avons alors une écriture du produit scalaire en termes de bras et de kets uniquement. Nous appelons cette notation \textit{braket}.
+$$(\ket \varphi, \ket \psi) = \braket{\varphi | \psi}$$
+
+
 \begin{remark} Si $\lambda$ est un nombre complexe et $\ket{\psi}$ un ket, alors $\lambda\ket{\psi}$ est un ket. Nous l'écrirons parfois $\ket{\lambda\psi}$. Il faudra alors faire attention que la relation entre bra et ket étant anti-linéaire, $\bra{\lambda\psi} = \overline{\lambda}\ket{\psi}$. \end{remark}
 
 Notons que les états quantiques sont:
