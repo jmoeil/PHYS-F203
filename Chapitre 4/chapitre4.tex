@@ -183,54 +183,77 @@ $$\int w_{\alpha}(\bm{r})^\star w_{\alpha}(\bm{r}') = \delta(\bm{r}-\bm{r}')$$
 Nous venons de voir qu'un état est caractérisé complètement par une fonction d'onde $\psi$. Sa valeur en $\bm{r}$ peut être caractérisée par plusieurs ensembles de composantes différents, dépendant du choix de base (par exemple, la base des fonctions delta). Ainsi, pour généraliser la notion d'état quantique, il est préférable d'introduire des \textbf{vecteurs d'état}, qui correspondent chacun à un état quantique, afin de s'affranchir du choix d'une base (plusieurs ensembles de composantes pouvaient décrire le même état). \\
 
 C'est dans cette démarche que Paul Dirac établit un formalisme pour la mécanique quantique en 1939, en conférant à une état quantique un aspect \textbf{vectoriel}. 
-\subsection{Espace des états, bras, et kets}
+\subsection{Espace des états}
 Le vecteur que nous allons utiliser pour décrire un état quantique doit appartenir à un espace vectoriel. Nous notons l'\textbf{espace des états} $\mathcal{H}$. Celui-ci ne peut pas être quelconque, car il doit représenter quelque chose de physique. La section précédente sur les fonctions d'onde ont imposé que les fonctions d'onde devaient être (au moins) de carré sommable, $\varphi \in L^2$. Ceci nous posera une contrainte sur l'espace des états. Pour l'expliquer, introduisons la définition suivante d'un \textbf{espace de Hilbert}.
 \begin{definition}[Espace de Hilbert]
 	Un \textbf{espace de Hilbert} $\mathcal{H}$ est un espace vectoriel complexe (de dimension finie ou infinie) muni d'un produit scalaire hermitien complet (toute suite de Cauchy converge).
 \end{definition}
 
-La classe $L^2$ est un espace de Hilbert. Alors, l'espace des états $\mathcal{H}$ doit également être un espace de Hilbert. Il sera défini sur le corps des complexes.\\
+La classe $L^2$ est un espace de Hilbert. Alors, l'espace des états $\mathcal{H}$ doit également être un espace de Hilbert. Il sera défini sur le corps des complexes. 
+\subsubsection{Elements de $\mathbb{H}$ : les bras}
+Les éléments de $\mathcal{H}$ sont des vecteurs. Ils sont appelés "\textbf{kets}" et sont notés par le symbole $\ket \cdot$. Entre kets, il existe un produit scalaire $(\cdot, \cdot)$. Nous notons $$\text{Produit scalaire dans $\mathcal{H}$ : }\;  (\ket \varphi , \ket \psi ) \in \mathbb{C}$$
+Nous sommes dans les complexes, ce produit scalaire est donc \textbf{sesquilinéaire} (nous reviendrons sur la définition du produit scalaire quelque peu après).
 
-Les éléments de $\mathcal{H}$ sont des vecteurs. Ils sont appelés "\textbf{kets}" et sont notés par le symbole $\ket \cdot$. Entre kets, il existe un produit scalaire $(\cdot, \cdot)$. Nous notons $$(\ket \varphi , \ket \psi ) \in \mathbb{C}\; .$$
+\subsubsection{Les éléments de $\mathbb{H}^\star$ : les bras}
+Les éléments du dual de $\mathcal{H}$ sont appelés "bras" et notés $\bra \cdot$. Ces éléments sont des formes linéaires sur $\mathcal{H}$. Ainsi, pour le nombre $\bra \chi (\ket \varphi) \in \mathbb{C}$, nous simplifierons l'écriture en écrivant $\braket{\chi | \varphi}$ (ceci est un nombre !).
 
-Les éléments du dual de $\mathcal{H}$ sont appelés "bras" et notés $\bra \cdot$. Ces éléments sont des formes linéaires sur $\mathcal{H}$. Ainsi, pour le nombre $\bra \chi (\ket \varphi) \in \mathbb{C}$, nous simplifierons l'écriture en écrivant $\braket{\chi | \varphi}{\varphi}$ (ceci est un nombre !).
-\subsection{Correspondance entre ket et bra, et produit scalaire}
+\subsection{Correspondance entre ket et bra, et produit scalaire hermitien}
 Admettons sans démonstration les résultats suivants :
 \begin{itemize}
 	\item A tout ket correspond un bra. Soit $\ket \varphi$ un ket. Le bra associé $\bra \varphi$ est la fonctionnelle linéaire de $\mathcal{H}^\star$ telle que pour tout ket $\ket \psi \in \mathcal{H}$, $$\braket{\varphi | \psi}= (\ket \varphi, \ket \psi) \; .$$
 	
-	\item La correspondance bra $\rightarrow$ ket est antilinéaire. $$\ket{\psi} = \alpha \ket{\Phi} + \beta\ket{\Phi'} \quad \Rightarrow \quad \bra{\psi} = \overline{\alpha}\bra{\Phi}+\overline{\beta}\bra{\Phi'}$$  
+	\item La correspondance ket $\rightarrow$ bra est antilinéaire. $$\ket{\psi} = \alpha \ket{\Phi} + \beta\ket{\Phi'} \quad \Rightarrow \quad \bra{\psi} = \overline{\alpha}\bra{\Phi}+\overline{\beta}\bra{\Phi'}$$  
 	\item A tout bra ne correspond pas forcément un ket.
 \end{itemize}
 
 La correspondance ket $\rightarrow$ bra est très intéressante. Si nous considérons le produit scalaire $(\ket \varphi, \ket \psi)$ et que nous considérons le bra $\bra \varphi$ associé au ket $\ket \varphi$, nous avons alors une écriture du produit scalaire en termes de bras et de kets uniquement. Nous appelons cette notation \textit{braket}.
-$$(\ket \varphi, \ket \psi) = \braket{\varphi | \psi}$$
+
+\bg{Notation simplifiée du produit scalaire dans $\mathcal{H}$ : la notation braket}{
+	\Large
+	$$(\ket \varphi, \ket \psi) = \braket{\varphi | \psi} \; \in \mathbb{C}$$
+}
+\subsubsection{Propriétés du produit scalaire avec la notation de Dirac}
+Le produit scalaire hermitien est une application linéaire à droite, anti-linéaire à gauche, symétrique conjuguée, et définie positive. Ces propriétés s'écrivent comme suit :
+\begin{enumerate}[label = \roman*)]
+	\item Linéaire à droite : $\braket{\varphi |\lambda_1 \psi_1 + \lambda_2 \psi_2} = \lambda_1\braket{\varphi | \psi_1} + \lambda_2 \braket{\varphi | \psi_2}$
+	\item Anti-linéaire à gauche : $\braket{\lambda_1 \varphi_1 + \lambda_2 \varphi_2 | \psi } = \lambda^* _1\braket{\varphi_1 | \psi} +\lambda_2^* \braket{\varphi_2 | \psi}$
+	\item Symétrique conjuguée : $\braket{\varphi | \psi} = \braket{\psi | \varphi} ^*$
+	\item Définie positive : $\braket{\psi | \psi} >0 \; , $ nul $\iff \ket\psi = \bm{0}$
+\end{enumerate}
 
 
-\begin{remark} Si $\lambda$ est un nombre complexe et $\ket{\psi}$ un ket, alors $\lambda\ket{\psi}$ est un ket. Nous l'écrirons parfois $\ket{\lambda\psi}$. Il faudra alors faire attention que la relation entre bra et ket étant anti-linéaire, $\bra{\lambda\psi} = \overline{\lambda}\ket{\psi}$. \end{remark}
+\begin{remark}\label{remark:correspondance antilinéaire} Si $\lambda$ est un nombre complexe et $\ket{\psi}$ un ket, alors $\lambda\ket{\psi}$ est un ket. Nous l'écrirons parfois $\ket{\lambda\psi}$. Il faudra alors faire attention que la relation entre bra et ket étant anti-linéaire, $\bra{\lambda\psi} = \overline{\lambda}\ket{\psi}$. \end{remark}
+\begin{remark}
+	Nous sommes dans un espace projectif de Hilbert. Dès lors,
+	\begin{center}
+	\begin{tabular}{ c c c } 
+	$\ket{\psi} \thicksim \ket{\varphi}$ & quand & $\ket{\psi} = \lambda\ket{\varphi}$  
+	\end{tabular}
+	\end{center}
+\end{remark}
 
-Notons que les états quantiques sont:
+\subsection{Application du formalisme de Dirac à quelques états quantiques}
+Après avoir défini les vecteurs représentants des états quantiques en leur donnant un espace vectoriel et un produit scalaire, introduisons premièrement quelques propriétés qui ont un sens physique direct. Ensuite, donnons quelques exemples d'états quantiques écrits dans le formalisme de Dirac.
+
+\subsubsection{Propriétés dûes à l'interprétation probabiliste}
+Notons que l'interprétation probabiliste de la mécanique quantique implique deux choses : que la fonction d'onde soit normée, et la conservation de la probabilité. Ces deux propriétés ont une traduction dans le formalisme de Dirac.
+
 \begin{enumerate}
-\item \emph{normalisés}:
+\item \emph{Les états quantique sont normalisés}.
 \begin{equation}
 \braket{\psi|\psi} = 1
 \end{equation}
-en raison de l'interprétation probabiliste.
-\item \emph{définis à une phrase prêt}:
-\begin{align}
-&\ket{\psi} 	&e^{i\varphi}\ket{\psi}
-\end{align}
-représentent le même état quantique.
+Ceci est l'équivalent de $\int_{\mathbb{R}^3} |\varphi(\bm{r})| ^2 \; \d \bm{r} = 1$.
+\item \emph{Les états quantiques sont définis à une phrase près}.
+\begin{equation}
+\ket{\psi} 	\quad \text{et} \quad  e^{i\varphi}\ket{\psi} \; , \; \varphi \in \mathbb{R}
+\end{equation}
+représentent le même état quantique. Ceci est une conséquence de la conservation de la probabilité.
+\probleme{Insérer démonstration : faite au TP2}
 \end{enumerate}
-Nous sommes dans un espace projectif de Hilbert. Dès lors,
 
-\begin{center}
-\begin{tabular}{ c c c } 
-$\ket{\psi} \thicksim \ket{\varphi}$ & quand & $\ket{\psi} = \lambda\ket{\varphi}$  
-\end{tabular}
-\end{center}
 
-\subsubsection{Exemples}
+\subsubsection{Exemples d'états quantiques}
 \textbf{Spin $\frac{1}{2}$}: base orthonormée = \bigg\{$\ket{\uparrow}$,$\ket{\downarrow}$\bigg\}.\\
 
 Nous pouvons définir un état arbitraire:
@@ -249,29 +272,60 @@ Si $\ket{\varphi} = \cos\frac{\theta'}{2}\ket{\uparrow}+e^{i\varphi'}\sin\frac{\
 Nous pouvons définir un état arbitraire par $\ket{\psi} = \sum_n c_n \ket{n}$ avec $\sum_n \norm{c_n}^2 = 1$.
 
 \section{Opérateurs linéaires}
-Soit $A : \mathbb{H} \rightarrow \mathbb{H} : \ket{\psi} \rightarrow A\ket{\psi}$ un opérateur linéaire, c'est à dire tel quel $A(a\ket{\psi}+b\ket{\varphi}) = a(A\ket{\psi})+b(A\ket{\varphi})$. Soit $B$ un (autre) isomorphisme\footnote{Demander vérification à Massar.} sur le même ensemble $\mathbb{H}$. Nous pouvons définir plusieurs opérations:
+$$A : \mathbb{H} \rightarrow \mathbb{H} : \ket{\psi} \mapsto A\ket{\psi}$$ est un opérateur linéaire si et seulement si $A(a\ket{\psi}+b\ket{\varphi}) = a(A\ket{\psi})+b(A\ket{\varphi})$. Définissons certaines formes d'opérateurs linéaires particulières.
+
+\subsection{Opérateurs d'opérateurs}
+Soient $A$ et $B$ deux opérateurs linéaires de $\mathbb{H}$.
 \begin{itemize}
-\item \textbf{Produit d'opérateurs}: $(AB)\ket{\psi} = A(B\ket{\psi})$. B agit d'abord sur ket $\ket{\psi}$ pour donner $B\ket{\psi}$, et A agira ensuite sur $A\ket{\psi}$.
-\item En général, $AB\neq BA$, le commutateur [A,B] de A,B est par définition [A,B] = AB-BA.
+\item Le \textbf{produit d'opérateurs} entre $A$ et $B$ est défini comme suit :
+$$AB : \left( 
+	\begin{array}{rl}
+		\mathbb{H} &\longrightarrow \mathbb{H} \\
+		\ket \psi &\longmapsto A(B\ket \psi)
+	\end{array}
+\right) $$
+$B$ agit d'abord sur ket $\ket{\psi}$ pour donner $B\ket{\psi}$, et $A$ agira ensuite sur $B\ket{\psi}$.
+\item En général, $AB\neq BA$, le \textbf{commutateur} $[A,B]$ de $A,B$ est par définition $[A,B] = AB-BA$.
 \item \textbf{Anticommutateur} : $\bigg\{A,B\bigg\} = AB+BA$.
 \end{itemize}
-Action de A sur le dual/les bras. Soit $A: \mathbb{H}^* \rightarrow \mathbb{H}^* : \bra{\varphi} \rightarrow \bra{\varphi}A$ est défini par $\Big\{\bra{\varphi}A\Big\}\ket{\psi} = \bra{\varphi}\Big\{A\ket{\psi}\Big\}$, pour tout$\ket{\varphi},\ket{\psi}$. Nous le noterons $\braket{\varphi|A|\psi}$.
-\begin{remark} Observons que l'ordre dans lequel apparaît les symbols a une importance capital. Seul les nombres complexes peuvent être déplacés sans influencer le résultat. \end{remark}
+\subsection{Ecriture "ket-bra" d'un opérateur}
+Nous savons que $\braket{\psi | \varphi}$ est le nombre complexe résultant du produit scalaire entre le ket $\ket \varphi$ et le ket $\ket \psi$ qui a $\bra \psi$ comme bra associé. A présent, écrivons ceci dans l'autre sens : $\ket \psi \bra \varphi$. Si on se fie aux règles "symboliques" du formalisme de Dirac, ce nouvel objet correspond à un nouvel opérateur linéaire, vu qu'on peut l'appliquer à un ket et obtenir un vecteur de $\mathbb{H}$.
+$$\ket \psi \underbrace{\bra \varphi \quad \ket \chi}_{\text{Produit scalaire}} = \ket \psi \braket{\varphi | \chi}$$
 
-\begin{exemple} 
-Soit $\ket{\psi}$ et $\ket{\Theta}$ deux kets. Ecrivons les dans l'ordre inverse: $\bra{\psi}$ et $\bra{\Theta}$. Considérons 
-\begin{equation}
-\ket{\psi}\bra{\Theta}
-\label{ket bra}
-\end{equation}
-Prenons un ket $\ket{\gamma}$ tel que
-\begin{equation}
-\ket{\psi}\braket{\Theta|\gamma}
-\end{equation}
-Nous avons que $\braket{\Theta|\gamma}$ est un nombre complexe ; par conséquent, nous avons que un bra $\bra{\psi}$ multiplié par un scalaire. Nous avons alors que $\eqref{ket bra}$ appliqué à un ket donne un nouveau ket.
-\end{exemple}
+\bg{Application directe de l'écriture ket-bra d'un opérateur : les projecteurs}{
+	Définissons l'opérateur suivant en écriture ket-bra :
+	$$P_\psi \doteq \ket \psi \bra \psi : \left(\begin{array}{rl}
+		\mathbb{H} &\longrightarrow \mathbb{H} \\
+		\ket \varphi &\longmapsto \braket{\psi | \varphi} \ket \psi
+	\end{array}\right)$$
+	Cet opérateur est un projecteur sur le vecteur (l'état) $\ket \psi$. En effet, il envoie tout vecteur $\ket\varphi$ sur un vecteur parallèle à $\ket \psi$ avec un coefficient de proportionnalité qui vaut le produit scalaire entre les deux divisé par la norme de $\ket \psi$ (qui vaut 1 dans ce formalisme). \\
+
+	Le lecteur observera que $P_\psi ^2 = P_\psi$ (et c'est assez trivial!) : projeter deux fois revient à la même chose que projeter une fois.
+}
+
+\subsection{Action d'un opérateur linéaire sur le dual/un bra}
+Soit $A$ un opérateur linéaire sur $\mathbb{H}^\star$ (et non sur $\mathbb{H}$ cette fois !). La définition de $A$ sur $\mathbb{H}^\star$ est la suivante :
+$$A : \left(\begin{array}{rl}
+	\mathbb{H} ^\star &\longrightarrow \mathbb{H}^\star \\
+	\bra \varphi &\longmapsto \bra \varphi A
+\end{array}\right) \; .$$
+Ce nouvel opérateur $\bra \varphi A$ agit sur un ket $\ket \psi$ de la manière suivante : 
+$$\bra\varphi A : \left(\begin{array}{rl}
+	\mathbb{H}  &\longrightarrow \mathbb{H}\\
+	\ket \psi &\longmapsto (\bra \varphi A)\ket \psi = \braket{\varphi | A | \psi}
+\end{array}\right) \; .$$
+
+
+\begin{remark} Observons que l'ordre dans lequel apparaît les symboles a une importance capitale. Seuls les nombres complexes peuvent être déplacés sans influencer le résultat (attention, les nombres complexes qui sortent d'un bra subissent une conjugaison, comme l'indique la remarque \ref{remark:correspondance antilinéaire}). \end{remark}
+
 
 \section{Opérateur adjoint $A^\dag$}
+Soit $A$ un opérateur linéaire dans $\mathbb{H}$. Nous savons qu'à tout ket correspond un bra. Nous savons aussi qu'en appliquant $A$ à un ket $\ket \psi$, on obtient un nouveau ket $A\ket \psi$ : $$\ket{\psi'} = A \ket \psi \; .$$
+
+Nous définissons l'opérateur adjoint de $A$ l'opérateur $A^\dagger$ qui, agissant sur le bra $\bra \psi$ correspondant à $\ket \psi$, donne un bra $A\bra {\psi}$ qui est précisément le bra correspondant au ket $\ket{\psi '}$ (la définition est assez fastidieuse dite comme ça mais c'est pour ça que les mathématiques sont plus efficaces que la langue française par moments).
+
+$$\bra{\psi '} = \bra{\psi} A^\dagger$$
+Une écriture plus compacte peut être la suivante.
 \begin{definition} Soit $A$: $\mathbb{H} \rightarrow \mathbb{H}$ un opérateur linéaire. Nous définissons l'opérateur adjoint $A^\dag : \mathbb{H} \rightarrow \mathbb{H}$ par $\braket{\psi|A^\dag|\varphi} = \braket{\varphi|A|\psi}^*$ pour tout $\ket{\psi},\ket{\varphi}$. \end{definition}
 
 Si $\big\{\ket{u_i}\big\}$ forme une base orthonormée, alors:
@@ -293,6 +347,13 @@ Nous donnons ici une série de propriétés de l'opérateur adjoint $A^\dag$.
 \end{enumerate}
 \end{minipage}}
 \end{center}
+L'on pourrait également introduire des "règles" pour obtenir le conjugué hermitique d'une expression :
+\begin{enumerate}
+	\item Les constantes doivent être remplacées par leur complexe conjugué
+	\item Les bras deviennent des kets (le ket associé)
+	\item Les kets deviennent des bras (le bra associé)
+	\item L'ordre des facteurs doit être inversé
+\end{enumerate}
 
 \subsection{Exemples d'opérateurs}
 \begin{enumerate}
