@@ -184,31 +184,31 @@ Nous venons de voir qu'un état est caractérisé complètement par une fonction
 
 C'est dans cette démarche que Paul Dirac établit un formalisme pour la mécanique quantique en 1939, en conférant à une état quantique un aspect \textbf{vectoriel}. 
 \subsection{Espace des états}
-Le vecteur que nous allons utiliser pour décrire un état quantique doit appartenir à un espace vectoriel. Nous notons l'\textbf{espace des états} $\mathcal{H}$. Celui-ci ne peut pas être quelconque, car il doit représenter quelque chose de physique. La section précédente sur les fonctions d'onde ont imposé que les fonctions d'onde devaient être (au moins) de carré sommable, $\varphi \in L^2$. Ceci nous posera une contrainte sur l'espace des états. Pour l'expliquer, introduisons la définition suivante d'un \textbf{espace de Hilbert}.
+Le vecteur que nous allons utiliser pour décrire un état quantique doit appartenir à un espace vectoriel. Nous notons l'\textbf{espace des états} $\mathbb{H}$. Celui-ci ne peut pas être quelconque, car il doit représenter quelque chose de physique. La section précédente sur les fonctions d'onde ont imposé que les fonctions d'onde devaient être (au moins) de carré sommable, $\varphi \in L^2$. Ceci nous posera une contrainte sur l'espace des états. Pour l'expliquer, introduisons la définition suivante d'un \textbf{espace de Hilbert}.
 \begin{definition}[Espace de Hilbert]
-	Un \textbf{espace de Hilbert} $\mathcal{H}$ est un espace vectoriel complexe (de dimension finie ou infinie) muni d'un produit scalaire hermitien complet (toute suite de Cauchy converge).
+	Un \textbf{espace de Hilbert} $\mathbb{H}$ est un espace vectoriel complexe (de dimension finie ou infinie) muni d'un produit scalaire hermitien complet (toute suite de Cauchy converge).
 \end{definition}
 
-La classe $L^2$ est un espace de Hilbert. Alors, l'espace des états $\mathcal{H}$ doit également être un espace de Hilbert. Il sera défini sur le corps des complexes. 
+La classe $L^2$ est un espace de Hilbert ({\color{red}{démonstration? exercice?}}). Alors, l'espace des états $\mathbb{H}$ doit également être un espace de Hilbert. Il sera défini sur le corps des complexes. 
 \subsubsection{Elements de $\mathbb{H}$ : les bras}
-Les éléments de $\mathcal{H}$ sont des vecteurs. Ils sont appelés "\textbf{kets}" et sont notés par le symbole $\ket \cdot$. Entre kets, il existe un produit scalaire $(\cdot, \cdot)$. Nous notons $$\text{Produit scalaire dans $\mathcal{H}$ : }\;  (\ket \varphi , \ket \psi ) \in \mathbb{C}$$
+Les éléments de $\mathbb{H}$ sont des vecteurs. Ils sont appelés "\textbf{kets}" et sont notés par le symbole $\ket \cdot$. Entre kets, il existe un produit scalaire $(\cdot, \cdot)$. Nous notons $$\text{Produit scalaire dans $\mathbb{H}$ : }\;  (\ket \varphi , \ket \psi ) \in \mathbb{C}$$
 Nous sommes dans les complexes, ce produit scalaire est donc \textbf{sesquilinéaire} (nous reviendrons sur la définition du produit scalaire quelque peu après).
 
 \subsubsection{Les éléments de $\mathbb{H}^\star$ : les bras}
-Les éléments du dual de $\mathcal{H}$ sont appelés "bras" et notés $\bra \cdot$. Ces éléments sont des formes linéaires sur $\mathcal{H}$. Ainsi, pour le nombre $\bra \chi (\ket \varphi) \in \mathbb{C}$, nous simplifierons l'écriture en écrivant $\braket{\chi | \varphi}$ (ceci est un nombre !).
+Les éléments du dual de $\mathbb{H}$ sont appelés "bras" et notés $\bra \cdot$. Ces éléments sont des formes linéaires sur $\mathbb{H}$. Ainsi, pour le nombre $\bra \chi (\ket \varphi) \in \mathbb{C}$, nous simplifierons l'écriture en écrivant $\braket{\chi | \varphi}$ (ceci est un nombre !).
 
 \subsection{Correspondance entre ket et bra, et produit scalaire hermitien}
 Admettons sans démonstration les résultats suivants :
 \begin{itemize}
-	\item A tout ket correspond un bra. Soit $\ket \varphi$ un ket. Le bra associé $\bra \varphi$ est la fonctionnelle linéaire de $\mathcal{H}^\star$ telle que pour tout ket $\ket \psi \in \mathcal{H}$, $$\braket{\varphi | \psi}= (\ket \varphi, \ket \psi) \; .$$
+	\item A tout ket correspond un bra. Soit $\ket \varphi$ un ket. Le bra associé $\bra \varphi$ est la fonctionnelle linéaire de $\mathbb{H}^\star$ telle que pour tout ket $\ket \psi \in \mathbb{H}$, $$\braket{\varphi | \psi}= (\ket \varphi, \ket \psi) \; .$$
 	
 	\item La correspondance ket $\rightarrow$ bra est antilinéaire. $$\ket{\psi} = \alpha \ket{\Phi} + \beta\ket{\Phi'} \quad \Rightarrow \quad \bra{\psi} = \overline{\alpha}\bra{\Phi}+\overline{\beta}\bra{\Phi'}$$  
-	\item A tout bra ne correspond pas forcément un ket.
+	\item A tout bra ne correspond pas forcément un ket {\color{red}{j'ajouterais une explication -- je n'ai pas encore lu celle du Cohen}}.
 \end{itemize}
 
 La correspondance ket $\rightarrow$ bra est très intéressante. Si nous considérons le produit scalaire $(\ket \varphi, \ket \psi)$ et que nous considérons le bra $\bra \varphi$ associé au ket $\ket \varphi$, nous avons alors une écriture du produit scalaire en termes de bras et de kets uniquement. Nous appelons cette notation \textit{braket}.
 
-\bg{Notation simplifiée du produit scalaire dans $\mathcal{H}$ : la notation braket}{
+\bg{Notation simplifiée du produit scalaire dans $\mathbb{H}$ : la notation braket}{
 	\Large
 	$$(\ket \varphi, \ket \psi) = \braket{\varphi | \psi} \; \in \mathbb{C}$$
 }
@@ -243,7 +243,7 @@ Notons que l'interprétation probabiliste de la mécanique quantique implique de
 \begin{equation}
 \braket{\psi|\psi} = 1
 \end{equation}
-Ceci est l'équivalent de $\int_{\mathbb{R}^3} |\varphi(\bm{r})| ^2 \; \d \bm{r} = 1$.
+Ceci est l'équivalent de $\int_{\mathbb{R}^3} |\psi(\bm{r})| ^2 \; \d \bm{r} = 1$.
 \item \emph{Les états quantiques sont définis à une phrase près}.
 \begin{equation}
 \ket{\psi} 	\quad \text{et} \quad  e^{i\varphi}\ket{\psi} \; , \; \varphi \in \mathbb{R}
@@ -269,7 +269,7 @@ Si $\ket{\varphi} = \cos\frac{\theta'}{2}\ket{\uparrow}+e^{i\varphi'}\sin\frac{\
 
 \textbf{Oscillateur harmonique:} base orthonormée = $\bigg\{\ket{n} : n=0,1,2,...\bigg\}$ et les états d'énergies sont donnés par $E_n = \h\omega\bigg\{n+\frac{1}{2}\bigg\}$.\\
 
-Nous pouvons définir un état arbitraire par $\ket{\psi} = \sum_n c_n \ket{n}$ avec $\sum_n \norm{c_n}^2 = 1$.
+Nous pouvons définir un état arbitraire par $\ket{\psi} = \sum_n c_n \ket{n}$ avec $\sum_n |c_n| ^2 = 1$.
 
 \section{Opérateurs linéaires}
 $$A : \mathbb{H} \rightarrow \mathbb{H} : \ket{\psi} \mapsto A\ket{\psi}$$ est un opérateur linéaire si et seulement si $A(a\ket{\psi}+b\ket{\varphi}) = a(A\ket{\psi})+b(A\ket{\varphi})$. Définissons certaines formes d'opérateurs linéaires particulières.
@@ -332,8 +332,8 @@ Si $\big\{\ket{u_i}\big\}$ forme une base orthonormée, alors:
 \begin{itemize}
 \item $\braket{u_i|A|u_j} = a_{ij}$
 \item $\braket{u_i|A^\dag|u_j} = a^*_{ij}$
+\item[$\rightarrow$] $A^\dag = \overline{A^T}$ est la transposée conjuguée\footnote{Ask teacher what's up.}.\\
 \end{itemize}
-$\rightarrow A^\dag = \overline{A^T}$ est la transposée conjuguée\footnote{Ask teacher what's up.}.\\
 \subsection{Propriétés intéressantes}
 Nous donnons ici une série de propriétés de l'opérateur adjoint $A^\dag$.
 \begin{center}
@@ -469,13 +469,13 @@ Dans ce chapitre, nous allons énoncer les postulats de la mécanique quantique 
 \begin{center}
 \textbf{PREMIER POSTULAT - Vecteur d'état $\ket{\psi}$}
 \end{center}
-A tout système quantique correspond au moins un $\emph{espace de }\mathcal{H}ilbert$ complexe et séparable $\mathbb{H}$ dans lequel la théorie quantique du système peut-être formulée. Tout état accessible du système quantique correspond alors à un \emph{vecteur normé $\ket{\psi}$} dans $\mathcal{H}$ dont la phase globale est arbitraire. 
+A tout système quantique correspond au moins un $\emph{espace de }\mathcal{H}ilbert$ complexe et séparable $\mathbb{H}$ dans lequel la théorie quantique du système peut-être formulée. Tout état accessible du système quantique correspond alors à un \emph{vecteur normé $\ket{\psi}$} dans $\mathbb{H}$ dont la phase globale est arbitraire. 
 \end{minipage}}
 \end{center}
 Ce postulat a plusieurs implications:
 \begin{itemize}
 \item Tout système quantique est placé dans un esapce vectoriel : cela implique un \textit{principe de superposition}. De fait, si $\ket{\psi_1 (t)}$ et $\ket{\psi_2 (t)}$ sont des vecteurs d'états, alors $\alpha \ket{\psi_1 (t)} + \beta\ket{\psi_2 (t)}$ est également un vecteur d'état.
-\item Le produit scalaire $\braket{\psi|\varphi}$ est sesquilinéaire. Nous pouvons alors effectuer des calculs d'angles et de distances dans $\mathcal{H}$.
+\item Le produit scalaire $\braket{\psi|\varphi}$ est sesquilinéaire. Nous pouvons alors effectuer des calculs d'angles et de distances dans $\mathbb{H}$.
 \item Un état du système est bien défini \textit{séparément} des grandeurs observables, celles-ci modifiant son état.
 \end{itemize}
 
@@ -485,7 +485,7 @@ Ce postulat a plusieurs implications:
 \begin{center}
 \textbf{SECOND POSTULAT - Observables $\ket{\hat{P}}$}
 \end{center}
-A toute grandeur classique correspond un \emph{opérateur hermitien} $\hat{P}$ agissant dans $\mathcal{H}$. Le processus de mesure quantique consiste à relever les propriétés fondamentales de ces opérateurs. En d'autres termes, les résultats de la mesure d'une obserable sont les diverses valeurs propres (réelles) de cette observable.
+A toute grandeur classique correspond un \emph{opérateur hermitien} $\hat{P}$ agissant dans $\mathbb{H}$. Le processus de mesure quantique consiste à relever les propriétés fondamentales de ces opérateurs. En d'autres termes, les résultats de la mesure d'une obserable sont les diverses valeurs propres (réelles) de cette observable.
 \end{minipage}}
 \end{center}
 Lorsque l'opérateur $A$ possède une base de vecteurs propres, nous pouvons écrire $A$ sous la forme\begin{equation}
@@ -667,7 +667,7 @@ Dès lors, le vecteur d'état $\ket{\psi(t)}$ vaudra
 \ket{\psi(t)} = \sum_n c_n(t_0)e^{-i\frac{E_n}{\h}(t-t_0)} \ket{\varphi_{n,\tau}}
 \end{equation}
 
-Pour résoudre l'équation de Schrödinger avec un Hamiltonien indépendant du temps, il suffit de \underline{diagonaliser} l'Hamiltonien et de connaitre la \underline{décomposition} de $\ket{\psi}$ à l'instant initial dans la base des vecteurs propres de $\mathcal{H}$.\\
+Pour résoudre l'équation de Schrödinger avec un Hamiltonien indépendant du temps, il suffit de \underline{diagonaliser} l'Hamiltonien et de connaitre la \underline{décomposition} de $\ket{\psi}$ à l'instant initial dans la base des vecteurs propres de $\mathbb{H}$.\\
 
 \begin{remark}
 	Nous venons de dériver un résultat obtenu précédemment, précisement dans la discussion autour de l'équation \eqref{Evolution des états}.

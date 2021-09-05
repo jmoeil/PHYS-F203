@@ -44,11 +44,10 @@ La lumière a toujours été dans l'histoire une source d'interrogation. Elle no
 
 Au XIXè siècle, des expériences de diffraction (phénomène purement ondulatoire) menées par Thomas Young et Augustin Fresnel ont permis d'affirmer que la lumière possédait des propriétés ondulatoires. Newton part donc avec un point en moins. Un siècle plus tard, Einstein émet une théorie corpusculaire de la lumière, certaines raisons l'ayant poussé à le faire. Parmi eux, les travaux de Planck. \\
 
-Max \textsc{Planck} étudiait les corps noirs (enceinte macroscopique à l'équilibre thermodynamique) {\color{blue}{Je définirais le corps noir plutôt comme ça : enceinte macroscopique qui absorbe entièrement tout rayonnement incident, à l'équilibre thermodynamique entre la matière qui le constitue et son propre rayonnement}} et de ses études est ressorti un paramètre qui a les dimensions d'une énergie fois un temps (unités : $\mathrm{Js}$), appelé \textit{constante de Planck} ou encore \textit{action}. 
-Ce paramètre qu'on note $h$ décrit formidablement les propriétés des corps noirs. L'étude de Max Planck aboutissait à une conclusion que l'énergie d'un corps noir est quantifiée. {\color{blue}{Je changerais perso la dernière phrase, à première vue on comprend pas en quoi l'énergie est quantifiée je trouve. Pour expliquer son étude, je mettrai plutôt : En fait, avant le travail de Max Planck, l'expression de l'énergie du rayonnement d'un corps noir divergeait à hautes fréquences (c'est ce qu'on appelait la catastrophe ultra-violette) ; son étude a donc permis de rectifier cela, en une expression de l'énergie dépendant de la fréquence, 
-faisant intervenir cette fameuse constante $h$, et étant totalement cohérente avec les mesures expérimentales, autant à haute fréquence qu'à basse fréquence. Une première hypothèse sur la quantification de l'énergie a dès lors été émise par Planck, qui sera ensuite repris et démontré par Einstein.}} \\
-De son côté, Einstein, utilise donc cette constante pour décrire également \textbf{l'effet photoélectrique} \footnote{Effet expliquant l'émission d'électrons par un métal exposé à de la lumière dans certaines conditions.}. Ceci souligne l'importance de $h$ car le corps noir et le métal n'ont \textit{a priori} rien en commun. La constante de Planck est donc une des \textit{constantes fondamentales de l'Univers}.
+Max \textsc{Planck} étudiait les corps noirs (enceinte macroscopique qui absorbe entièrement tout rayonnement incident, à l'équilibre thermodynamique entre la matière qui le constitue et son propre rayonnement -- voir PHYS-F201) et de ses études est ressorti un paramètre qui a les dimensions d'une énergie fois un temps (unités : $\mathrm{Js}$), appelé \textit{constante de Planck}. Ce paramètre qu'on note $h$ décrit formidablement les propriétés des corps noirs -- plus précisément, la densité d'énergie de rayonnement d'un corps noir (toujours, voir PHYS-F201). Le résultat obtenu par Planck n'était cependant pas en accord avec la mécanique classique. De son côté, Albert Einstein propose une théorie corpusculaire de la lumière, qui va en accord avec les résultats de Planck, en utilisant notamment cette même constante $h$ pour décrire \textbf{l'effet photoélectrique} \footnote{Effet expliquant l'émission d'électrons par un métal exposé à de la lumière dans certaines conditions.}. Ceci souligne l'importance de $h$ car le corps noir et le métal n'ont \textit{a priori} rien en commun. La constante de Planck est donc une des \textit{constantes fondamentales de l'Univers}.
 $$h \approx 6.63 ; 10^{-34} \; \mathrm{Js}$$
+Le caractère fondamental de la constante de Planck lui procure également un autre surnom : le \textit{quantum d'action}.
+
 
 \subsubsection{Effet photoélectrique}
 En bombardant une plaque métallique de lumière de longueur d'onde $\lambda$ (maintenant qu'on sait que la lumière est une onde), on remarque qu'au-delà d'une certaine fréquence seuil $\nu_0$ ($\lambda$ et $\nu$ sont liées par $\lambda = c/\nu$), des électrons sont émis avec une énergie qui augmente linéairement avec la fréquence, avec une pente de $h$, et dont l'expression de son énergie cinétique $T$ est donnée par :
@@ -151,18 +150,7 @@ De ce fait, nous pouvons en déduire que :
 \end{itemize}
 
 \item \textit{Recherche d'une relation à exploiter}. \\
-Dans le cas d'un photon, l'équation d'onde était directement obtenue par les équations de Maxwell, la résolution était simple et on a pu en déduire une équivalence entre opérateurs. Dans le cas d'un corpuscule matériel, on souhaite partir d'une équivalence pour construire une équation qu'on espère pouvoir résoudre. Avec la règle de correspondance pour la pulsation et le vecteur d'onde de l'équivalent ondulatoire de notre corpuscule, nous pouvons, pour construire une équation d'onde, l'appliquer à une équation qui lie $\omega$ et $\vec k$, ou une équation qui lie $E$ et $\vec p$, leur étant respectivement proportionnels. Or c'est exactement ce que nous fournit i) la norme du quadri-vecteur énergie-impulsion de la particule dans le cas relativiste, et ii) la conservation de l'énergie dans le cas classique. Écrivons la règle de correspondance pour une particule quantique pour ensuite écrire les relations entre $E$ et $\vec p$ pour construire une équation d'onde.
-
-\begin{equation} \label{eq:ch2-correspondance}
-  \left\{ \begin{array}{lll}
-  E &= \hbar \omega &= \dfrac{i\hbar}{\psi} \partial_t \psi \\
-  \vec p &= \hbar \vec k &= -\dfrac{i\hbar}{\psi} \vec \nabla \psi \Rightarrow p^2 = -\dfrac{\hbar ^2}{\psi} \Delta \psi
-  \end{array} \right. \Longrightarrow \quad \boxed{\begin{array}{ll}
-  E &=\dfrac{i\hbar}{\psi} \partial_t \psi \\
-  p^2 &=  \dfrac{i\hbar}{\psi} \partial_t \psi
-  \end{array}}
-  \end{equation}
-{\color{blue}{Je trouve le paragraphe un peu long. Voici ce que je propose à la place : Afin de décrire notre système quantique, nous allons utiliser une équation représentant son énergie, dans lequel nous pourrons exploiter les relations d'équivalence \ref{équivalence pulsation} et \ref{equivalence nombre d'onde} obtenues précédemment. 
+Afin de décrire notre système quantique, nous allons utiliser une équation représentant son énergie, dans lequel nous pourrons exploiter les relations d'équivalence \ref{équivalence pulsation} et \ref{equivalence nombre d'onde} obtenues précédemment. 
 De cette manière, nous aurons la représentation de l'énergie d'un système quantique, tout en ayant tenu compte de son caractère ondulatoire.\\
 
 Plus particulièrement, relions donc d'abord la pulsation $\omega$ et le nombre d'onde $k$ avec l'énergie et l'impulsion, ce qui est possible grâce à \ref{Quantification energie et impulsion} ; ainsi, nous avons 
@@ -176,7 +164,7 @@ Plus particulièrement, relions donc d'abord la pulsation $\omega$ et le nombre 
   \end{array}}
   \end{equation}
 où $\psi$ est ce que l'on va appeler la fonction d'onde du système quantique. 
-Ensuite, exploitons une relation qui fait intervenir les grandeurs $E$ et $p$. Nous allons y distinguer 2 cas : }}
+Ensuite, exploitons une relation qui fait intervenir les grandeurs $E$ et $p$. Nous allons y distinguer 2 cas :
 
 \begin{enumerate}[label = \roman*)]
 \item Cas relativiste : 
@@ -221,7 +209,7 @@ Dans cette section nous verrons plusieurs choses :
 Les propriétés de l'équation de Schrödinger sont bien plus appréciables que celle de Klein-Gordon. En effet, l'équation de Schrödinger est
 \begin{itemize}
 \item linéaire ; autrement dit, si $\psi_1$ et $\psi_2$ sont des solutions distinctes de l'équation, alors leur combinaison linéaire reste une solution. C'est également ce qu'on appelle le principe de superposition ; 
-\item de premier ordre en le temps : ceci nous permet de pouvoir retracer le passé et pouvoir tracer le futur d'une particule {\color{blue}{je comprends pas trop la justification. Et puis pour qlq'un en BA2, est-ce qu'on voit vrmt ce qu'on veut dire par là? Si ça ne tenait qu'à moi, j'enlèverai cette phrase}};
+\item de premier ordre en le temps : ce caractère est préféré (pour des raisons obscures) à l'équation de Klein-Gordon qui contient une dérivée seconde par rapport au temps \footnote{En effet, sans le justifier davantage, si l'on considère une particule décrite par l'équation de Klein-Gordon, écrire la conservation de la probabilité sur elle, $\partial_t \rho + \vec{\nabla} \cdot \vec{J} = 0$, donnerait mathématiquement comme solution des $\rho$ positifs ou négatifs. Or une densité de masse négative est aberrante en physique. Donc la dérivée seconde par rapport au temps dérange le Physicien !}.
 \item en accord avec les conditions de de Broglie puisque l'équation découle en partie de ces conditions ;
 \item en accord avec la \textbf{conservation de la probabilité}, dans le sens où la probabilité de trouver la particule dans l'espace en entier est une constante. Cette propriété ne se déduit pas si simplement par de l'analyse mais sera effectivement démontrée une fois que le cadre mathématique de la mécanique quantique aura été posé.
 \end{itemize}
@@ -266,8 +254,7 @@ Afin de comprendre ce que représente $g(k)$, restreignons nous à un mouvement 
 $$\psi(x,0) = \dfrac{1}{\sqrt{2\pi}} \int_{-\infty} ^{+\infty} g(k) e^{ikx} \; \d k $$
 On voit sur cette équation que $g(k)$ n'est rien autre que la transformée de Fourier de $\psi(x,0)$ ({\color{blue}{voir annexe sur notions de math}}) :
 $$g(k) = \frac{1}{2 \pi}\int_{-\infty} ^{+\infty} \psi(x,0) e^{-ikx} \; \d x $$
-Ceci a une implication particulière. Premièrement, $g(k)$ et $\psi(x,0)$ ont même module, par le théorème de Plancherel. Ensuite, le fait que $g(k)$ et $\psi(x,0)$ soient les transformées de Fourier de l'un et de l'autre implique qu'une TF permet de passer de coordonnées de l'espace tridimensionnel aux coordonnées de l'espace des phases. Ceci est, mathématiquement, la raison du principe d'incertitude de Heisenberg.{\color{blue}{Perso j'enlèverai tout ce dernier paragraphe. 
-Je trouve que ça n'aide pas beaucoup à la compréhension de parler de l'espace des phases. De plus, pour comprendre que c'est à la base du principe d'Heisenberg, j'ai été lire dans le cohen, ça fait l'objet de plusieurs pages donc à moins qu'on développe un peu plus, on ne comprend pas trop juste cette phrase.}}
+$g(k)$ et $\psi(x,0)$ ont donc même module, par le théorème de Plancherel. 
 
 
 \subsection{Paquet d'ondes à une dimension}
