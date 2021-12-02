@@ -5,4 +5,7 @@ Ces notes ont été rédigées durant la crise sanitaire du COVID-19, lors de l'
 
 Document en cours de rédaction.
 
-Pour toute question ou remarque, veuillez contacter Juian Moeil (juian.moeil@ulb.be) ou Sami Abdul Sater (Sami.Abdul.Sater@ulb.be).
+Pour toute question ou remarque, veuillez contacter :
+- Juian Moeil (juian.moeil@ulb.be)
+- Anaïs Defossez (Anais.Defossez@ulb.be)
+- Sami Abdul Sater (Sami.Abdul.Sater@ulb.be).
