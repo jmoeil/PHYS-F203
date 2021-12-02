@@ -1,544 +1,156 @@
 \documentclass[../notesdecours]{subfiles}
 
 \begin{document}
-\part{L'équation de Schrödinger}
-Commençons par rappeler les relations de \textbf{Plank-Einstein}:
-\begin{align}
-E = h \nu &= \h \omega\\
-\bm{p} &= \h \bm{k}
-\end{align}
-Où $\lambda = \frac{2\pi}{\norm{\bm{k}}} = \frac{h}{\norm{\bm{p}}}$ : il s'agit de la relation de L. de Broglie, reflettant la dualité onde-corpusculaire de la matière.\\
+\chapter{Principes fondamentaux de la physique quantique}
 
-Rappelons également l'équation d'onde :
-\begin{equation}
-\label{D'Alembert}
-\left( \frac{1}{c^2} \partial_t^2 - \partial_x^2 - \partial_y^2 - \partial_z^2 \right)A(t,\bm{x}) = 0
-\end{equation}
-En particulier, une onde plane\footnote{Une onde est dite plane si et seulement si elle ne s'exprime que dans une seule direction.} s'exprime par le champ scalaire 
-\begin{equation}
-\label{Onde plane}
-A(t,\bm{x}) = A_0 e^{-i \left( \omega t - \bm{k} \cdot \bm{x} \right) }
-\end{equation}
-Appliquons l'équation d'une onde plane \ref{Onde plane} à l'équation de D'Alembert \ref{D'Alembert}. En particulier, notons que
-\begin{center}
-\begin{tabular}{c c}
-$\frac{1}{c^2} \partial_t A(t,\bm{x}) = \frac{-iA_0 \omega}{c^2} e^{-i \left( \omega t - \bm{k} \cdot \bm{x} \right)}$ & $\frac{1}{c^2} \partial_t^2 A(t,\bm{x}) = - A_0 \left( \frac{\omega}{c}\right)^2 e^{-i \left( \omega t - \bm{k} \cdot \bm{x} \right)}$\\
-\end{tabular}
-\end{center}
-Rappelons que nous considérons une onde plane : supposons que celle-ci se déplace dans la direction des x. Alors,
-\begin{center}
-\begin{tabular}{c c}
-$\partial_x A(t,x) = iA_0k_x e^{-i \left( \omega t - xk_x \right)}$ & $\partial_x^2 A(t,x) = -A_0k_x^2 e^{-i \left( \omega t - xk_x \right)}$
-\end{tabular}
-\end{center}
-Où $k_x$ est la composante en x du vecteur $\bm{k} = \left( k_x,k_y,k_z \right)$. En combinant ces résultats (et en gardant l'hypothèse d'une onde se dirigeant selon l'axe des x), nous obtenons que
-\begin{align}
-\left( \frac{1}{c^2} \partial_t^2 - \partial_x^2 - \partial_y^2 - \partial_z^2 \right)A(t,x) &= 0\\
-- A_0 \left( \frac{\omega}{c}\right)^2 e^{-i \left( \omega t - xk_x \right)} +A_0k_x^2 e^{-i \left( \omega t - xk_x \right)} &= 0\\
-\left( \frac{\omega}{c}\right)^2 - k_x^2 &= 0
-\end{align}
-A partir de là$\footnote{Demander à Prof. d'élaborer les détails.}$, nous pouvons montrer que 
-\begin{align}
-\omega &= \frac{i}{A} \partial_t \left( A \right)\\
-k_x &= - \frac{i}{A} \partial_x \left( A \right)
-\end{align}
-Ce qui implique les relations
-\begin{center}
-\begin{tabular}{c c c}
-$k_x^2 = - \frac{1}{A} \partial_x^2 A$ & et & $k^2 = - \frac{1}{A} \Delta A$
-\end{tabular}
-\end{center}
+\section{Dualité onde-corpuscule de la lumière}
+La lumière a toujours été dans l'histoire une source d'interrogation. Elle nous sert à voir littéralement, mais certaines manipulations avec permettent d'en étudier la nature. Corpuscule ? Ondulatoire ? Les deux hypothèses se combattaient au XVIIè siècle, avec Christophe Huygens qui défendait une théorie ondulatoire et Isaac Newton qui défendait une théorie corpusculaire. \\
 
-On pose également les quelques relations suivantes
-\begin{center}
-\begin{tabular}{c c c}
-$E = \frac{i \h}{\psi} \partial_t \psi$ & $p_X = - \frac{i \h}{\psi} \partial_x \psi$ & $p^2 = - \frac{\h^2}{\psi} \Delta \psi$
-\end{tabular}
-\end{center}
-Dans le cas d'une particule relativiste, l'énergie respecte la relation de dispersion. En particulier, cela implique
-\begin{equation}
-\label{Klein-Gordon}
-- \h \partial_t \Phi + c^2 \h^2 \Delta \Phi - c^4m^2\Phi = 0
-\end{equation}
-Il s'agit de l'équation de Klein-Gordon. Nous pouvons obtenir une relation similaire dans le cas non-relativiste. Effectivement, nous avons alors que l'énergie est donnée par la relation
-\begin{equation}
-E = \frac{p^2}{2m} + V(\bm{r},t)
-\end{equation}
-Dès lors, nous obtenons l'équation de Schrödinger pour une particule:
-\begin{equation}
-\label{Schrodinger}
--\frac{\h^2}{2m} \Delta \psi + V(\bm{r},t) \psi \doteq H \psi = i \h \frac{\partial \psi}{\partial t}
-\end{equation}
-\newpage
-\textbf{Note.} Nous avons alors que l'opérateur $H \doteq -\frac{\h^2}{2m} \Delta + V (\bm{r},t)$.
-Remarquons que:
-\begin{itemize}
-\item L'équation de Schrödinger est linéaire\footnote{Si $\psi_1$ et $\psi_2$ sont des solutions de \ref{Schrodinger}, alors $\psi_1 + \psi_2$ est également une solution de \ref{Schrodinger}.} et satisfait les relations de Broglie.
-\item L'opérateur H est hermitien ; cela garantit la conservation de la probabilité, que ses valeurs propres sont réelles et que ses vecteurs propres constituent une base de l'espace considéré. Tous ces éléments font l'objet de la section $\ref{Formalisme de Dirac}$.
-\end{itemize}
+Au XIXè siècle, des expériences de diffraction (phénomène purement ondulatoire) menées par Thomas Young et Augustin Fresnel ont permis d'affirmer que la lumière possédait des propriétés ondulatoires. Newton part donc avec un point en moins. Un siècle plus tard, Einstein émet une théorie corpusculaire de la lumière, certaines raisons l'ayant poussé à le faire. Parmi eux, les travaux de Planck. \\
 
-\section{Particule libre}
+Max \textsc{Planck} étudiait les corps noirs (enceinte macroscopique qui absorbe entièrement tout rayonnement incident, à l'équilibre thermodynamique entre la matière qui le constitue et son propre rayonnement -- voir PHYS-F201) et de ses études est ressorti un paramètre qui a les dimensions d'une énergie fois un temps (unités : $\mathrm{Js}$), appelé \textit{constante de Planck}. Ce paramètre qu'on note $h$ décrit formidablement les propriétés des corps noirs -- plus précisément, la densité d'énergie de rayonnement d'un corps noir (toujours, voir PHYS-F201). Le résultat obtenu par Planck n'était cependant pas en accord avec la mécanique classique. De son côté, Albert Einstein propose une théorie corpusculaire de la lumière, qui va en accord avec les résultats de Planck, en utilisant notamment cette même constante $h$ pour décrire \textbf{l'effet photoélectrique} \footnote{Effet expliquant l'émission d'électrons par un métal exposé à de la lumière dans certaines conditions.}. Ceci souligne l'importance de $h$ car le corps noir et le métal n'ont \textit{a priori} rien en commun. La constante de Planck est donc une des \textit{constantes fondamentales de l'Univers}.
+$$h \approx 6.63 ; 10^{-34} \; \mathrm{Js}$$
+Le caractère fondamental de la constante de Planck lui procure également un autre surnom : le \textit{quantum d'action}.
 
-Dans une première approximation, supposons que le potentiel $V(\bm{r},t)$ soit nul. L'équation de Schrödinger $\eqref{Schrodinger}$ se réduit alors à $i\h \partial_t \psi = - \frac{\h^2}{2m} \Delta \psi$. De plus, l'énergie s'exprime alors par $E = \frac{p^2}{2m}$. Cette équation différentielle admet visiblement des solutions de la forme
-\begin{equation}
-\label{Solution directe}
-\psi (\bm{r},t) = Ce^{i(\bm{k} \cdot \bm{x} - \omega t)}
-\end{equation}
 
-Où C est une constante, et $\omega = \frac{\h \norm{\bm{k}}^2}{2m}$. Par la principe de superposition, toute combinaison linaire d'ondes planes vérifiant l'expression de $\omega$ sera également une solution de $\eqref{Solution directe}$. La solution générale est alors donnée par 
-\begin{equation}
-\label{Solution générale}
-\psi (\bm{r},t) = \frac{1}{\left( 2 \pi \right)^{\frac{3}{2}}}\int d^3k g(\bm{k}) e^{-i \omega t + \bm{k} \cdot \bm{r}}
-\end{equation}
-Où g($\bm{k}$) est la transformation de Fourier de $\psi (\bm{r},t = 0)$:
-\begin{equation}
-g(\bm{k},t=0) = \frac{1}{\sqrt{2\pi}} \int \psi (\bm{r},0)e^{-i\bm{k}x} dx
-\end{equation}
+\subsubsection{Effet photoélectrique}
+En bombardant une plaque métallique de lumière de longueur d'onde $\lambda$ (maintenant qu'on sait que la lumière est une onde), on remarque qu'au-delà d'une certaine fréquence seuil $\nu_0$ ($\lambda$ et $\nu$ sont liées par $\lambda = c/\nu$), des électrons sont émis avec une énergie qui augmente linéairement avec la fréquence, avec une pente de $h$, et dont l'expression de son énergie cinétique $T$ est donnée par :
 
-\section{Interprétation probabiliste}
+$$ T = h\nu - W$$
+où $W = h \nu_0 \equiv$ Travail d'extraction, autrement dit, c'est le travail que doit fournir l'électron pour s'extraire de la plaque métallique. Nous pouvons voir que ce travail correspond à une énergie de fréquence $\nu_0$, la fréquence seuil. 
 
-Soit $\psi (\bm{r},t)$ une solution de $\eqref{Schrodinger}$. Nous pouvons vérifier que $\psi$ respecte la relation de normalisation
-\begin{equation}
-    \int_{\mathbb{R}^3} d\bm{r} \; \norm{\psi\left(\bm{r},t\right)}^2 = 1
-\end{equation}
-De plus, si cela est vrai pour $\psi(\bm{r},t_0)$, alors il en est de même pour tout $t$.\\
-
-Posons que $\rho (\bm{r},t) \doteq \norm{\psi (\bm{r},t)}^2 = \bar{\psi} \psi$ la densité de probabilité de trouver la particule en $\bm{r}$ à l'instant t.\\
-
-\begin{Property}
-La densité de probabilité telle que nous venons de la définir respecte l'équation de continuité
-\begin{equation}
-\label{Equation de Continuité}
-\partial_t \rho (\bm{r},t) + \bm{\nabla} \cdot \bm{J} (\bm{r},t) = 0
-\end{equation}
-Où $\bm{J} (\bm{r},t) \dot{=} \frac{\h}{2mi} \Big\{\overline{\psi}\bm{\nabla}\psi - \psi\bm{\nabla}\overline{\psi}\Big\} = \frac{\h}{m} Im \left[\bar{\psi} \left(\bm{\nabla} \psi\right)\right]$ est un courant de probabilité.\\
-\end{Property}
-
-\begin{proof}
-Puisque $\psi$ est hermitique,
-\begin{equation}
-\hat{H}\psi = \hat{H}\bar{\psi}
-\end{equation}
-\begin{align}
-i\h\partial_t\bar{\psi} &= - \frac{\h^2}{2m}\Delta\bar{\psi}+V\bar{\psi}	&i\h\partial_t\psi = -i\h\partial_t\bar{\psi}
-\end{align}
-De plus, par définition,
-\begin{equation}
-\rho = \norm{\psi}^2 = \psi\bar{\psi}
-\end{equation}
-En dérivant $\rho$ par rapport au temps et en multipliant par $i\h$,
-\begin{align}
-i\h\partial_t\rho &= \left[-\frac{\h^2}{2m}\Delta \psi\right]\bar{\psi} - \left[-\frac{\h^2}{2m}\Delta\bar{\psi}\right]\psi\\
-&= -\frac{\h^2}{2m} (\bar{\psi}\Delta\psi - \psi\Delta\bar{\psi})\\
-\rightarrow 0 &= \partial_t\rho + \frac{\h}{2mi}\bm{\nabla}\cdot(\bar{\psi}\bm{\nabla}\psi - \psi\bm{\nabla}\bar{\psi})
-\end{align}
-Nous pouvons alors définir 
-\begin{equation}
-\bm{J} \dot{=} \frac{\h}{2mi} \Big\{\overline{\psi}\bm{\nabla}\psi - \psi\bm{\nabla}\overline{\psi}\Big\} = \frac{\h}{m} Im \left[\bar{\psi} \left(\bm{\nabla} \psi\right)\right]
-\label{Courant de probabilité}
-\end{equation}
-le courant de probabilité. Nous pouvons alors écrire l'équation de probabilité, ce qui conclut la preuve.
-\end{proof}
-
-L'équation de continuité $\eqref{Equation de Continuité}$ explique que rien ne se perd, rien ne se crée et tout se conserve : en effet, si nous intégrons sur une région A, nous aurons
-\begin{align}
-\int_A \frac{\partial \rho}{\partial t} dV + \int_A \bm{\nabla}\cdot\bm{J} dv &= \frac{d}{dt} \int_A \rho dV + \int_{\partial A} \bm{J}\cdot\bm{ds}\\
-\frac{d}{dt} P_A &= -F_A \label{Conservation des particules}
-\end{align}
-Où $P_A$ est la probabilité de trouver une particule dans la région A, et $F_A$ est le flux de cette particule à travers le bord de la région A. L'équation \eqref{Conservation des particules} décrit la conservation des particules à travers la surface A.\\
-
-Nous pouvons également définir les coefficients de réflexion et de transmission comme suit:
-\begin{align}
-R &= \frac{J_- [\leftarrow]}{J_- [\rightarrow]},	&T = \frac{J_+ [\rightarrow]}{J_- [\rightarrow]}
-\end{align}
-Où $J_- [\leftarrow]$ est défini comme étant "le courant de probabilité dans la région négative allant vers la gauche."\\
-
-\subsection{Onde plane}
-
-Observons que nous pouvons réécrire $\eqref{Solution directe}$ sous la forme $\psi = Ce^{i \bm{k}\cdot\bm{r}}e^{-i\omega t}$. En particulier, nous avons alors que
-\begin{equation}
-    \rho = \norm{\psi(\bm{r},t)}^2 = C^2.
-\end{equation}
-Il s'ensuit que le courant de probabilité est donné par l'expression
-\begin{equation}
-    \bm{J} = \frac{\bm{p}}{m}C^2 = \rho\bm{v}.
-\end{equation}
-Nous pouvons donc bien interpréter une onde plane comme une particule se déplaçant à une vitesse $\bm{v}$.
-
-\subsection{Born: étude des collisions. Origine de l'interprétation probabiliste}
-Que se passe-t-il si une onde plane arrive sur un atome? Nous allons essayer de trouver une approximation à cette question.\\
-
-Une fonction d'onde dont l'énergie potentielle V($\bm{r}$) ne dépend pas du temps doit vérifier l'équation de Schrödinger:
-\begin{equation}
-i \h \partial_t \psi = - \frac{\h^2}{2m} \Delta \psi + V(\bm{r}) \psi
-\end{equation}
-On parle alors de \textit{potentiel stationnaire}. La solution de cette équation est donnée par
-\begin{equation}
-\psi (\bm{r},t) = e^{- \frac{iEt}{\h}} \phi(\bm{r}) - \frac{\h^2}{2m} \Delta \phi + V(\bm{r})\phi = E \phi
-\end{equation}
-\textbf{Conditions au bord : } pour $x\rightarrow -\infty, \phi = Ce^{ikx}$.
-\begin{itemize}
-\item Une partie de l'onde est construite tout droite.
-\item Une partie est diffusée.
-\end{itemize}
-A grande distance de l'atome, nous avons que 
-\begin{equation}
-\phi(\bm{r}) \approx Ce^{ikx} + \int d^3k \alpha(\bm{r})e^{i \bm{k} \cdot \bm{x}}
-\end{equation}
-\begin{center}
-Avec $\frac{\h^2\norm{\bm{k}}^2}{2m} = \h \omega$.
-\end{center}
-La Mécanique Quantique décrit simultanément \textbf{toutes} les diffusions possibles. Or, en laboratoire, nous n'observons qu'une seule direction: Max-Born en déduit que la Mécanique Quantique décrit les \textbf{possibilités} de diffusions dans les directions $\bm{k}$.
-\begin{equation}
-P(\text{diffusion dans la direction $\bm{k}$}) \approx \norm{\alpha(\bm{k})}^2
-\end{equation}
-
-\section{Paquet d'onde à une dimension}
-\subsection{Vitesse de phase et vitesse de groupe}
-Une onde est une perturbation se déplacnt dans le milieu. Il est possible de lui associer deux vitesses: soit la \emph{vitesse de phase} (ou \emph{célérité}), et la \emph{vitesse de groupe}. Elle peuvent être différentes, sous certaines conditions.\\
-
-Revenons au cas particulier d'une particule libre, dont l'état est décrit par le paquet d'onde à une dimension $\eqref{Solution générale}$. Une onde plane $\eqref{Solution directe}$, respectant la relation de dispersion $w(k)$, se propage avec la vitesse
-\begin{equation}
-V_\phi (k) = \frac{\omega}{Re\{k\}}
-\end{equation}
-Il s'agit de la \textbf{vitesse de phase}. En paticulier, prenons l'exemple d'une particulier quantique, c'est à dire une particule respectant les équations
-\begin{align}
-\omega = \frac{E}{\h} &= \frac{p^2}{2m\h} = \h \frac{k^2}{2m}\\
-k &= \frac{p}{\h}
-\end{align}
-Dans cet exemple, la vitesse de phase s'écrira alors
-\begin{equation}
-V_\phi (k) = \frac{\h k}{2m} = \frac{p}{2m}
-\end{equation}
-Nous savons que dans le cas d'une onde électromagnétique se propageant dans le vide, $V_\phi (k)$ est indépendante de $k$ et se propage à la vitesse de la lumière $c$. Notons que toutes les ondes composant un paquet d'ondes se déplacent à la même vitesse, de sorte que le paquet se déplace à la vitesse de la lumière $c$ dans le vide. \textbf{Ce n'est pas le cas dans un milieu dispersif.}\\
-
-Soit $A(t,x) = \int dk g(k,\omega) e^{-i\omega(k)t}e^{ikx}$, où
+\subsubsection{Les particules de lumière}
+Einstein est amené à établir une relation entre la longueur d'onde de la lumière et une impulsion (à travers le nombre d'onde, ou plus précisément, le vecteur d'onde $\vec{k}$).
+En effet, nous savons par le cours de relativité et électromagnétisme que l'énergie totale d'une particule est donnée par $E = m \gamma c^2$, tandis que l'impulsion vaut $\vec{p} = m \gamma \vec{v}$. Ainsi, nous avons la relation $\vec{p} = \frac{E}{c^2} \vec{v}$. 
+Or si l'on considère bien la lumière comme une particule, nous pouvons exploiter ces relations. Sa vitesse étant de plus constante, de norme $c$, nous en déduisons que : 
 \begin{align*}
-g(k,\omega)&: \text{est centré sur $k_0$ de faible largeur $\Delta$}\\
-g(k,\omega) &\approx e^{- \frac{1}{2}(\frac{k-\omega}{\Delta})^2}
+  p &= \frac{E}{c^2} c = \frac{E}{c} = \frac{1}{c} \hbar \omega \\
+  &= \hbar k 
 \end{align*}
-Nous voulons nous rammener à une intégrale gaussienne. Notons que 
-\begin{equation}
-\omega(k) = \omega (k_0) + \partial_k \omega (k-k_0) + \frac{1}{2}\partial_k^2(k-k_0)
-\end{equation}
-Le terme $\partial_k \omega$ représente la \textbf{vitesse de groupe}, et $\partial_k^2 \omega$ représente la \textbf{dispersion}.
-
-Nous avons dès lors que
-\begin{equation}
-A(t,x) \approx e^{-i \omega(k_0)t}e^{ik_0x} \int dk g(k-k_0) e^{\left[\omega't+x\right]}
-\end{equation}
-Nous y négligeons les effets de $\partial_k^2 \omega$ car $\Delta$ est très petit.\\
-
-Il s'ensuit que le centre du paquet d'onde se déplace à la vitesse 
-\begin{equation}
-v_g = \text{Vitesse de groupe} = \frac{\partial \omega}{\partial k} = \omega'
-\end{equation}
-Pour une particule quantique, nous avons alors que $\frac{\partial \omega}{\partial k} = \frac{\h k}{m} = \frac{p}{m} = v_{Classique}$.
-
-\textbf{Note.} Rappelons que la solution à l'intégrale ci-contre, dans le cas où $\textbf{si} -\frac{\pi}{4} < arg \alpha < + \frac{\pi}{4}$:
-\begin{equation}
-I(\alpha,\beta) =\int_{-\infty}^{\infty} e^{-\alpha^2 \left(\xi+\beta\right)^2} d\xi = \frac{\sqrt{\pi}}{\alpha}
-\label{Integral}
-\end{equation}
-
-\paragraph{Paquet d'onde Gaussien en dim 1}
-Nous considérons un modèle à une dimension, avec une particule libre\footnote{Le potentiel V(x) = 0}, dont la fonction d'onde à l'instant $t = 0$ s'écrit
-\begin{equation}
-\psi(x,t=0) = \frac{\sqrt{a}}{\left(2\pi\right)^{3/4}} \int_{-\infty}^{+\infty} e^{- \frac{a^2}{4} (k-k_0)^2} e^{ikx} dk\\
-\label{Onde gaussienne dim 1}
-\end{equation}
-Ce paquet d'onde est obtenu par superposition d'ondes planes $e^{ikx}$ avec des coefficients 
-\begin{equation}
-\frac{1}{\sqrt{2\pi}} g(k,t=0) = \frac{\sqrt{a}}{\left(2\pi\right)^{3/4}} e^{-\frac{a^2}{4}(k-k_0)^2}
-\end{equation}
-qui correspondent à une fonction de Gauss, centrée en $k = k_0$. C'est pourquoi nous appelons \eqref{Onde gaussienne dim 1} onde gaussienne.\\
-
-En exploitant le résultat \eqref{Integral}, nous pouvons alors montrer que \ref{Onde gaussienne dim 1} vaut
-\begin{equation}
-\left( \frac{2}{\pi a^2}\right)^{\frac{1}{4}} e^{ik_0x}e^{- \frac{x^2}{a^2}}
-\end{equation}
-Nous pouvons en déduire la valeur de la densité de probabilité de la fonction d'onde d'une particule libre à l'instant $t = 0$:
-\begin{equation}
-\norm{\psi(x,t=0)}^2 = \sqrt{\frac{2}{\pi a^2}} e^{-2 \frac{x^2}{a^2}}
-\end{equation}
-Nous pouvons vérifier que $\int dx \norm{\psi}^2$ est bien égale à 1.\\
-
-%Calcul de \psi(x,t).
-
-Nous remarquons alors que $\Delta x \approx \frac{a}{2}$. Ainsi, $\Delta x\Delta p \geq \frac{\h}{2}$. Nous en déduisons en particulier que $\Delta p = \frac{\h}{2}$, et donc que la distribution des vitesses est donnée par $\Delta v = \frac{\Delta p}{m} = \frac{\h}{ma}$ : nous avons un \textbf{étalement}.
-
-\section{Potentiel stationnaire}
-Nous nous intéressons ici au comportement d'une onde plongée dans un potentiel indépendant du temps ; V($\bm{r},t$) = V($\bm{r}$). Cela signifie que les effets quantique doivent se produire lorsque le potentiel varie sur des distances plus courtes que la longueur d'onde : celles-ci ne peuvent alors pas être négligées.  Nous allons donc étudier le comportement d'une particule placée dans différents "potentiels carrés", c'est à dire des potentiels variant par "marche d'escaliers". Avant de passer à l'étude du potentiel, discutons des propriétés que satisfait l'équation de Schrödinger pour un potentiel indépendant du temps $V(\bm{r})$.
-
-\subsection{Equation de Schrödinger indépendante du temps}
-
-Recherchons les solutions de l'équation de Schrödinger \eqref{Schrodinger}. Pour ce faire, passons par une séparation des variables. Plus précisément, posons
-\begin{equation}
-\psi(\bm{r},t) = \varphi(\bm{r})\kappa(t)
-\end{equation}
-Il suffit alors de placer cette dernière équations dans $\eqref{Schrodinger}$:
+où nous avons employé la relation de dispersion pour la lumière $\omega = kc$. \\
+Le fait que $E = pc$ nous donne, par $E^2 = m^2 c^4 + c^2 p^2$, que la particule qui décrit la lumière est de masse nulle. \\
+En résumé, nous avons donc ces deux relations très importantes qui relient la lumière, une onde, à un caractère corpusculaire ; 
 \begin{align}
-i \h \varphi(\bm{r})\partial_t \kappa(t) &= - \frac{\h^2}{2m} \kappa(t) \Delta \varphi(\bm{r}) + V(\bm{r})\kappa(t)\varphi(\bm{r})\\
-\frac{i\h}{\kappa(t)} \partial_t \kappa(t) &= - \frac{\h^2}{2m} \frac{1}{\varphi(\bm{r})} \Delta \varphi(\bm{r}) + V(\bm{r})
-\label{Séparation temporelle et spatiale}
+\label{Quantification energie et impulsion}
+\left\{ \begin{array}{l}
+E \equiv \hbar \omega \quad \text{\small (quantification de l'énergie}) \\
+\vec{p} \equiv \hbar \vec{k}  \quad \text{\small (lien longueur d'onde-impulsion)}
+\end{array} \right.
 \end{align}
-Cette équation indique l'égalité entre une fonction de t (membre de gauche) et une fonction de $\bm{r}$ (membre de droite). Cette dernière n'est possible que si ils sont en fait tous les deux égales à une constante, que nous poserons (par convention) égale à $\h \omega$.\\
 
-Dans le membre de gauche, nous obtenons une équation différentielle du premier ordre. Elle se résoud trivialement en
-\begin{align}
-&\kappa (t) = c_1e^{-i\omega t}    &\forall c_1 \in \mathbb{R}
-\label{Solution temporelle}
-\end{align}
-En développant l'égalité de droite, nous trouvons alors \textbf{l'équation de Schrödinger indépendante du temps}:
-\begin{align}
-- \frac{\h^2}{2m} \Delta \varphi(\bm{r}) + V(\bm{r})\varphi(\bm{r}) &= \h\omega\varphi(\bm{r}) \label{Schrodinger spacial} \\
-\left[ - \frac{\h^2}{2m} \Delta + V(\bm{r}) \right] \varphi(\bm{r}) &= E \varphi(\bm{r}) \label{Equations aux valeurs propres}\\
-H \varphi(\bm{r}) &= E \varphi(\bm{r})  \label{kikoo}
-\end{align}
-En posant $c_1 = 1$ dans \eqref{Solution temporelle}, nous obtenons alors la fonction
-\begin{equation}
-\psi (\bm{r},t) = \varphi(\bm{r})e^{-i\omega t} = \varphi\left(\bm{r}\right)e^{-\frac{i}{\h}Et}
-\label{Evolution des états}
-\end{equation}
-qui est solution de l'équation de Schrödinger, si $\varphi(\bm{r})$ est solution de \eqref{Schrodinger spacial}. On dit que l'on a séparé les variables de \textbf{temps} et d'\textbf{espace}.\\
+L'introduction d'une particule de lumière, a.k.a le \textbf{photon} n'est pas super appréciée et nécessite donc d'être démontrée. C'est ce qu'a fait Arthur Compton expérimentalement. Il a démontré que lors d'une interaction (une collision) photon-électron, l'impulsion et l'énergie du photon étaient conservées, tout comme une particule classique. Le photon est donc bien une particule. Et c'est aussi une onde (\textit{cf.} franges de Young). 
+\begin{center}
+\begin{large}
+\textit{La lumière se comporte donc à la fois comme une onde \underline{et} comme une particule.}
+\end{large}
+\end{center}
 
-\begin{remark} Dans \eqref{Equations aux valeurs propres}, $H$ est un opérateur différentiel \emph{linéaire}. Effectivement,
-\begin{align}
-&H \left[\lambda_1 \varphi_1(\bm{r}) + \lambda_2 \varphi_2(\bm{r})\right] = \lambda_1 H \varphi_1(\bm{r}) + \lambda_2 H \varphi_2(\bm{r})							&\forall \lambda_1,\lambda_2 \in \mathbb{R}
-\end{align}
-\end{remark}
+\subsection{Observation de la dualité onde-particule de la lumière}
+On reprend l'expérience des fentes de Young et cette fois-ci en lumière atténuée, pour voir la figure d'interférence se construire progressivement. On alors les impacts un par un, \textbf{photon par photon} mais à long terme on voit se dessiner une figure d'interférence, cela veut dire que la lumière est une onde qui passe par les deux fentes à la fois.
 
-\begin{remark}
-    L'équation \eqref{kikoo} est une \textit{équation aux valeurs propres}.
-\end{remark} 
-
-\subsection{Potentiels à une dimension: description quantitative}
-
-Rappelons l'équation de Schrödinger, elle nous sera utile pour la suite:
-\begin{equation*}
-i \h \partial_t \psi (t,\bm{r}) = - \frac{\h^2}{2m} \partial_x^2 \psi(t,\bm{r}) + V(\bm{r})\psi(t,\bm{r})
-\end{equation*}
-Où V($\bm{r}$) est constante par morceaux.\\
-
-Nous allons considérer les problèmes de \textit{puit de potentiel}, et de\textit{ barrière de potentiel}. Une question légitime est de se demander les raisons derrière cette étude : la réponse est simple. Ils s'agissent de cas théoriques possédant des solutions analytique, et permettant d'illuster des effets quantiques importants: l'\textbf{effet tunnel}, ainsi que les \textbf{états liés}. De plus, certaines situations physiques réelles y sont très proches: pensons notamment à la barrière de Josephson (supraconducteurs), et aux points quantiques: elles consistent dès lors en une excellent approximation de ces phénomènes.\\
-
-\subsubsection{Puit de potentiel infini à une dimension}
-
-Cette situation correspond à un potentiel prenant les valeurs suivantes, en fonction de sa position\footnote{Insistons sur le fait que le potentiel est considéré invariant par le temps : nous avons bien un potentiel stationnaire du type $V(\bm{r},t) = V(x)$.} : 
-\begin{equation}
-V(x) = 
-\begin{cases}
--\infty\\
-0\\
-+\infty
-\end{cases}
-\end{equation}
-respectivement en $x < 0$, $x \in [0,L]$ et $x >L$. Appliquons ce potentiel à l'équation de Schrödinger.
-
-\textbf{Séparation des variables:} $\psi(\bm{r},t) = \kappa(t)\varphi(\bm{r})$. Nous avons un potentiel stationnaire : reprenons le calcul à partir de $\eqref{Equations aux valeurs propres}$.\\
-
-La solution temporelle provient de $\eqref{Séparation temporelle et spatiale}$, et donne 
-\begin{equation}
-\kappa(t) = \kappa_0 e^{-i \omega t}
-\end{equation}
-Il nous reste à déterminer la solution spatiale. Rappelons les conditions aux bords:  $\varphi(L) = 0 = \varphi(0)$. Dès lors, nous avons que:\\
-
-Pour $0 < x < L : - \frac{\h^2}{2m} \partial_x^2 \varphi = E \varphi$. Il s'agit d'une équation différentielle linéaire du second ordre. Sa solution \textit{générale} est de la forme
-\begin{align}
-&\varphi(\bm{r}) = c_1 \cos \left(kx\right) + c_2\sin \left( kx \right)									&\forall c_1,c_2 \in \mathbb{C}
-\label{Kikoo}
-\end{align}
-Afin de respecter les conditions aux bords, nous aurons que
-\begin{align}
-&c_2 = 0 &kL = n\pi
-\end{align}
-Dès lors,
-\begin{align}
-&k_n = \frac{n\pi}{L} &E_n = \frac{\h^2}{2m} \frac{\pi^2n^2}{L^2}
-\end{align}
-Nous avons alors la solution mathématique à notre problème:
-\begin{equation}
-\psi_n (\bm{r},t) = \kappa_0 e^{-i \frac{E_nt}{\h}}\sin \left( \frac{n\pi}{L}x \right)
-\end{equation}
-\textbf{Note.} Observons que cette équation implique une \textbf{quantification de l'énergie}. La solution physique sera la superposition de tous les états possible:
-\begin{equation}
-\psi (\bm{r},t) = \sum_{n = 1}^\infty \kappa_n e^{-i \frac{E_nt}{\h}}\sin \left( \frac{n\pi}{L}x \right)
-\end{equation}
-
-\subsubsection{Puit de potentiel fini à une dimension}
-Etudions un cas similaire. Soit $I = \left[-\frac{a}{2},\frac{a}{2}\right]$. Dans cette situation, nous avons que 
-\begin{equation}
-\begin{cases} 
-V(x > \norm{\frac{a}{2}}) = 0 \\ 
-V(x) = -V_0\\
-\end{cases}
-\end{equation}
-
-La résolution de l'équation aux valeurs propres $\eqref{Equations aux valeurs propres}$ s'effectue dans chaque zone\footnote{Nous notons I la zone tq $x < -\frac{a}{2}$, III la région tq $x>\frac{a}{2}$ et II la région entre les deux.} indépendemment, et donnera
-\begin{equation}
-\begin{cases}
-\varphi(x < -\frac{a}{2}) = A_1e^{\rho x} + A'_1e^{-\rho x}		&\rho = \sqrt{- \frac{2mE}{\h^2}}\\
-\varphi(x \in I) = B_2e^{ikx} + B'_2e^{-ikx} 					&k = \sqrt{\frac{2m(V_0+E)}{\h^2}}\\
-\varphi(x>\frac{a}{2}) = A_3e^{\rho x} + A'_3e^{-\rho x}
-\end{cases}
-\end{equation}
-\textbf{Conditions aux bords.} Rappelons que $\varphi(x)$ est bornée en les régions I et III. Nous pouvons alors réécrire les équations sous la forme
-\begin{equation}
-\begin{cases}
-\varphi(x) = A_1e^{\rho x}\\
-\varphi(x \in I) = B_2e^{ikx} + B'_2e^{-ikx}\\
-\varphi(x) = A'_3e^{-\rho x}
-\end{cases}
-\end{equation}
-\textbf{QUESTION.} Comment avons-nous choisi le terme en $A'_1$ et $A_3$ pour la simplification?\\
-
-\textbf{Conditions de continuité:} $\varphi(x)$ et $\partial_x \varphi(x)$ doivent être continue. Dès lors,
 \begin{itemize}
-\item \textbf{En x = - $\frac{a}{2}$}, nous avons que:
-\begin{equation}
-\begin{cases}
-A_1e^{-\frac{\rho a}{2}} = B_2e^{\frac{-ika}{2}} + B'_2e^{\frac{ika}{2}}\\
-\rho A_1e^{-\rho\frac{a}{2}} = ik \left[B_2e^{-\frac{ika}{2}} - B'_2e^{\frac{ika}{2}} \right]
-\end{cases}
-\label{Continuité en -a/2}
+\item Nature corpusculaire : les impacts individuels.
+\item Nature ondulatoire : la lumière passe par les deux fentes à la fois (figure d'interférence).
+\item Dualité onde-particule : la lumière est à la fois partout et à un seul endroit. \end{itemize}
+
+Une grande morale à cette section est que mine de rien, Einstein a développé et cru en une théorie qui allait à l'encontre de ce qui a été imaginé et prouvé par l'expérience depuis le siècle précédant, et ce malgré la splendide explication théorie de l'électromagnétisme de Maxwell, qui d'ailleurs ne laisse aucune invalidité dans son modèle prouvé par l'expérience ! Mais il y avait visiblement de la place pour une autre théorie. 
+
+\section{Dualité onde-corpuscule de la matière}
+L'aspect corpusculaire de la matière n'a pas besoin d'être introduit. En revanche, son aspect ondulatoire nourrit les interrogations rien qu'à l'usage de l'expression. C'est Louis de Broglie le véritable héros derrière cette hypothèse.
+
+\subsection{Hypothèse de de Broglie}
+
+Par la section précédente, nous avons compris que les travaux de Max Planck et d'Einstein permettent de dire qu'un rayonnement lumineux de fréquence $\nu$ est porteur d'énergie $E = h \nu$. \\
+Durant la même époque de ces travaux, les spectres d'émission et d'absorption de certains atomes (notamment l'hydrogène) étaient étudiés, et la quantification de l'énergie absorbée par ces atomes permettait de bien expliquer le fait que l'on observait un spectre de raies fines distinctes. \\
+En effet, on observa qu'un électron d'un atome ne peut passer d'un état à l'autre qu'en absorbant (ou émettant) une quantité bien définie d'énergie $E_{ij}$ : 
+$$E_{ij} = h\nu_{ij} = |E_i - E_j|$$
+où $E_i$ correspond à l'énergie d'un état $i$. \\
+
+La mécanique classique ne permettant pas d'expliquer ce phénomène, Louis de Broglie a alors émis l'hypothèse 
+\wrap{15}{r}{0.4}{\centering \vspace{-0.5cm}
+\includegraphics[width=0.6\linewidth]{images/Louis_de_Broglie}
+\caption{Louis de Broglie. Il obtint le prix Nobel en 1929 à 37 ans pour la découverte de la nature ondulatoire de l'électron.}}
+que \textbf{tous les corpuscules matériels peuvent avoir un aspect ondulatoire}, et que les aspects corpuscule et ondulatoire sont reliés par la formule \eqref{eq:debroglie}.
+\begin{equation} \label{eq:debroglie}
+\boxed{
+\left\{ \begin{array}{ll}
+E &= \hbar \omega \\
+\vec p &= \hbar \vec k
+\end{array} \right. \implies \lambda = \frac{h}{p} \quad \text{ \textit{(Relation de de Broglie)}}} 
 \end{equation}
-\item \textbf{En x = $\frac{a}{2}$}, nous avons que:
+
+Son hypothèse a ensuite été validée lorsqu'il a réussi à montrer des figures d'interférences par diffraction d'électrons. \\
+Les relations d'Einstein pour le photon se généralise donc pour des particules, à l'échelle microscopique (en effet, les aspects ondulatoires de la matières deviennent négligeables au niveau macroscopique). \\
+Il faut bien comprendre l'étape à laquelle nous sommes ; c'est de la que se construit une nouvelle physique qui est la mécanique quantique. \\
+
+Il faut dès lors commencer à prendre en compte, dans les équations, l'aspect ondulatoire d'une particule. Ce qui peut alors se faire est de décrire une particule par une équation d'onde (l'équation d'onde EM pour le photon).\\
+La section suivante vise donc à montrer comment arriver à l'équation de Schrödinger, autrement dit, comment arriver à établir une relation qui décrit une particule quantique de manière ondulatoire. 
+
+\subsection{Vers l'équation de Schrödinger}
+Considérons un corpuscule matériel. \\
+Nous allons lui associer une fonction d'onde qui est solution de l'équation d'onde ; ainsi, le corpuscule correspondra bien à la définition d'une onde. \\
+En utilisant cette équation d'onde, nous allons en premier lieu \textbf{établir une équivalence} entre des grandeurs physiques et des opérateurs. \\
+En deuxième lieu, il nous suffira de relier ces grandeurs physiques avec les relations \ref{Quantification energie et impulsion}, ainsi qu'avec l'expression de l'énergie d'une particule (donnée en électromagnétisme).
+On obtiendra finalement une équation liant plusieurs aspects de la fonction d'onde.\\
+
+\begin{enumerate}[label =  (\alph*)]
+\item \textit{Équivalence entre opérateurs}. \\
+L'équation d'onde est de la forme : 
+$$\left(\dfrac{1}{c^2} \partial_t ^2 - \Delta \right) \vec A = 0$$
+et une solution possible de cette équation est l'onde place, c'est-à-dire une fonction de la forme : $$
+A(\vec{x}, t) = A_0 \; e^{-i(\omega t - \vec k \cdot \vec x)} \; .$$
+De ce fait, nous pouvons en déduire que : 
+\begin{itemize}
+\item dériver $A$ par rapport au temps revient à multiplier $A$ par $-i\omega$,
 \begin{equation}
-\begin{cases}
-A'_3e^{-\frac{\rho a}{2}} = B_2e^{\frac{-ika}{2}} + B'_2e^{\frac{ika}{2}}\\
-\rho A'_3e^{-\frac{\rho a}{2}} = ik \left[B_2e^{\frac{-ika}{2}} - B'_2e^{\frac{ika}{2}}\right]
-\end{cases}
-\label{Continuité en a/2}
+\label{équivalence pulsation}
+  \boxed{\omega \longleftrightarrow \dfrac{i}{A} \partial_t A} \; 
+\end{equation}
+\item prendre le gradient revient à multiplier par $i\vec k$, 
+\begin{equation}
+\label{equivalence nombre d'onde}
+  \vec k \longleftrightarrow -\dfrac{i}{A} \vec \nabla A \quad \Rightarrow \quad \boxed{k^2 \longleftrightarrow -\dfrac{1}{A} \Delta A} \; 
 \end{equation}
 \end{itemize}
-\textbf{Note.} Nous possédons 4 équations linéaires à 4 inconnues : la solution est non triviale si $\det \left[ \text{Matrice associée} \right] = 0$.\\
-\textbf{Note.} Les inconnues dans nos équations sont bien $A_2,A_2',B_3$ et $B'_3$.\\
 
-En multipliant la première équation de $\eqref{Continuité en -a/2}$ par $ik$, et en additionnant/soustrayant les deux équations, nous pouvons obtenir
-\begin{equation}
-\begin{cases}
-B_2 = \frac{\rho + ik}{2ik}e^{\left(ik-\rho\right)\frac{a}{2}}A_1\\
-B'_2 = -\frac{\rho-ik}{2ik} e^{-\frac{a}{2}\left[\rho+ik\right]}A_1
-\end{cases}
-\end{equation}
-Similairement, \eqref{Continuité en a/2} permet de mettre en évidence les relations
-\begin{equation}
-\begin{cases}
-B_2 = -\frac{\rho-ik}{2ik}e^{-\frac{a}{2}\left(\rho+ik\right)}A'_3\\
-B'_2 = \frac{\rho+ik}{2ik}e^{\frac{a}{2}\left(ik-\rho\right)}A'_3
-\end{cases}
-\end{equation}
-Ces deux dernières équations, ensembles, impliquent:\\
+\item \textit{Recherche d'une relation à exploiter}. \\
+Afin de décrire notre système quantique, nous allons utiliser une équation représentant son énergie, dans lequel nous pourrons exploiter les relations d'équivalence \ref{équivalence pulsation} et \ref{equivalence nombre d'onde} obtenues précédemment. 
+De cette manière, nous aurons la représentation de l'énergie d'un système quantique, tout en ayant tenu compte de son caractère ondulatoire.\\
 
-(...)\\
+Plus particulièrement, relions donc d'abord la pulsation $\omega$ et le nombre d'onde $k$ avec l'énergie et l'impulsion, ce qui est possible grâce à \ref{Quantification energie et impulsion} ; ainsi, nous avons 
+\begin{equation} \label{eq:ch2-correspondance}
+  \left\{ \begin{array}{lll}
+  E &= \hbar \omega &= \dfrac{i\hbar}{\psi} \partial_t \psi \\
+  \vec p &= \hbar \vec k &= -\dfrac{i\hbar}{\psi} \vec \nabla \psi \Rightarrow p^2 = -\dfrac{\hbar ^2}{\psi} \Delta \psi
+  \end{array} \right. \Longrightarrow \quad \boxed{\begin{array}{ll}
+  E &=\dfrac{i\hbar}{\psi} \partial_t \psi \\
+  p^2 &=  \dfrac{i\hbar}{\psi} \partial_t \psi
+  \end{array}}
+  \end{equation}
+où $\psi$ est ce que l'on va appeler la fonction d'onde du système quantique. 
+Ensuite, exploitons une relation qui fait intervenir les grandeurs $E$ et $p$. Nous allons y distinguer 2 cas :
 
-Les états d'énergie les plus sont sont alors
-\begin{align}
-\approx k &= \frac{n\pi}{a}		&E \approx \frac{\pi^2\h n^2}{2ma^2} - V_0
-\end{align}
+\begin{enumerate}[label = \roman*)]
+\item Cas relativiste : 
+$$E^2 = m^2 c^4 + p^2 c^2$$
+La substitution des relations de \eqref{eq:ch2-correspondance} dans cette relation décrit le comportement d'une particule quantique relativiste et constitue l'\textbf{équation de Klein-Gordon}.
+\begin{equation} \label{eq:dirac}
+\boxed{\text{Équation de Klein-Gordon} : \quad -\hbar ^2 \partial_t ^2 \phi + c^2 \hbar ^2 \Delta \phi - c^4 m^2 \phi = 0}
+\end{equation}
+De ce que l'on peut voir, elle est d'ordre 2 en le temps, autrement dit, sa non-linéarité rend la résolution de l'équation trop compliquée à notre niveau. Cette équation sera donc traitée en BA3.
+\item Cas non-relativiste :
+$$E = \dfrac{p^2}{2m} + V(\vec r, t)$$
+De manière similaire, on obtient l'équation de \textbf{Schrödinger} :
+\begin{equation} 
+\boxed{\text{Équation de Schrödinger} : \quad
+i\hbar \dfrac{\partial}{\partial t} \psi = -\dfrac{\hbar ^2}{2m} \Delta \psi + V(\vec r, t) \psi}
+\end{equation}
 
-\subsubsection{Potentiel en escalier}
-Plaçons-nous dans une région telle que le potentiel est stationnaire, c'est à dire dont la variable spatiale $\varphi (\bm{r})$ de la solution de l'équation de Schrödinger $\psi (\bm{r},t)$ respecte l'équation $\eqref{Schrodinger spacial}$. Nous pouvons réécrire cette dernière équation sous la forme
-\begin{equation*}
-\frac{d^2 \varphi}{dx^2} + \frac{2m}{\h^2} (E-V)\varphi = 0
-\end{equation*}
-Nous pouvons distinguer plusieurs cas.
-\begin{itemize}
-\item \textbf{$E > V$}. En introduisant le terme positif $k^2 = \frac{2m}{\h^2} (E-V) \geq 0$, nous pouvons montrer que les solutions de $\eqref{Schrodinger spacial}$ sont de la forme
-\begin{equation}
-\varphi = Ae^{ikx} + A'e^{-ikx}
-\end{equation}
-Nous parlons d'ondes progessives.
-\item \textbf{$E < V$}. Cette condition correspond aux régions classiquement interdites : il s'agit de l'\textbf{effet tunnel}. Dans ce cas, nous introduisons la constante $\rho$ définie par $\rho^2 = \frac{2m}{\h^2} (V-E) \geq 0$. Nous obtenons alors que la solution est
-\begin{equation}
-\varphi = Be^{\rho x} + B' e^{-\rho x}
-\end{equation}
-\item \textbf{E = V}. Dans ce cas, $\varphi (\bm{r})$ est une fonction linéaire de x.
-\item \textbf{Là où V est discontinue}. Dans ce cas, $\varphi$ est continue et $\partial_x\varphi$ l'est également.
-\end{itemize}
-\section{Approximation semi-classique}
-L'approximation semi-classique permet d'obtenir une solution de l'Equation de Schrödinger lorsque $\h$ tend vers 0 ; c'est à dire lorsque la longueur d'onde est beaucoup plus ptite que les autres dimensions considérées. Son idée est simple: l'équation de Schrödinger se dérive de l'équation de propagation des ondes. On doit alors retrouver la mécanique classique dans la limite $\h$ tend vers 0, tout comme nous retrouvons l'optique géométrique lorsque $\lambda$ tend vers 0 dans l'optique ondulatoire.\\
-
-Notons $\varphi$ solution stationnaire de l'équation de Schrödinger pour une particule de masse $m$ dans un potentiel $V(R)$. Alors,
-\begin{equation*}
-\left[ -\frac{\h^2}{2m} \partial_x^2 + V(R)\right]\psi(r) = E\psi(r)
-\end{equation*}
-Se réécrit, en posant 
-\begin{align}
-&\psi(r) = A(r)e^{i\frac{S(r)}{\h}}	&\forall A,S\in\mathbb{R}
-\end{align}
-Nous pouvons alors montrer que les relations
-\begin{subequations}
-\begin{equation}
-2A'S'+AS'' = 0 \label{3}\\
-\end{equation}
-\begin{equation}
-\frac{S'^2}{2m} - \frac{\h^2}{2m}\frac{A''}{A}+V = E \label{4}
-\end{equation}
-\end{subequations}
-
-sont équivalentes à l'équation de Schrödinger \eqref{Schrodinger spacial}. En particulier, \eqref{3} peut se résoudre directement et donne
-\begin{align}
-&A(x) = \frac{A_0}{\sqrt{S'(r)}}	&\forall A_0\in\mathbb{R}
-\label{A}
-\end{align}
-Nous pouvons vérifier que \eqref{A} est équivalente à l'équation de continuité \eqref{Equation de Continuité}
-\begin{equation*}
-\partial_t\rho(\bm{r},t) + \nabla \bm{J} = 0
-\end{equation*}
-pour une solution stationnaire: effectivement, nous avons que $\rho (x,t) = |\psi|^2$ ne dépend pas du temps.\\
-
-Pour résoudre \eqref{4}, nous faisons l'hypothèse $\frac{\h^2}{2m}\frac{A''}{A}$ est négligeable par rapport aux autres termes. Nous obtenons alors l'équation 
-\begin{align*}
-\frac{S'^2 (r)}{2m} + V(r) = E
-\end{align*}
-Il s'agit d'une équation bien connue de la mécanique classique: l'équation de \textbf{Hamilton-Jacobi}. Ses solutions sont de la forme
-\begin{subequations}
-\begin{align}
-S'(x) &= \pm \rho (r)		&\rho (r) = \sqrt{2m(E-V(r))}\\
-S(x) &= \pm \int^x dx' \rho (x')
-\end{align}
-\end{subequations}
-Nous avons alors que
-\begin{equation}
-\psi (r) = \frac{A_0}{\sqrt{\rho (r)}}e^{\pm i \int^x dx' \frac{\rho (x')}{\h}}
-\end{equation}
-Nous pouvons en déduire que
-\begin{enumerate}
-\item Le nombre d'onde à la position x est donnée par $\bm{k}(x) = \frac{p(x)}{\h}$.
-\item La longueur d'onde à la position x est donnée par $\lambda (x) = \frac{2\pi\h}{p(x)}$.
-\item La vitesse de groupe est donnée par
-\begin{equation}
-\frac{1}{V_g} = \frac{\partial k(r)}{\partial \omega} = \frac{\partial p(r)}{\partial E} = \frac{m}{p(r)} = \frac{1}{V_{classique} (r)}.
-\end{equation}
-La vitesse d'un paquet d'onde sera donnée, selon l'approximation semi-classique, par la vitesse $V_{classique} (r)$ de la mécanique classique.
-\item Dans une région classiquement interdite,
-\begin{align}
-&\psi (r) = \frac{1}{\sqrt{\rho (r)}} e^{\pm \int^x dx' \frac{\rho(x')}{\h}}	&\text{Avec } \frac{\rho^2 (x)}{2m} = V(x)-E
-\end{align}
 \end{enumerate}
+\end{enumerate}
+En général, il ne sera pas possible de trouver des solutions analytiques, mais nous verrons plus tard qu'avec des approximations appropriées, il est possible
+d'en tirer des conclusions intéressantes. Le cas non-relativiste d'une particule est d'ailleurs celui que nous allons étudier profondément cette année (en particulier, c'est le sujet de tout le chapitre suivant, où ses propriétés et son interprétation seront discutées, munis de quelques exemples).
+Notons également que les solutions $\psi$ (fonction d'onde associée à une particule quantique) de cette équation de Schrödinger sont ce qui permettent de décrire l'état de la particule. Autrement dit, la fonction d'onde contient toutes les informations nécessaires sur la particule. 
 
-[\textbf{Graphique}]
 
-Nous pouvons montrer que si la solution décroit exponentionellement à grande distance (proche du point de rebroussement):
-\begin{align}
-\psi(r) &= \frac{1}{\sqrt{k(x)}} \cos (\int_b^x k(x') dx' - \frac{\pi}{4})	&\forall x > b\\
-\psi(r) &= \frac{1}{\sqrt{k(x)}} \cos (\int_x^a k(x')dx'+\frac{\pi}{4})		&\forall x < a
-\end{align}
-Nous obtenons la condition de quantification semi-classique:
-\begin{align}
-\frac{1}{\h} \int^a_b dx\sqrt{2m(E-V(x)} &= (n+\frac{1}{2})\pi
-\end{align}
-(Valable uniquement pour E grand).
-
-\subsection{Application à la désintégration alpha des noyaux}
-
-La particule alpha a une énergie E. Pour $R>R_\alpha$, nous avons une énergie $V(R)<E$ et sommes alors dans une région classiquement permise. Malheureusement, la particule va devoir traverser une région classiquement interdite - entre $R$ et $R_\alpha$. La probabilité d'émission par unité de temps est approximée par $\frac{1}{T_{\frac{1}{2}}} \sim \frac{1}{e^{2\gamma}}$, où:
-\begin{align}
-\gamma &= \frac{1}{\h} \int_R^{R_\gamma} dr\sqrt{2m_\alpha (V(r)-E)}		&\text{Avec } V(r) = \frac{z_\alpha ze^2}{4\pi\epsilon_0r} \text{ et } E = \frac{z_\alpha ze^2}{4\pi\epsilon_0R_\alpha}\\
-&= \frac{1}{\h} \sqrt{\frac{z_\alpha ze^2}{4\pi\epsilon_0}} \int_R^{R_\alpha} \sqrt{\frac{1}{r} - \frac{1}{R_\alpha}} dr\\
-\gamma &\approx \frac{\pi}{2\h} \sqrt{2m_\alpha} \left[\frac{z_\alpha ze^2}{4\pi\epsilon_0}\right]\frac{1}{\sqrt{E}}\\
-&\rightarrow \log T_{\frac{1}{2}} = a\frac{z}{\sqrt{E}} + b
-\end{align}
-Cette loi est bien vérifiée expérimentalement. Elle explique pourquoi il n'y a pas de désintégration des noyaux les plus lourds.\\
 \end{document}

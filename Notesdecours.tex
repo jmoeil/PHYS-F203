@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass{book}
 \usepackage[allcolors=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
@@ -12,7 +12,6 @@
 \usepackage{pgfplotstable}
 \usepackage{siunitx}
 \usepackage{wrapfig}
-\usepackage{graphicx}
 \usepackage{subfiles}
 \usepackage{systeme}
 \usepackage{bm}
@@ -34,10 +33,7 @@
 \counterwithin*{section}{part}
 
 \pgfplotsset{width=10cm,compat=1.16}
-
-\newcommand{\ti}{\times}
-\newcommand{\h}{\hbar}
-\renewcommand{\d}{\mathrm{d}}
+\input{Preambules/math_commands.tex}
 \renewcommand{\thepart}{\arabic{part}}
 
 
@@ -67,8 +63,18 @@
 \usepackage{enumitem}
 
 %%% Début ajouts Sami
-% Definition boite grise avec couleur grise définie
+% Nouvelles couleurs (BG = Background)
+\definecolor{bleu}{RGB}{14, 68, 175}
+\definecolor{BGbleu}{RGB}{222, 233, 255 }
+\definecolor{BGorange}{RGB}{255, 216, 154}
 \definecolor{BGgris}{RGB}{222,230,230}
+\definecolor{rouge}{RGB}{201, 0, 0}
+\definecolor{vert}{RGB}{14, 137, 0}
+\newcommand\rouge[1] {{\color{rouge}{#1}}}
+\newcommand\bleu[1] {{\color{bleu}{#1}}}
+\newcommand\green[1]{{\color{vert}{#1}}}
+
+% Boites
 \newcommand\bg[2]{
 \begin{center}
 \fcolorbox{white}{BGgris}{\parbox{.9\linewidth}{\begin{large} \textit{#1} \end{large} \\
@@ -84,8 +90,26 @@
 #1}}
 \end{center}}
 
-\setlength{\fboxsep}{2em} % espace entre le bord d'une boite et le texte dedans
+% boite bleue
+\newcommand\bb[1]{
+\begin{center}
+\fcolorbox{black}{BGbleu}{\parbox{\textwidth}{ 
+\begin{Large}
+\begin{center}
+#1
+\end{center}
+\end{Large}
+}}
+\end{center}}
 
+\setlength{\fboxsep}{1em} % espace entre le bord d'une boite et le texte dedans
+
+
+% Commande spéciale pour wrap facilement
+%% Wrapping %%
+\newcommand\wrap[4]{\begin{wrapfigure}[#1]{#2}{#3\textwidth}
+    #4
+    \end{wrapfigure}}
 %%% Fin ajouts Sami
 
 \begin{document}
@@ -105,8 +129,8 @@
 \tableofcontents
 
 \newpage
-\begin{abstract}
-\textit{Ces notes traitent de l'interprétation de Copenhague de la Mécanique Quantique, telle qu'enseignée dans le cadre du cours $\href{https://www.ulb.be/fr/programme/phys-f203}{\text{PHYS-F203}}$ en 2020-2021.} \end{abstract}
+\textit{Ces notes traitent de l'interprétation de Copenhague de la Mécanique Quantique, telle qu'enseignée dans le cadre du cours $\href{https://www.ulb.be/fr/programme/phys-f203}{\text{PHYS-F203}}$ en 2020-2021.}
+
 \begin{remark}
     Le symbole $\doteq$ est employé pour dire "par définition". Les vecteurs $\bm{x}$ sont indiqués en gras.
 \end{remark}
@@ -117,21 +141,24 @@
 
 \textit{Merci à Bellet Björn pour sa relecture.}
 
-\subfile{Chapitre 1/chapitre1.tex}
+\part{Fondements et formalisme de la Mécanique Quantique}
+\subfile{Chapitre 1/chapitre1.tex}  %   Incertitude
 \newpage
-\subfile{Chapitre 2/chapitre2.tex}
+\subfile{Chapitre 2/chapitre2.tex}  %   Fondements 
 \newpage
-\subfile{Chapitre 3/chapitre3.tex}
+\subfile{Chapitre 3/chapter3.tex}  %   Equation de Schrodinger
 \newpage
-\subfile{Chapitre 4/chapitre4.tex}
+\subfile{Chapitre 4/chapitre4.tex}  %   Formalisme
 \newpage
+
+\part{Application de la Mécanique quantique}
 \subfile{Chapitre 5/chapitre5.tex}
 \newpage
-\subfile{Chapitre 6/chapitre6.tex}
+\subfile{Chapitre 6/chapitre6.tex}  % Opérateurs X et P
 \newpage
-\subfile{Chapitre 7/Chapitre7.tex}
+\subfile{Chapitre 7/Chapitre7.tex}  % Oscillateur harmonique
 
 \newpage
-\subfile{Annexe/annexe.tex}
+\subfile{Annexe/annexe.tex}         % Notions mathématiques, etc.
 
 \end{document}
