@@ -22,6 +22,7 @@
 \usepackage{braket}
 \usepackage{chngcntr}
 \usepackage{geometry}
+\usepackage[tc]{titlepic} % page de garde
 \geometry{
      a4paper,
     total={170mm,257mm},
@@ -42,9 +43,8 @@
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-\title{\textbf{PHYS-F203 - Introduction à la Mécanique Quantique} \\ \textit{Basé sur les notes de Prof. $\href{mailto:serge.massar@ulb.be}{\text{Massar Serge}}$}}
-\author{$\href{mailto:juian.moeil@ulb.be}{\text{Moeil Juian}}$ \and $\href{mailto:sami.abdul.sater@ulb.be}{\text{Abdul Sater Sami}}$ \and $\href{mailto:anais.defossez@ulb.be}{\text{Defossez Anais }}$}
-\date{\textbf{Année académique 2020-2021}}
+\renewcommand{\thepart}{\Roman{part}} 
+
 
 \newtheorem{theorem}{Théorème}[section]
 \newtheorem{definition}[theorem]{Définition}
@@ -112,18 +112,46 @@
     \end{wrapfigure}}
 %%% Fin ajouts Sami
 
+\title{\textbf{PHYS-F203 - Introduction à la Mécanique Quantique} \\ \textit{Basé sur les notes de Prof. $\href{mailto:serge.massar@ulb.be}{\text{Massar Serge}}$}}
+\author{$\href{mailto:juian.moeil@ulb.be}{\text{Moeil Juian}}$ \and $\href{mailto:sami.abdul.sater@ulb.be}{\text{Abdul Sater Sami}}$ \and $\href{mailto:anais.defossez@ulb.be}{\text{Defossez Anais }}$}
+\date{\textbf{Année académique 2020-2021}}
+
 \begin{document}
 
-\maketitle
-\begin{center}
-    \includegraphics[scale=0.65]{Images/cat.jpg}
-\end{center}
-\begin{center}
-    \includegraphics[scale=0.2]{Images/sciences.png}
-\end{center}
-\begin{center}
-    \includegraphics[scale=0.50]{Images/ULB.jpg}
-\end{center}
+
+%% Page de garde : https://tex.stackexchange.com/questions/10130/use-the-values-of-title-author-and-date-on-a-custom-title-page pour l'utilisation des variables, et @SAS pour la page de garde
+\makeatletter
+\begin{titlepage}
+    \centering
+    \huge{\@title} \\
+    \vspace{1cm}
+    \@date \\
+    \vspace{1cm}
+    \includegraphics[scale=0.65]{Images/cat.jpg} \\
+    \vspace{1cm}
+    \begin{minipage}{\linewidth}
+        \begin{minipage}{0.45\linewidth}
+            \begin{center}
+                \includegraphics[scale=0.2]{Images/sciences.png} 
+            \end{center}
+        \end{minipage}
+        \begin{minipage}{0.5\linewidth}
+            \begin{flushright}
+                \begin{tabular}{r}
+                    Auteurs \\
+                    \hline
+                    \href{mailto:juian.moeil@ulb.be}{Moeil Juian} \\
+                    \href{mailto:anais.defossez@ulb.be}{Defossez Anais} \\
+                    \href{mailto:sami.abdul.sater@ulb.be}{Abdul Sater Sami}
+                \end{tabular}
+            \end{flushright}
+        \end{minipage}
+    \end{minipage}
+    \\
+    \vfill
+    \includegraphics[scale=0.5]{Images/ULB.jpg} \\
+\end{titlepage}
+\makeatother
 
 \newpage
 \tableofcontents
