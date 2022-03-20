@@ -1,0 +1,21 @@
+%\documentclass{standalone}
+%\usepackage{tikz, xcolor, amsmath}
+
+%\begin{document}
+\begin{tikzpicture}
+\draw[thick, ->] (-1,0) --+ (8,0) ;
+\draw[thick, ->] (0,-0.2) --+ (0,5) ;
+\draw[red] (2,-0.1) --+ (0,4) ;
+\draw[red, dashed] (2, 4) --+ (0,1) ;
+\draw[red, dashed] (5, 4) --+ (0,1) ;
+\draw[red] (5,-0.1) --+ (0,4) ;
+\node at (2,-0.3) {0} ;
+\node at (5,-0.3) {$L$} ;
+\node at (8, 2.5) {$\boxed{V(x) = \begin{cases}
++\infty &x\leq 0 \\
+0 & 0 < x < L \\
++\infty &x \geq L 
+\end{cases}}$
+} ;
+\end{tikzpicture}
+%\end{document}

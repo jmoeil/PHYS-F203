@@ -1,0 +1,252 @@
+%% Packages élémentaires %%
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo,etoolbox, graphicx, wrapfig, pbox, fancybox, hyperref, appendix, geometry, amsmath, amssymb, tikz, pgfplots, calc, enumitem, colortbl
+}
+\newcommand{\cst}{\text{c}^{\text{\scriptsize ste}}}
+\newcommand{\ddx}{\dfrac{\textrm d ^2 x}{\textrm d t^2}}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\dy}{\mathrm{d}y}
+\newcommand{\dz}{\mathrm{d}z}
+\newcommand{\dt}{\mathrm{d}t}
+\newcommand{\dxp}{\mathrm{d}x'}
+\newcommand{\dyp}{\mathrm{d}y'}
+\newcommand{\dzp}{\mathrm{d}z'}
+\newcommand{\dtp}{\mathrm{d}t'}
+\newcommand{\dvx}{\mathrm{d}\vec x}
+\newcommand{\dvxp}{\mathrm{d}\vec x'}
+\newcommand{\ch}{\mathrm{ch}}
+\newcommand{\sh}{\mathrm{sh}}
+\renewcommand{\th}{\mathrm{th}}
+\newcommand{\tg}{\mathrm{tg}}
+\newcommand{\C}{\textbf{C} }
+\newcommand{\Cpp}{\textbf{C}++ }
+\newcommand{\ud}[3]{{#1}^{#2} _{\; {#3} }}
+\newcommand{\du}[3]{{#1}_{#2} ^{\; {#3} }}
+\newcommand{\dd}[3]{{#1}_{#2} _{\; {#3} }}
+\newcommand{\uu}[3]{{#1}^{#2} ^{\; {#3} }}
+\setlength{\parindent}{0pt}
+
+\graphicspath{{images/}}
+\geometry{hmargin=2.4cm, vmargin = 2.1cm}
+\setlist[itemize]{itemsep=10pt, label={--}}
+
+%% Couleurs %%
+\usepackage{xcolor}
+\definecolor{bleu}{RGB}{14, 68, 175}
+\definecolor{BGbleu}{RGB}{222, 233, 255 }
+\definecolor{BGorange}{RGB}{255, 216, 154}
+\definecolor{rouge}{RGB}{201, 0, 0}
+\definecolor{vert}{RGB}{14, 137, 0}
+\definecolor{BGgris}{RGB}{222,230,230}
+\newcommand\rouge[1] {{\color{rouge}{#1}}}
+\newcommand\bleu[1] {{\color{bleu}{#1}}}
+\newcommand\green[1]{{\color{vert}{#1}}}
+
+
+%% Cadres %%
+\newcommand\bbm[1]{
+\begin{center}
+\fcolorbox{black}{BGbleu}{\parbox{\linewidth}{ 
+#1
+}}
+\end{center}}
+\newcommand\bo[1]{
+\begin{center}
+\fcolorbox{black}{BGorange}{\parbox{\textwidth}{ 
+#1
+}}
+\end{center}}
+
+\newcommand\bb[1]{
+\begin{center}
+\fcolorbox{black}{BGbleu}{\parbox{\textwidth}{ 
+\begin{Large}
+\begin{center}
+#1
+\end{center}
+\end{Large}
+}}
+\end{center}}
+\renewcommand\bo[1]{
+\begin{center}
+\fcolorbox{black}{BGorange}{\parbox{\textwidth}{ 
+#1
+}}
+\end{center}}
+
+\newcommand\boite[1]{
+\begin{center}
+\fbox{\parbox{\textwidth}{#1}}
+\end{center}}
+
+
+
+\newcommand\aparte[1]{
+\begin{center}
+\fcolorbox{white}{BGgris}{\parbox{\linewidth}{ \textit{A parte} \\
+#1 }}
+\end{center}}
+\newcommand\bg[2]{
+\begin{center}
+\fcolorbox{white}{BGgris}{\parbox{\linewidth}{\begin{large} \textit{#1} \end{large} \\
+
+#2 }}
+\end{center}}
+
+\newcommand\exemple[1]{
+\begin{center}
+\fcolorbox{white}{BGgris}{\parbox{\linewidth}{ \textit{Exemple} \\
+#1 }}
+\end{center}}
+
+%% Commandes %%
+\newcommand\imp[1]{\underline{\textbf{#1}}}
+\newcommand\eq[1]{\begin{large}
+\begin{align*}
+#1
+\end{align*}
+\end{large}}
+%% Commandes fantaisistes (cf. Internet) %%
+\renewcommand{\parallel}{ \mathbin{\!/\mkern-5mu/\!} }
+\newcommand{\q}[1]{{%
+\font\larm = larm1000%
+\larm%
+\char 190}{ \textit{#1} }{%
+\font\larm = larm1000%
+\larm%
+\char 191}}
+
+%% Wrapping %%
+\newcommand\wrap[4]{\begin{wrapfigure}[#1]{#2}{#3\textwidth}
+#4
+\end{wrapfigure}}
+%% TikZ
+\usepackage{pgfplots}
+\usetikzlibrary{shapes}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{intersections}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+\newcommand{\drawaxes}[3]{
+\coordinate (o) at #1 ;
+\draw[->] ($(o) + (-0.1*#2, 0)$) --+ (#2, 0) ;
+\draw[->] ($(o) + (0,-0.1*#3)$) --+ (0,#3) ;
+}
+
+\newcommand{\drawthickaxes}[5]{
+\coordinate (o) at #1 ;
+\draw[thick,->] ($(o) + (-0.1*#2, 0)$) --+ (#2, 0) node[anchor = north east]{#4};
+\draw[thick,->] ($(o) + (0,-0.1*#3)$) --+ (0,#3) node[anchor = north east]{#5};
+}
+
+\newcommand*{\ShowIntersectionWithSinAbs}{
+\fill 
+    [name intersections={of=DroiteK and SinAbs, name=i, total=\t}] 
+    [red, opacity=1, every node/.style={above left, black, opacity=1}] 
+    \foreach \s in {1,...,\t}{
+        \ifodd \s 
+        {}
+        \else
+        (i-\s) circle (2pt) node [above] {\s} 
+        \fi 
+        };
+}
+\newcommand*{\ShowIntersectionWithCosAbs}{
+\fill 
+    [name intersections={of=DroiteK and CosAbs, name=i, total=\t}] 
+    [blue, opacity=1, every node/.style={above left, black, opacity=1}] 
+    \foreach \s in {1,...,\t}{
+        \ifodd \s 
+        (i-\s) circle (2pt) node [above] {\s} 
+        \fi 
+        };
+}
+
+%% Code %%
+\usepackage{listings}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{RGB}{242,242,242}
+\definecolor{codeorange}{RGB}{255,140,0}
+% https://gist.github.com/nhtranngoc/88b72d9bfb656a3de227eea38ed80627
+\definecolor{background}{RGB}{39, 40, 34}
+\definecolor{string}{RGB}{230, 219, 116}
+\definecolor{comment}{RGB}{117, 113, 94}
+\definecolor{normal}{RGB}{248, 248, 242}
+\definecolor{identifier}{RGB}{166, 226, 46}
+
+\newcommand{\code}[1]{\texttt{{\color{codepurple}{#1}}}}
+\newcommand{\codep}[1]{\texttt{{\color{codegreen}{#1}}}}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{bleu},
+    keywordstyle=\color{codeorange},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{py}{
+	language=python,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{bleu},
+    keywordstyle=\color{codeorange},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+\lstset{language=C}
+
+\lstdefinestyle{cppstyle}{
+basicstyle=\footnotesize\sffamily\color{black},
+commentstyle=\color{mygray},
+frame=single,
+numbers=left,
+numbersep=5pt,
+numberstyle=\tiny\color{mygray},
+keywordstyle=\color{mygreen},
+showspaces=false,
+showstringspaces=false,
+stringstyle=\color{myorange},
+tabsize=2
+}
+
+\usepackage{framed}
+
+\renewenvironment{leftbar}[1][\hsize]
+{%
+     \def\FrameCommand
+     {%
+         {\color{black}\vrule width 3pt}%
+         \hspace{7pt}%must no space.
+        % \fboxsep=\FrameSep\colorbox{yellow}%
+     }%
+     \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
