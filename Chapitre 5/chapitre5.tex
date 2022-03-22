@@ -152,8 +152,87 @@ Remarquons que si nous supprimons le beam splitter à la fin, les probabilités 
 
 Les \emph{delayed choice experiment} (Wheeler, 1978) - qui consistent à enlever/remettre le beam splitter, ou à changer la phase $\Delta\Phi$ après que le photon soit entré dans l'interféromètre - nous apprennent que \textbf{toute interprétation ou l'on suppose que le photon "sait à l'avance ce qu'il doit faire", ne tient pas.}
 
-% \section{Oscillations de neutrinos}
-% Les neutrinons sont des particules neutres, intéragissant très faiblement avec la matière. Elle fût prédite par Pauli pour expliquer le spectre des $e^-$ dans la désintégration du $\beta : n \Rightarrow p^+ + e^- + \nu$.
+\section{Oscillations de neutrinos}
+Une particule est dite élémentaire lorsque sa composition nous est inconnue. L'étude du comportement de ce type de particules fait l'objet de la physique des particules. Le plus récent modèle mathématique décrivant cette réalité est un résultat connu sous le nom de \textit{modèle standard des particules élémentaires}. Un exemple de telle particule est l'électron rencontré dans les atomes. Il se trouve que le neutrino en est un autre exemple. Notons que la découverte de cette particule est extrêmement récente à l'échelle de l'histoire de la science et de l'humanité : elle a été prédite par Pauli en 1930, et elle ne fût observée pour la première fois qu'en 1956.\\
+
+Une des propriétés fondamentales du neutrino est qu'elle n'intéragit que très faiblement avec la matière. Aussi, ceci explique pourquoi sa découverte n'est que très récente: il aurait auparavent été tout bonnement impossible de l'observer. Les neutrinos sont produites lors de certaines réactions stellaire; notons de plus qu'il existe 3 "saveurs" de neutrinos:
+\begin{itemize}
+    \item Neutrino électronique, noté $\nu_e$ et l'anti-particule associée;
+    \item Neutrino muonique, noté $\nu_\mu$ et l'anti-particule associée;
+    \item Neutrino tau, noté $\nu_\tau$ et l'anti-particule associée.
+\end{itemize}
+La plupart des neutrinos observés sur Terre sont produite par le Soleil, selon la réaction
+\begin{equation}\label{eq:reaction neutrino}
+    p^+ + p^+ \longrightarrow D^+ + e^+ + \nu_e
+\end{equation}
+où $p^+$ représente un proton, $D^+$ représente \textbf{??} et où $\nu_e$ et $\bar{\nu}_e$ représentent respectivement le neutrino et l'anti-neutrino électronique. Dans cette réaction, on définit le \textit{nombre leptonique} par la relation
+\begin{equation}
+    Le = \#e^- + \#\nu_e - (\#e^++\#\bar{\nu}_e)
+\end{equation}
+\begin{Property}
+    Lors d'une intéraction, le nombre leptonique Le constitue une quantité conservée.
+\end{Property}
+
+Une fois produite, les neutrinos se propagent presque sans absoption jusqu'à la terre - nous pouvons à présent les mesurer, mais cela reste un exercice non trivial (et n'est donc pas laissé en exercice pour le lecteur). Nous détectons approximativement la moitié du flux attendu.\\
+
+Dans la résolution qui va suivre, nous supposerons que les neutrinos ont une masse (aussi faible soit-elle), et que les états propre de masse ne sont pas les états produits/absorbés lors de son intéraction avec la matière.
+
+Supposons que nous ne travaillons qu'avec un neutrino $\nu$ dont nous ne préciserons pas la saveur. Soit $E$ l'énergie que possède le neutrino. Sa fonction d'onde peut-être décrite par l'onde plane
+\begin{equation}
+    \Psi(x,t) = e^{-\left(Et-px\right)}
+\end{equation}
+où nous sommes passés dans le système naturelle d'unité avec $\h = 1 = c$. Dans la limite ultra-relativiste, $E,p >> m$ où l'énergie est donnée par la relation de dispersion
+\begin{equation}
+    E^2 = m^2 + p^2 \Rightarrow p \approx E-\frac{m^2}{2E}
+\end{equation}
+Nous pouvons alors réécrire la fonction d'onde sous la forme
+\begin{equation*}
+    \psi(x,t) = e^{-i\left(E\left[t-x\right]+\frac{m^2}{2E}x\right)} = e^{-iE\left(t-x\right)e^{-i\frac{m^2x}{2E}}}
+\end{equation*}
+Finalement, cette égalité peut-être écrite sous forme vectorielle:
+\begin{equation}\label{eq:fonction d'onde}
+    \ket{\psi(x,t)} = e^{-iE\left(t-x\right)e^{-i\frac{m^2x}{2E}}}\ket{\nu}
+\end{equation}
+où $\ket{\nu}$ dénote l'espèce de neutrino en question.
+\paragraph{Résolution pour 2 espèces de neutrinos}
+Nous supposons à présent l'existence de deux espèces de neutrino: le neutrino électronique et le neutrino $\ket{\nu_e}$ et $\ket{\nu_\mu}$. Le soleil produit $\ket{\nu_e}$, et nous ne sommes capable de détecter (sur Terre) que cette dernière. De plus, notons que lors de la propagation, le neutrino $\ket{\nu_1}$ possède une masse $m_1$ et le neutrino $\ket{\nu_2}$ possède une masse $m_2$.\\
+
+Nous travaillons dans les bases $\left\{\ket{\nu_e},\ket{\nu_\mu}\right\}$ et $\left\{\ket{\nu_1},\ket{\nu_2}\right\}$. Nous sommes donc dans un système à deux niveau, c'est à dire tel que $\dim\mathcal{H} = 2$. Dans ce cas,
+\begin{equation}
+    \begin{cases}
+        \ket{\nu_e} = \cos\theta\ket{\nu_1}+\sin\theta\ket{\nu_2}\\
+        \ket{\nu_\mu} = -\sin\theta\ket{nu_1}+\cos\theta\ket{\nu_2}
+    \end{cases}
+    \Leftrightarrow
+    \begin{cases}
+        \ket{\nu_1} = \cos\theta\ket{\nu_e}-\sin\theta\ket{\nu_\mu}\\
+        \ket{\nu_2} = \sin\theta\ket{\nu_e}+\cos\theta\ket{\nu_\mu}
+    \end{cases}
+\end{equation}
+
+\begin{enumerate}
+    \item Au temps $t_0 = 0$, le soleil produit un neutrino électronique $\ket{\nu_e}$. On peut exprimer ceci dans la base $\left\{\ket{\nu_e},\ket{\nu_\mu}\right\}$, soit
+    \begin{equation*}
+        \ket{\psi(t_0,x=0)} = \ket{\nu_e} = \cos\theta\ket{\nu_1}+\sin\theta\ket{\nu_2}.
+    \end{equation*}
+    \item Le neutrino se propage vers la Terre. Nous exprimons alors ce déplacement dans la base $\left\{\ket{\nu_1},\ket{\nu_2}\right\}$, afin de prévoir les cas de changement spontané de saveur du neutrino. La fonction d'onde peut alors se réécrire sous la forme suivante, en vertue de \eqref{eq:fonction d'onde}.
+    \begin{equation*}
+        \ket{\psi(t,x)} = e^{-iE\left(t-x\right)}\left[e^{-i\frac{m_1^2}{2E}x}\cos\theta\ket{\nu_1}+e^{-i\frac{m_2^2}{2E}x}\sin\theta\ket{\nu_2}\right]
+    \end{equation*}
+    \item Finalement, en $x=L$, le neutrino arrive sur Terre. Retournons dans la base des saveurs, afin de pouvoir les discerner. 
+    \begin{align*}
+        \ket{\psi(t,x=L)} &= e^{-iE\left(t-L\right)}\left[e^{-i\frac{m_1^2}{2E}L}\cos\theta\left\{\cos\theta\ket{\nu_e}-\sin\theta\ket{\nu_\mu}\right\}+e^{-i\frac{m_2^2}{2E}L}\sin\theta\left\{\sin\theta\ket{\nu_e}+\cos\theta\ket{\nu_\mu}\right\}\right]\\
+        &= e^{-iE\left(t-L\right)}\left[\left(\cos^2\theta e^{-i\frac{m_1^2}{2E}L}+\sin^2\theta e^{-i\frac{m_2^2}{2E}L}\right)\ket{\nu_e}+\left(e^{-i\frac{m_2^2}{2E}L}-e^{-i\frac{m_1^2}{2E}L}\right)\cos\theta\sin\theta\ket{\nu_\mu}\right]
+    \end{align*}
+Expérimentalement, nous ne pouvons détecter que les neutrino électronique. Pourtant, la probabilité que le neutron électronique du départ devienne un neutrino muonique est non-nulle, et est donnée par
+\begin{align}
+    P(NO \; \nu) &= \norm{\braket{\nu_\mu|\psi(t,L)}}^2 = \norm{\left(e^{-i\frac{m_2^2}{2E}L}-e^{-i\frac{m_1^2}{2E}L}\right)\cos\theta\sin\theta}^2 = \sin^22\theta\sin^2\left(\frac{\Delta m^2L}{4E}\right)
+\end{align}
+où nous avons posé $\Delta m^2 = m_1^2-m_2^2$. Il existe donc une probabilité non-nulle que nous ne puissions pas faire de mesure.
+\end{enumerate}
+
+Empiquement, $\sin^22\theta \approx 0.85$ et $\Delta m^2 \approx 8 10^{-5} eV^2$.
+
 
 % \section{MASER $NH_3$}
 % Dans cette section, nous allons discuter d'un appareil fort pratique: le MASER\footnote{Acronyme anglais pour 'Microwave Amplicifaction by Stimulated Emission of Radiation'.} d'ammonium $NH_3$ ; l'un des ancêtres des LASER\footnote{Acronyme anglais pour 'Light Amplification by Stimulated Emission of Radiation'.}
