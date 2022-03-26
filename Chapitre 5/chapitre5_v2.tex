@@ -1,0 +1,201 @@
+\documentclass[../notesdecours.tex]{subfiles}
+
+\begin{document}
+
+\chapter{Applications des postulats de la Mécanique Quantique}
+\section{Spin $1/2$ : une (très) brève introduction à la quantification du moment angulaire}
+
+En mécanique classique, le moment angulaire est une des grandeurs très importantes associeés au mouvement et a suscité une grande étude, en tant que \textbf{constante du mouvement}. Il paraît dès lors naturel de partir à la recherche de son équivalent en mécanique quantique, et le chapitre 4 (\textbf{insérer référence}) a permis, à travers l'expérience de Stern-Gerlach, de mettre en évidence un \textbf{moment cinétique intrinsèque}, par exemple pour l'électron, une grandeur qui n'apparaît qu'à l'échelle quantique et qui n'a aucun équivalent classique. \\
+
+Nous souhaitons donc, avec une étude \textbf{quantique} du moment cinétique, obtenir :
+\begin{itemize}
+    \item Des \textbf{opérateurs} de moment cinétique correspondant aux \textbf{grandeurs} classiques
+    \item L'invariance par rotation en mécanique quantique
+    \item Les \textbf{valeurs propres} des opérateurs obtenus au premier point, car le spectre d'une observable correspondant aux mesures possibles, cela nous donnera les valeurs que peut prendre le moment cinétique d'une particule. 
+\end{itemize}
+
+Dans cette section, l'étude du moment cinétique est organisé en trois parties :
+\begin{enumerate}
+    \item Le lien avec les rotations : introduction au groupe des rotations ;
+    \item L'invariance par rotation et la quantification du moment angulaire ;
+    \item Application : représentation du groupe des rotations en 2D par les matrices de Pauli, et mise en avant des vecteurs propres.
+\end{enumerate} 
+
+\paragraph{Remarque sur les moments cinétiques en mécanique quantique}
+Nous commencerons cette section en discutant de l'équivalent quantique du moment cinétique classique $\mathcal{\mathbf{L}}$, et nous enchaînerons ensuite sur une description générale du moment cinétique \textbf{total} d'une particule en mécanique quantique, qu'on note $\mathbf{J}$, composé :
+\begin{itemize}
+    \item du moment cinétique angulaire (aussi appelé "moment cinétique orbital") $\mathbf{L}$, dû au mouvement de la particule (par exemple, dans un potentiel central comme en mécanique classique) ;
+    \item et du moment cinétique intrinsèque (ou "moment cinétique de spin"), noté $\mathbf{S}$, celui intervenant dans l'expérience de Stern-Gerlach et n'ayant aucun équivalent classique.
+\end{itemize}
+
+
+
+\subsection{Le groupe des rotations}
+Le titre de cette section mène à la définition des deux notions suivantes :
+\begin{definition}
+    Un groupe $G$ est un ensemble d'élements, muni d'une opération ("opération de groupe", ou "loi de composition") notée "$\cdot$" qui satisfait les propriétés suivantes :
+    \begin{itemize}
+        \item Le produit est interne : $\forall g_1, g_2 \in G : g_1\cdot g_2 \in G$
+        \item Le produit est associatif : $\forall g_1, g_2, g_3 \in G : g_1\cdot(g_2\cdot g_3) = (g_1\cdot g_2)\cdot g_3.$
+        \item Existence d'un élément neutre : $\exists e\in G \; \text{t.q} \; \forall g \in G \; : \; e\cdot g = g = g\cdot e$.
+        \item Existence d'un inverse pour tout élément du groupe : $\forall g \in G\; ,\; \exists g^{-1}\in G \; \text{t.q} \; g^{-1}\cdot g = e = g\cdot g^{-1}.$
+    \end{itemize}
+\end{definition}
+\begin{definition}(Issue du Cohen-Tannoudji, ch. VI)
+    Une rotation géométrique est une \textbf{transformation} dans l'espace tridimensionnel qui conserve un point, les angles, les distances ainsi que le sens des trièdres\footnote{Pour exclure les symétries du plan}.
+\end{definition}
+
+
+Les rotations sont d'une importance particulière en physique, car de nombreux objets, pas seulement les vecteurs de l'espace tridimensionnel, se transforment sous l'action d'une rotation. Ainsi, nous généralisons la notion de rotation à l'appartenance à un groupe, le \textbf{groupe des rotations}. \\
+
+Le groupe des rotations, noté $SO(3)$ sera amplement étudié dans les cours de maths, et de mécanique quantique de BA3, mais nous pouvons intuitivement accepter que les rotations constituent en effet un groupe, de par leur loi de composition interne et associative, l'existence d'un neutre (la rotation identité) et d'une rotation inverse. \\
+
+Pour le formaliser, il reste à insister sur la conservation de la norme. Ainsi, les rotations seront généralisées à des "éléments du groupe des rotations", et les éléments de ce groupe pourront être représentés par des matrices \textbf{orthogonales}. Prenons le cas classique et nous obtenons des matrices orthogonales $3\times 3$.
+
+$$R\in \mathbb{R}^{3\times3} \quad |\quad R^T R = \mathbb{I}$$
+
+Une rotation est paramétrée par 
+\begin{itemize}
+    \item $\vec n$, l'axe de rotation (vecteur unitaire);
+    \item $\theta$, l'angle de rotation.
+\end{itemize}
+On note $R(\theta, \vec n)$ la rotation (dans le sens antihorlogique) autour de l'axe $\vec n$, d'un angle $\theta$. Dans l'espace tridimensionnel, $\vec{n} \in \mathbb{R}^3$, et nous avons les matrices suivantes, bien connues, implémentant les rotations autour des trois axes usuels. Elles peuvent être notées d'une autre manière, introduisant les matrices $L_x, L_y, L_z$ (qui auront une importance particulière par la suite).
+
+$$
+\begin{array}{llr}
+    R(\theta, \vec{1}_x) = 
+    \left(
+        \begin{array}{ccc}
+            1&0&0 \\
+            0&\cos\theta& -\sin\theta\\
+            0&\sin\theta& \cos\theta\\
+        \end{array}
+    \right) & =\exp(i\theta L_x), 
+        &L_x = \left(
+            \begin{array}{ccc}
+                0&0&0 \\
+                0&0&i \\
+                0&-i&0
+            \end{array}
+        \right)
+    \\
+    \vspace{1cm} \\
+    R(\theta, \vec{1}_y) = 
+    \left(
+        \begin{array}{ccc}
+            \cos\theta & 0 & \sin\theta \\
+            0&1&0 \\
+            -\sin\theta & 0 & \cos\theta \\
+        \end{array}
+    \right) &=\exp(i\theta L_y),
+        &L_y = \left(
+            \begin{array}{ccc}
+                0&0&-i \\
+                0&0&0 \\
+                i&0&0
+            \end{array}
+        \right)
+    \\
+    \vspace{1cm} \\
+    R(\theta, \vec{1}_z) = 
+    \left(
+        \begin{array}{ccc}
+            \cos\theta & -\sin\theta & 0 \\
+            \sin\theta & \cos\theta & 0 \\
+            0&0&1 \\
+        \end{array}
+    \right) &=\exp(i\theta L_z),
+        &L_z = \left(
+            \begin{array}{ccc}
+                0&i&0 \\
+                -i&0&0 \\
+                0&0&0
+            \end{array}
+        \right)
+\end{array}
+$$
+
+D'une manière générale, nous pouvons écrire
+\begin{align}
+    R(\theta, \vec n) &= \exp(i\theta \vec n \cdot \vec L) && \text{où} \; \vec n \cdot \vec L = n_xL_x + n_yL_y + n_zL_z \; . \\
+    &= \mathbb{I} + i\theta \vec{n} \cdot \vec L + O(\theta^2) \label{eq:ch5-spin-generateurs}
+\end{align}
+
+L'introduction de ces opérateurs $L_i$ est très intéressante car en théorie des groupes, lorsque nous pouvons écrire \ref{eq:ch5-spin-generateurs}, nous disons que les opérateurs $L_x, L_y, L_z$ sont les \textbf{générateurs du groupe des rotations}. L'interprétation en est facile : prenons par exemple une rotation autour de l'axe $\vec 1_x$ d'un angle infinitésimal $\mathrm{d}\theta$.
+$$R(\mathrm{d}\theta, \vec 1_x) = \mathbb{I} + iL_x \; \mathrm{d}\theta \qquad \text{au premier ordre}$$
+
+La rotation diffère de l'opérateur identité d'un facteur $\mathrm{d}\theta$ au coefficient $L_x$ au premier ordre. $L_x$ est alors dit un "générateur infinitésimal", et en théorie des groupes, dans un groupe de Lie \footnote{Voir définition dans le cours de maths}, l'étude des générateurs infinitésimaux suffit à reconstruire tout le groupe. 
+
+\subsubsection{Relations de commutation du groupe des rotations : algèbre du groupe}
+Les relations de commutation sont centrales dans tout groupe. Ici, avec les générateurs que nous avons introduits, nous pouvons mettre en avant les relations de commutation suivantes :
+$$
+\begin{array}{ll}
+    \left[ L_x, L_y \right] &= iL_z \\
+    \left[ L_z, L_x \right] &= iL_y \\
+    \left[ L_y, L_z \right] &= iL_x \\
+\end{array} \; ,
+$$
+ou, de manière abrégée :
+\begin{equation}\label{eq:chap5-spin-commutation}
+    \boxed{\left[ L_i, L_j \right] = i\varepsilon_{ijk} L_k} \; .
+\end{equation}
+Les relations de commutation \ref{eq:chap5-spin-commutation} définissent l'\textbf{algèbre de Lie} du groupe $SO(3)$\footnote{Ou de manière équivalente, l'algèbre de commutation des générateurs infinitésimaux du groupe.}.
+\paragraph{Interprétation des relations de commutation}
+
+{\color{red}{je ne réussis pas à obtenir les mêmes termes, et je ne comprends pas l'interprétation. J'ai trouvé un équivalent  en mécanique classique dans le Cohen-Tannoudji.}}
+$$
+\begin{array}{llr}
+    R(-\theta, y)R(-\theta, x)R(\theta, y)R(\theta, x) &= \mathbb{I} + \theta^2\left[L_x, L_y\right] + O(\theta^3)& \\
+    &= R(\theta^2, L_z) & \text{à l'ordre} \; \theta^2
+\end{array}
+$$
+
+
+\subsection{Représentations du groupe des rotations}
+Nous avons vu à la section précédente l'action d'une rotation sur l'espace euclidien tridimensionnel. Seulement, comme déjà mentionné, en physique, les vecteurs ne sont pas les seuls objets pouvant se transformer par une rotation : c'est ce qui motive l'utilisation du groupe des rotations en général plutôt que les matrices $R\in \mathbb{R}^{3\times 3}$ qui représentent les rotations dans l'espace. \\
+
+Ainsi, de manière générale, le groupe des rotations aura plusieurs représentations, l'important étant de retrouver les relations de commutation \ref{eq:chap5-spin-commutation}.
+
+\begin{definition}
+    Une représentation de l'algèbre de Lie du groupe des rotations est un ensemble de matrices $J_i$, de taille $n\times n$ a priori arbitraire, satisfaisant les relations de commutation $$ [J_i, J_j] = i\varepsilon_{ijk} J_k$$
+\end{definition}
+
+En mécanique quantique, une représentation de $SO(3)$ permet d'implémenter les transformations de rotation de la manière suivante :
+\begin{equation}
+    \ket \psi \stackrel{R(\theta,\vec n)}{\longrightarrow} \exp(i\theta \; \vec n \cdot \vec J) \ket \psi
+\end{equation}
+
+Un exemple de représentation est l'équivalent quantique du moment angulaire $\mathbf L= \mathbf{R} \times \mathbf{P}$ :
+$$
+\begin{array}{ll}
+    J_x &= yP_z - zP_y \\
+    J_y &= zP_x - xP_z \\
+    J_z &= xP_y - yP_x
+\end{array}
+$$
+\subsubsection{Invariance par rotation}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\subsection{Introduction au groupe des rotations}
+%\subsubsection{Relations de commutation}
+%\subsubsection{Représentations du groupe des rotations}
+%
+%\subsection{Invariance par rotation}
+%\subsection{Conséquence : conservation du moment angulaire}
+%
+%\subsection{Quantification du moment angulaire}
+%
+%\subsection{Exemple : système à deux niveau}
+\end{document}
