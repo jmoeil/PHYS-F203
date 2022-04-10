@@ -243,21 +243,41 @@ Empiquement, il se trouve que $\sin^22\theta \approx 0.85$ et $\Delta m^2 \appro
 
 \section{Résonance quantique}
 
-\subsection{Exemple 1 : l'atome de $NH_3$}
+Nous entamons ici l'étude de 3 exemples différents de systèmes quantiques à 2 états - des systèmes différents, mais liés par le fait qu'ils possèdent une symétrie. Cette symétrie impose des conditions menant à des résultats parfois surprenants.
 
-\color{red} \textbf{Insérer graphique.} \color{black}
+\subsection*{Exemple 1 : La molécule d'ammoniac}
 
-Dans la base $\{\ket{1},\ket{2}\}$, l'Hamiltonien de ce système s'exprime par
+On considère la molécule d'ammoniac $NH_3$. L'étude de la géométrie de cette molécule montre que les trois atomes d'hydrogène forment la base d'une pyramide dont l'atome d'azote occupe le sommet : l'ammoniac forme une molécule pyramidale trigonale. Dans notre exemple, nous supposerons que les atomes d'hydrogène forme un triangle équilatérale et dont l'axe passe toujours par l'atome d'azote. Nous avons alors que l'énergie potentielle du système n'est fonction que de la distance entre l'atome d'azote et le triangle équilatérale formé par les atomes d'hydrogène. En particulier, le système admet alors une symétrie par rapport au plan $x = 0$: cela impose à la fonction de l'énergie potentielle $V(x)$ d'être paire selon la variable $x$.\\
+
+\color{red} \textbf{Insérer schéma molécule $NH_3$.} \color{black}\\
+
+Soit $|x| = b$ la distance minimisant l'énergie potentielle. Puisque l'énergie potentielle est paire, nous avons que $V(-b) = V(b)$. Choissons l'échelle de l'énergie de sorte que $V(b) = 0$. Nous avons alors une barrière de potentiel en $x = 0$, d'énergie $V_1 > V_0 = 0$.\\
+
+\color{red} \textbf{Insérer une réprésentation de l'énergie potentielle.}\color{black}\\
+
+Que prédit la mécanique quantique sur les niveaux d'énergie de ce système? Classiquement, il n'est pas possible pour une particule d'énergie inférieure à $V_1$ de franchir la barrière de potentiel placée en $x=0$. Nous aurions alors que l'atome d'azote resterai toujours du même côté du plan formé par les atomes d'hydrogène. Cependant, comme nous l'avons étudié en \ref{chap2:potentiel carre}, le phénomène d'effet tunnel autorise les états d'énergie inférieur : l'inversion de la molécule est alors une réalité quantique inexpliquée par la mécanique classique.\\
+
+Notons par $\ket{+}$ l'état dans lequel l'atome d'azote est au-dessus des atomes d'hydrogènes, et par $\ket{-}$ lorsqu'ils sont en-dessous. Dans la base formé par ces deux états, l'Hamiltonien de ce système s'exprime par
 \begin{equation}
     H = 
     \begin{pmatrix}
         E_0 & -A\\
         -A & E_0
-    \end{pmatrix}
+    \end{pmatrix}\label{eq:Hamiltonien applications}
 \end{equation}
-Il se trouve que dans la base $D = \{\ket{E_0-A},\ket{E_0+A}\}$ des états propres d'énergie, cette matrice est diagonale. Nous observons alors que l'énergie fondamentale $E_0 > E_0-A$. Nous en concluons que si l'atome peut effectivement être stable dans l'état non-dégénéré d'énergie $E_0$, il l'est encore plus dans l'état doublement dégénéré d'énergie $E_0-A$. D'autres exemples similaire existent, tel que celui de la molécule de Benzène.
+où $E_0$ représente l'énergie fondamentale du système, et $A$ est une perturbation que l'on fait subir au système.
+De part le postulat de la mesure, les valeurs de la mesure d'une observable sont les valeurs propres associés à celle-ci : un calcul rapide du spectre de \eqref{eq:Hamiltonien applications} permet de montrer que nous avons un
+\begin{itemize}
+    \item état propre $\ket{\psi_-} = \frac{1}{\sqrt{2}}\left(\ket{-}+\ket{+}\right)$ d'énergie $E_0-A$ ;
+    \item état propre $\ket{\psi_+} = \frac{1}{\sqrt{2}}\left(\ket{-}-\ket{+}\right)$ d'énergie $E_0+A$.
+\end{itemize}
 
-% \subsection{Ion moléculaire $H_2^+$}
+Nous voyons alors qu'il existe une énergie, $E_0-A$, plus petite que $E_0$ : cela montre que la molécule d'ammoniac est très stable.
+
+
+%\subsection*{Exemple 2 : la molécule de benzène}
+
+%\subsection*{Exemple 3 : ion moléculaire $H_2^+$}
 
 % Bla,bla, ... compléter !
 
