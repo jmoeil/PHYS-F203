@@ -245,9 +245,9 @@ Empiquement, il se trouve que $\sin^22\theta \approx 0.85$ et $\Delta m^2 \appro
 
 Nous entamons ici l'étude de 3 exemples différents de systèmes quantiques à 2 états - des systèmes différents, mais liés par le fait qu'ils possèdent une symétrie. Cette symétrie impose des conditions menant à des résultats parfois surprenants.
 
-\subsection*{Exemple 1 : La molécule d'ammoniac}
+\subsection*{Exemple 1 : La molécule d'ammoniac $NH_3$}
 
-On considère la molécule d'ammoniac $NH_3$. L'étude de la géométrie de cette molécule montre que les trois atomes d'hydrogène forment la base d'une pyramide dont l'atome d'azote occupe le sommet : l'ammoniac forme une molécule pyramidale trigonale. Dans notre exemple, nous supposerons que les atomes d'hydrogène forme un triangle équilatérale et dont l'axe passe toujours par l'atome d'azote. Nous avons alors que l'énergie potentielle du système n'est fonction que de la distance entre l'atome d'azote et le triangle équilatérale formé par les atomes d'hydrogène. En particulier, le système admet alors une symétrie par rapport au plan $x = 0$: cela impose à la fonction de l'énergie potentielle $V(x)$ d'être paire selon la variable $x$.\\
+L'étude de la géométrie de cette molécule montre que les trois atomes d'hydrogène forment la base d'une pyramide dont l'atome d'azote occupe le sommet : l'ammoniac forme une molécule pyramidale trigonale. Dans notre exemple, nous supposerons que les atomes d'hydrogène forme un triangle équilatérale et dont l'axe passe toujours par l'atome d'azote. Nous avons alors que l'énergie potentielle du système n'est fonction que de la distance entre l'atome d'azote et le triangle équilatérale formé par les atomes d'hydrogène. En particulier, le système admet alors une symétrie par rapport au plan $x = 0$: cela impose à la fonction de l'énergie potentielle $V(x)$ d'être paire selon la variable $x$.\\
 
 \color{red} \textbf{Insérer schéma molécule $NH_3$.} \color{black}\\
 
@@ -257,7 +257,7 @@ Soit $|x| = b$ la distance minimisant l'énergie potentielle. Puisque l'énergie
 
 Que prédit la mécanique quantique sur les niveaux d'énergie de ce système? Classiquement, il n'est pas possible pour une particule d'énergie inférieure à $V_1$ de franchir la barrière de potentiel placée en $x=0$. Nous aurions alors que l'atome d'azote resterai toujours du même côté du plan formé par les atomes d'hydrogène. Cependant, comme nous l'avons étudié en \ref{chap2:potentiel carre}, le phénomène d'effet tunnel autorise les états d'énergie inférieur : l'inversion de la molécule est alors une réalité quantique inexpliquée par la mécanique classique.\\
 
-Notons par $\ket{+}$ l'état dans lequel l'atome d'azote est au-dessus des atomes d'hydrogènes, et par $\ket{-}$ lorsqu'ils sont en-dessous. Dans la base formé par ces deux états, l'Hamiltonien de ce système s'exprime par
+Notons par $\ket{+}$ l'état dans lequel l'atome d'azote est au-dessus des atomes d'hydrogènes, et par $\ket{-}$ lorsqu'il est en-dessous. Dans la base formé par ces deux états, l'Hamiltonien de ce système s'exprime par
 \begin{equation}
     H = 
     \begin{pmatrix}
@@ -265,8 +265,9 @@ Notons par $\ket{+}$ l'état dans lequel l'atome d'azote est au-dessus des atome
         -A & E_0
     \end{pmatrix}\label{eq:Hamiltonien applications}
 \end{equation}
-où $E_0$ représente l'énergie fondamentale du système, et $A$ est une perturbation que l'on fait subir au système.
-De part le postulat de la mesure, les valeurs de la mesure d'une observable sont les valeurs propres associés à celle-ci : un calcul rapide du spectre de \eqref{eq:Hamiltonien applications} permet de montrer que nous avons un
+où $E_0$ représente l'énergie fondamentale du système, et $A$ est une perturbation que l'on fait subir au système.\\
+
+De part le postulat de la mesure, les valeurs de la mesure d'une observable sont les valeurs propres associées à celle-ci : un calcul rapide du spectre de \eqref{eq:Hamiltonien applications} permet de montrer que nous avons un
 \begin{itemize}
     \item état propre $\ket{\psi_-} = \frac{1}{\sqrt{2}}\left(\ket{-}+\ket{+}\right)$ d'énergie $E_0-A$ ;
     \item état propre $\ket{\psi_+} = \frac{1}{\sqrt{2}}\left(\ket{-}-\ket{+}\right)$ d'énergie $E_0+A$.
@@ -274,12 +275,35 @@ De part le postulat de la mesure, les valeurs de la mesure d'une observable sont
 
 Nous voyons alors qu'il existe une énergie, $E_0-A$, plus petite que $E_0$ : cela montre que la molécule d'ammoniac est très stable.
 
+\subsection*{Exemple 2 : La molécule de benzène}
 
-%\subsection*{Exemple 2 : la molécule de benzène}
+Similairement à l'exemple précédent, la géométrie d'une molécule de benzène s'exprime selon une symétrie, que nous pouvons représenter via l'image suivante.\\
 
-%\subsection*{Exemple 3 : ion moléculaire $H_2^+$}
+\color{red} Insérer image géométrie molécule de benzène \color{black}\\
 
-% Bla,bla, ... compléter !
+Notons par $\ket{1}$ la première disposition possible, et par $\ket{2}$ la seconde. Dans la base orthonormale formée par ces états, l'Hamiltonien décrivant le système est à nouveau donné par \eqref{eq:Hamiltonien applications}. L'état de plus basse énergie est alors à nouveau donnée par $\ket{\psi_-} = \frac{1}{\sqrt{2}}\left(\ket{1}+\ket{2}\right)$, d'énergie $E_0-A$. Cette énergie étant plus faible que $E_0$, nous avons à nouveau une indication de la stabilité de la molécule de benzène. De plus, \color{red} que voulez-vous dire par "cet état est symétrique" ? \color{black}
+
+\subsection*{Exemple 3 : Ion moléculaire $H_2^+$}
+
+Pour finir, considérons deux protons séparés par une distance $r$, ainsi qu'une particule d'électron qui peut soit être dans le voisinage du proton de gauche, soit dans le voisinage du proton de droite.\\
+
+\color{red} Insérer schéma situation \color{black}\\
+
+Classiquement, une fois que l'électron est stable dans une des deux situations, elle ne peut se retrouver dans l'autre : nous pouvons voir cela en analysant les forces électromagnétiques s'appliquant à l'électron. Quantiquement, l'électron peut librement se déplacer d'un voisinage à l'autre : il s'agit une fois de plus d'une application de l'\textit{effet tunnel}.\\
+
+Nous pouvons à nouveau appliquer l'Hamiltonien \eqref{eq:Hamiltonien applications} à cette situation, à une petite modification clée: $E_0(r)$ et $A(r)$ dépendent ici de la distance $r$ entre les deux protons. Nous avons donc
+\begin{equation}
+    H(r) = \begin{pmatrix}
+        E_0(r) & -A(r)\\
+        -A(r) & E_0(r)
+    \end{pmatrix}
+\end{equation}
+
+où $E_0(r)$, lorsque les atomes sont proches, décrit la répulsion entre les protons.\\
+
+Dans ce modèle, nous avons alors que l'état fondamental est $\frac{1}{\sqrt{2}}\left(\ket{1}+\ket{2}\right)$, d'énergie $E_-(r) = E_0(r)-A(r)$, et que l'état excité est donné par $\frac{1}{\sqrt{2}}\left(\ket{1}-\ket{2}\right)$, d'énergie $E_+(r) = E_0(r)+A(r)$. Ce modèle, naïf, forme la base de la compréhension des modèles chimiques.\\
+
+\color{red} Insérer schéma notes \color{black}
 
 \section{Spin $\frac{1}{2}$}
 Ce chapitre consistue une brève introduction à la quantification du moment angulaire. Débutons par une introduction au concept de groupes de rotations.
