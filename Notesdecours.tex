@@ -110,6 +110,22 @@
 \newcommand\wrap[4]{\begin{wrapfigure}[#1]{#2}{#3\textwidth}
     #4
     \end{wrapfigure}}
+
+% Nouvelle commande Sami
+\usepackage{framed}
+\renewenvironment{leftbar}[1][\hsize]
+{%
+     \def\FrameCommand
+     {%
+         {\color{black}\vrule width 2pt}%
+         \hspace{7pt}%must no space.
+        % \fboxsep=\FrameSep\colorbox{yellow}%
+     }%
+     \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
+%%
+
 %%% Fin ajouts Sami
 
 \title{\textbf{PHYS-F203 - Introduction à la Mécanique Quantique} \\ \textit{Basé sur les notes de Prof. $\href{mailto:serge.massar@ulb.be}{\text{Massar Serge}}$}}

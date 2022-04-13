@@ -179,177 +179,356 @@ Il se trouve que dans la base $D = \{\ket{E_0-A},\ket{E_0+A}\}$ des états propr
 % Bla,bla, ... compléter !
 
 \section{Spin $\frac{1}{2}$}
-Ce chapitre consistue une brève introduction à la quantification du moment angulaire. Débutons par une introduction au concept de groupes de rotations.
+Nous présentons dans cette section une autre application des postulats de la Mécanique Quantique évoqués au chapitre précédent. L'expérience de Stern-Gerlach a permis de mettre en avant une \textbf{quantification du moment angulaire} observée expérimentalement. Cet effet purement quantique sera brièvement étudié dans cette section (plutôt "introduit" ici, et étudié dans le cours de BA3). Nous allons utiliser les postulats de la Mécanique Quantique pour formaliser la quantification du moment angulaire. \\
 
-\subsection{Groupe de rotations}
+\begin{leftbar}
+    \textit{Une particule de spin $1/2$ est une particule dont la composante du moment cinétique dans une direction (disons $O_z$) peut prendre les valeurs $-1/2$ ou $1/2$. }
+\end{leftbar}
 
-Considérons l'ensemble des matrices $R \in \mathbb{R}^{3\times 3}$ telle que $R^TR = \mathbb{I}$. Si $\bm{n}$ est un vecteur unitaire de $\mathbb{R}^3$ et $\theta$ un angle, alors $R(\theta,\bm{n}$) est la rotation (dans le sens trigonométrique) autour de l'axe $\bm{n}$ d'angle $\theta$.
+Plus précisément, étant donné que nous parlons d'une grandeur physique, nous allons voir quelle observable la représente, et que ce sont les propriétés de cette observable qui impliqueront la quantification de ses valeurs propres. Nous allons surtout voir que cet effet est dû à un principe très cher en physique : l'\textbf{invariance par rotation}. \\
 
-\begin{align*}
-    R(\theta,x) &= \begin{pmatrix}
-    1 & 0 & 0\\
-    0 & \cos\theta & -\sin\theta\\
-    0 & \sin\theta & \cos\theta
-    \end{pmatrix} = \exp (i\theta L_x)			&\text{où } L_x &= \begin{pmatrix}
-    0 & 0 & 0\\
-    0 & 0 & i\\
-    0 & -i & 0
-    \end{pmatrix}\\
-    R(\theta,y) &= \begin{pmatrix}
-    \cos\theta & 0 & \sin\theta\\
-    0 & 1 & 0\\
-    -\sin\theta & 0 & \cos\theta\\
-    \end{pmatrix} = \exp(i\theta L_y)		&\text{où } L_y &= \begin{pmatrix}
-    0 & 0 & -i\\
-    0 & 0 & 0\\
-    i & 0 & 0
-    \end{pmatrix}\\
-    R(\theta,z) &= \begin{pmatrix}
-    \cos\theta & -\sin\theta & 0\\
-    \sin\theta & \cos\theta & 0\\
-    0 & 0 & 1
-    \end{pmatrix} = \exp(i\theta L_z)		&\text{où } L_z &= \begin{pmatrix}
-    0 & i & 0\\
-    -i & 0 & 0\\
-    0 & 0 & 0
-    \end{pmatrix}
-\end{align*}
-Nous avons alors que $R(\theta,\bm{n}) = \exp (i\theta\bm{n}\cdot\bm{L})$, où $\bm{n}\cdot\bm{L} = n_iL_i$. Les vecteurs $L_x,L_y,L_z$ sont les \emph{générateurs du $\mathcal{G}$roupe des $\mathcal{R}$otations}.
+Dans cette section, l'étude du moment cinétique est organisé en trois parties :
+\begin{enumerate}
+    \item Le lien avec les rotations : introduction au groupe des rotations ;
+    \item L'invariance par rotation et la quantification du moment angulaire ;
+    \item Application : représentation du groupe des rotations en 2D par les matrices de Pauli, et mise en avant des vecteurs propres.
+\end{enumerate} 
 
-\begin{Property}
-    Les générateurs du groupe des rotations commutent selon
-    \begin{equation}
-        [L_i,L_j] = L_k
-    \end{equation}
-    pour tout $i,j \neq k$. 
-\end{Property}
+\paragraph{Remarque sur les moments cinétiques en mécanique quantique}
+Nous commencerons cette section en discutant de l'équivalent quantique du moment cinétique classique $\mathcal{\mathbf{L}}$, et nous enchaînerons ensuite sur une description générale du moment cinétique \textbf{total} d'une particule en mécanique quantique, qu'on note $\mathbf{J}$, composé :
+\begin{itemize}
+    \item du moment cinétique angulaire (aussi appelé "moment cinétique orbital") $\mathbf{L}$, dû au mouvement de la particule (par exemple, dans un potentiel central comme en mécanique classique) ;
+    \item et du moment cinétique intrinsèque (ou "moment cinétique de spin"), noté $\mathbf{S}$, celui intervenant dans l'expérience de Stern-Gerlach et n'ayant aucun équivalent classique.
+\end{itemize}
 
-En physique, de nombreux objets (et non pas seulement les vecteurs) sont invariants ou se transforment sous l'effet d'une rotation. Une autre représentation du $\mathcal{G}$roupe des $\mathcal{R}$otations est l'ensemble des 3 opérateurs $J_x,J_y,J_z$ tels que $[J_x,J_y] = J_z$ (et toutes ses permutations cycliques) et tel que, sous toute rotation d'angle $\theta$ autour de $\bm{n}$, un état $\ket{\psi}$ se transforme en
-\begin{equation}
-\ket{\psi} \rightarrow \exp(i\theta\bm{n}\cdot\bm{J})\ket{\psi}
+
+\subsection{Groupe des rotations}
+
+Le titre de cette section mène à la définition des deux notions suivantes :
+\begin{definition}
+    Un groupe $G$ est un ensemble d'élements, muni d'une opération ("opération de groupe", ou "loi de composition") notée "$\cdot$" qui satisfait les propriétés suivantes :
+    \begin{itemize}
+        \item Le produit est interne : $\forall g_1, g_2 \in G : g_1\cdot g_2 \in G$
+        \item Le produit est associatif : $\forall g_1, g_2, g_3 \in G : g_1\cdot(g_2\cdot g_3) = (g_1\cdot g_2)\cdot g_3.$
+        \item Existence d'un élément neutre : $\exists e\in G \; \text{t.q} \; \forall g \in G \; : \; e\cdot g = g = g\cdot e$.
+        \item Existence d'un inverse pour tout élément du groupe : $\forall g \in G\; ,\; \exists g^{-1}\in G \; \text{t.q} \; g^{-1}\cdot g = e = g\cdot g^{-1}.$
+    \end{itemize}
+\end{definition}
+\begin{definition}(Issue du Cohen-Tannoudji, ch. VI)
+    Une rotation géométrique est une \textbf{transformation} dans l'espace tridimensionnel qui conserve un point, les angles, les distances ainsi que le sens des trièdres\footnote{Pour exclure les symétries du plan}.
+\end{definition}
+
+
+Les rotations sont d'une importance particulière en physique, car de nombreux objets, pas seulement les vecteurs de l'espace tridimensionnel, se transforment sous l'action d'une rotation. Ainsi, nous généralisons la notion de rotation à l'appartenance à un groupe, le \textbf{groupe des rotations}. \\
+
+Le groupe des rotations, noté $SO(3)$ sera amplement étudié dans les cours de maths, et de mécanique quantique de BA3, mais nous pouvons intuitivement accepter que les rotations constituent en effet un groupe, de par leur loi de composition interne et associative, l'existence d'un neutre (la rotation identité) et d'une rotation inverse. \\
+
+Pour le formaliser, il reste à insister sur la conservation de la norme. Ainsi, les rotations seront généralisées à des "éléments du groupe des rotations", et les éléments de ce groupe pourront être représentés par des matrices \textbf{orthogonales}. Prenons le cas classique et nous obtenons des matrices orthogonales $3\times 3$.
+
+$$R\in \mathbb{R}^{3\times3} \quad |\quad R^T R = \mathbb{I}$$
+
+Une rotation est paramétrée par 
+\begin{itemize}
+    \item $\vec n$, l'axe de rotation (vecteur unitaire);
+    \item $\theta$, l'angle de rotation.
+\end{itemize}
+On note $R(\theta, \vec n)$ la rotation (dans le sens antihorlogique) autour de l'axe $\vec n$, d'un angle $\theta$. Dans l'espace tridimensionnel, $\vec{n} \in \mathbb{R}^3$, et nous avons les matrices suivantes, bien connues, implémentant les rotations autour des trois axes usuels. Elles peuvent être notées d'une autre manière, introduisant les matrices $L_x, L_y, L_z$ (qui auront une importance particulière par la suite).
+
+$$
+\begin{array}{llr}
+    R(\theta, \vec{1}_x) = 
+    \left(
+        \begin{array}{ccc}
+            1&0&0 \\
+            0&\cos\theta& -\sin\theta\\
+            0&\sin\theta& \cos\theta\\
+        \end{array}
+    \right) & =\exp(i\theta L_x), 
+        &L_x = \left(
+            \begin{array}{ccc}
+                0&0&0 \\
+                0&0&i \\
+                0&-i&0
+            \end{array}
+        \right)
+    \\
+    \vspace{1cm} \\
+    R(\theta, \vec{1}_y) = 
+    \left(
+        \begin{array}{ccc}
+            \cos\theta & 0 & \sin\theta \\
+            0&1&0 \\
+            -\sin\theta & 0 & \cos\theta \\
+        \end{array}
+    \right) &=\exp(i\theta L_y),
+        &L_y = \left(
+            \begin{array}{ccc}
+                0&0&-i \\
+                0&0&0 \\
+                i&0&0
+            \end{array}
+        \right)
+    \\
+    \vspace{1cm} \\
+    R(\theta, \vec{1}_z) = 
+    \left(
+        \begin{array}{ccc}
+            \cos\theta & -\sin\theta & 0 \\
+            \sin\theta & \cos\theta & 0 \\
+            0&0&1 \\
+        \end{array}
+    \right) &=\exp(i\theta L_z),
+        &L_z = \left(
+            \begin{array}{ccc}
+                0&i&0 \\
+                -i&0&0 \\
+                0&0&0
+            \end{array}
+        \right)
+\end{array}
+$$
+
+D'une manière générale, nous pouvons écrire
+\begin{align}
+    R(\theta, \vec n) &= \exp(i\theta \vec n \cdot \vec L) && \text{où} \; \vec n \cdot \vec L = n_xL_x + n_yL_y + n_zL_z \; . \\
+    &= \mathbb{I} + i\theta \vec{n} \cdot \vec L + O(\theta^2) \label{eq:ch5-spin-generateurs}
+\end{align}
+
+L'introduction de ces opérateurs $L_i$ est très intéressante car en théorie des groupes, lorsque nous pouvons écrire \ref{eq:ch5-spin-generateurs}, nous disons que les opérateurs $L_x, L_y, L_z$ sont les \textbf{générateurs du groupe des rotations}. L'interprétation en est facile : prenons par exemple une rotation autour de l'axe $\vec 1_x$ d'un angle infinitésimal $\mathrm{d}\theta$.
+$$R(\mathrm{d}\theta, \vec 1_x) = \mathbb{I} + iL_x \; \mathrm{d}\theta \qquad \text{au premier ordre}$$
+
+La rotation diffère de l'opérateur identité d'un facteur $\mathrm{d}\theta$ au coefficient $L_x$ au premier ordre. $L_x$ est alors dit un "générateur infinitésimal", et en théorie des groupes, dans un groupe de Lie \footnote{Voir définition dans le cours de maths}, l'étude des générateurs infinitésimaux suffit à reconstruire tout le groupe. 
+
+\subsubsection{Relations de commutation du groupe des rotations : algèbre du groupe}
+Les relations de commutation sont centrales dans tout groupe. Ici, avec les générateurs que nous avons introduits, nous pouvons mettre en avant les relations de commutation suivantes :
+$$
+\begin{array}{ll}
+    \left[ L_x, L_y \right] &= iL_z \\
+    \left[ L_z, L_x \right] &= iL_y \\
+    \left[ L_y, L_z \right] &= iL_x \\
+\end{array} \; ,
+$$
+ou, de manière abrégée :
+\begin{equation}\label{eq:chap5-spin-commutation}
+    \boxed{\left[ L_i, L_j \right] = i\varepsilon_{ijk} L_k} \; .
+\end{equation}
+Les relations de commutation \ref{eq:chap5-spin-commutation} définissent l'\textbf{algèbre de Lie} du groupe $SO(3)$\footnote{Ou de manière équivalente, l'algèbre de commutation des générateurs infinitésimaux du groupe.}.
+\paragraph{Interprétation des relations de commutation}
+
+{\color{red}{je ne réussis pas à obtenir les mêmes termes, et je ne comprends pas l'interprétation. J'ai trouvé un équivalent  en mécanique classique dans le Cohen-Tannoudji.}}
+$$
+\begin{array}{llr}
+    R(-\theta, y)R(-\theta, x)R(\theta, y)R(\theta, x) &= \mathbb{I} + \theta^2\left[L_x, L_y\right] + O(\theta^3)& \\
+    &= R(\theta^2, L_z) & \text{à l'ordre} \; \theta^2
+\end{array}
+$$
+
+
+\subsection{Représentations du groupe des rotations}
+Nous avons vu à la section précédente l'action d'une rotation sur l'espace euclidien tridimensionnel. Seulement, comme déjà mentionné, en physique, les vecteurs ne sont pas les seuls objets pouvant se transformer par une rotation : c'est ce qui motive l'utilisation du groupe des rotations en général plutôt que les matrices $R\in \mathbb{R}^{3\times 3}$ qui représentent les rotations dans l'espace. \\
+
+Ainsi, de manière générale, le groupe des rotations aura plusieurs représentations, l'important étant de retrouver les relations de commutation \ref{eq:chap5-spin-commutation}.
+
+\begin{definition}
+    Une représentation de l'algèbre de Lie du groupe des rotations est un ensemble de matrices $J_i$, de taille $n\times n$ a priori arbitraire, satisfaisant les relations de commutation $$ [J_i, J_j] = i\varepsilon_{ijk} J_k$$
+\end{definition}
+
+En mécanique quantique, une représentation de $SO(3)$ permet d'implémenter les transformations de rotation de la manière suivante :
+\begin{equation} \label{eq:chap5-spin-transformation}
+    \ket \psi \stackrel{R(\theta,\vec n)}{\longrightarrow} \exp(i\theta \; \vec n \cdot \vec J) \ket \psi
 \end{equation}
 
-\begin{exemple}Les opérateurs
+Un exemple de représentation est l'équivalent quantique du moment angulaire $\mathbf L= \mathbf{R} \times \mathbf{P}$ (en reprenant la notation $\vec J$):
+$$
+\begin{array}{ll}
+    J_x &= yP_z - zP_y \\
+    J_y &= zP_x - xP_z \\
+    J_z &= xP_y - yP_x
+\end{array}
+$$
+
+\begin{leftbar}
+    \textit{Cette section a servi à introduire le \textbf{groupe des rotations} : la notion de groupe, de générateur, de représentation. Grâce à cela, nous aboutissons à une définition très générale des opérateurs qui implémentent une transformation de rotation.} \\
+
+    A présent, nous allons utiliser le formalisme introduit, principalement les relations de commutation, pour étudier davantage les rotations en mécanique quantique.
+\end{leftbar}
+\subsection{Invariance par rotation}
+Un système physique $S$ est par définition \textbf{invariant par rotation} si en lui appliquant à un moment donné une rotation quelconque $\mathcal{R}$ et que nous appliquons la même rotation à tous les systèmes ou appareils qui peuvent influer sur lui, ses propriétés et son comportement ne sont pas modifiés. \\
+
+En particulier, l'invariance par rotation en mécanique quantique veut dire entre autres que l'évolution d'un système se déroule de la même manière que s'il avait préalablement été sujet à une rotation. En pratique :
 \begin{itemize}
-\item $J_x = yp_z - zp_y$
-\item $J_y = zp_x - xp_z$
-\item $J_z = xp_y - yp_x$
+    \item L'évolution dans le temps est décrite par l'équation de Schrödinger, et indique que $\ket{\psi(t)} = e^{-it \; H}$
+    \item Une rotation est générée par le moment cinétique du système, $\vec J$ (voir \eqref{eq:chap5-spin-transformation} pour l'implémentation de cette transformation)
 \end{itemize}
-sont des exemples de représentation du $\mathcal{G}$roupe des $\mathcal{R}$otations.
-\end{exemple}
-Un système est invariant par rotation si
-\begin{align}
-\exp (-itH) \exp (i\theta \bm{n}\cdot\bm{J})\ket{\psi} &= \exp (i\theta \bm{n}\cdot\bm{J})\exp (-itH) \ket{\psi}			&\forall \ket{\psi},\forall \bm{n},\theta,t
-\end{align}
-Cela revient à dire que \emph{faire une rotation} et ensuite \emph{évoluer dans le temps} est identique à \emph{évoluer dans le temps} et puis \emph{faire une rotation}.
 
-\begin{Property} 
-    Pour tout petit angle sur des temps négigeables,  
-    \begin{equation}
-        [H,J_x] = [H,J_y] = [H,J_z] = 0.
-    \end{equation}
-\end{Property}
-Les conséquences en sont nombreuses. Voici quelques exemples.
-\begin{Property}
-    Si $\ket{\psi(t)}$ est une solution de l'équation de Schrödinger \eqref{Schrodinger}, alors 
-    \begin{equation}
-        \frac{d}{dt}\braket{\psi(t)|J_i|\psi(t)} = 0
-    \end{equation}
-    Nous avons en particulier que $\braket{\psi(t)|J_i|\psi(t)} = \braket{\psi(0)|J_i|\psi(0)}$.
-\end{Property}
+Ainsi, en mécanique quantique, un système est invariant par rotation si 
+$$
+\underbrace{e^{-it\; H}}_{\text{Evol. temps}} \; 
+\underbrace{e^{i\theta \; \vec n\cdot \vec J}}_{\text{Rotation}} \; 
+\ket \psi = 
+e^{i\theta \; \vec n\cdot \vec J}\; 
+e^{-it\; H} \; 
+ \ket \psi 
+ \qquad \forall\;  \ket \psi , \vec n, \theta, t
+$$
+Et cette condition doit être vraie pour tout $\theta$ et $t$, que l'on peut peut prendre arbitrairement petits, pour obtenir la condition 
 
-\begin{Property}
-    Si $\ket{\psi_0}$ est un vecteur propre de $J_i$ tel que $J_i\ket{\psi_0} = j\ket{\psi_0}$, alors le vecteur $\ket{\psi(t)} = e^{-iHt}\ket{\psi_0}$ est également un vecteur propre de $J_i$:
-    \begin{equation}
-        J_i\ket{\psi(t)} = j\ket{\psi(t)}.
-    \end{equation}
-\end{Property}
-Le théorème d'Emmy Nöther permet de montrer que la symmétrie de rotation implique la conservation d'une quantité : le moment angulaire.
+\begin{equation}
+    [H, J_x] = [H, J_y] = [H, J_z] = 0
+\end{equation}
+{\color{red}{Je ne suis pas sûr du calcul qui mène à cela. J'arrive à $[H, J_x] + [H, J_y] + [H, J_z] =0$ et je ne vois pas comment affirmer la condition ci-dessus}}
 
+Qui correspond à une traduction de l'invariance par rotation : il faut et suffit que $H$ commute avec les opérateurs de rotations infinitésimales, qui correspondent aux trois composantes du moment cinétique total $\vec J$ du système.
+
+\subsubsection{Conséquences de l'invariance par rotation}
+L'invariance par rotation implique la \textbf{conservation du moment angulaire}. Montrons-le en deux temps :
+\begin{enumerate}
+    \item Si $\ket{\psi(t)}$ est solution de l'équation de Schrödinger $i\partial_t \ket\psi = H\ket\psi$, alors 
+    $$\begin{array}{ll}
+        \bra{\psi(t)}J_x\ket{\psi(t)} &= \bra{\psi(0)} e^{it\; H} J_x e^{-it\; H}\ket{\psi(0)} \\
+        \strut \\
+        &= \bra{\psi(0)}J_x\ket{\psi(0)} \; ,
+    \end{array}$$ 
+    étant donné que $J_x$ et $e^{\pm it\; H}$ commutent (vu que $H$ et $J_x$ commutent) {\color{red}{je ne suis pas sûr de cette justification}}. La relation que nous venons d'obtenir montre que si $J_x$ est une observable, \textbf{sa valeur moyenne dans l'état $\psi$ est constante à travers le temps}.
+
+    \item Si $\ket \psi$ est vecteur propre de $J_x$ :
+    $$J_x\ket \psi = j \ket \psi$$
+    Alors, $\ket{\psi(t)} = \exp(-it\; H)\ket\psi$ est aussi un vecteur propre de $J_x$, avec la même valeur propre :
+    $$
+    \begin{array}{ll}
+        J_x \ket{\psi(t)} &= J_x e^{-it\; H}\ket\psi\\
+        \strut \\
+        &= e^{-it\; H}J_x \ket \psi \\
+        \strut \\
+        &= e^{-it\; H} j\ket \psi \\
+        \strut \\
+        &= j e^{-it\; H}\ket\psi \\
+        \strut \\
+        &= j \ket{\psi(t)}
+    \end{array}
+    $$
+    Ce dernier résultat est important car les valeurs propres et les états propres d'une observable sont les résultats et les états possibles après une mesure de la grandeur physique correspondant à cette observable. Ici, en prouvant ce point, nous prouvons que l'évolution dans le temps n'impacte pas la mesure du moment angulaire de la particule.
+\end{enumerate}
+
+Ces deux conséquences immédiates montrent que la \textbf{grandeur conservée} par l'\textbf{invariance par rotation} est le \textbf{moment angulaire} (ses trois composantes).
 
 \subsection{Quantification du moment angulaire}
-\begin{theorem}
-Soit $[J_x,J_y] = iJ_z$. Nous avons alors que les valeurs propres de $J_z$ est un demi-entier: $0,\frac{1}{2}, 1, \frac{3}{2}, ...$.
-\begin{equation*}
-J_z \ket{\psi} = m\ket{\psi}
-\end{equation*}
-\end{theorem}
+Le résultat dont nous allons discuter dans cette section est une \textbf{quantification du moment angulaire}, comme nous avions eu quantification de l'énergie dans des problèmes précédents. Concrètement, la structure de groupe, par exemple la relation de commutation 
+$$
+[J_x, J_y]=iJ_z
+$$
+impose en réalité des conditions sur les valeurs propres de l'observable $J_z$.
 
 \begin{theorem}
-Il existe une représentation non triviale du $\mathcal{G}$roupe des $\mathcal{R}$otations par des matrices $d\times d$. Dans ce cas, $J_z = -\frac{d}{2}, -\frac{d}{2}+1,...,+\frac{d}{2}$.
+    Les relations de commutation $[J_i, J_j] = i\varepsilon_{ijk} J_k$ impliquent que les valeurs propres de $J_k$ sont \textbf{demi-entières} : 
+    $$J_k \ket \psi = m\ket \psi \quad \Rightarrow \; m=0, 1/2, 1, 3/2, \dots$$
 \end{theorem}
-\begin{exemple}
-Le cas le plus simple est celle des matrices de Pauli (matrices $2\times 2$):
-\begin{center}
-\begin{tabular}{c|c|c}
-$\sigma_x = \begin{pmatrix}
-0 & 1\\
-1 & 0
-\end{pmatrix}$ & $\sigma_x = \begin{pmatrix}
-0 & -i\\
-i & 0
-\end{pmatrix}$ & $\sigma_x = \begin{pmatrix}
-1 & 0\\
-0 & -1
-\end{pmatrix}$\\
-$J_x = \frac{1}{2}\sigma_x$ & $J_y = \frac{1}{2}\sigma_y$ & $J_z = \frac{1}{2}\sigma_z$
-\end{tabular}
-\end{center}
-Nous pouvons vérifier que les différentes relations démontrées ci-dessus sont respectées (exercice).
-\end{exemple}
 
-En particulier, nous pouvons vérifier que 
-\begin{center}
-    \begin{tabular}{c|c|c|c}
-        $\{\sigma_a,\sigma_b\} = 2i\varepsilon_{abc}\sigma_c$ & $\{\sigma_a,\sigma_b\} = 2\sigma_{ab}\hat{I}$ & $Tr(\sigma_a) = 0$ & $\sigma_a\sigma_b = \delta_{ab}\hat{I}+i\varepsilon_{abc}\sigma_c$
-    \end{tabular}
-\end{center}
+Ce résultat sera prouvé dans le cours de BA3.
+\subsection{Exemple de représentation -- Matrices de Pauli}
+En introduisant le groupe des rotations, nous avons introduit la définition d'une représentation de ce groupe : un ensemble de matrices satisfaisant les relations de commutation \ref{eq:chap5-spin-commutation}. Ici, nous présentons un exemple de représentation avec des matrices $2\times2$ : les \textbf{matrices de Pauli}. 
 
-Les matrices de Pauli sont de valeur propres $\pm 1$. Les vecteurs propres associés sont
-\begin{center}
-    \begin{tabular}{c|c}
-        $\psi_x^+ = \frac{1}{\sqrt{2}} \begin{pmatrix}
-            1\\
-            1
-        \end{pmatrix}$ & $\psi_x^- = \frac{1}{\sqrt{2}} \begin{pmatrix}
-            -1\\
-            1
-        \end{pmatrix}$\\
-        $\psi_y^+ = \frac{1}{\sqrt{2}} \begin{pmatrix}
-            -1\\
-            1
-        \end{pmatrix}$ & $\psi_y^- = \begin{pmatrix}
-            i\\
-            i
-        \end{pmatrix}$\\
-        $\psi_z^+ = \begin{pmatrix}
-            1\\
-            0
-        \end{pmatrix} = \ket{\uparrow}$ & $\psi_z^- = \begin{pmatrix}
-            0\\
-            1
-        \end{pmatrix} = \ket{\downarrow}$
-    \end{tabular}
-\end{center}
+$$
+\sigma_x = \left(
+    \begin{array}{cc}
+        0&1 \\
+        1&0
+    \end{array}
+    \right)
+\qquad 
+\sigma_y = \left(
+    \begin{array}{cc}
+        0&-i \\
+        i&0
+    \end{array}
+    \right)
+\qquad 
+\sigma_z = \left(
+    \begin{array}{cc}
+        1&0 \\
+        0&-1
+    \end{array}
+    \right)
+$$
+ 
+$$J_x = \dfrac{1}{2}\sigma_x \qquad J_y = \dfrac{1}{2}\sigma_y \qquad J_z = \dfrac{1}{2}\sigma_z$$
 
-Introduisons le vecteur unitaire associé aux coordonnées sphériques $\bm{n} = \left(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta\right)$. Observons que 
+Nous pouvons vérifier les relations de commutation (notamment en vérifiant que $[\sigma_i, \sigma_j]=2i\varepsilon_{ijk}\sigma_k$), et d'autres relations :
+\begin{itemize}
+    \item $\{\sigma_i, \sigma_j\} = 2 \; \delta_{ij} \;  \mathbb{I}$
+    \item $\mathrm{Tr}(\sigma_i) = 0 \; \forall i$
+    \item $\sigma_i\sigma_j = \delta_{ij} \;  \mathbb{I} + i \; \varepsilon_{ijk} \; \sigma_k$
+\end{itemize}
+
+
+\subsubsection{Valeurs propres et vecteurs propres des $J_i$}
+
+Les matrices de Pauli sont de valeurs propres $\pm 1$, et donc les moments cinétiques ont des valeurs possibles de $\pm1/2$ (cf. Postulat de la mesure et défition des $L_i$ en fonction des $\sigma_i$). Les vecteurs propres associés sont
+$$
+\begin{array}{lrr|lrr}
+    \ket{\psi_{x^+}} = & \dfrac{1}{\sqrt 2} \begin{pmatrix}
+        1 \\
+        1
+    \end{pmatrix} & &
+    \ket{\psi_{x^-}} = & \dfrac{1}{\sqrt 2} \begin{pmatrix}
+        -1 \\
+        1
+    \end{pmatrix} \\
+    \strut \\
+    \ket{\psi_{y^+}} = & \dfrac{1}{\sqrt 2} \begin{pmatrix}
+        1 \\
+        i
+    \end{pmatrix} & &
+    \ket{\psi_{y^-}} = & \dfrac{1}{\sqrt 2} \begin{pmatrix}
+        i \\
+        1
+    \end{pmatrix} \\
+    \strut \\
+    \ket{\psi_{z^+}} = &  \begin{pmatrix}
+        1 \\
+        0
+    \end{pmatrix} &= \ket \uparrow&
+    \ket{\psi_{z^-}} = &  \begin{pmatrix}
+        0 \\
+        1
+    \end{pmatrix} & =\ket \downarrow\\
+\end{array}
+$$
+
+Pour une application concrète, considérons le vecteur unitaire associé aux coordonnées sphériques  $$\vec{n} = \left(\sin\theta\cos\varphi,\sin\theta\sin\varphi,\cos\theta\right) \; ,$$ et étudions le moment cinétique (représenté par $\vec \sigma = (\sigma_x, \sigma_y, \sigma_z)$) selon cette direction. 
 \begin{equation}
-    \bm{n}\cdot\bm{\sigma} = \begin{pmatrix}
+    J_n = \vec{n}\cdot\vec{\sigma} = \begin{pmatrix}
         \cos\theta & \sin\theta e^{-i\varphi}\\
         \sin\theta e^{i\varphi} & -\cos\theta
     \end{pmatrix}
 \end{equation}
-De même, observons que $\begin{pmatrix}
+Ainsi,
+$$\ket \psi = \begin{pmatrix}
     \cos\frac{\theta}{2}\\
-    \sigma\frac{\theta}{2}e^{i\varphi}
-\end{pmatrix}$ est le vecteur propre de valeur propre $+1$. Nous pouvons réécrire, dans la base des vecteurs up and down,
+    \strut \\
+    \sin\frac{\theta}{2}e^{i\varphi}
+\end{pmatrix}$$ est vecteur propre de cet opérateur, de valeur propre $+1$. Nous pouvons réécrire, dans la base des vecteurs up and down,
 \begin{equation}
-    \begin{pmatrix}
-        \cos\frac{\theta}{2}\\
-        \sigma\frac{\theta}{2}e^{i\varphi}
-    \end{pmatrix} = \cos\frac{\theta}{2}\ket{\uparrow}+\sin\frac{\theta}{2}e^{i\varphi}\ket{\downarrow}
+    \ket \psi = \cos\frac{\theta}{2}\ket{\uparrow}+\sin\frac{\theta}{2}e^{i\varphi}\ket{\downarrow}
 \end{equation}
+Il est légitime de se demander à ce stade l'importance d'une telle écriture. Bien entendu, l'intuition n'est pas immédiate, mais cette écriture reste importante pour la raison qui suit. Les \textit{systèmes à deux niveaux} (où $\mathrm{dim} \mathcal{H}=2$) sont très intéressants en pratique (ils sont au coœur de l'informatique quantique, par exemple). {\color{red}{Insérer une interprétation de cette équation : la sphère de Bloch}} \\
 
-Les particules élémentaires ont un spin $1/2$. Elles sont munies d'un espace de Hilbert de dimension 2, se transformant sous rotations par $e^{i\frac{\theta}{2}\bm{n}\cdot\bm{\sigma}}$.
+\begin{leftbar}
+    \textit{Certaines particules élémentaires ($e^-$, $p^+$, $n$) ont un spin $1/2$. Elles ont un espace de Hilbert de dimension 2 qui se transforme comme $\exp(i\theta/2 \; \vec n\cdot \vec \sigma)$.}
+\end{leftbar}
 
+\paragraph{Remarque sur les unités}
+Dans cette section, nous avons travaillé en unités réduites $\hbar =  1$. Dans les unités usuelles, en notant $\tilde{L}_x, \tilde{L}_y, \tilde{L}_z$ les vrais moments angulaires, les opérateurs utilisés dans cette sections étaient les opérateurs sans dimension 
+$$L_x = \dfrac{\tilde{L}_x}{\hbar} \qquad L_y = \dfrac{\tilde{L}_y}{\hbar} \qquad L_z = \dfrac{\tilde{L}_z}{\hbar}  \; .$$
+
+($\hbar$ et $\vec L$ ont les mêmes dimensions) \\
+
+Donc une rotation d'angle $\theta$ autour de l'axe $O_x$ est implémentée par l'opérateur $$\exp(i\theta L_x)  = \exp\left(i\dfrac{\theta \tilde{L}_x}{\hbar}\right) \; ,$$
+
+et les relations de commutation deviennent 
+$$[L_x, L_y] = i L_z \; \longrightarrow \; [\tilde{L}_x, \tilde{L}_y] = i \hbar \tilde{L}_z $$
+
+\paragraph{Remarque sur les symétries et la conservation de grandeurs}
+
+Le théorème de Nöther exprime que toute symétrie dans le comportement d'un système implique la conservation d'une grandeur physique. Ici, l'invariance par rotation implique la conservation du moment cinétique. Les mêmes considérations s'appliquent aussi à l'invariance par translation et la conservation de l'impulsion : nous verrons ça au chapitre suivant.
 \end{document}
