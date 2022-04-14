@@ -165,7 +165,7 @@ La plupart des neutrinos observés sur Terre sont produite par le Soleil, selon 
 \begin{equation}\label{eq:reaction neutrino}
     p^+ + p^+ \longrightarrow D^+ + e^+ + \nu_e
 \end{equation}
-où $p^+$ représente un proton, $D^+$ représente \color{red}\textbf{(que représente-t-il?)} \color{black} et où $\nu_e$ et $\bar{\nu}_e$ représentent respectivement le neutrino et l'anti-neutrino électronique. Dans cette réaction, on définit le \textit{nombre leptonique} par la relation
+où $p^+$ représente un proton, $D^+$ correspond à \color{purple} un noyeau de deutérium (c'est à dire à un proton et un neutron) \color{black}et où $\nu_e$ et $\bar{\nu}_e$ indiquent respectivement un neutrino électronique et l'anti-neutrino correspondant. Dans cette réaction, on définit le \textit{nombre leptonique} par la relation
 \begin{equation}
     Le = \#e^- + \#\nu_e - (\#e^++\#\bar{\nu}_e)
 \end{equation}
@@ -173,9 +173,7 @@ où $p^+$ représente un proton, $D^+$ représente \color{red}\textbf{(que repr�
     Lors d'une intéraction, le nombre leptonique Le constitue une quantité conservée.
 \end{Property}
 
-\color{red} Est-il vraiment pertinent d'introduire ce nombre ici, alors qu'il n'est pas utilisé dans la suite de l'application? \color{black}\\
-
-Une fois produite, les neutrinos se propagent presque sans absoption jusqu'à la terre - nous pouvons à présent les mesurer, mais cela reste un exercice non trivial (\textit{et n'est donc pas laissé en exercice pour le lecteur}). \textbf{Nous détectons approximativement la moitié du flux attendu}. \color{red} D'où sort cette information? \color{black} Dans la résolution qui va suivre, nous supposerons que les neutrinos ont une masse (aussi faible soit-elle), et que les états propre de masse ne sont pas les états produits/absorbés lors de son intéraction avec la matière.
+Une fois produite, les neutrinos se propagent presque sans absoption jusqu'à la terre - nous pouvons à présent les mesurer, mais cela reste un exercice non trivial (\textit{et n'est donc pas laissé en exercice pour le lecteur}). \color{purple} Ray David et Masatoshi Koshiba eurent le Prix Nobel de Physique 2002 pour avoir réussi à démontrer que nous détectons approximativement un tiers du flux de neutrino attendu. \color{black}Dans la résolution qui va suivre, nous supposerons que les neutrinos ont une masse (aussi faible soit-elle), et que les états propre de masse ne sont pas les états produits/absorbés lors de son intéraction avec la matière.
 
 \paragraph{Résolution pour une seule espèce de neutrinos}
 
@@ -247,13 +245,22 @@ Nous entamons ici l'étude de 3 exemples différents de systèmes quantiques à 
 
 \subsection*{Exemple 1 : La molécule d'ammoniac $NH_3$}
 
-L'étude de la géométrie de cette molécule montre que les trois atomes d'hydrogène forment la base d'une pyramide dont l'atome d'azote occupe le sommet : l'ammoniac forme une molécule pyramidale trigonale. Dans notre exemple, nous supposerons que les atomes d'hydrogène forme un triangle équilatérale et dont l'axe passe toujours par l'atome d'azote. Nous avons alors que l'énergie potentielle du système n'est fonction que de la distance entre l'atome d'azote et le triangle équilatérale formé par les atomes d'hydrogène. En particulier, le système admet alors une symétrie par rapport au plan $x = 0$: cela impose à la fonction de l'énergie potentielle $V(x)$ d'être paire selon la variable $x$.\\
+L'étude de la géométrie de cette molécule montre que les trois atomes d'hydrogène forment la base d'une pyramide dont l'atome d'azote occupe le sommet : l'ammoniac forme une molécule pyramidale trigonale. La figure \ref{fig:Schema ammoniac} donne une représentation de la géométrie de la molécule d'ammoniac. Dans notre exemple, nous supposerons que les atomes d'hydrogène forme un triangle équilatérale et dont l'axe passe toujours par l'atome d'azote. Nous avons alors que l'énergie potentielle du système n'est fonction que de la distance entre l'atome d'azote et le triangle équilatérale formé par les atomes d'hydrogène. En particulier, le système admet alors une symétrie par rapport au plan $x = 0$: cela impose à la fonction de l'énergie potentielle $V(x)$ d'être paire selon la variable $x$.\\
 
-\color{red} \textbf{Insérer schéma molécule $NH_3$.} \color{black}\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=60mm,scale=0.5]{Chapitre 5/Figure 1.jpg}
+    \caption{Schéma d'une molécule d'ammoniac. La distance x désigne la distance entre le plan formé par les atomes d'hydrogène et l'atome d'azote.}
+    \label{fig:Schema ammoniac}
+\end{figure}
 
-Soit $|x| = b$ la distance minimisant l'énergie potentielle. Puisque l'énergie potentielle est paire, nous avons que $V(-b) = V(b)$. Choissons l'échelle de l'énergie de sorte que $V(b) = 0$. Nous avons alors une barrière de potentiel en $x = 0$, d'énergie $V_1 > V_0 = 0$.\\
+Soit $|x| = b$ la distance minimisant l'énergie potentielle. Puisque l'énergie potentielle est \emph{paire}, nous avons que $V(-b) = V(b)$. Choissons l'échelle de l'énergie de sorte que $V(b) = 0$. Nous avons alors une barrière de potentiel en $x = 0$, d'énergie $V_1 > V_0 = 0$.\\
 
-\color{red} \textbf{Insérer une réprésentation de l'énergie potentielle.}\color{black}\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=70mm,scale=0.5]{Chapitre 5/Figure 2.jpg}
+    \caption{Représentation de l'énergie potentielle en fonction de la distance $x$. On observe que lorsque $\norm{x}>b$, l'énergie augmente significativement: cela correspond à la croissance de la force de liaison chimique assurant la cohésion moléculaire. La barrière de potentiel en $x = 0$ traduit la force de répulsion entre les atomes d'hydrogène et l'atome d'azote lorsque ce dernier est dans le plan qu'ils forment.}
+\end{figure}
 
 Que prédit la mécanique quantique sur les niveaux d'énergie de ce système? Classiquement, il n'est pas possible pour une particule d'énergie inférieure à $V_1$ de franchir la barrière de potentiel placée en $x=0$. Nous aurions alors que l'atome d'azote resterai toujours du même côté du plan formé par les atomes d'hydrogène. Cependant, comme nous l'avons étudié en \ref{chap2:potentiel carre}, le phénomène d'effet tunnel autorise les états d'énergie inférieur : l'inversion de la molécule est alors une réalité quantique inexpliquée par la mécanique classique.\\
 
@@ -277,17 +284,35 @@ Nous voyons alors qu'il existe une énergie, $E_0-A$, plus petite que $E_0$ : ce
 
 \subsection*{Exemple 2 : La molécule de benzène}
 
-Similairement à l'exemple précédent, la géométrie d'une molécule de benzène s'exprime selon une symétrie, que nous pouvons représenter via l'image suivante.\\
+\color{purple} Les chimistes représentent des molécules organiques compliquées avec des schémas somme toute assez simple. Nous discutons ici d'une de ces molécules: la plus intéressante d'entre elles, la molécule de benzène. Selon les représentations utilisées par les chimistes, elle se représente par la figure suivante.
 
-\color{red} Insérer image géométrie molécule de benzène \color{black}\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=3cm,scale=0.4]{Chapitre 5/Figure 3.png}
+    \caption{Représentation d'une molécule de benzène $C_6H_6$. Une bare représente une "paire" d'électrons dans une liaison covalente - de même, les doubles bares correspondent à une double paire d'électrons impliquées dans la liaison.}
+    \label{fig:molecule de benzene}
+\end{figure}
 
-Notons par $\ket{1}$ la première disposition possible, et par $\ket{2}$ la seconde. Dans la base orthonormale formée par ces états, l'Hamiltonien décrivant le système est à nouveau donné par \eqref{eq:Hamiltonien applications}. L'état de plus basse énergie est alors à nouveau donnée par $\ket{\psi_-} = \frac{1}{\sqrt{2}}\left(\ket{1}+\ket{2}\right)$, d'énergie $E_0-A$. Cette énergie étant plus faible que $E_0$, nous avons à nouveau une indication de la stabilité de la molécule de benzène. De plus, \color{red} que voulez-vous dire par "cet état est symétrique" ? \color{black}
+Cette molécule est intéressante sur plusieurs niveaux: nous avons par exemple que l'énergie théorique nécessaire pour former la molécule (calculée en effectuant la somme de l'énergie des composants) est plus petite que l'énergie expérimentalement mesurée. Nous allons nous intéresser ici à un autre aspect de cette molécule. En regardant la figure \ref{fig:molecule de benzene}, on observe qu'il y a un totale de 3 double liaisons. Deux double liaisons à gauche, et une à doite. Rien ne nous empêche, à priori, de faire l'inverse: une double liaison à gauche, et deux double liaisons à droite. Cela donnerait quelque chose comme représenté par la figure \ref{fig:symmetrie benzene}.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=6cm,scale=0.5]{Chapitre 5/Figure 4.jpg}
+    \caption{Parallèle entre les deux types de molécule de benzène possible.}
+    \label{fig:symmetrie benzene}
+\end{figure}
+
+Les deux molécules étant la même, elles devraient avoir la même énergie. Nous devons alors les analyser comme un système à deux  niveaux: chaque état représente une configuration possible de l'ensemble des électrons, et il existe une probabilité non nulle que l'ensemble passe d'une configuration à l'autre. \color{black}Notons par $\ket{1}$ la première disposition possible, et par $\ket{2}$ la seconde. Dans la base orthonormale formée par ces états, l'Hamiltonien décrivant le système est à nouveau donné par \eqref{eq:Hamiltonien applications}. L'état de plus basse énergie est alors à nouveau donnée par $\ket{\psi_-} = \frac{1}{\sqrt{2}}\left(\ket{1}+\ket{2}\right)$, d'énergie $E_0-A$. Cette énergie étant plus faible que $E_0$, nous avons à nouveau une indication de la stabilité de la molécule de benzène.
 
 \subsection*{Exemple 3 : Ion moléculaire $H_2^+$}
 
 Pour finir, considérons deux protons séparés par une distance $r$, ainsi qu'une particule d'électron qui peut soit être dans le voisinage du proton de gauche, soit dans le voisinage du proton de droite.\\
 
-\color{red} Insérer schéma situation \color{black}\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=9cm,scale=0.9]{Chapitre 5/Figure 5.jpg}
+    \caption{Mise en parallèle des deux positions possible de l'électron : soit à gauche, dans l'état $\ket{1}$, soit à droite, dans l'état $\ket{2}$.}
+\end{figure}
 
 Classiquement, une fois que l'électron est stable dans une des deux situations, elle ne peut se retrouver dans l'autre : nous pouvons voir cela en analysant les forces électromagnétiques s'appliquant à l'électron. Quantiquement, l'électron peut librement se déplacer d'un voisinage à l'autre : il s'agit une fois de plus d'une application de l'\textit{effet tunnel}.\\
 
@@ -301,9 +326,14 @@ Nous pouvons à nouveau appliquer l'Hamiltonien \eqref{eq:Hamiltonien applicatio
 
 où $E_0(r)$, lorsque les atomes sont proches, décrit la répulsion entre les protons.\\
 
-Dans ce modèle, nous avons alors que l'état fondamental est $\frac{1}{\sqrt{2}}\left(\ket{1}+\ket{2}\right)$, d'énergie $E_-(r) = E_0(r)-A(r)$, et que l'état excité est donné par $\frac{1}{\sqrt{2}}\left(\ket{1}-\ket{2}\right)$, d'énergie $E_+(r) = E_0(r)+A(r)$. Ce modèle, naïf, forme la base de la compréhension des modèles chimiques.\\
+Dans ce modèle, nous avons alors que l'état fondamental est $\frac{1}{\sqrt{2}}\left(\ket{1}+\ket{2}\right)$, d'énergie $E_-(r) = E_0(r)-A(r)$, et que l'état excité est donné par $\frac{1}{\sqrt{2}}\left(\ket{1}-\ket{2}\right)$, d'énergie $E_+(r) = E_0(r)+A(r)$. \emph{Ce modèle, naïf, forme la base de la compréhension des modèles chimiques}. \color{purple} La figure \ref{fig:comparaison E+ et E-} donne une idée de l'allure de $E_-(r)$ et de $E_+(r)$.\color{black}
 
-\color{red} Insérer schéma notes \color{black}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=7cm,scale=0.5]{Chapitre 5/Figure 6.jpg}
+    \caption{Représentation et mise en parallèle de l'évolution de $E_-(r)$ et $E_+(r)$.}
+    \label{fig:comparaison E+ et E-}
+\end{figure}
 
 \section{Spin $\frac{1}{2}$}
 Ce chapitre consistue une brève introduction à la quantification du moment angulaire. Débutons par une introduction au concept de groupes de rotations.
