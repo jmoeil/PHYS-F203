@@ -1,156 +1,216 @@
 \documentclass[../notesdecours.tex]{subfiles}
+\usepackage{enumitem}
+\usepackage{cancel}
+\usepackage{calrsfs}
 
 \begin{document}
 
 \chapter{Applications des postulats de la Mécanique Quantique}
 
 \section{Interféromètre de Mech-Zehnder}
-Cet exemple est tiré de l'optique. Nous allons regarder ce qu'il se passe en optique classique, et nous allons ensuite utiliser le formalisme quantique. Ce faisant, nous pourrons mettre en évidence les différences entre les deux. \\
+L'interféromètre de Mach-Zehnder est un exemple d'expérience qui est tiré de l'optique ; nous allons nous aider du formalisme de la mécanique quantique pour mettre en évidence l'aspect ondulatoire ou corpusculaire du photon dans cette expérience. \\
+L'idée que nous allons souligner est la suivante : tant que le photon reste sous sa forme ondulatoire dans le dispositif, il interfère avec lui-même, et il se peut qu'un seul des deux détecteurs ne s'activent. A partir du moment où le photon prend sa forme corpusculaire dans le dispositif (parce qu'il est mesuré, perturbé), l'interférence n'a pas lieu et les deux voies de sortie peuvent être activées. 
 
+\textcolor{red}{Schéma à modifier}
 \begin{center}
     \begin{figure}[h]
     \centering
     \includegraphics[width=0.80\textwidth]{Mach-Zehnder.png}
-    \caption{Représentation du principe de l'interféromètre de Mach-Zehnder. Notons que les longueurs $L_i$ représentent la longueur totale du trajet dans le chemin $i$ suivit.}
+    \caption{Schéma du dispositif. $L_2$ et $L_3$ sont les longueurs totales du chemin 1, respectivement 2 suivi par la lumière. }
     \label{Mach-Zehnder}
     \end{figure}
 \end{center}
 
-\subsection{Brève description des détecteurs}
-Au niveau des détecteurs, plusieurs chemins sont possibles, comme l'illustre l'image ci-contre.
+\subsection{Etude classique (la lumière classique est de nature ondulatoire)}
+
+Le faisceau lumineux, initialement divisé en deux par un premier beam-splitter (noté BM par la suite, c'est un miroir semi-réfléchissant), se recombine par les miroirs : en arrivant au deuxième BM, ils interfèrent constructivement lorsqu'ils sont en phase. \\
+
+La différence de phase peut se manifester lorsque : 
+\begin{itemize}[label = \textbullet]
+    \item il y a une différence de distance parcourue par chaque faisceau ; 
+    \item il y a un changement d'indice de réfraction le long du trajet (mais ce n'est pas le cas ici)
+\end{itemize}
+
+Ces phénomènes d'interférences interviennent également en fibres optiques : 
+\textcolor{red}{Schéma} 
+\newline Il y a interférence en fonction de la longueur relative des chemins. \\
+
+Effectuons à présent une étude quantitative du problème pour déterminer l'intensité des faisceaux mesurée aux détecteurs lorsque le système est considéré d'un point de vue classique. \\
+
+Considérons tout d'abord un seul BM.
 
 \begin{center}
     \begin{figure}[h]
     \centering
     \includegraphics[width=0.50\textwidth]{bean.png}
-    \caption{Les ondes incidentes arrivants de $A_1$ et $A_2$ poursuivent leur chemin, respectivement en $A_3$ et $A_4$.}
+    \caption{Schéma d'un beam-splitter ; les ondes incidentes arrivent de $A_1$ et $A_2$}
     \label{Interferometre}
     \end{figure}
 \end{center}
 
-Nous avons un miroir semi-transparant. Nous envoyons dessus par le port 1 un faiseau de lumière d'amplitude $A_1$, et d'intensité $I_1 = \norm{A_1}^2$ ; par le port 2, nous envoyons un faisceau d'amplitude $A_2$ et d'intensité $I_2 = \norm{A_2}^2$. \emph{En supposant qu'il n'y a pas de pertes}, nous avons que la somme des intensités entrantes est égale à la somme des intensités sortantes : $I_1 + I_2 = I_3 + I_4$. Puisque les équations de l'électromagnétisme sont linéaires, nous avons $A_3 = \alpha A_1 + \beta A_2$, pour tout $\alpha,\beta\in\mathbb{C}$. Nous pouvons facilement mesurer les valeurs absolues de ces coefficients. En posant $A_2 = 0$, nous pouvons mesurer $I_3$ ; nous trouverons $\norm{\alpha}^2$.
-
-Partons de la description d'une onde plane. Nous aurons
-\begin{subequations}
-    \begin{equation}
-        A_1 (t) = A_1e^{-i\omega t},
-    \end{equation}
-    \begin{equation}
-        A_2 (t) = A_2e^{-i\omega t},
-    \end{equation}
-\end{subequations}
-
-pour les ondes incidentes, ainsi que
-\begin{subequations}
-    \begin{equation}
-        A_3 (t) = cA_1e^{-i\omega t} + i s A_2e^{-i\omega t}
-    \end{equation}
-    \begin{equation}
-        A_4 (t) = c A_2e^{-i\omega t} + i sA_1e^{-i\omega t}
-    \end{equation}
-\end{subequations}
-
-pour les ondes sortantes. La discussion précédente nous permet de choisir un des coefficients - soit $\norm{c}^2$ - en choissisant le miroir semi-transparent. Le coefficient $\norm{s}^2$ est alors fixé par
-
-\begin{equation}
-\norm{c}^2 + \norm{s}^2 = 1.
-\end{equation}
-
-Il nous reste une liberté de phase : nous pouvons redéfinir la phase de $A_1 = e^{i \Phi}A'_1$, et de même pour $A_2, A_3$ et $A_4$. Il s'agit d'une question de convention.
-
-\begin{remark} 
-    Par convention, les ondes transmises ne subissent aucun déphasage, là où les ondes réfléchies bénéficient d'un déphasage de $\frac{\pi}{2}$. D'autres conventions sont possibles.
-\end{remark}
-
-\begin{remark} 
-    Nous pouvons prendre $c = \cos\theta$ et $s = \sin\theta$ pour un argument $\theta$, ce qui explique la notation utilisée. 
-\end{remark}
-
-\subsection{Lumière classique}
-Pour simplifier, prenons $c = \frac{1}{\sqrt{2}} = s$. Notons que nous pouvons introduire un facteur $e^{ikL}$ tenant compte de la distance parcourue, i.e. un point en $x = 0$ peut-être décrit par $A(t) = Ae^{-i\omega t}$ et un point en $x = L$ peut-être décrit par $A'(t) = Ae^{-i\omega t}e^{ikL}$. Notre détecteur repère le courant électrique $I(t)$ selon $I(t) = e\norm{A(t)}^2$ - soit 
-
-\begin{align*}
-A(t) &= Ae^{-i\omega t}	&I_{0} = \norm{A(t_0 = 0)}^2 = \norm{A}^2.
-\end{align*}
-
-Nous avons alors que
-
-\begin{align*}
-A_2 (t) &= \frac{A(t)}{\sqrt{2}}	&A_3 (t) = i\frac{A(t)}{\sqrt{2}}
-\end{align*}
-
-En particulier, nous pouvons écrire les chemins $A_2'$ et $A_3'$ selon:
-\begin{subequations}
-    \begin{align}
-        A'_2 (t) &= A_2 (t)e^{ikL_2}	&A'_3 (t) = A_3 (t)e^{ikL_3}
-    \end{align}
-\text{De même, les chemins $A_4$ et $A_5$ s'écrivent:}
-    \begin{align}
-        A_4 &= \frac{1}{\sqrt{2}} (A'_3 + iA'_2) = i\frac{A(t)}{2} (e^{ikL_3} + e^{ikL_2})		&A_5 = \frac{A(t)}{2} (e^{ikL_2} - e^{ikL_3})  
-    \end{align}
-\end{subequations}
-
-En introduisant le terme $\Delta \Phi = kL_3 - kL_2$, nous pouvons conclure que:
-\begin{subequations}
-    \begin{align}
-        I_4 &= \frac{\norm{A}^2}{4} \norm{e^{ikL_2} + e^{ikL_3}}^2 = \norm{A}^2 \cos^2 \frac{k(L_3-L_2}{2} = \norm{A}^2 \cos^2 \frac{\Delta\Phi}{2}\\
-        I_5 &= \norm{A}^2 \sin^2 \frac{\Delta \Phi}{2}
-    \end{align}
-\end{subequations}
-
-Remarquons que $I_4+I_5 \doteq I_{0}$ - soit $I_0 = \norm{A}^2$, comme prévu. Hourra.
-
-\subsection{Lumière quantique}
-
-Le photon peut suivre plusieurs chemin simultanément : par superposition, nous écrivons l'état comme
-
-\begin{equation}
-    \ket{\psi} = \alpha\ket{1}+\beta\ket{2}+\gamma\ket{3}
-\end{equation}
-Où $\ket{i}$ décrit le photon dans le chemin $i$.\\
-
-Dans un beam splitter tel que décrit par \eqref{Interferometre}, nous décrivons alors les transitions
+On considère également deux ondes incidentes qui sont des ondes planes de même fréquence mais d'amplitude différente $A_1$ et $A_2$ : 
 \begin{align}
-    \ket{1} &\rightarrow c\ket{3} + is\ket{4},\\
-    \ket{2} &\rightarrow is\ket{3} + c\ket{4}.
-\end{align}
-Cette transition est décrite par la matrice  $\begin{pmatrix}
-c & is\\
-is & c
-\end{pmatrix}$, unitaire.\\
+    A_1(t) &= A_1 e^{-i\omega t} \notag \\
+    A_2(t) &= A_2 e^{-i\omega t}
+\end{align}\label{A1 et A2}
 
-Soit une mesure dans la base $\ket{1},\ket{2}$ ; donnée par l'était $\ket{\psi} = \alpha\ket{1}+\beta\ket{2}$. Dès lors, les probabilités de détection seront données par $P_1 = \norm{\alpha}^2$ et $P_2 = \norm{\beta}^2$.\\
+Ecrivons ensuite les ondes résultantes $A_3(t)$ et $A_4(t)$ comme : 
+\begin{align}
+    A_3(t) &= c \; A_1(t) + i s \;A_2(t) \notag \\
+    A_4(t) &= is \; A_1(t) + c \; A_2(t) 
+\end{align}\label{A3 et A4}
+où nous pouvons prendre $c = \cos(\theta)$ et $s = \sin(\theta)$. 
 
-Il s'ensuit que la decription de l'interféromètre \ref{Interferometre} sera la suivante:
-
-\begin{itemize}
-    \item \textbf{Chemins 2 et 3.}
-        \begin{equation}
-            \ket{\psi} = \frac{1}{\sqrt{2}}\ket{2} + \frac{1}{\sqrt{2}}\ket{3}
-        \end{equation}
-    \item \textbf{Chemins 2' et 3'.}
-        \begin{align}
-            \ket{\psi} &= \frac{e^{ikL_2}}{\sqrt{2}}\ket{2'} + \frac{i}{\sqrt{2}}e^{ikL_3}\ket{3'}\\
-        \end{align}
-    \item \textbf{Chemins 4 et 5.}
-        \begin{align}
-            \ket{\psi} &= \frac{1}{2} (e^{ikL_2} - e^{ikL_3})\ket{5} + \frac{i}{2}(e^{ikL_2} + e^{ikL_3})\ket{4}
-        \end{align}
+En effet, cela a du sens d'écrire $A_3(t)$ et $A_4(t)$ de cette manière-ci car : \begin{itemize}[label = \textbullet]
+    \item les équations de l'électromagnétisme sont linéaires (une combinaison linéaire d'ondes planes de même fréquence reste bien une onde plane) ; 
+    \item Si on suppose que l'on envoie deux faisceaux de lumières sur un miroir semi-transparent d'intensité $I_1 = \left| A_1 \right|^2$ et $I_2 = \left| A_2 \right|^2$, et supponsons qu'il n'y a pas de perte : alors $I_1 + I_2 = I_3 + I_4$. Les amplitudes sortantes et entrantes sont reliées par une matrice, et c'est la conservation des intensités qui impliquent que cette matrice est unitaire. Ainsi, dans les relations \eqref{A3 et A4}, on peut choisir un des coefficients, par exemple $\left| c \right|^2$ en choisissant un miroir semi-transparent. Le coefficient $\left| s \right|^2$ est alors fixé par la relation $\left| c \right|^2 + \left| s \right|^2 = 1$. 
+    \newline Il reste également une liberté de phase : en effet, il est possible de redéfinir la phase de $A_1 = e^{i\Phi} A_1'$ ; il en est de même pour les autres faisceaux. 
 \end{itemize}
 
-Dès lors,nous avons que les probabilités de détections en 4 et en 5 seront:
+Notons que si l'on a une onde qui parcourt une distance L d'un point A à un point A', alors une phase de $kL$ s'introduit dans l'expression de l'onde en ce point A' : 
 \begin{align}
-    P_4 &= \cos^2 \frac{\Delta \Phi}{2}\\
-    P_5 &= \sin^2 \frac{\Delta \Phi}{2}
+    \mbox{en A : } A(t)&= Ae^{-i\omega t} \\
+    \mbox{en A': } A'(t)&= A e^{-i\omega t} e^{ikL}
+\end{align}\label{dephasage} \\
+
+\textit{Remarques :} 
+\begin{enumerate}
+    \item Par convention, nous supposerons que l'onde transmise ne subit aucun déphasage, tandis que l'onde réfléchie subit un déphasage de $\pi /2$ (d'autres conventions sont possibles) ; 
+    \item Lorsqu'un faisceau de lumière arrive à un détecteur, ce que ce dernier mesure est un courant électrique $I(t) = e \left| A(t) \right|^2$. 
+\end{enumerate}
+
+Considérons à présent l'interféromètre qui contient 2 BM. \textcolor{red}{schéma pour représenter les $A_i$ à chaque entrée/sortie d'un BM}. 
+
+Dans ce cas-ci, il n'y a qu'une seule source de lumière et le faisceau incident est donné par : $A(t) = Ae^{-i\omega t}$ (l'intensité du faisceau à la source est alors $I_0 = \left| A(t) \right|^2 = \left| A \right|^2$). 
+Par les relations \eqref{A3 et A4}, et en choisissant $c = \frac{1}{\sqrt{2}}$ (qui n'est rien d'autre qu'un choix de phase pour simplifier les calculs) : \begin{align}
+    A_2(t) &= \frac{A(t)}{\sqrt{2}} \notag \\
+    A_3(t) &= i \frac{A(t)}{\sqrt{2}}
+\end{align} 
+Et par \eqref{dephasage}, on trouve au deuxième BM: 
+\begin{align}
+    A_2'(t) &= A_2(t) e^{ikL_2} \\
+    A_3'(t) &= A_3(t) e^{ikl_3}
 \end{align}
-\emph{Le photon est simultanément dans les chemins 2 et 3.}\\
+On note $\Delta \Phi = kL_3 - kL_2$ la différence de phase entre les deux ondes au deuxième BM. \\
 
-Remarquons que si nous supprimons le beam splitter à la fin, les probabilités de présence se réduisent à
+En utilisant à nouveau les relations pour les ondes sortantes du BM, on trouve : 
+\begin{align}
+    A_4(t) &= \frac{A_3'(t)}{\sqrt{2}} + i \frac{A_2'(t)}{\sqrt{2}} = \frac{1}{\sqrt{2}} \left( A_3(t)e^{ikL_3} + i A_2(t) e^{ikL_2} \right) = i \frac{A(t)}{2} \left( e^{ikL_3} + e^{ikL_2} \right) \\
+    A_5(t) &= i \frac{A_3'(t)}{\sqrt{2}} + \frac{A_2'(t)}{\sqrt{2}} = \frac{1}{\sqrt{2}} \left( iA_3(t) e^{ikL_3} + A_2(t)e^{ikL_2} \right) = \frac{A(t)}{2} \left( e^{ikL_2} - e^{ikL_3} \right) 
+\end{align}
+
+Ainsi, l'intensité des ondes aux détecteurs se trouve par : 
+\begin{align}
+    I_4 &= \frac{\left| A \right|^2}{4} \left| e^{ikL_3} + e^{ikL_2} \right|^2 \\ 
+    I_5 &= \frac{\left| A \right|^2}{4} \left| e^{ikL_2} - e^{ikL_3} \right|^2
+    \label{I4 et I5}
+\end{align} \\
+
+Développons le membre de droite de \eqref{I4 et I5} pour $I_4$ : 
+\begin{align*}
+    \left| e^ikL_3 + e^ikL_2 \right|^2 &= \left| e^{ikL_3} \right|^2 + \left| e^{ikL_2} \right|^2 + e^{ikL_3}(e^{ikL_2})^* + e^{ikL_2}(e^{ikL_3})^* \\
+    &= 2 + 2\textit{Re}\left[ e^{ikL_3}(e^{ikL_2})^* \right] \\
+    &= 2+2\left( \cos{kL_3} \cos{kL_2} + \sin{kL_2}\sin{kL_3} \right) \\
+    &= 2 \left( \cos{(kL_3 - kL_2)} +1 \right) \\
+    &= 4\cos^2{\frac{\Delta \Phi}{2}}
+\end{align*}
+
+Par un raisonnement similaire pour le membre de droite de $I_5$, nous avons finalement : 
+\begin{align}
+    I_4 &= \left| A \right|^2 \cos^2{\frac{\Delta \Phi}{2}} \\
+    I_5 &= \left| A \right|^2 \sin^2{\frac{\Delta \Phi}{2}}
+\end{align}
+$$ \rightarrow I_4 + I_5 = \left| A \right|^2 = I_0 $$ 
+Il y a bien conservation de l'intensité de l'onde émise, ce qui en fait était garanti par notre choix de phase car celui-ci faisait en sorte que $A_3(t)$ et $A_4(t)$ soient reliés à $A(t)$ par une transformation unitaire. 
+
+\subsection{Etude quantique}
+
+Avec le même dispositif, nous allons cette fois considérer une source d'\textbf{un seul photon}, plutôt qu'un faisceau de lumière. \\
+Classiquement, il serait naturel de se dire que le photon étant indivisible, ne passe que par un des deux chemins. Il arriverait alors à un détecteur ou à l'autre, avec une probabilité qui dépend du coefficient de réflexion du miroir semi-réfléchissant. En réalité, il se peut qu'un seul des deux détecteurs s'activent ; il y aurait manifestement des interférences même lorsque le faisceau est réduit à un seul photon. Il devient donc nécessaire de faire appel à la mécanique quantique pour étudier cela. 
+
+\paragraph{Description des \textbf{états quantiques} : }
+Si le photon peut suivre plusieurs chemins, on dira que l'état est : 
 \begin{equation}
-    P_4 = \frac{1}{2} = P_5
-\end{equation}
+    \ket{\psi} = \alpha\ket{1}+\beta\ket{2}+\gamma\ket{3}
+\end{equation}\label{etat photon}
+Avec $\left| \alpha \right|^2 + \left| \beta \right|^2 + \left| \gamma \right|^2 = 1$, et $\ket{i}$ pour $i \in \{ 1,2,3 \}$ est l'état du photon dans le chemin i. 
 
-Les \emph{delayed choice experiment} (Wheeler, 1978) - qui consistent à enlever/remettre le beam splitter, ou à changer la phase $\Delta\Phi$ après que le photon soit entré dans l'interféromètre - nous apprennent que \textbf{toute interprétation ou l'on suppose que le photon "sait à l'avance ce qu'il doit faire", ne tient pas.}
+\paragraph{Beam-splitter :}
+Un BM tel que décrit précédemment, induit une évolution donnée par : 
+\begin{align}
+    \ket{1} &\rightarrow c\ket{3} + is\ket{4} \notag\\
+    \ket{2} &\rightarrow is\ket{3} + c\ket{4}
+\end{align}\label{BM evolution}
+Cette évolution est décrite par la matrice  $\begin{pmatrix}
+c & is\\
+is & c
+\end{pmatrix}$ qui est unitaire unitaire (ce qui est cohérent par le postulat qui exprimer le fait que l'évolution des états se fait de manière unitaire).\\
+
+\paragraph{Détecteur du photon :} \textcolor{red}{Schéma des détecteurs avec 2 chemins} Supposons que l'on mesure le photon dans la base $\ket{1}$ et $\ket{2}$. \\
+Si l'état du photon est donné par $\ket{\psi} = \alpha\ket{1}+\beta\ket{2}$, alors les probabilités de détection seront données par : 
+\begin{align}
+    P(click 1) = \left| \alpha \right|^2 \notag \\
+    P(click 2) = \left| \beta \right|^2 
+\end{align}\label{proba_detection} 
+
+\paragraph{Description quantique de l'interféromètre : }
+La description de l'expérience découle en effet naturellement des points précédents durant lesquels on formalise l'expression des états du système, de l'évolution d'un état en passant par un BM, et des probabilités de détection d'un photon ;
+\begin{description}
+    \item Initialement : $\ket{\psi} = \ket{1} \equiv$ état d'un photon dans le chemin 1
+    \item $\rightarrow$ 1er passage dans le BM : $\ket{\psi} = \frac{1}{\sqrt{2}} \ket{2} + \frac{i}{\sqrt{2}} \ket{3}$ 
+    \item $\rightarrow$ Après avoir parcouru $L_2$ ou $L_3$ : $\ket{\psi} = \frac{e^{ikL_2}}{\sqrt{2}} \ket{2'} + i \frac{e^{ikL_3}}{\sqrt{2}} \ket{3'}$
+    \item $\rightarrow$ 2ème passage dans le BM : par \eqref{BM evolution}, on a que : 
+    \begin{align}
+    \ket{3'} &\rightarrow c\ket{4} + is\ket{5} = \frac{1}{\sqrt{2}} \left( \ket{4} + \ket{5} \right) \notag\\
+    \ket{2'} &\rightarrow is\ket{4} + c\ket{5} = \frac{1}{\sqrt{2}} \left( i \ket{4} + \ket{5} \right) 
+    \end{align}
+    Donc $\ket{\psi} = \frac{e^{ikL_2}}{\sqrt{2}} \ket{2'} + i \frac{e^{ikL_3}}{\sqrt{2}} \ket{3'}$ devient $\ket{\psi} = \frac{1}{2}\left( e^{ikL_2} - e^{ikL_3} \right) \ket{5} + \frac{i}{2} \left( e^{ikL_2} + e^{ikL_3} \right) \ket{4}$
+    \item $\rightarrow$ Probabilité de détection : par \eqref{proba_detection}, on trouve : 
+    \begin{align}
+    P(click 4) &= \cos^2 \frac{\Delta \Phi}{2}\\
+    P(click 5) &= \sin^2 \frac{\Delta \Phi}{2}
+    \end{align}
+\end{description}
+
+\textbf{Le photon est simultanément dans les chemins 2 et 3.} On observe d'ailleurs que s'ils ne sont pas déphasés, \textit{i.e} $\Delta \Phi = 0$, alors P(click 4) = 1 : il y a une interférence constructive qui fait qu'avec probabilité 1, seul un détecteur va s'enclencher. Le photon agit donc bien comme une onde. \\
+
+\paragraph{Modification d'un paramètre du dispositif :} Nous pouvons imaginer deux situations qui diffèrent de l'expérience initiale. \\
+
+Premièrement, regardons ce qu'il se passe lorsqu'un des chemins est bloqué : \textcolor{red}{Schéma d'un chemin bloqué} \\
+Dans ce cas-ci, il est clair que 
+\begin{align*}
+    P(D_2 click) &= 1/2 \\
+    P(D_4 click) &= 1/4 \\
+    P(D_5 click) &= 1/4
+\end{align*}
+
+Deuxièmement, on pourrait aussi supprimer le deuxième BM, et dans ce cas : \textcolor{red}{Schéma d'un BM en moins}
+\begin{align*}
+    P(D_4 click) &= 1/2 \\
+    P(D_5 click) &= 1/2
+\end{align*}
+
+Dans ces deux derniers cas, les probabilités sont simplement données par le fait qu'il y ait autant de chance que le photon soit réfléchi qu'il soit transmis, en passant par un BM. Le photon ici agit donc comme une particule. 
+
+\paragraph{\textit{Delayed choice experiment} (Wheeler-1978) :} Une question que l'on pourrait se poser est la suivante : "\textit{Est-ce que le photon sait-il d'avance ce qu'il doit faire ?}", autrement dit, selon les configurations du système, le photon décide-t-il d'agir comme une particule ou comme une onde ? \\
+Par exemple, pourquoi pas enlever/remettre un BM, changer la phase $\Delta \Phi$, \textbf{après} que le photon soit entré dans l'interféromètre. Des expériences montrent cependant que le photon peut être simultanément onde et particule à la fois ; l'interprétation où l'on suppose que le photon "sait à l'avance ce qu'il doit faire" ne tient donc pas. 
+
+\subsection{Elitzur-Vaidman \textit{"bomb tester"} (1993), expérience de pensée}
+
+\textcolor{red}{petit schéma avec la bombe}\\
+Soit $\mathcal{B} \equiv$ une bombe armée (explose si 1 seul photon touche le senseur), \\
+et ${\mathcal{B^*}} \equiv$ une bombe non-armée (pas de senseur présent). \\
+
+Supposons que l'on dispose de bombes armées et non-armées, mais indistinguables.\\
+Comment pourrions-nous faire pour sélectionner une bombe armée ? \\
+
+Disposons-nous d'un interféromètre, réglé tel que $\Delta \Phi = 0$. Par l'étude précédente de l'interféromètre, nous savons que $P(click 4) = 1$ et $P(click 5) = 0$. \\
+Perturbons à présent le système en plaçant une bombe sur le chemin 2 ; autrement dit, cela revient à bloquer le chemin 2 si la bombe est armée, ou à ne rien faire si la bombe n'est pas armée ; 
+\begin{itemize}
+    \item Si la bombe n'est pas armée : $P(click 4) = 1$ ; $P(click 5) = 0$
+    \item Si la bombe est armée : $P(Boum) = 1/2$ ; $P(click 4) = 1/4$ et $P(click 5) = 1/4$. 
+\end{itemize}
+Un click en 5 signalerait donc que l'on a une bombe armée de manière fiable, et elle n'a pas explosé! 
 
 \section{Oscillations de neutrinos}
 Une particule est dite élémentaire lorsque sa composition nous est inconnue. L'étude du comportement de ce type de particules fait l'objet de la physique des particules. Le plus récent modèle mathématique décrivant cette réalité est un résultat connu sous le nom de \textit{modèle standard des particules élémentaires}. Un exemple de telle particule est l'électron, rencontré dans les atomes. Il se trouve que le neutrino en est un autre exemple. Notons que la découverte de cette particule est extrêmement récente à l'échelle de l'histoire de la science et de l'humanité : elle a été prédite par Pauli en 1930, et ne fût observée pour la première fois qu'en 1956.\\
@@ -234,10 +294,6 @@ où nous avons posé $\Delta m^2 = m_1^2-m_2^2$. Il existe donc une probabilité
 \end{enumerate}
 
 Empiquement, il se trouve que $\sin^22\theta \approx 0.85$ et $\Delta m^2 \approx 8 10^{-5} eV^2$. \color{purple} Notons qu'en réalité le problème est un peu plus complexe, car il existe 3 saveurs de neutrinos et non deux : cette résolution naïve pour 2 saveurs permet cependant de bien mettre en évidence la réalité physique, et les effets quantiques présents dans ce système. \color{black}
-
-
-% \section{MASER $NH_3$}
-% Dans cette section, nous allons discuter d'un appareil fort pratique: le MASER\footnote{Acronyme anglais pour 'Microwave Amplicifaction by Stimulated Emission of Radiation'.} d'ammonium $NH_3$ ; l'un des ancêtres des LASER\footnote{Acronyme anglais pour 'Light Amplification by Stimulated Emission of Radiation'.}
 
 \section{Résonance quantique}
 
