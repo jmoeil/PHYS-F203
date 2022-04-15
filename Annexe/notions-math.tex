@@ -1,8 +1,17 @@
 \documentclass[../notesdecours.tex]{subfiles}
 
 \begin{document}
-    
 \chapter{Notions mathématiques}
+\section{Série de Fourier}
+Une série de Fourier est une série de la forme
+\begin{subequations}
+\begin{equation}
+c_n = \frac{1}{T} \int^{T/2}_{-T/2} dx f(x)e^{-2\pi i(\frac{n}{T})x}
+\end{equation}
+\begin{equation}
+f(x) = \sum_{n = -\infty}^{+\infty}c_ne^{2\pi i (\frac{n}{T})x}
+\end{equation}
+\end{subequations}
 
 \paragraph{} Dans ce chapitre, nous allons rapidement passer en revue plusieurs notions de maths, 
 plus particulièrement d'analyse, qui apparaissent dans le cours de Mécanique Quantique, 

@@ -1,4 +1,4 @@
-\documentclass{report}
+\documentclass{book}
 \usepackage[allcolors=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
@@ -12,7 +12,6 @@
 \usepackage{pgfplotstable}
 \usepackage{siunitx}
 \usepackage{wrapfig}
-\usepackage{graphicx}
 \usepackage{subfiles}
 \usepackage{systeme}
 \usepackage{bm}
@@ -25,16 +24,19 @@
 \usepackage{chngcntr}
 \usepackage{textcomp}
 \usepackage{geometry}
-\geometry{top=3cm, bottom=3cm, left=2.5cm, right=2.5cm}
+\usepackage[tc]{titlepic} % page de garde
+\geometry{
+     a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+ }
 
 \numberwithin{equation}{part}
 \counterwithin*{section}{part}
 
 \pgfplotsset{width=10cm,compat=1.16}
-
-\newcommand{\ti}{\times}
-\newcommand{\h}{\hbar}
-\renewcommand{\d}{\mathrm{d}}
+\input{Preambules/math_commands.tex}
 \renewcommand{\thepart}{\arabic{part}}
 
 
@@ -43,9 +45,8 @@
 \titlespacing*{\paragraph}
 {0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
 
-\title{\textbf{PHYS-F203 - Introduction à la Mécanique Quantique} \\ \textit{Basé sur les notes de Prof. $\href{mailto:serge.massar@ulb.be}{\text{Massar Serge}}$}}
-\author{$\href{mailto:juian.moeil@ulb.be}{\text{Moeil Juian}}$ \and $\href{mailto:sami.abdul.sater@ulb.be}{\text{Abdul Sater Sami}}$ \and $\href{mailto:anais.defossez@ulb.be}{\text{Defossez Anais }}$}
-\date{\textbf{Année académique 2020-2021}}
+\renewcommand{\thepart}{\Roman{part}} 
+
 
 \newtheorem{theorem}{Théorème}[section]
 \newtheorem{definition}[theorem]{Définition}
@@ -64,8 +65,18 @@
 \usepackage{enumitem}
 
 %%% Début ajouts Sami
-% Definition boite grise avec couleur grise définie
+% Nouvelles couleurs (BG = Background)
+\definecolor{bleu}{RGB}{14, 68, 175}
+\definecolor{BGbleu}{RGB}{222, 233, 255 }
+\definecolor{BGorange}{RGB}{255, 216, 154}
 \definecolor{BGgris}{RGB}{222,230,230}
+\definecolor{rouge}{RGB}{201, 0, 0}
+\definecolor{vert}{RGB}{14, 137, 0}
+\newcommand\rouge[1] {{\color{rouge}{#1}}}
+\newcommand\bleu[1] {{\color{bleu}{#1}}}
+\newcommand\green[1]{{\color{vert}{#1}}}
+
+% Boites
 \newcommand\bg[2]{
 \begin{center}
 \fcolorbox{white}{BGgris}{\parbox{.9\linewidth}{\begin{large} \textit{#1} \end{large} \\
@@ -81,44 +92,113 @@
 #1}}
 \end{center}}
 
-\setlength{\fboxsep}{2em} % espace entre le bord d'une boite et le texte dedans
+% boite bleue
+\newcommand\bb[1]{
+\begin{center}
+\fcolorbox{black}{BGbleu}{\parbox{\textwidth}{ 
+\begin{Large}
+\begin{center}
+#1
+\end{center}
+\end{Large}
+}}
+\end{center}}
 
+\setlength{\fboxsep}{1em} % espace entre le bord d'une boite et le texte dedans
+
+
+% Commande spéciale pour wrap facilement
+%% Wrapping %%
+\newcommand\wrap[4]{\begin{wrapfigure}[#1]{#2}{#3\textwidth}
+    #4
+    \end{wrapfigure}}
 %%% Fin ajouts Sami
+
+% Setup of hyperref features
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=purple,
+  pdftitle="DM202122 - MOEIL Juian"
+}
+
+\title{\textbf{PHYS-F203 - Introduction à la Mécanique Quantique} \\ \textit{Basé sur les notes de Prof. $\href{mailto:serge.massar@ulb.be}{\text{Massar Serge}}$}}
+\author{$\href{mailto:juian.moeil@ulb.be}{\text{Moeil Juian}}$ \and $\href{mailto:sami.abdul.sater@ulb.be}{\text{Abdul Sater Sami}}$ \and $\href{mailto:anais.defossez@ulb.be}{\text{Defossez Anais }}$}
+\date{\textbf{Année académique 2021-2022}}
 
 \begin{document}
 
-\maketitle
+
+%% Page de garde : https://tex.stackexchange.com/questions/10130/use-the-values-of-title-author-and-date-on-a-custom-title-page pour l'utilisation des variables, et @SAS pour la page de garde
+\makeatletter
+\begin{titlepage}
+    \centering
+    \huge{\@title} \\
+    \vspace{1cm}
+    \@date \\
+    \vspace{1cm}
+    \includegraphics[scale=0.65]{Images/cat.jpg} \\
+    \vspace{1cm}
+    \begin{minipage}{\linewidth}
+        \begin{minipage}{0.45\linewidth}
+            \begin{center}
+                \includegraphics[scale=0.2]{Images/sciences.png} 
+            \end{center}
+        \end{minipage}
+        \begin{minipage}{0.5\linewidth}
+            \begin{flushright}
+                \begin{tabular}{r}
+                    Auteurs \\
+                    \hline
+                    \href{mailto:juian.moeil@ulb.be}{Moeil Juian} \\
+                    \href{mailto:anais.defossez@ulb.be}{Defossez Anais} \\
+                    \href{mailto:sami.abdul.sater@ulb.be}{Abdul Sater Sami}
+                \end{tabular}
+            \end{flushright}
+        \end{minipage}
+    \end{minipage}
+    \\
+    \vfill
+    \includegraphics[scale=0.5]{Images/ULB.jpg} \\
+\end{titlepage}
+\makeatother
+
+\chapter*{Avant-propos}
+\textit{Ce document a été initialement conçu par Juian Moeil pour contenir les notes de cours de Pr. Serge Massar, pour le cours \href{https://www.ulb.be/fr/programme/phys-f203}{PHYS-F203} dispensé à l'ULB durant l'année académique 2020-2021. Sami et Anais ont rejoint l'aventure durant l'été 2021 pour le mettre à jour : approfondir le contenu et y faire contenir des réflexions et interprétations qui ne viennent pas explicitement des notes manuscrites. \\ \\
+Certaines parties du chapitre 2 sont inspirées de \href{https://www.ulb.be/fr/programme/phys-h200}{PHYS-H200}, \textit{Physique Quantique et Statistique}, dispensé par Pr. Jean-Marc Sparenberg. \\ \\
+Ces notes sont donc l'oeuvre de compréhension et d'interprétation d'étudiants, qui n'ont aucunement la prétention de ne pas commettre d'erreur : d'orthographe, de grammaire, voire pire, physique. N'hésitez donc pas à contacter Juian, Anais, ou Sami, pour toute remarque (adresse e-mail cliquable en page de garde).
+} \\
+
+Le document est structuré comme suit : la partie 1 présente les fondements et le formalisme de la Mécanique Quantique. En commençant par le principe d'incertitude d'Heisenberg (chapitre \ref{chap:chap1}) et l'observation de la dualité onde-particule (chapitre \ref{chap:chap2}). Ce dernier chapitre aboutit sur l'équation de Schrödinger (chapitre \ref{chap:chap3}). Ensuite, il est question d'aborder le formalisme et les postulats de la Mécanique Quantique. \\
+
+La partie 2 concernerait les applications de la Mécanique quantique, et contient, dans la numérotation de S. Massar, les chapitres 5 à 8 compris. \\
+
+Les chapitres 1 à 3 ont été revus en profondeur. Le chapitre 4 est en cours de (profonde) révision, et les chapitres au-delà contiennent une retranscription des notes manuscrites de S. Massar et nécessitent révision (et approfondissement). \\
+
+Le symbole $\doteq$ est employé pour dire "par définition". Les vecteurs $\bm{x}$ sont indiqués en gras.
+
+
 \newpage
 \tableofcontents
 
+\part{Fondements et formalisme de la Mécanique Quantique}
+\subfile{Chapitre 1/chapitre1.tex}  %   Incertitude
 \newpage
-\begin{abstract}
-\textit{Ces notes traitent de l'interprétation de Copenhague de la Mécanique Quantique, telle qu'enseignée dans le cadre du cours $\href{https://www.ulb.be/fr/programme/phys-f203}{\text{PHYS-F203}}$ en 2020-2021.} \end{abstract}
-\begin{remark}
-    Le symbole $\doteq$ est employé pour dire "par définition". Les vecteurs $\bm{x}$ sont indiqués en gras.
-\end{remark}
+\subfile{Chapitre 2/chapitre2.tex}  %   Fondements 
+\newpage
+\subfile{Chapitre 3/chapter3.tex}  %   Equation de Schrodinger
+\newpage
+\subfile{Chapitre 4/chapitre4.tex}  %   Formalisme
+\newpage
 
-\begin{remark}
-    Ces notes ont été rédigées par des étudiant.e.s. Aussi, n'hésitez pas à contacter $\href{mailto:juian.moeil@ulb.be}{\text{MOEIL Juian}}$ pour toute question ou remarque. 
-\end{remark}
-
-\textit{Merci à Bellet Björn pour sa relecture.}
-
-\subfile{Chapitre 1/chapitre1.tex}
-\newpage
-\subfile{Chapitre 2/chapitre2.tex}
-\newpage
-\subfile{Chapitre 3/chapitre3.tex}
-\newpage
-\subfile{Chapitre 4/chapitre4.tex}
-\newpage
+\part{Applications de la Mécanique quantique}
 \subfile{Chapitre 5/chapitre5.tex}
 \newpage
-\subfile{Chapitre 6/chapitre6.tex}
+\subfile{Chapitre 6/chapitre6.tex}  % Opérateurs X et P
 \newpage
-\subfile{Chapitre 7/Chapitre7.tex}
+\subfile{Chapitre 7/Chapitre7.tex}  % Oscillateur harmonique
 
 \newpage
-\subfile{Annexe/annexe.tex}
+\subfile{Annexe/annexe.tex}         % Notions mathématiques, etc.
 
 \end{document}

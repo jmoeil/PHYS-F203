@@ -1,0 +1,36 @@
+\documentclass{standalone}
+
+\usepackage{pgfplots}
+\usetikzlibrary{intersections}
+
+\begin{document}
+
+
+\begin{tikzpicture}
+    \begin{axis}[
+        xmax = 4.3,
+        xmin = -0.5,
+        ymin = -0.5,
+        ymax = 2.5,
+        axis lines = middle,
+        xlabel style = {right},
+        ylabel style = {above},
+        xlabel = {$L$},
+        width=\linewidth,
+        height = 6cm,
+        xtick = {1.57,3.14},
+        xticklabels = {$\pi/k_2$,$2\pi/k_2$},
+        ytick = {2},
+        yticklabels = {1},        
+        ]
+    
+
+\addplot [red, thick, name path global=SinAbs, domain = 0:4, samples = 100]  {
+        1.1/(0.5+sin(2*deg(x))^2)-0.2
+} ;%
+
+
+
+\end{axis} 
+\end{tikzpicture}
+\end{document}

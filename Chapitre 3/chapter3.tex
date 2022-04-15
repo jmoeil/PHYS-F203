@@ -1,0 +1,596 @@
+
+\chapter{L'équation de Schrödinger}\label{chap:chap3}
+Les résultats du chapitre précédent ont permis de mettre en évidence certaines observations qui ont fini par constituer les principes fondamentaux de la physique quantique. Son résultat notable a été l'obtention d'une équation qui régit le comportement d'une particule quantique, étant à la fois celui d'une onde et celui d'un corpuscule. Dans le régime non-relativiste, cette équation s'appelle \textbf{équation de Schrödinger}. \\
+Dans ce chapitre, nous expliciterons son intérêt mathématique, son contenu physique (interprétation), et enfin traiterons quelques exemples de résolution avec différents cas de potentiels $V(\vec{r},t)$. Nous verrons en effet qu'une étude simple de cette équation mène a des résultats qui diffèrent radicalement de la physique classique et qui ont un intérêt non-négligeable, comme par exemple l'effet tunnel. 
+
+\bb{Équation de Schrödinger 
+\begin{equation}\label{eq:schrodinger}
+  i\hbar\;  \dfrac{\partial}{\partial t}\;  \psi = -\dfrac{\hbar ^2}{2m} \; \Delta \psi + V(\vec r, t) \;  \psi \quad (=\hat{H} \; \psi)
+\end{equation}
+}
+
+\section{Étude mathématique}
+Dans cette section nous verrons plusieurs choses :
+\begin{itemize}[label= \textbullet]
+  \item Résolution de l'équation de Schrödinger pour une particule libre, \textit{i.e} pour $V = 0$
+  \item Sa solution générale, menant à la formation d'un paquet d'onde
+  \item Les propriétés des paquets d'ondes, ainsi que des paquets d'ondes \textit{gaussiens}
+\end{itemize}
+\subsection{Propriétés}
+Les propriétés de l'équation de Schrödinger sont bien plus appréciables que celle de Klein-Gordon. En effet, l'équation de Schrödinger est
+\begin{itemize}
+\item linéaire ; autrement dit, si $\psi_1$ et $\psi_2$ sont des solutions distinctes de l'équation, alors leur combinaison linéaire reste une solution. C'est également ce qu'on appelle le principe de superposition ; 
+\item de premier ordre en le temps : ce caractère est préféré (pour des raisons obscures) à l'équation de Klein-Gordon qui contient une dérivée seconde par rapport au temps \footnote{En effet, sans le justifier davantage, si l'on considère une particule décrite par l'équation de Klein-Gordon, écrire la conservation de la probabilité sur elle, $\partial_t \rho + \vec{\nabla} \cdot \vec{J} = 0$, donnerait mathématiquement comme solution des $\rho$ positifs ou négatifs. Or une densité de masse négative est aberrante en physique. Donc la dérivée seconde par rapport au temps dérange le Physicien !}.
+\item en accord avec les conditions de de Broglie puisque l'équation découle en partie de ces conditions ;
+\item en accord avec la \textbf{conservation de la probabilité}, dans le sens où la probabilité de trouver la particule dans l'espace en entier est une constante. Cette propriété ne se déduit pas si simplement par de l'analyse mais sera effectivement démontrée une fois que le cadre mathématique de la mécanique quantique aura été posé.
+\end{itemize}
+Avant de continuer, rappelons les choses qui doivent être acquis afin de comprendre la suite : 
+\begin{itemize}[label= \textbullet]
+  \item on considère la particule également comme une onde ; 
+  \item sa fonction d'onde associée, notée $\psi$ (ou parfois $\phi$), contient toutes les informations sur la particule dans une situation donnée ; 
+  \item on fait apparaître une interprétation probabiliste en mécanique quantique, où $|\psi(\vec{x},t)|^2$ correspond à la densité de probabilité de mesurer la présence de la particule à l'instant $t$, à la position $\vec{x}$ ; 
+  \item la probabilité de mesurer la particule dans \textit{tout} l'espace est constante, et normalisée à 1 (notion de probabilité). Ainsi : 
+  \begin{equation}
+    \int_{\mathbb{R}^3} |\psi(x,t)|^2 \; \dx = 1
+  \end{equation}
+\end{itemize}
+Ce dernier point nous informe en particulier qu'il est nécessaire que les fonctions d'onde soient de carré sommable. Autrement, la fonction d'onde perdrait son sens physique. 
+Une étude plus approfondie de l'espace des fonctions d'ondes sera faite au chapitre \rouge{4 (réf)}.
+
+\subsection{Description quantique d'une particule libre}
+Considérons une particule dont l'énergie potentielle est nulle, $V=0$ (par exemple un électron suffisamment loin de tout corps). La particule n'étant soumise à aucune force, on dit qu'elle est libre.\\
+Dans ce cas, l'équation de Schrödinger devient $i \hbar \partial_t \psi = -\frac{\hbar^2}{2m} \Delta \psi$, et elle admet alors des solutions de la forme : 
+\begin{equation}\label{eq:solution_schrod}
+\psi(\vec r, t) = A \; e^{-i\omega(k) t} \; e ^{i \vec k \cdot \vec r} \; ,
+\end{equation}
+avec 
+\begin{equation}\label{eq:relation_dispersion}
+\omega(k) = \dfrac{\hbar k^2}{2m} \quad \text{(relation de dispersion)}
+\end{equation}
+
+\textit{Remarque : } Par les relations de de Broglie, cette dernière équation \ref{eq:relation_dispersion} nous donne que $E = \frac{p^2}{2m}$. On retrouve bien l'énergie d'une particule libre de la physique classique. \\
+
+Par la solution \ref{eq:solution_schrod}, on observe que $$ \lvert \psi(\vec{r},t) \rvert^2 = \lvert A \rvert^2 .$$
+Cela signifie donc que l'onde plane représente une particule dont la densité de probabilité de présence est uniforme dans tout l'espace. \\
+Cependant, nous pouvons facilement constater qu'elle n'est pas de carré sommable (son intégrale sur tout l'espace diverge). Ainsi, l'onde plane \textbf{ne représente pas} un état physique! Une superposition d'onde plane peut par contre avoir du sens ; c'est donc ce dont on va discuter à présent. \\
+
+\textbf{Solution générale :} \\
+En effet, par le principe de superposition, une combinaison des solutions du type onde plane reste une solution, et nous pouvons écrire cette combinaison comme : 
+\begin{equation} \label{eq:schrod_sol_gen}
+\psi(\vec r, t) = \dfrac{1}{(2\pi)^{3/2}} \int \d ^3 k \; g(\vec k) \; e^{-i\omega(k) t} \; e^{i\vec k \cdot \vec r} \; .
+\end{equation}
+Ceci constitue donc la solution générale à l'équation de Schrödinger pour une particule libre, et on dit également que cette superposition d'ondes forme un \textbf{paquet d'ondes}. \\
+Afin de comprendre ce que représente $g(k)$, restreignons nous à un mouvement à 1D (dans la direction $x$ par exemple), et à un instant donné $t=0$.
+
+$$\psi(x,0) = \dfrac{1}{\sqrt{2\pi}} \int_{-\infty} ^{+\infty} g(k) e^{ikx} \; \d k $$
+On voit sur cette équation que $g(k)$ n'est rien autre que la transformée de Fourier de $\psi(x,0)$ ({\color{blue}{voir annexe sur notions de math}}) :
+$$g(k) = \frac{1}{2 \pi}\int_{-\infty} ^{+\infty} \psi(x,0) e^{-ikx} \; \d x $$
+$g(k)$ et $\psi(x,0)$ ont donc même module, par le théorème de Plancherel. 
+
+
+\subsection{Paquet d'ondes à une dimension}
+Une onde plane \eqref{eq:solution_schrod}, bien que solution à l'équation de Schrödinger, n'est pas une solution physiquement acceptable. Une solution générale du style \eqref{eq:schrod_sol_gen} l'est par contre. 
+Dans cette section, nous parlerons des différentes vitesses qui caractérisent de tels ondes. 
+\subsubsection{Propriétés d'une onde plane}
+Pour une onde plane à une dimension :
+$$\psi(x,t) = A \; e^{-i\omega(k) t} \; e ^{ikx} \; ,$$
+et la propriété qui caractérise la vitesse de propagation de cette onde plane (qui n'est pas un objet physique au final) est la quantité $\omega/k$, qu'on appelle la \textit{vitesse de phase} de la phase $k$ :
+\begin{equation}
+\text{Vitesse de phase : } \quad v_\varphi = \dfrac{\omega(k)}{k} = \dfrac{\hbar k}{2m}
+\end{equation}
+\subsubsection{Propriétés d'un paquet d'ondes}
+Pour un paquet d'ondes :
+$$A(x, t) = \int \d k \; g(k) \; e^{-i\omega(k) t} \; e^{ikx} \; ,$$
+On peut toujours identifier une vitesse de phase pour chaque phase $k$, mais ce n'est pas ce qui représentera la vitesse de la particule. Nous pouvons considérer $g(k)$ centré en un $k_0$ en forme de gaussienne de largeur $\Delta$ :
+$$g(k-k_0) = e^{-\frac{(k-k_0)^2}{2\Delta^2}}$$
+de sorte à pouvoir étendre $w(k)$ au deuxième ordre en $k_0$ :
+$$ w(k) = w(k_0) + w'(k_0) (k-k_0) + w''(k_0) \frac{(k-k_0)^2}{2} \; .$$
+Ainsi, le paquet d'onde peut encore se réécrire :
+\begin{equation}
+A(x,t) = e^{-i\omega(k_0)t} e^{ik_0x} \int \d k \; g(k-k_0) \; e^{i(k-k_0)\cdot [\omega'(k_0) t + x]}
+\end{equation}
+ce qui est à quelques facteurs près la transformée de Fourier de $$g(\omega'(k_0)t-x) = \exp{-\dfrac{(\omega'(k_0)t-x)^2}{2\Delta^2}} \; .$$
+De cette dernière expression on peut tirer que le paquet d'onde se déplace à une vitesse qui est nulle autre que la dérivée de $\omega(k)$ pour la valeur $k_0$. On appelle cette quantité la \textit{vitesse de groupe}.
+\begin{equation}
+\boxed{
+\text{Vitesse de groupe : } \quad v_g(k) = \dfrac{\partial \omega}{\partial k} = \dfrac{\hbar k}{m}
+}
+\end{equation}
+On remarque très très très rapidement que pour une particule classique où $\hbar k$ est l'impulsion en scalaire, la vitesse de groupe correspond à la vitesse classique.
+
+\subsection{Propagation (étalement) d'un paquet d'onde gaussien}
+Un paquet d'onde \textbf{gaussien} s'écrit comme :
+\begin{equation}
+\psi(x, t) = \dfrac{\sqrt{a}}{\left(2\pi\right) ^{3/4}} \int_{-\infty} ^{+\infty} \d k \; \exp \left[-\dfrac{a^2}{4} (k-k_0)^2\right] \; \exp\left[i \left(kx - \dfrac{\hbar k^2}{2m}t\right)\right]
+\end{equation}
+que nous allons évaluer en utilisant [...]. Après évaluation de l'intégrale, on trouve une expression de $\psi$ qui est encore une gaussienne, comme quoi la transformée de Fourier d'une gaussienne est bel et bien encore une gaussienne, mais la largeur trouvée est dépendante du temps :
+\begin{equation}
+\Delta x = \dfrac{a}{2} \sqrt{ 1 + \dfrac{4 \hbar ^2 t^2}{m^2 a^4}}
+\end{equation}
+ce qui montre que la dispersion spatiale dépend du temps. En revanche, celle sur l'impulsion est donnée par $$\Delta p = \hbar \Delta k$$, où $\Delta k$ est la largeur de la gaussienne $g(k-k_0)$ donnée par $|g(k,t=0)|^2$ qui est la même qu'en tout temps parce que $$g(k,t) = e^{-i\omega t} g(k,0)$$ ce qui implique la conservation du module à travers le temps. Autrement dit, la largeur de la gaussienne, 
+$$\Delta k = |g(k,t=0)|^2 = \dfrac{1}{a}$$
+est constante : il n'y a donc pas d'étalement sur l'impulsion.
+
+
+
+\section{Interprétation probabiliste de la mécanique quantique}
+Dans cette section, nous abordons le cas de la conservation de la probabilité, une nécessité que doit offrir une solution à \eqref{eq:schrodinger} pour être physiquement acceptable. La conservation de la probabilité se déclinera selon 2 faits démontrés plus bas :
+\begin{enumerate}[label= (\alph*)]
+\item L'intégrale de $|\psi|^2$ sur tout l'espace est indépendante du temps. Cela permettra de la fixer à 1 en normalisant $\psi$ et ainsi considérer $|\psi|^2$ comme une densité de probabilité.
+\item La densité de probabilité est localement conservée : elle répond à une équation de continuité. \\
+\end{enumerate}
+Démontrons ces deux énoncés.
+\begin{enumerate}[label= (\alph*)]
+\item \begin{proof}
+Ultérieurement.
+\end{proof}
+\item \begin{proof}
+Utilisant que $\hat{H}$ est hermitique,
+\begin{eqnarray*}
+\hat{H}\psi &=& \hat{H} \bar{\psi} \\
+ \Rightarrow \quad i\hbar \partial_t \bar{\psi} &=& -\dfrac{\hbar^2}{2m} \Delta \bar{\psi}+ V \bar{\psi} 
+\end{eqnarray*}
+Or $$i\hbar \partial_t \psi = -i\hbar \partial_t \bar{\psi} \; .$$
+De plus, par définition, 
+$$\rho = |\psi|^2 = \psi \bar{\psi} \; .$$
+Ainsi, en dérivant $\rho$ par rapport au temps et en multipliant par $i\hbar$ :
+\begin{eqnarray*}
+i\hbar \partial_t \rho &=& \left(-\dfrac{\hbar^2}{2m} \Delta \psi\right) \bar{\psi} \quad - \quad \left(-\dfrac{\hbar^2}{2m} \Delta \bar{\psi}\right)\psi \\
+&=& -\dfrac{\hbar^2}{2m} \left( \bar{\psi} \Delta \psi - \psi \Delta \bar{\psi} \right) \\
+\Rightarrow 0 &=& \quad \partial_t \rho + \dfrac{\hbar}{2mi} \vec \nabla \left( \bar{\psi} \Delta \psi - \psi \Delta \bar{\psi} \right) 
+\end{eqnarray*}
+En définissant 
+\begin{equation} \label{eq:courant_proba}
+\vec J := \dfrac{1}{m} \; \mathcal{I}m \;\left[\hbar \bar{\psi}(\vec \nabla \psi)\right] 
+\end{equation} 
+Nous pouvons écrire l'équation de continuité suivante :
+\begin{equation} \label{eq:continuite_proba}
+\boxed{\dfrac{\partial}{\partial t} \rho(\vec x, t) + \mathrm{div} \vec J = 0}
+\end{equation}
+\end{proof}\end{enumerate}
+La grandeur $\vec J$ apparaît en réagissant à la variation de la densité de probabilité dans le temps. Une variation non nulle fait apparaître un $\vec J$ pour compenser. Cette grandeur est appelée \textbf{courant de probabilité}, et l'équation \eqref{eq:continuite_proba} démontre que l'équation de Schrödinger offre une conservation locale de la probabilité. Un \textbf{courant de probabilité} apparaît aux endroits où la densité de probabilité a baissé. Ce n'est ni une cause ni une conséquence, juste une équation qui explique que rien ne se crée, rien ne se perd, tout se conserve.
+
+\bg{Exemple d'une onde plane}{Pour une onde plane $A \; e^{-i\omega t} \; e ^{i \vec k \cdot \vec r}$, un calcul montre que le courant de probabilité est donné par $$\vec J = \dfrac{\vec p }{m} A^2 \; ,$$ soit directement lié à la vitesse de la particule.}
+
+\bg{Origine de l'interprétation probabiliste : étude des collisions}{
+Max Born étudiait les collisions dans son laboratoire. Il connaissait les travaux de Schrödinger et trouvait que son équation s'appliquait bien dans le cas d'une collision. Son raisonnement arrive à une étape où, en résolvant l'équation de Schrödinger en tenant compte de la composante diffusée, la fonction d'onde du système obtenu est :
+$$ \psi(\vec r) = A e^{i \vec k \cdot \vec r} \quad + \underbrace{\int \d ^3 \vec k \; e^{i \vec k \cdot \vec r} \; C(\vec k)}_{\text{composante diffusée}} $$
+L'équation de Schödinger donne donc une solution qui fait intervenir la diffusion dans \textbf{toutes les directions à la fois} (à travers l'intégrale), alors que dans le laboratoire on ne voit la diffusion que dans une seule direction. Il en déduit alors que ce que prend en compte la solution à \eqref{eq:schrodinger} est la \textbf{probabilité de diffusion} dans une direction, et que la mécanique quantique est probabiliste.}
+\section{Equation de Schrödinger en potentiel stationnaire}
+Reprenons la forme standard de l'équation de Schrödinger, en supposant cette fois que le \textbf{potentiel ne dépend pas du temps}. Nous obtenons l'équation \eqref{eq:schrodinger_stationnaire}, où le potentiel est dit \textbf{stationnaire}. 
+\begin{equation} \label{eq:schrodinger_stationnaire}
+i\hbar \dfrac{\partial}{\partial t} \psi = -\dfrac{\hbar ^2}{2m} \Delta \psi + V(\vec r, t) \psi
+\end{equation}
+Résolvons-la par la méthode de séparation des variables. Montrons en effet qu'il existe $\varphi(\vec x)$ et $\chi(t)$ tels que $$\psi(\vec r, t) = \varphi(\vec x) \chi(t)\; .$$
+
+En écrivant l'équation différentielle \eqref{eq:schrodinger_stationnaire} avec ce changement de fonctions, nous pouvons arriver à la forme suivante, séparant les parties temporelle et spatiale :
+\begin{equation}
+i\hbar \dfrac{1}{\chi(t)} \; \dfrac{\d}{\dt} \chi(t) \; = \; \dfrac{1}{\varphi(\vec r)} \left[ -\dfrac{\hbar ^2}{2m} \; \Delta \varphi(\vec r) \right] + V(\vec r)
+\end{equation}
+L'équation \eqref{eq:schrodinger_stationnaire} sépare les variables temporelle et spatiale, de telle sorte à les faire égaler obligatoirement une constante pour satisfaire l'égalité. Notons cette constante $\hbar \omega$. 
+\subsection{Résolution de la partie temporelle de l'équation de Schrödinger en potentiel stationnaire}
+Cette étape-ci de la résolution consiste à égaler la partie temporelle de \eqref{eq:schrodinger_stationnaire} à $\hbar \omega$ et à résoudre l'équation différentielle, qui est du premier ordre en le temps. La solution est une exponentielle complexe en le temps.
+
+\begin{equation} \label{eq:resol_stat_temps}
+\begin{array}{lrl r}
+& i\hbar \dfrac{1}{\chi(t)} \; \dfrac{\d}{\dt} \chi(t) &= \hbar \omega  &\\
+\iff& i \hbar \; \dfrac{\d}{\dt} \chi(t) &= \hbar \omega \;  \chi(t)  &\\
+\iff & \chi(t) &= A \; \exp(-i\omega t)  &\quad A \in \mathbb{C}
+\end{array}
+\end{equation}
+
+
+\subsection{Résolution de la partie spatiale de l'équation de Schrödinger en potentiel stationnaire}
+Il vient ici d'égaler le second membre de \eqref{eq:schrodinger_stationnaire} à $\hbar \omega$. Il vient :
+
+\begin{equation} \label{eq:resol_stat_pos}
+\varphi(\vec r) \quad \mathrm{t.q} \quad \left[-\dfrac{\hbar ^2}{2m} \; \Delta + V(\vec r) \right] \; \varphi(\vec r) \; = \underbrace{\hbar	\omega}_E \; \varphi(\vec r)
+\end{equation}
+
+
+La constante $\hbar \omega$ correspond bien à l'énergie de la particule. En résolvant \eqref{eq:resol_stat_pos}, cela nous donne la forme d'une solution à l'équation de Schrödinger en potentiel stationnaire.
+
+\begin{equation}
+\psi(\vec r, t) = \varphi(\vec r) \; \;  A \;e^{-i\omega t} \quad \text{solution de \eqref{eq:schrodinger_stationnaire}}
+\end{equation}
+
+
+Une telle fonction est appelée \textbf{solution stationnaire de l'équation de Schrödinger}, car elle conduit à une densité de probabilité indépendante du temps. On remarque que pour une solution stationnaire, \textbf{une seule pulsation apparaît} : les états d'énergie y sont bien définis. Là où en classique on insiste sur le fait que l'énergie doit bien être conservée, ici on insiste sur le fait que les états d'énergie doivent être bien définis, qu'il existe une énergie bien déterminée. \\
+
+La résolution de \eqref{eq:resol_stat_pos} dépend de la forme du potentiel. Nous en explorons quelques exemples. Nous pouvons déjà noter que pour faire apparaître des effets quantiques, les potentiels doivent présenter des variations sur des faibles longueurs, typiquement plus faibles que la longueur d'onde des ondes correspondant aux particules en jeu.
+
+
+\section{Equation de Schrödinger en potentiel carré}\label{chap2:potentiel carre}
+Dans cette sections nous traitons plusieurs cas de potentiels, qui ont pour point commun de répondre à la définition de "potentiel carré" présentée à la section suivante. Nous pouvons les organiser de la sorte :
+\begin{itemize}
+  \item Puits de potentiel : on mettra en évidence la présence \textbf{d'états liés}
+    \begin{itemize}[label = $\star$]
+      \item Infini
+      \item Fini
+    \end{itemize}
+  \item Marche de potentiel : on verra l'effet tunnel
+\end{itemize}
+\subsection{Définition d'un potentiel carré} \label{ch2-subsection-Definition_pot_carre}
+Un potentiel carré est un potentiel présentant des discontinuités sous la forme de "marches" \footnote{Synonymes : potentiel en marche d'escalier, potentiels continus par morceaux}. Une grandeur physique ne pouvant pas présenter de discontinuité en réalité, le potentiel carré en est néanmoins souvent une excellente \textbf{approximation}.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\linewidth]{images/pot_carre.pdf}
+\caption{Illustration d'un puits de potentiel carré en comparaison avec un puits de potentiel réel.}
+\label{fig:potentiel_carre}
+\end{figure}
+
+Un puits de potentiel est une région de l'espace où le potentiel atteint un minimum. Cette notion existe en mécanique classique, alors nous pourrions parler ici de puits quantique pour parler d'un puits dont les dimensions sont si petites qu'elles ne peuvent nous protéger d'entrer dans la mécanique quantique (cf. début de section). Mais nous garderons la dénomination de "puits de potentiel" car ce document ne concerne que la mécanique quantique. \\
+
+
+\subsection{Puits de potentiel infini}
+Un puits de potentiel infini a des discontinuités tendant vers l'infini. Il peut s'apparenter à une "boîte", c'est pourquoi on parle souvent de "particule dans une boîte". Par ailleurs, intuitivement, comme une particule ne peut pas exister dans une région où règne un potentiel infini, la particule sera \textbf{confinée dans une boîte}.
+\begin{figure}[h]
+\centering
+\scalebox{1}{\input{images/puits_potentiel.tex}}
+\caption{Puits de potentiel.}
+\label{fig:puits_potentiel}
+\end{figure}
+\subsubsection{Résolution de l'équation \eqref{eq:schrodinger_stationnaire} dans un puits en 1D}
+L'équation de Schrödinger se réécrit encore 
+
+\begin{equation}\label{eq:schrodinger_1D}
+i \hbar \dfrac{\partial }{\partial t} \; \psi(x, t) \; = \; -\dfrac{\hbar ^2}{2m} \; \dfrac{ \partial ^2}{\partial x^2} \psi(x, t) \; + \; V(x) \psi(x,t)
+\end{equation}
+où $V(x)$ suit la figure \ref{fig:puits_potentiel}.
+La séparation des variables s'écrit :
+$$\psi(x,t) = \chi(t) \varphi(x)$$ et la partie temporelle se résout facilement.
+$$\chi(t) = \chi_0 \; e^{-iE\; t/\hbar}$$
+La partie spatiale elle s'écrit :
+$$\left \{ \begin{array}{ll}
+\left(-\dfrac{\hbar ^2}{2m} \dfrac{ \d ^2}{\d x^2 }  + V(x)\right) \varphi(x) \; &= \; E \\ \strut \\
+\text{Conditions au bord : } \quad \varphi(0) &= \varphi(L)
+\end{array} \right. $$
+Nous allons nous intéresser qu'au cas où la particule est entre $0$ et $L$, car elle ne peut pas exister dans une zone où le potentiel est infini. \textbf{Dans le cas où} $0<x<L$, nous avons donc un potentiel nul et les conditions aux bords à respecter, d'où :
+\begin{equation}
+\begin{array}{lrl}
+& -\dfrac{\hbar ^2}{2m} \dfrac{ \d ^2}{\d x^2 } \varphi(x) &= E \varphi (x) \\
+&\text{\small (en posant)} \quad k &= \sqrt{\dfrac{2mE}{\hbar ^2}} \\
+\iff & \varphi(x) &= \alpha \sin(kL) + \beta\cos(kL) \\ \strut \\
+&\text{CB} \;  &:  \; \left\{ \begin{array}{lll}
+\varphi(0) &= 0 \quad \Rightarrow \quad \beta &= 0 \\
+\varphi(L) &= 0 \quad \Rightarrow \quad kL &= n\pi \\
+\end{array}\right. \\ \strut \\
+&\Rightarrow \quad k_n &= \dfrac{n\pi}{L}
+\end{array}
+\end{equation}
+Les conditions aux bords imposent donc une condition sur $k_n$, et \textit{a fortiori} sur l'énergie aussi, par la définition de $k_n$. Ainsi, par la définition du problème du puits de potentiel, la particule confinée au sein du puits ne peut avoir que certains états d'énergie. L'énergie est alors dite quantifiée.
+\begin{equation}\label{eq:quantification_energie}
+\boxed{\text{Quantification de l'énergie : } \quad E_n = \dfrac{\hbar ^2 \pi ^2 n ^2}{2m \; L^2}}
+\end{equation}
+De retour à l'équation de Schrödinger avec la forme générale de $\varphi(x)$, avec $\beta = 0$ et $\alpha$ indéterminé, la solution à \eqref{eq:schrodinger_1D} s'écrit comme produit de $\varphi(x)$ et de $\chi(t)$ :
+$$\psi_n(x,t) = A \; e^{-i \dfrac{E_n}{\hbar}t} \; \sin(\dfrac{n\pi}{L} \; x) $$
+Pour obtenir la solution générale, il convient de sommer sur les états d'énergie :
+$$\psi(x,t) = \sum_{n=1} ^{+\infty} \psi_n(x,t) $$
+\subsection{Puits de potentiel fini}
+Un puits de potentiel fini est un cas assez basique de potentiel carré. Une image vaut mieux que mille mots :
+
+\begin{figure}[h]
+  \centering
+  \scalebox{1.2}{\input{images/puits_potentiel_fini.tex}}
+  \caption{Illustration d'un puits de potentiel fini de largeur $a$ et de profondeur $V_0$.}
+  \label{fig:chap2-potentiel_fini}
+\end{figure}
+
+Écrivons la partie spatiale de l'équation de Schrödinger et observons qu'une équation avec $V$ fonction de $x$ peut se réécrire en 3 équations avec $V$ constant : les 3 zones $x\leq -a/2$, $-a/2\leq x\leq a/2$, et $a/2 \leq x$.
+
+\begin{equation}
+  -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E-V(x)) \varphi 
+  \quad \Rightarrow \quad \ \left\{ 
+    \begin{array}{lll}
+      \text{Zone I} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+      \text{Zone II} & V = -V_0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E+V_0) \varphi \\
+      \text{Zone III} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+    \end{array}
+    \right. 
+  \end{equation}
+  Ces équations sont simples à résoudre, et donnent :
+  \begin{align}
+    \varphi_{\mathrm{I}}(x) &= B_1 e^{\rho x} + B' _1 e^{-\rho x} \\
+    \varphi_{\mathrm{II}}(x) &= A_2 e^{ik x} + A' _2 e^{-ik x} \\
+    \varphi_{\mathrm{III}}(x) &= B_3 e^{\rho x} + B' _3 e^{-\rho x} 
+  \end{align}
+  où
+  \begin{align}
+    \rho &= \sqrt{-\dfrac{2mE}{\hbar}} \quad \in \mathbb{C} \\
+    k &= \sqrt{\dfrac{2m(E+V_0)}{\hbar}} \quad \in \mathbb{R} \\
+  \end{align}
+  Les coeffiecients apparaissant dans la forme de la fonction d'onde doivent être déterminés. C'est la physique du problème qui nous les offira. Les conditions les plus simples auxquelles une fonction d'onde doit répondre sont :
+  \begin{table}[h!]
+    \centering
+    \begin{tabular}{r|p{10cm}}
+      \bleu{\textbf{Fonction bornée}} & pour que la fonction soit de carré sommable (ch.4) \\ \rule{0pt}{20pt}
+      \bleu{\textbf{Fonction continue}} & garantit la conservation de la probabilité \\\rule{0pt}{20pt}
+      \bleu{\textbf{Dérivée continue}} & offre une quantification de l'énergie 
+    \end{tabular}
+    \caption{Conditions de raccord lors de la résolution d'une équation de Schrödinger qui peut s'étudier en différentes zones distinctes.}
+    \label{tab:chap2-conditions_de_raccord}
+  \end{table}
+  
+  Dans le cas d'un puits de potentiel fini, il n'y a pas d'autres conditions particulières à imposer. La première impose $B_1' = B_3 = 0$. \\
+  
+  Les deux suivantes imposent ensembles :
+  \begin{equation}
+    \left(\dfrac{\rho - ik}{\rho + ik} \right) ^2 = e ^{2ika}
+  \end{equation}
+  Ce qui possède deux solutions.
+  \begin{enumerate}[label = (\roman*)]
+    \item $\dfrac{\rho - ik}{\rho + ik} = -e^{ika}$ \\
+    Nous avons dans le membre de gauche un quotient de deux nombres complexes $z_1/z_2$. Le module de ce nombre est $\bar z_1/\bar z_2$ (soit 1 ici) et sa phase est $\phi(z_1) - \phi(z_2)$ où $\phi(z) = b/a$. Alors, le membre de gauche est de module 1 et de phase $-2\times \arctan(k/\rho)$. Grâce à ça nous pouvons écrire :
+    \begin{eqnarray*}
+      1\times e^{-2i\arctan(k/\rho)} &=& - e^{ika} \\
+      \iff \dfrac{k}{\rho} &=& \tan\left(\dfrac{ka}{2}\right)
+    \end{eqnarray*}
+    
+    Posons à présent $k_0 = \sqrt{k^2 + \rho ^2}$ et exploitons la relation trigonométrique $$\dfrac{1}{\cos ^2(x)} = \tan^2(x) +1$$ en l'appliquant à $ka/2$. Il vient :
+    $$\dfrac{1}{\cos ^2\left(\dfrac{ka}{2}\right)} = \tan^2\left(\dfrac{ka}{2}\right) +1  = \dfrac{k^2 + \rho^2}{k^2} = \left(\dfrac{k}{k_0}\right)^2$$
+    La solution s'obtient donc en résolvant le système d'équations suivant :
+    \begin{equation}
+      \left\{ \begin{array}{ll}
+        \left| \cos \left(\dfrac{ka}{2}\right)\right| &= \dfrac{k}{k_0} \\
+        \tan \left(\dfrac{ka}{2}\right) &>0
+      \end{array}\right.
+    \end{equation}
+    
+    qui peut se résoudre graphiquement en traçant les intersections de la droite $k/k_0$ avec des arcs de cosinusoïdes. \\
+    \item $\dfrac{\rho - ik}{\rho + ik} = e^{ika}$ \\
+    
+    Par une démarche similaire à la précédente, les résultats sont aussi similaires. Nous avons :
+    \begin{equation}
+      \left\{ \begin{array}{ll}
+        \left| \sin \left(\dfrac{ka}{2}\right)\right| &= \dfrac{k}{k_0} \\
+      \tan \left(\dfrac{ka}{2}\right) &<0
+    \end{array}\right.
+  \end{equation}
+\end{enumerate}
+La résolution de cette équation de Schrödinger passe par l'obtention de ces coefficients. Comme on vient de le voir, il est possible de ne pas en obtenir une expression directe (résolution analytique), mais une résolution \textbf{graphique} permet d'obtenir les états liés sous le potentiel en question. Par exemple, ici, il suffit d'observer les intersections entre les arcs de (co-)sinusoïdes et la droite $k/k_0$, et ne considérer que celles qui ont un $k$ tel que la tangente est positive (pour les cosinusoïdes) ou négative (sinusoïdes). 
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{images/chap2-puits_fini_solutions.pdf}
+  \caption{Résolution graphique d'une équation de Schrödinger. Partant de l'équation, une séparation a été faite en 3 zones, donnant des états d'énergie possibles au sein de la barrière (états \textbf{liés}) caractérisés par le nombre $k$. Les énergies des états liés sont ceux dont le $k$ donne un point d'intersection sur la figure.}
+\end{figure}
+
+De ce graphe nous tirons l'information suivante.
+Dépendant de la pente $1/k_0$, un certain nombre d'états liés peuvent exister. Particulièrement, lorsque $1/k_0  \geq A/(\pi a)$ (autrement dit $k_0 \leq \pi a$), alors la particule n'a qu'un seul état lié au potentiel. De manière générale, si $(n-1)\pi/a \leq k_0 \leq n\pi/a$, la particule aura $n$ états liés.
+
+
+
+\subsection{Marche de potentiel}
+Une marche de potentiel est similaire au puits fini mais avec un potentiel positif. Ce potentiel s'oppose donc à l'énergie de la particule et c'est pour cette raison qu'on parle souvent de "barrière de potentiel".
+
+\begin{figure}[h]
+  \centering
+  \scalebox{1.2}{\input{images/marche_potentiel.tex}}
+  \caption{Illustration d'un puits de potentiel fini de largeur $a$ et de profondeur $V_0$.}
+  \label{fig:chap2-marche_potentiel}
+\end{figure}
+
+\subsubsection{Comparaison avec la mécanique classique}
+\begin{wrapfigure}{r}{0.6\textwidth}
+  \centering
+  \includegraphics[width=.9\linewidth]{images/marche_potentiel_classique.pdf}
+  \caption{Impact sur la trajectoire dans l'espace des phases (axes : position et impulsion, vitesse constante = ligne droite) d'une particule qui passe à travers une marche de potentiel.}
+  \label{fig:ch2-marche_potentiel_classique}
+\end{wrapfigure}
+
+Etudier ce cas est très intéressant car une marche de potentiel en physique quantique donne un résultat extrêmement différent de la physique classique. En effet, en physique classique, une particule arrivant avec une énergie inférieure à $V_0$ rebondira. Avec une énergie supérieure à $V_0$, elle sera ralentie dans le potentiel (potentiel constant veut dire "force nulle" donc la particule a quoi qu'il arrive une vitesse constante) et repart avec sa vitesse initiale. Avec une énergie $E= V_0$, elle s'arrête.  Ces discussions sont reprises sur la figure ci-contre. \\
+
+Pour ce qui est de la physique quantique, il faut passer par une résolution de l'équation de Schrödinger. Comme pour le puits de potentiel, écrivons l'équation dans les différentes zones et écrivons les conditions de raccordement. Notons que la forme des solutions obtenues diffère selon si $E>$ ou $< V_0$.
+\subsubsection{Résolution lorsque $E > V_0$}
+Nous pouvons poser le nombre 
+$$k_2 = \sqrt{\dfrac{2m(E-V_0)}{\hbar}}$$
+de sorte à ce qu'il soit réel, et séparer en zones comme fait pour le puit de potentiel fini.
+\begin{equation}
+  -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E-V(x)) \varphi 
+  \quad \Rightarrow \quad \ \left\{ 
+    \begin{array}{lll}
+      \text{Zone I} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+      \text{Zone II} & V = V_0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = (E-V_0) \varphi \\
+      \text{Zone III} & V = 0 & -\dfrac{\hbar^2}{2m} \partial_x ^2 \varphi = E \varphi \\
+    \end{array}
+    \right. 
+  \end{equation}
+  Ces équations sont simples à résoudre, et donnent :
+  \begin{align}
+    \varphi_{\mathrm{I}}(x) &= A_1 e^{k_1 x} + A' _1 e^{-k_1 x} \\
+    \varphi_{\mathrm{II}}(x) &= A_2 e^{ik_2 x} + A' _2 e^{-ik_2 x} \\
+    \varphi_{\mathrm{III}}(x) &= A_3 e^{k_1 x} + A' _3 e^{-k_1 x} 
+  \end{align}
+  où
+  $$
+    k_1 = \sqrt{-\dfrac{2mE}{\hbar}} \quad \in \mathbb{C} 
+  $$
+Les considérations physiques et les conditions de raccord impliquent encore des relations entre les coefficients. Notamment :
+
+\begin{align}
+  A_1 &= \left[\cos(k_2 L) - i \; \dfrac{k_1 ^2 + k_2 ^2}{2k_1k_2} \; \sin(k_2L) \right] e^{ik_1L}A_3 \\
+  A_1 ' &= i \; \dfrac{k_2 ^2 - k_1 ^2}{2k_1 k_2}\; \sin(k_2L) \; e^{ik_1L} A_3
+\end{align}
+
+Une manière d'interpréter la physique du système est d'observer les ainsi nommés \textbf{coefficients de transmission et de réflexion}. Comme leur nom l'indique, ces coefficients quantifient la probabilité que la particule traverse la barrière et la probabilité qu'elle soit réfléchie en la rencontrant. Ainsi, ces coefficients seront toujours exprimés comme un rapport où le dénominateur est $A_1$ : le coefficient de la partie de la fonction d'onde qui symbolise une particule se dirigant vers les $x>0$ avec un nombre d'onde $k_1$, soit l'état initial de la particule.\\
+
+De là, la réflexion de la particule sera lue dans le coefficient $A_1'$, qui correspond à une fonction d'onde dans la zone 1 de nombre d'onde $k_1$ se propageant vers la gauche.
+
+$$ R = \left|\dfrac{A_1'}{A_1}\right|^2$$
+
+La transmission sera caractérisée par le coefficient $A_3$, qui multiplie une fonction d'onde dans la zone 3 se déplaçant avec un nombre d'onde $k_1$ vers la droite.
+
+$$ T = \left|\dfrac{A_3}{A_1}\right|^2$$
+
+Les calculs dans ce cas précis montrent que :
+\begin{align}
+  R &= \dfrac{(k_1 ^2 - k_2 ^ 2) ^2 \sin^2(k_2 L)}{4k_1 ^2 k_2 ^2 + (k_1 ^2 - k_2 ^ 2) ^2\sin(k_2L)} \\
+  T &= \dfrac{4k_1 ^2 k_2 ^2}{4k_1 ^2 k_2 ^2 + (k_1 ^2 - k_2 ^ 2) ^2\sin(k_2L)} 
+\end{align}
+Chose chouette : 
+$$ R + T = 1 \; .$$
+Compte tenu des définitons des $k_i$, le coefficient de transmission peut se réécrire en fonction de $E$ sous la forme suivante :
+\begin{equation}
+  T = \dfrac{4E (E-V_0)}{4E(E-V_0) + V_0 ^2 \sin ^ 2\left[\sqrt{2m(E-V_0)} L/\hbar\right]}
+\end{equation}
+On voit que le coefficient de transmission est périodique en $E$ et que sa valeur maximale est 1, lorsque le sinus s'annule. Ceci est le phénomène de \textbf{résonnance} et arrive lorsque $k_2L = n\pi$, $n\in \mathbb{Z}$.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics{images/marche_potentiel_transmission.pdf}
+  \caption{Variation du coefficient de transmission de la barrière de potentiel en fonction de sa largeur. Résonnances aux multiples de $\pi/k_2$.}
+\end{figure}
+
+\subsubsection{Résolution lorsque $E < V_0$}
+Une résolution similaire, voire même identique, s'obtient en posant $$k_2 \longrightarrow -i\rho_2 \qquad \rho_2 = \sqrt{2m(V_0-E)/\hbar ^2} \; \in \mathbb{R} $$ aux résultats déjà obtenus. Ainsi :
+\begin{align}
+  T = \left|\dfrac{A_3}{A_1}\right|^2 &= \dfrac{-4k_1 ^2 \rho_2 ^2}{-4k_1 ^2 \rho_2 ^2 + (k_1 ^2 + \rho_2 ^ 2) ^2\sin(-i\rho_2 L)} \\
+  &= \dfrac{4E (V_0-E)}{4E(V_0-E) + V_0 ^2 \sinh ^ 2(\rho_2 L)}
+\end{align}
+Observons ce qui se passe lorsque la barrière est très imposante par rapport à l'énergie de la particule : $\rho_2L \gg 1$. Le sinus hyperbolique peut subir une approximation et la fraction peut se simplifier largement.
+\begin{align}
+\sinh(x) = \dfrac{e^{x} - e^{-x}}{2} &\Rightarrow \sinh^2(x)_{|_{x\gg 1}} \sim e^{2x}/4 \\
+&\Rightarrow T \approx \dfrac{16(V_0-E)}{V_0 ^2} \; e^{-2\rho_2 L}
+\end{align}
+Nous voyons que lorsque la barrière est imposante (large et à haut potentiel), la particule a tout de même une probabilité non-nulle de la franchir. Ceci est propre à la mécanique quantique et ne serait jamais arrivé en mécanique classique. Ce phénomène porte le nom d'\textbf{Effet Tunnel} et possède comme application notable le microscope à effet tunnel.
+
+\newpage
+\section{Approximation semi-classique (WKB)}
+Toujours dans le cadre de l'étude de l'équation de Schrödinger, nous allons dans cette section étudier une solution \textbf{approximative} de cette équation, valable dans la limite $\hbar \longrightarrow0$. Cette approximation est nommée en l'honneur de Léon Brillouin, Hendrik Anthony Kramers et Gregor Wentzel. L'idée est la suivante : en poussant $\hbar$ vers zéro, nous devrions retrouver des résultats de la mécanique classique. Abordons donc cela en écrivant premièrement l'équation de Schrödinger. Ensuite, inteprétons la solution obtenue.
+\subsection{Résolution de l'équation de Schrödinger}
+
+\begin{equation}\label{eq:ch2-WKB-schrod}
+  -\dfrac{\hbar^2}{2m} \partial_x ^2 \phi + V(x)\psi = E\psi
+\end{equation}
+
+Posons $\psi(x) = A(x) e^{i\; S(x)/\hbar}$. Pour remplacer dans \ref{eq:ch2-WKB-schrod}, calculons d'abord les dérivées de $\psi$ en fonction de $A$ et $S$ et écrivons ce que donne l'équation de Schrödinger.
+\begin{align}
+  \psi' &= \left[ A' + \dfrac{i}{\hbar} S' A\right]e^{i\; S/\hbar} \\
+  \psi'' &= \left[A'' + \dfrac{i}{\hbar} (S''\; A + S'\; A') - \dfrac{1}{\hbar ^2} S^{\prime 2} A + \dfrac{i}{\hbar} S' \; A'\right] e ^{i\; S/\hbar} \\
+  \Rightarrow -&\dfrac{\hbar ^2 }{2m} \left[A'' + \dfrac{i}{\hbar} (S''\; A + S'\; A') - \dfrac{1}{\hbar ^2} S^{\prime 2} A + \dfrac{i}{\hbar} S' \; A'\right] e ^{i\; S/\hbar} + VA e ^{i\; S/\hbar} = EA e ^{i\; S/\hbar} \label{eq:ch2-WKB-SchrodAS}
+\end{align}
+En séparant les parties réelle et imaginaire de l'équation \ref{eq:ch2-WKB-SchrodAS}, on obtient le système suivant. Ce système est l'équivalent de \ref{eq:ch2-WKB-schrod}.
+\begin{align}
+      2S' \; A' + A \; S'' &= 0 \label{eq:ch2-WKB-SchrodAS-Im} \\
+      \dfrac{S^{\prime 2}}{2m} - \dfrac{\hbar ^2}{2m} \dfrac{A''}{A} + V &= E \label{eq:ch2-WKB-SchrodAS-Re} 
+\end{align}
+L'équation \ref{eq:ch2-WKB-SchrodAS-Im} a une solution exacte. Elle est donnée par 
+\begin{equation}
+  A(x) = \dfrac{A_0}{\sqrt{S'(x)}}
+\end{equation}
+L'équation \ref{eq:ch2-WKB-SchrodAS-Re} peut être modifiée par notre approximation $\hbar \longrightarrow 0$, car alors $\hbar ^2/2m \longrightarrow 0$. L'équation obtenue est \textbf{l'équation de Hamilton-Jacobi}\footnote{Retenez bien ce nom car il m'a valu 4 points sur 20 à l'examen de Mécanal}.
+\begin{equation}
+  \dfrac{S^{\prime 2}}{2m} + V(x) = E
+\end{equation}
+En posant $p(x) = \sqrt{2m[E - V(x)]}$, on obtient aisemment
+\begin{equation}
+  S(x) = \pm \int ^x \d x' p(x')
+\end{equation}
+Et la fonction d'onde prend alors la forme suivante :
+\begin{equation} \label{eq:ch2-WKB-solution}
+  \psi(x) = \pm \dfrac{A_0}{\sqrt{p(x)}} e^{\pm i \; \int ^x \d x' p(x')/\hbar}
+\end{equation}
+
+\subsection{Interprétation de la solution}
+
+\subsubsection{La vitesse de groupe du paquet d'onde est la vitesse classique}
+L'impulsion de la particule est donnée par la fonction $p$. Calculons le nombre d'onde par la relation de De Broglie pour le nombre d'onde. Ce résultat sera important pour obtenir la vitesse de groupe. Il est important de saisir ici que le nombre d'onde dépend de la position.
+$$k(x) = \dfrac{p(x)}{\hbar}$$
+La vitesse de groupe $v_g$ est donnée par $\d\omega/\d k$. Alors on fait les physiciens et on renverse la fraction pour dériver $k$ par rapport à $\omega$ qu'on exprime comme $E/\hbar$. Alors :
+$$\dfrac{1}{v_g} = \dfrac{\d k}{\d \omega} = \dfrac{\d (p/\hbar)}{E/\hbar} = \dfrac{\d p }{\d E} = \dfrac{m}{p(x)}=  \dfrac{1}{v_{\text{classique}}}$$
+Ainsi, nous voyons que l'approximation semi-classique mène à une solution de l'équation de Schrödinger qui, une fois utilisée pour construire des paquets d'onde pour constituer une particule, donne une vitesse de groupe égale à la vitesse classique de la particule.
+
+\subsubsection{Région classiquement permise et région classiquement interdite}
+La région classiquement permise est définie par l'ensemble des $x$ où $V(x) < E$. Dans cette région, on peut voir par la forme \ref{eq:ch2-WKB-solution} de la fonction d'onde que la probabilité de présence de la particule est inversement proportionnelle à l'impulsion. Ceci est le cas car pour $E>V$, $p\in \mathbb{R}$ donc l'exponentielle dans \ref{eq:ch2-WKB-solution} reste imaginaire donc son module reste 1. On voit alors que la probabilité de présence diminue quand l'impulsion de la particule augmente, ce qui rejoint notre intuition\footnote{De toute façon quand ça parle de mécanique classique, tout rejoint un peu notre intuition.}.
+\begin{center}
+  Région classiquement permise : $E>V(x) \quad \Rightarrow \quad |\psi|^2 \propto \dfrac{1}{p}$
+\end{center}
+
+Dans la zone interdite, $E<V$ et l'impulsion devient alors imaginaire. L'exponentielle devient réelle et la probabilité de présence devient proportionnelle à une exponentielle négative, mais pas nulle ! On retrouve ici l'effet tunnel déjà discuté, mais ici pour un potentiel quelconque qui est supérieur à l'énergie. Attention : on ne retrouve que l'exponentielle négative car les considérations physiques (fonction d'onde bornée) imposent un coefficient nul à l'exponentielle croissante (pour éviter qu'elle explose à l'infini).
+\begin{center}
+  Région classiquement interdite : $E<V(x) \quad \Rightarrow \quad |\psi|^2 \propto e^{-\int ^x p(x') \d x'}$
+\end{center}
+
+Les figures ci-dessous reprennent un cas de potentiel et l'allure de la fonction d'onde correspondante. On voit aux lignes verticales pointillées, qui correspondent aux frontières entre les régions permise et interdite, que la probabilité devient exponentiellement décroissante mais non nulle (effet tunnel).
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=.4\linewidth]{images/WKB_approximation_example.svg.png} \\ \includegraphics[width=.4\linewidth]{images/WKB_approximation_example_2.svg.png}
+  \caption{Graphe d'une fonction d'onde d'une particule et de sa densité de probabilité de présence sous l'approximation WKB.}
+\end{figure}
+
+\subsubsection{Etats liés}
+Si nous sommes dans le cas d'une solution qui décroit exponentiellement à grande distance, en notant $b$ et $a$ les points de rebroussement de la trajectoire classique, les états liés, dans la région permise donc, sont décrits par les fonctions suivantes, selon si on est proche de la frontière gauche avec la région interdite ou la frontière droite :
+\begin{equation}
+  \begin{array}{llr}
+    \psi(x) &= \dfrac{1}{\sqrt{k(x)}} \; \cos\left[\int_b ^x k(x')\; \d x' \quad - \pi/4\right] & x>b \\   
+    \psi(x) &= \dfrac{1}{\sqrt{k(x)}} \; \cos\left[\int_x ^a k(x')\; \d x' \quad + \pi/4\right] & x<a    
+  \end{array}
+\end{equation}
+Une condition de quantification est que la somme des phases des cosinus soit égale à un multiple de $\pi/2$ \rouge{confirmation needed, source wikipedia}. En sommant sur le domaine d'intégration, on obtient l'intégrale du nombre d'onde entre les deux points de rebroussement (les points de frontière).
+\begin{center}
+  Condition de quantification semi-classique : $\dfrac{1}{\hbar} \int_b ^a \dx \sqrt{2m(E-V(x))} \quad = \left(n+\dfrac{1}{2}\right) \pi$
+\end{center}
+
+\subsection{Application de l'approximation WKB en physique nucléaire}
+Par la section précédente, nous avons compris que l'approximation WKB consistait à prendre la limite $\hbar \to 0$, mais dans quel cas pouvons-nous réellement passer à une application de cette approximation? \\
+{\color{red}{Tentative d'explication mais le paragraphe en entier est à vérifier :}} Il se trouve que cette approximation peut être valable lorsque l'on veut considérer des effets quantiques qui s'appliquent sur un système, pendant que ce dernier peut également être décrit d'un point de vue classique, 
+ainsi que lorsqu'il n'est pas possible de trouver de solution analytique sans faire aucune approximation. \\
+
+Nous allons ici illustrer un exemple d'application de l'approximation WKB qui est celui de la désintégration-$\alpha$, et qui en particulier
+met en avant la loi de Geiger-Nuttal. \\
+Nous allons prendre en compte le fait que des particules $\alpha$ vont s'échapper d'un noyau par \textit{effet tunnel}, et notre description fera apparaître des \textit{interprétations probabilistes} sur l'émission de ces particules, 
+tout en utilisant les relations données par l'approximation WKB afin d'en tirer une conclusion cohérente avec des données expérimentales. \\
+
+Avant de rentrer dans les détails, rappelons brièvement ce que sont la désintégration alpha et un temps de demi-vie $t_{1/2}$: 
+\begin{itemize}[label = \textbullet]
+  \item \textbf{Désintégration $\alpha$} $\equiv$ (wikipédia {\color{red}{à vérifier}}) forme de désintégration radioactive où un noyau atomique éjecte une particule $\alpha$
+  ( $= He^{++}$) et se transforme en un noyau plus léger ; 
+  \item \textbf{Demi-vie $t_{1/2}$} d'un isotope radioactif $\equiv$ (wikipédia) c'est le temps au bout duquel la moitié des noyaux de cet isotope initiaux se sont désintégrés. \\
+  Notons qu'il est important de reconnaître la différence entre cette définition et celle d'un temps moyen : 2 fois le temps de demi-vie $\ne$ la vie complète!!  
+\end{itemize}
+
+Rentrons à présent dans des détails de calculs. \\
+Considérons un noyau de rayon $R$ qui contient des particules $\alpha$ possédant une énergie $E$. 
+Les particules $\alpha$ sont confinées dans le noyau, autrement dit leur énergie est plus faible que le potentiel qui les retient.
+Or, nous avons déjà vu qu'une particule pouvait traverser une zone classiquement interdite par effet tunnel, et se propage comme une onde "evanescente" (qui décroît exponentiellement) dans cette zone. \\
+C'est en fait ce qu'il va se passer ici pour les particules $\alpha$ ; on peut, analogiquement, imaginer que les particules sont confinées dans une boîte, faisant des allers-retours. C'est à ces points de rebroussement que peut se produire la transmission de particules par effet tunnel. \\
+
+Une fois sorti du noyau, le potentiel ressenti par les particules $\alpha$ est simplement le potentiel coulombien créé par les charges du noyau. Ainsi, pour tout $r > R$, le potentiel s'écrit comme suit :
+\begin{equation}
+  V(r) = \frac{z_{\alpha} z e^2}{4 \pi \epsilon_0 r} %pour un potentiel crée par une charge z, on ne devrait pas avoir juste z dans cette expression au lieu de z_alpha *z ?
+\end{equation}
+où $z_{\alpha}$, $z$ $\equiv$ charges du noyau. \\
+%+ graphe qui illustre le potentil vu par les particules alpha
+
+Notons $R_{\alpha}$ la distance à partir de laquelle l'énergie $E$ de la particule devient plus grande que le potentiel coulombien ressenti $V(r)$, autrement dit, $R_{\alpha}$ est la distance au noyau à partir de laquelle la particue devient libre et peut se propager de manière semi-classique (c'est-à-dire tel que la longueur d'onde varie très peu sur une distance égale à la longueur d'onde même). \\
+L'énergie de la particule étant considérée comme une constante dans ce cas-ci, et puisque l'on considère également que la particule $\alpha$ émise peut se propager au moins jusqu'à une distance $R_{\alpha}$ du noyau, notons son énergie $E$ : $$ E= \frac{z_{\alpha}z e^2}{4 \pi \epsilon_0 R_{\alpha}}$$ 
+Ensuite, il se trouve que la probabilité d'émission de particule alpha par unité de temps se trouve approximativement par l'inverse du temps de demi-vie. Cela illustre bien le fait que plus ce temps de demi-vie est long, moins il n'y a de probabilité qu'une particule alpha soit émise en une seconde. En utilisant les relations de la fonction d'onde obtenues grâce à l'approximation WKB,
+nous avons en particulier que : 
+\begin{align}
+  \frac{P( \mbox{ émission } )}{temps} \approx \frac{1}{t_{1/2}} \approx e^{-2 \gamma} \quad \mbox{ ($\approx \lvert \psi (r) \rvert ^2$ effet tunnel) } 
+\end{align}
+où  \begin{align*}
+  \gamma &= \frac{1}{\hbar} \int_R^{R_{\alpha}} \sqrt{2 m_{\alpha} (V(r) - E)} dr \\
+  &= \frac{1}{\hbar} \sqrt{2 m_{\alpha}} \sqrt{\frac{z_{\alpha} z e^2}{4 \pi \epsilon_0}} \int_R^{R_{\alpha}} \sqrt{\frac{1}{r} - \frac{1}{R_{\alpha}}} dr \\
+  &= \frac{1}{\hbar} \sqrt{2 m_{\alpha}} \sqrt{\frac{z_{\alpha} z e^2}{4 \pi \epsilon_0}} \int_R^{R_{\alpha}} \frac{1}{\sqrt{R_{\alpha}}} \sqrt{\frac{R_{\alpha}}{r} - 1} dr \\
+  &= \frac{1}{\hbar} \sqrt{2 m_{\alpha}} \sqrt{\frac{z_{\alpha} z e^2}{4 \pi \epsilon_0}} \sqrt{R_{\alpha}} \int_0^1 \sqrt{\frac{1-z}{z}} dz \quad \mbox{ (grâce au changement de variable : $z = \frac{r}{R_{\alpha}}$)} \\
+  &\approx \frac{\pi}{2} \sqrt{R_{\alpha}} \quad \mbox{ (intégrale calculée par un changement de variable comme $z = cos^2(x)$ par exmple)} 
+\end{align*}
+
+Enfin, en utilisant le fait que $R_{\alpha} = \frac{z_{\alpha} z e^2}{4 \pi \epsilon_0 E}$, on a :
+\begin{align}
+\label{Loi de Geiger-Nuttal}
+  \gamma &= \frac{\pi}{2 \hbar} \sqrt{2 m_{\alpha}} \left( \frac{z_{\alpha} z e^2}{4 \pi \epsilon_0} \right) \frac{1}{\sqrt{E}} \notag \\
+  \implies & log(t_{1/2}) = a \frac{z}{\sqrt{E}} + b \quad \mbox{ \textbf{Loi de Geiger-Nuttal}} 
+\end{align}
+
+\bg{Remarque : }{\begin{itemize}
+  \item Nous pouvons voir que cette équation \ref{Loi de Geiger-Nuttal} met en relation l'inverse de la racine de l'énergie au logarithme du temps de demi-vie.
+  Cela signifie qu'une grande augmentation du temps $t_{1/2}$ est équivalent à une légère diminution de l'énergie. On peut donc considérer que des isotopes qui émettent des particules alpha, à un temps de demi-vie d'ordres de grandeur assez variés, ont approximativement la même énergie ;
+  \item Cette loi est bien vérifiée expérimentalement ;
+  \item Elle explique également pourquoi la désintégration en noyau plus lourd est impossible (dépendance en $m_{\alpha}$ et $z_{\alpha}$) {\color{red}{Pourquoi???}}
+\end{itemize}
+}
+
+%Ajout schéma de Massar : graphes des données expérimentales 
