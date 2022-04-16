@@ -2,7 +2,7 @@
 \usepackage[allcolors=true]{hyperref}
 \usepackage{graphicx}
 \usepackage{amsmath,amsfonts,amsthm,amssymb}
-\usepackage{mathabx}
+\usepackage{mathrsfs}
 \usepackage{wasysym}
 \usepackage{caption}
 \usepackage{multirow}
@@ -20,7 +20,9 @@
 \usepackage{titlesec}
 \usepackage{lmodern}
 \usepackage{braket}
+\usepackage{calrsfs}
 \usepackage{chngcntr}
+\usepackage{textcomp}
 \usepackage{geometry}
 \usepackage[tc]{titlepic} % page de garde
 \geometry{
@@ -128,9 +130,17 @@
 
 %%% Fin ajouts Sami
 
+% Setup of hyperref features
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  urlcolor=purple,
+  pdftitle="DM202122 - MOEIL Juian"
+}
+
 \title{\textbf{PHYS-F203 - Introduction à la Mécanique Quantique} \\ \textit{Basé sur les notes de Prof. $\href{mailto:serge.massar@ulb.be}{\text{Massar Serge}}$}}
 \author{$\href{mailto:juian.moeil@ulb.be}{\text{Moeil Juian}}$ \and $\href{mailto:sami.abdul.sater@ulb.be}{\text{Abdul Sater Sami}}$ \and $\href{mailto:anais.defossez@ulb.be}{\text{Defossez Anais }}$}
-\date{\textbf{Année académique 2020-2021}}
+\date{\textbf{Année académique 2021-2022}}
 
 \begin{document}
 
@@ -196,7 +206,8 @@ Le symbole $\doteq$ est employé pour dire "par définition". Les vecteurs $\bm{
 \newpage
 \subfile{Chapitre 4/chapitre4.tex}  %   Formalisme
 \newpage
-\part{Application de la Mécanique quantique}
+
+\part{Applications de la Mécanique quantique}
 \subfile{Chapitre 5/chapitre5.tex}
 \newpage
 \subfile{Chapitre 6/chapitre6.tex}  % Opérateurs X et P

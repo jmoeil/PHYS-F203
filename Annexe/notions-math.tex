@@ -13,112 +13,324 @@ f(x) = \sum_{n = -\infty}^{+\infty}c_ne^{2\pi i (\frac{n}{T})x}
 \end{equation}
 \end{subequations}
 
-\section{Transformées de Fourier}
-\begin{subequations}
-\begin{equation}
-\hat{f}(k) = F(k) = \int_{-\infty}^{+\infty} dx f(x) \frac{e^{-i\bm{k}}}{\sqrt{2\pi}}
-\end{equation}
-\begin{equation}
-f(x) = F^{-1}(\hat{h}) = \int d\bm{k}\hat{f}(\bm{k} \frac{e^{i\bm{k}x}}{\sqrt{2\pi}}
-\end{equation}
-\end{subequations}
-\begin{remark}
-Si $f$ est à support borné et $\{-\frac{T}{2},\frac{T}{2}\}$ contraint le support, alors $C_n = \frac{\sqrt{2\pi}}{T}\hat{f}(\frac{2\pi n}{T})$.
-\end{remark}
-\begin{align}
-\rightarrow f(x) &= \sum_{n = -\infty}^{+\infty} \frac{\sqrt{2\pi}}{T}\hat{f}(\frac{2\pi n}{T})e^{i\frac{2\pi n}{T}x}\\
-&= \sum_{n = -\infty}^{+\infty} \hat{f}(k_n)\frac{e^{ik_nx}}{\sqrt{2\pi}} \Delta k		&k_n = \frac{2\pi n}{T} \textbf{ et } \Delta k = \frac{2\pi}{T}\\
-&\approx \int_{-\infty}^{+\infty} dk \hat{f}(k) \frac{e^{ikx}}{\sqrt{2\pi}}
-\end{align}
-\begin{remark}
-Ces fonctions suivent certaines propriétés intéressantes. Soit $h(x)$ et $\hat{h}(x)$ deux fonctions reliées par une transformations de Fourier. Dès lors,
-\begin{itemize}
-\item Si $h(x)$ est linéaire, alors $\hat{h}(x)$ l'est également : $h(x) = af(x) + bg(x)$, alors $\hat{h}(k) = a\hat{f}(k) + b\hat{g}(k)$.
-\item Si $h(x) = f(x-x_0)$, alors $\hat{h}(k) = e^{-ikx_0}\hat{f}(k)$. Il s'agit d'une translation. Inversement, la propriété de modulation s'écrit $h(x) = f(x)e^{ik_0x}$, alors $\hat{h}(k) = \hat{f}(k-k_0)$.
-\item Si $h(x) = f(ax)$, le changement d'échelle implique que $\hat{h}(k) = \frac{1}{a}\hat{f}(\frac{k}{a})$.
-\item La relation de conjuguaison sous une transformation de Fourier est que $h(x) = \bar{f}(x)$ implique $\hat{h}(k) = \bar{\hat{f(-k)}}$. Notons que si $f(x)$ est réel, alors $\hat{f}(k) = -\hat{f}(k)$.
-\item $\hat{f}(0) = \int_{-\infty}^{\infty} dxf(x)$.
-\item La dérivée de $\hat{f}(k)$ est $ik\hat{f}(k)$. Cela se généralise à $\hat{f^(n)} = (ik)^n\hat{f}(k)$. En particulier, si $f(x)x^n$ est intégrable, alors $\hat{f}(k)$ est n-fois dérivable. Inversement, si $f(x)$ est n-fois intégrable, alors $\hat{f}(k)k^n$ est intégrable.
-\item La propriété de convolution établit que si $h(x) = (f\circ h)(x) = \int dy f(y)g(x-y)$, alors $\hat{h}(k) = \hat{f}(k)\ti\hat{g}(k)$.
-\end{itemize}
+\paragraph{} Dans ce chapitre, nous allons rapidement passer en revue plusieurs notions de maths, 
+plus particulièrement d'analyse, qui apparaissent dans le cours de Mécanique Quantique, 
+afin de vous aider dans la compréhension de certains passage de calculs. \\
 
-\end{remark}
-\begin{theorem}[Plancherel]
-Soit $f(x)$ une fonction, et $\hat{f}(k)$ sa transformée de Fourier. Nous avons alors l'équivalence des intégrales:
-\begin{equation}
-\int dx f(x)\bar{g}(x) = \int dk \hat{f}(k)\bar{\hat{g}}(k)
-\end{equation}
-\end{theorem}
-\begin{theorem}[Égalité de Parceval]
-Soit $f(x)$ une fonction, et $\hat{f}(k)$ sa transformée de Fourier. Alors,
-\begin{equation}
-\int dx \norm{f(x)}^2 = \int dk \norm{\hat{f}(k)}^2
-\end{equation}
-\end{theorem}
+Nous allons commencer par de brefs rappels de CDI2 sur les séries et transformées de Fourier, 
+pour ensuite embrayer sur la notion de distribution, qui est certainement neuve dans votre parcours,
+mais cela permettra plus tard de justifier l'utilisation de distribution pour décrire les fonctions d'onde. \\
 
-\section{Distribution}
-\subsection{Espace de fonctions test}
-Soient $D$, l'ensemble des fonctions $C^\infty$ à support compact (distrubution D'), et S - l'ensemble des fonctions $C^\infty$ à décroissance rapide (distrubtion tempérée S').  Imposons une notion de continuité/topologie sur les fonctions test:
+\section{Séries de Fourier}
+Considérons $f$ une fonction T-périodique de $\mathbb{R}$ dans un corps $\mathbb{K}$ quelconque, pour traiter à la fois le cas où $f$ est réelle, et les cas où $f$ est complexe (enfin une écriture inclusive lisible!).\\
+
+\begin{definition}[coefficients de Fourier]
+    On définit ses coefficients de Fourier (exponentiels) par la formule : 
 \begin{equation}
-\varphi_k = \varphi \text{ si et seulement si } (\partial_x^{(\alpha)} \varphi_x) = (\partial_x^{(\alpha)}\varphi)
+c_n = \frac{1}{T} \int^{T/2}_{-T/2} dx f(x)e^{-2\pi i(\frac{n}{T})x} \\
 \end{equation}
-uniformément pour tout $\alpha$.\\
-
-Soit T des formes linéaires continues sur l'espace des fonctions tests.
-\begin{Property}
-Soit $T: D \rightarrow \mathbb{R}$ : $\varphi \rightarrow T\cdot\varphi$. Si $\varphi_k = \varphi$, alors $T\cdot\varphi_k \rightarrow T\cdot\varphi$ généralise la notion de fonction.
-\end{Property}
-
-\subsection{Opérations sur les distributions}
-\begin{Property}[Dérivée d'une distrubution]
-$T'\cdot\varphi = T\cdot(-\varphi')$
-\end{Property}
-\begin{Property}[Multiplication d'une distribution par une fonction test]
-$\Phi T\cdot\varphi = T\cdot\varphi\Phi$
-\textbf{Nous ne pouvons pas multiplier des distributions entre-elles.}
-\end{Property}
-\begin{theorem}[Théorème de structure]
-Localement, une distrubution est égale à la dérivée $\alpha^{eme}$ d'une fonction continue. Elle est dite tempérée lorsqu'elle est égale à la dérivée $\alpha^{eme}$ d'une fonction continue à croissance lente\footnote{ne croissant pas plus vite qu'un polynome.}.
-\end{theorem}
-\subsection{Distributions tempérées}
-A partir de maintenant, nous noterons F une transformée de Fourier, et $\mathbb{S}$ une invariance sous F.
-\begin{definition} Soit $T \in \mathbb{S}$. Alors, FT existe et est défini par $FT\cdot\Phi = T\cdot F\Phi$.
 \end{definition}
 
-Si f est une fonction, alors:
-\begin{align}
-FT_f\cdot\Phi &= T_f\cdot F\Phi		&\text{Où }\int dx (\int dx \frac{e^{-ikx}}{\sqrt{2\pi}}f(x))\Phi(k) \text{ et } \int dx f(x) (\int dk \frac{e^{-ikx}}{\sqrt{2\pi}}\Phi(k))
-\end{align}
+\begin{definition}[Série de Fourier]
+    On appelle la série de Fourier associée à $f$, la série de fonctions de terme général 
+    $$u_k(f) (x) = c_{-k}(f) e^{-2\pi i \left(\frac{k}{T}\right) x} + c_{k}(f) e^{2\pi i \left(\frac{k}{T}\right) x}\; .$$
+    
+Ainsi, $\forall n \in \mathbb{N}$, sa n-ème somme partielle $S_n(f)$ est donnée par :
+\begin{equation}
+    \forall n\in \mathbb{N} ; \quad \forall x \in \mathbb{R} ;  \quad S_n(f)(x) = \sum_{k=-n}^{n} c_k(f) e^{2\pi i \left( \frac{k}{T} \right) x} \\
+\end{equation}
+\end{definition}
 
-\subsection{Delta de Dirac}
+\begin{theorem}[Théromème de Dirichlet]
+    Le théorème de Dirichlet (global) nous assure que si $f$ est (en plus d'être $2\pi$-périodique) continue et $C^1$ par morceaux sur $\mathbb{R}$, alors la série de Fourier qui lui est associée converge uniformément 
+    vers la fonction $f$ sur $\mathbb{R}$. Nous pouvons alors écrire :  
+\begin{equation}
+    \forall x \in \mathbb{R} ; \quad f(x) = \sum_{k = -\infty}^{+\infty}c_ne^{2\pi i (\frac{k}{T})x} \\
+\end{equation}
+Notons que nous pouvons appliquer ce théorème car en physique, nous ne considérons en général que des fonctions très lisses (de classe \textit{C}$^{\infty}$).
+\end{theorem}
+
+
+
+\section{Transformées de Fourier}
+
+Considérons une fonction $f$ (dans le cours de CDI2, nous faisons l'hypothèse que la fonction 
+appartient à la classe de Schwartz, mais en réalité, la transformée de Fourier et ses propriétés se généralisent 
+à des fonctions bien moins lisses). \\
+
+\begin{definition}[Transformée de Fourier]
+    La fonction  $\mathcal{F}(f)$, que l'on note aussi ici $\hat{f}(k)$, est la transformée 
+    de Fourier de la fonction $f$, et est définie par : 
+\begin{equation}
+\hat{f}(k) = \mathcal{F}(f) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} dx f(x) e^{-ikx}
+\end{equation}
+\end{definition}
+
+\begin{theorem}[Inversion de la transformée de Fourier] 
+    $\forall x \in \mathbb{R}$, on a $\mathcal{F}(\mathcal{G}(f))(x) = f(x)$ ou $\mathcal{G}(\mathcal{F}(f))(x) = f(x)$, 
+    où $\mathcal{G}(f) = \mathcal{F}^{-1}(f)$ est l'inverse de la transformée de fourier de $f$. \\
+    
+    Ceci s'exprime encore comme : 
+    \begin{equation}
+        f(x) = \mathcal{G}(\hat{f})(x) = \frac{1}{\sqrt{2 \pi}} \int_{-\infty}^{+\infty} dk\hat{f}(k) e^{ikx}
+    \end{equation}
+
+    Remarquons qu'en écrivant $\mathcal{G}$ agissant sur $f$ (et non sur $\hat f$ ; l'intégrale porte donc sur les $x$ et la fonction obtenue est de $k$),
+    $$\mathcal{G}(f)(k) = \dfrac{1}{\sqrt{2\pi}} \int_{-\infty}^{+\infty} dx \; f(x) e ^{ikx} \quad ,$$
+    on peut voir immédiatement que $\mathcal{G}(f)(k)$ n'est rien d'autre que $\mathcal{F}(f)(-k)$
+\end{theorem}
+
+\begin{remark}
+Si $f$ est à support borné et $ \left[ -\frac{T}{2},\frac{T}{2} \right] $ est un intervalle contenant le support, alors sa transformée de Fourier est 
+en fait à support infini, et l'on peut écrire les coefficients de Fourier sous la forme : 
+    \begin{equation}
+    c_n = \frac{\sqrt{2\pi}}{T}\hat{f} \left( \frac{2\pi n}{T} \right) 
+    \end{equation}
+En effet, nous avons alors que :
+    \begin{align}
+\rightarrow f(x) &= \sum_{n = -\infty}^{+\infty} \frac{\sqrt{2\pi}}{T}\hat{f} \left( \frac{2\pi n}{T} \right) e^{i\frac{2\pi n}{T}x}\\
+&= \sum_{n = -\infty}^{+\infty} \hat{f}(k_n)\frac{e^{ik_nx}}{\sqrt{2\pi}} \Delta k \quad \mbox{(où : $k_n \equiv \frac{2\pi n}{T}$ et $\Delta k \equiv \frac{2\pi}{T}$)}\\
+&= \int_{-\infty}^{+\infty} dk \hat{f}(k) \frac{e^{ikx}}{\sqrt{2\pi}}
+    \end{align}
+La transformée de Fourier de $f$ est donc bien à support infini. 
+\end{remark}
+
+\begin{Property}
+Mentionnons les différentes propriétés que suivent la transformée de Fourier. \\
+On considère les fonctions $f$, $g$ et $h$, toutes de mêmes propriétés que $f$ définie en début de section. 
+\begin{itemize}[label = \textbullet]
+\item \textit{Linéarité} : Pour $a,b \in \mathbb{K}$, si $h(x) = af(x) + bg(x)$, alors $\hat{h}(k) = a\hat{f}(k) + b\hat{g}(k)$ ;
+\item \textit{Translation} : pour $x_0 \in \mathbb{R}$, si $h(x) = f(x-x_0)$, alors $\hat{h}(k) = e^{-ikx_0}\hat{f}(k)$ ; 
+\item \textit{Modulation} : pour $k_0 \in \mathbb{R}$, si $h(x) = f(x) e^{ik_0 x}$, alors $\hat{h}(k) = \hat{f}(k-k_0)$ ;
+\item \textit{Changement d'échelle} : pour $a \in \mathbb{R}$, si $h(x) = f(ax)$, alors $\hat{h}(k) = \frac{1}{|a|}\hat{f}(\frac{k}{a})$.
+\item \textit{Conjugaison} : Si $h(x) = \overline{f(x)}$, alors $\hat{h}(k) = \overline{\hat{f}(-k)}$. \\
+Notons que si $f(x)$ est réel, alors $\hat{f}(-k) = \overline{\hat{f}(k)}$ ;
+\item $\hat{f}(0) = \int_{-\infty}^{+\infty} dxf(x)$.
+\item \textit{Dérivation} : $\widehat{f \textquotesingle (k)} =ik \hat{f}(k)$. Cela se généralise à la dérivée $n^{\mbox{ième}}$ : \\
+$\widehat{f^n (k)} = (ik)^n \hat{f}(k)$. 
+\item Si $f(x)x^n$ est intégrable, alors $\hat{f}(k)$ est n-fois dérivable ; 
+\item Si $f(x)$ est n-fois dérivale, alors $\hat{f}(k)k^n$ est intégrable ; 
+\item Soit $S$ l'espace des fonctions \textit{C}$^{\infty}$ à décroissance rapide (tel que $fx^n$ est intégrable $\forall n$), alors $\mathcal{F}(S) = S$. 
+Autrement dit, $S$ est stable par la transformée de Fourier ;
+\item \textit{Transformée de Fourier d'une convolution} : Si $h(x) = (f \star h)(x) = \int dy f(y)g(x-y)$, \\
+alors $\hat{h}(k) = \hat{f}(k)\ti\hat{g}(k)$ (à un facteur près) ;
+\item \textit{Identité de Plancherel} : $\int dx \abs{f(x)}^2 = \int dk \abs{\hat{f}(k)}^2$ ; 
+\item \textit{Identité de Plancherel polarisée} : $\int dx f(x)\overline{g(x)} = \int dk \hat{f}(k)\overline{\hat{g}(k)}$ 
+\end{itemize}
+\end{Property}
+
+\section{Distributions}
+Les distributions sont des objets mathématiques qui ont pour but de généraliser la notion de fonction. \\
+Ce ne sont pas des fonctions à proprement parler, mais sont définies en laissant la possibilité de faire des opérations
+qui nous sont familières, telles que la dérivation, la transformée de Fourier, la convolution, etc.\\
+
+\subsection{Espace de fonctions test}
+
+Définissons ici les deux ensembles suivants: 
+\begin{enumerate}
+    \item $D = \left\{ \mbox{ fonctions \textit{C}$^{\infty}$ à support compact } \right\}$ ; cet ensemble, muni d'une certaine structure, est ce qu'on appelle l'\textbf{espace des fonctions test}.\\ 
+    Les distributions agissent sur des fonctions test, et l'on note l'ensemble des distributions $D \textquotesingle$. \\
+    \item $S = \left\{ \mbox{ fonctions \textit{C}$^{\infty}$ à décroissance rapide } \right\}$ ; c'est un ensemble de fonctions qui décroissent plus vite que $\frac{1}{P}$ pour n'importe quel polynôme $P$. \\
+    Les distributions agissant sur ces fonctions forment un ensemble que l'on appelle l'ensemble des \textbf{distributions tempérées}, et que l'on note $S \textquotesingle$. \\
+    Notons que la densité de $D$ dans $S$ fait que l'ensemble des distributions tempérées $S \textquotesingle$ est inclus dans l'ensemble des distributions $D \textquotesingle$ ;
+    de ce fait, nous pourrons également parler de fonctions test pour les éléments de cet ensemble $S$ puisque les fonctions test sont définis comme des fonctions sur lesquelles agissent les distributions. 
+\end{enumerate}
+
+\paragraph{} Il se trouve que l'espace des fonctions test est constitué des ensembles que nous venons de définir, 
+et doit être muni d'une structure afin de répondre à la définition d'un espace. 
+Une notion de continuité/topologie doit dès lors être imposée sur les fonctions test, et s'exprime comme suit :
+\begin{equation}
+\varphi_k \rightarrow \varphi \iff (\partial_x^{(\alpha)} \varphi_k) \xrightarrow[\forall \alpha]{CVU} (\partial_x^{(\alpha)}\varphi)
+\end{equation}
+où CVU $\equiv$ convergence uniforme.
+
+\subsection{Distributions}
+\begin{description}
+    \item [Définition :] Comment est en fait défini une distribution $T$ ? \\
+    C'est une forme linéaire, continue sur l'espace des fonctions test, telle que 
+    \begin{align*}
+        T : \left( 
+        \begin{array}{lll}
+            D \quad \rightarrow \quad \mathbb{R} \\
+            \varphi \quad \rightarrow \quad \langle T, \varphi \rangle
+        \end{array} \right)
+    \end{align*}
+    Nous pouvons également dire que les distributions $D \textquotesingle$ et $S \textquotesingle$ sont respectivement le dual de $D$ et de $S$. \\
+    \item [Remarque :] \strut 
+
+    \begin{itemize}[label = \textbullet]
+        \item Si $\varphi_k \rightarrow \varphi$, alors $\langle T, \varphi_k\rangle  \mbox{ } \rightarrow \mbox{ } \langle T, \varphi\rangle $ ;
+        \item Si $T$ est une distribution et $\varphi$ une fonction test $\in D$, alors nous pouvons également noter le nombre $\langle T, \varphi\rangle $ comme $T(\varphi)$. 
+    \end{itemize}
+    \item [Exemples :] Donnons maintenant 2 exemples de distributions : 
+    \begin{enumerate}
+        \item Soit $f : \mathbb{R} \rightarrow \mathbb{R}$ une fonction intégrable ; \\
+        Alors on peut définir la distribution $T_f$ telle que : \\
+        \begin{equation}
+            T_f : \varphi \mbox{ } \rightarrow \mbox{ } \langle T_f, \varphi\rangle  = \int_{\mathbb{R}} dx f(x) \varphi(x)
+        \end{equation}
+        \textit{N.B. : L'application linéaire continue étant injective, on peut confondre $f$ et $T_f$}
+        \item Le "delta de Dirac", que vous avez déjà peut-être rencontré, est en effet un distribution, et est défini comme ceci : \\
+        \begin{equation}
+        \label{delta de dirac}
+            \delta : \varphi \mbox{ } \rightarrow \mbox{ } \langle \delta, \varphi\rangle  = \int_{\mathbb{R}} \delta(x) \varphi(x)dx = \varphi(0)
+        \end{equation}
+        \end{enumerate}
+
+        Intuitivement, on peut voir une distribution comme un objet mathématique qui n'a de sens que quand on l'intègre. Elle effectue une sorte de moyenne pondérée sur une fonction, et les poids de cette moyenne sont les valeurs de la distribution.
+\end{description}
+
+\subsection{Opérations sur les distributions}
+
+\begin{enumerate}
+    \item \textit{Dérivée d'une distribution}.  \\
+    En notant abusivement $T \textquotesingle$ pour exprimer $T_{f \mbox{\textquotesingle}}$, on peut définir la dérivation d'une distribution de la manière suivante : \\
+    $$ \langle T', \varphi \rangle \; = \; \langle T, -\varphi' \rangle $$
+    En effet, en reprenant le premier exemple de distribution avec $f$ une fonction intégrable sur $\mathbb{R}$ et $T_f(\varphi) = \int_{\mathbb{R}} dx f(x) \varphi(x)$, 
+    et en faisant une intégration par partie, on voit que : \\
+    \begin{align}
+        \int_{\mathbb{R}} dx f'(x) \varphi(x) &= \left[ f(x)\varphi(x)\right] - \int_\mathbb{R} f(x) \varphi'(x) && \text{(intégration par parties)}\notag  \\
+        &= -\int_\mathbb{R} f(x) \varphi'(x) && \text{($\varphi$ s'annule en dehors d'un compact)}\notag  \\
+        \implies \langle T_{f'}, \varphi\rangle  &= \langle T, - \varphi' \rangle  && \text{(par définition)} \notag 
+    \end{align}
+    Donnons un exemple d'utilité de cette propriété : \\
+    Considérons la fonction de Heaviside, également appelée fonction indicatrice de $\mathbb{R}^+$, discontinue en $0$, définie comme : 
+    \begin{align}
+    \label{fonction de Heaviside}
+        \theta (x) &= \left\lbrace \begin{array}{lll}
+                1 \quad \mbox{ si $x> 0$} \\
+                0 \quad \mbox{ si $x< 0$}
+                \end{array}\right. \notag \\
+        \theta \mbox{\textquotesingle} (x) &= \delta (x)
+    \end{align}
+    Notons que la valeur en $0$, $\theta (0)$, n'a pas d'importance car la fonction apparaît le plus souvent dans une intégrale. Sa valeur est même en général arbitraire, et il arrive souvent de poser que $\theta (0) = \frac{1}{2}$ pour observer une symétrie dans cette distribution. \\
+
+    Montrons à présent qu'il possible d'obtenir l'expression de la dérivée de la fonction de Heaviside \ref{fonction de Heaviside} grâce à la règle de dérivation au sens des distributions. En effet, par cette dernière règle, nous avons que : 
+    \begin{align}
+        \langle \theta \mbox{\textquotesingle}, \phi\rangle  &= -\langle \theta, \phi \mbox{\textquotesingle}\rangle  && \mbox{(où $\phi$ est une fonction test)} \notag \\
+        \implies \langle \theta \mbox{\textquotesingle}, \phi\rangle  &= - \int_{\mathbb{R}} \theta(x) \phi \mbox{\textquotesingle}(x) \notag \\
+        &= - \int_0^{+ \infty} \phi \mbox{\textquotesingle}(x) && \mbox{ (par définition de la fonction $\theta(x)$)} \notag 
+    \end{align}
+    Par le théorème fondamental de l'analyse, $\phi(x)$ est une primitive de $\phi \mbox{\textquotesingle} (x)$. Ainsi, 
+    \begin{equation} 
+        \langle \theta \mbox{\textquotesingle}, \phi\rangle  = - \lim_{x \to +\infty} \phi(x) + \phi(0) = \phi(0) \quad \mbox{car $\phi(x) \to 0$ lorsque $x \to +\infty$ (fonction test)}
+    \end{equation} 
+    Or, par \ref{delta de dirac} (définition du delta de Dirac), on en déduit que : 
+    \begin{align}
+        \langle \theta \mbox{\textquotesingle}, \phi\rangle  &= \phi(0) \notag \\ 
+        \iff \theta \mbox{\textquotesingle} (x) &= \delta (x)
+    \end{align}
+    \item \textit{Multiplication d'une distribution par une fonction test.} $$\langle  T\phi, \varphi \rangle  \; = \; \langle T, \varphi \phi\rangle $$\\
+    \textit{Note importante} : nous ne pouvons pas multiplier les distributions entre elles.
+\end{enumerate}
+
+\subsection{Théorèmes de structure}
+Ajoutons à présent les théorèmes suivants, dits "de structure", qui font un lien entre les distributions et les fonctions.
+
+\begin{theorem}[Structure locale d'une distribution]
+    Localement, une distribution est égale à une dérivée d'une fonction continue (sans précision sur l'ordre de la dérivée). Par exemple, la fonction $\delta(x)$ peut être exprimée comme la dérivée seconde d'une fonction continue).
+\end{theorem}
+\begin{theorem}[Structure d'une distribution tempérée]
+    Une distribution tempérée est équivalente à la dérivée $\alpha^{\mbox{\small{ième}}}$ d'une fonction continue à croissance lente (\textit{i.e} qui ne croît pas plus vite que n'importe quel polynôme).
+\end{theorem}
+Bien que ces 2 théorèmes soient surtout à titre informatif étant donné qu'ils ne seront pas de grande utilité dans notre cours, ce sont tout de même des résultats importants qui peuvent souvent être très pratiques, 
+sans même avoir pris connaissance de leur démonstration.
+
+\subsection{Distributions tempérées}
+Les distributions tempérées sont celles qui s'étendent continûment aux fonctions de la classe de Schwartz. Elles agissent sur les fonctions test appartenant à l'ensemble $S$. \\
+Afin de faciliter l'écriture, nous allons faire usage des notations suivantes : 
+\begin{itemize}[label= \textbullet]
+    \item $F \equiv$ Transformée de Fourier 
+    \item $T \equiv$ forme linéaire $\in S$\textquotesingle  (dual de $S$) 
+\end{itemize}
+Introduisons également le fait que $S$ est invariant sous $F$, autrement dit, la transformée de Fourier d'une fonction de $S$ est elle-même une fonction de $S$. \\ 
+
+Nous allons étendre la notion de transformée de Fourier sur des distributions tempérées. Cela va s'énoncer comme suit : \\
+$\forall T \in S \mbox{\textquotesingle}$ ; $FT$, la transformée de Fourier de $T$, existe et est définie par :
+\begin{equation}
+\label{transformee de fourier de distribution}
+    \langle FT, \phi\rangle  \mbox{ } = \mbox{ } \langle T, F\phi \rangle 
+\end{equation}
+
+\textit{Exemples :} \begin{itemize}[label= \textbullet]
+    \item Si $f$ est une fonction, alors par \ref{transformee de fourier de distribution}, on a que : 
+    \begin{align}
+        \langle F T_f, \phi\rangle  \mbox{ } &= \mbox{ } \langle T_f, F \phi\rangle  \notag \\
+        \implies \int dk \left( \int dx \frac{e^{-ikx}}{\sqrt{2\pi}}f(x) \right) \phi(k) &= \int dx f(x) \left( \int dk \frac{e^{-ikx}}{\sqrt{2\pi}}\Phi(k) \right)
+    \end{align}
+    \item $F \delta = \int_{\mathbb{R}} \delta(x) \frac{e^{-ikx}}{\sqrt{2 \pi}} dx = \frac{1}{\sqrt{2 \pi}} e^{-ik0} = \frac{1}{\sqrt{2 \pi}}$
+    \item $F \delta \mbox{\textquotesingle} = ikF\delta = \frac{ik}{\sqrt{2 \pi}}$
+\end{itemize}
+
+\bg{Remarque :}{Le delta de Dirac est effectivement défini comme une distribution mais il faut savoir qu'en pratique : 
+\begin{itemize}
+    \item On manipule en réalité $\delta$ et ses dérivées comme si c'était des fonctions (telles que l'on connaît) ; 
+    \item On utilise la définition suivante : 
+    \begin{equation}
+    \label{definition delta en fonction}
+        \delta(k) = \int dx \frac{e^{-ikx}}{2 \pi}
+    \end{equation} Ceci nous permet de voir plus facilement cette distribution comme une fonction, et facilite certaines opérations. 
+\end{itemize}
+    }
+
+\subsection{$\delta$ de Dirac}
+La distribution de Dirac est quelque chose de très fréquemment utilisé en physique ; elle permet de caractériser le fait qu'un objet, considéré comme une masse ponctuelle par exemple, se trouve à un endroit précis (lorsque la position est la variable), 
+ou encore la vitesse d'une balle de tennis au contact entre la balle et la raquette peut être assimilée à un delta de Dirac. \\
+En fait, cette distribution est souvent utilisée pour approximer les fonctions dont le graphe ressemble à une grande pointe étroite (comme par exemple une gaussienne de très faible largeur). %(Graphe) \\
+Cette distribution est en général définie comme ceci :  
 \begin{align}
-\delta(x) &= \begin{cases}
-+\infty \mbox{ en x = 0}\\
-0 \mbox{ en } x\neq 0
-\end{cases}		&\int^{+\infty}_{-\infty} dx \delta (x) = 1\\
-\delta(x) &= \lim_{x\to 0} f_{\alpha}(x)	&\int^{+\infty}_{-\infty} dx f_\alpha (x) = 1
+    \delta(x-a) = \left\lbrace \begin{array}{lll}
+        +\infty \mbox{ en $x = a$} \\
+        0 \mbox{ en $x \ne a$} 
+    \end{array}\right. \quad \mbox{ est tel que} \quad \int_{-\infty}^{+\infty} \delta(x-a) dx = 1
 \end{align}
-Où $f_\alpha (x)$ est strictement positif.
-\begin{align}
-\int_{-\infty}^{+\infty} dx f(x)\delta(x) &= f(0)\\
-\int_{-\infty}^{+\infty} dx \delta(\Gamma - x)\delta(x- \zeta) &= \delta (\Gamma - \zeta)\\
-\delta '(x) : \int^{+\infty}_{-\infty} \delta '(x)f(x) &= [\delta(x)f(x)]_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty} dx \delta(x)f'(x)\\
-&= -f'(0)\\
-\int_{-\infty}^{+\infty} dx' \delta(x') &= \theta(x)		&\int dx f(x)\delta(x-a) = f(a)\\
-\delta(\alpha x) &= \frac{1}{\norm{\alpha}}\delta(x)	&\delta(g(x)) = \frac{1}{\norm{g'(x_0)}}\delta(x-x_0)
-\delta(-x) &= \delta(x)\\
-\end{align}
+Le delta de Dirac peut également être vu comme la limite d'une fonction $f_{\alpha}$ : \begin{equation} 
+    \delta(x) = \lim_{\alpha \to 0} f_{\alpha} (x) \end{equation}
+avec $f_{\alpha}$ respectant ces conditions : 
+\begin{align*}
+    \left\lbrace \begin{array}{lll}
+        f_{\alpha} (x) >  0 \quad \forall x \\
+        \int_{-\infty}^{+\infty} f_{\alpha} (x) dx = 1
+    \end{array}\right. 
+\end{align*}
+Nous pouvons par exemple prendre la fonction $f_{\alpha}$ suivante qui respecte les conditions que nous avons énoncées : 
+\begin{align*}
+    f_{\alpha} (x) = \left\lbrace \begin{array}{lll}
+        \frac{1}{\alpha} \quad &\mbox{lorsque } \frac{- \alpha}{2} <  x < \frac{\alpha}{2} \\
+        0 \quad &\mbox{lorsque } \abs{x} >  \frac{\alpha}{2}    
+    \end{array}\right. 
+\end{align*}
+
+\paragraph{} Enonçons à présent les propriétés de la distribution utilisées le plus fréquemment :
+\begin{itemize}[label = \textbullet]
+    \item $\int_{-\infty}^{+\infty} dx f(x)\delta(x-a) = f(a)$, \\
+    et donc en particulier, pour $a = 0$ (Distribution centrée en 0) :  $\int_{-\infty}^{+\infty} f(x)\delta(x) dx = f(0)$
+    \item $\int_{-\infty}^{x} dx' \delta(x') = \theta(x)$ (où $\theta (x)$ est la fonction de Heaviside définie précédemment)
+    \item \textit{Delta de Dirac lorsque l'argument est lui-même une fonction : }$\delta(g(x)) = \frac{1}{\abs{g'(x_0)}}\delta(x-x_0)$ %+ ajout de démo
+    \item $\delta(\alpha x) = \frac{1}{\abs{\alpha}}\delta(x)$
+    \item $\delta(-x) = \delta(x)$ (par symétrie du delta de Dirac)
+    \item $\int_{-\infty}^{+\infty} \delta(\zeta - x)\delta(x- \eta) dx = \delta (\zeta - \eta)$
+    \item \textit{Dérivation de la distribution de Dirac : } $\delta \mbox{\textquotesingle} (x)$ : 
+    \begin{align}
+        \int^{+\infty}_{-\infty} \delta '(x)f(x) dx &= \left[ \delta(x)f(x) \right]_{-\infty}^{+\infty} - \int_{-\infty}^{+\infty} \delta(x)f'(x) dx \\
+    &= -f'(0)
+    \end{align}
+\end{itemize}
 
 \subsection{Transformée de Fourier d'une fonction périodique}
-Si $x(t)$ est une fonction de période T tel que $x(t+T) = x(t)$. Alors $x(t)$ peut-être représenté comme une série de Fourier.
+Considérons une fonction $x(t)$. Nous avons vu que si elle est périodique de période T, alors x(t) peut être représentée par une série de Fourier : 
 \begin{equation}
-x(t) = \sum_{k = -\infty}^{+\infty} c_ke^{2\pi ik\frac{i}{T}}
-\label{Z}
+\label{serie de Fourier de x}
+    x(t) = \sum_{k = -\infty}^{+\infty} c_ke^{2 \pi i k t/T}
 \end{equation}
-Prenons la transformée de Fourier de \eqref{Z}.
+
+Prenons maintenant la transformée de Fourier de cette fonction donnée par \ref{serie de Fourier de x} :
 \begin{align}
-\hat{x} (\omega ) = \int dt \frac{e^{-i\omega t}}{\sqrt{2\pi}} x(t) &= \int_{k = -\infty}^{+\infty} c_k \int dt \frac{e^{-i\omega t}}{\sqrt{2\pi}}e^{2\pi i k \frac{t}{T}}\\
-&= \sum_{k = -\infty}^{+\infty} \frac{c_k}{2\pi} \delta (\omega - \frac{2\pi k}{T})
+\hat{x} (\omega ) &= \int \frac{e^{-i\omega t}}{\sqrt{2\pi}} x(t) dt \notag \\
+&= \int dt \sum_{k = -\infty}^{+\infty} c_k \frac{e^{-i\omega t}}{\sqrt{2 \pi}} e^{\frac{2 \pi i k t}{T}} \notag \\
+&= \sum_{k = -\infty}^{+\infty} \frac{c_k}{\sqrt{2 \pi}} \int \left( \frac{\sqrt{2 \pi}}{\sqrt{2 \pi}} \right) e^{-it \left( \omega - \frac{2 \pi k}{T} \right)} dt \notag \\
+\implies \hat{x}(\omega) &= \sum_{k = -\infty}^{+\infty} \sqrt{2 \pi} c_k \delta \left( \omega - \frac{2 \pi k}{T} \right) \quad \mbox{ (par la définition du delta de Dirac donnée en \ref{definition delta en fonction})}
 \end{align}
-Nous appelons $\hat{x}(\omega)$ est la somme des deltas espacés de $\frac{2\pi}{T}$.
+
+Ainsi, nous trouvons que la transformée de Fourier d'une fonction périodique $\hat{x}(\omega)$ est une somme de deltas espacés de $\frac{2\pi}{T}$. 
 \end{document}
