@@ -301,6 +301,8 @@ Nous avons déjà étudié la molécule d'ammoniac, et ses deux états possibles
 Un système à deux niveaux excité à sa fréquence de résonance subit des oscillations, appelées \textit{oscillations de Rabi}, que nous calculerons dans cette section. 
 
 \subsection{Dispositif et hamiltonien}
+Le phénomène que nous essayons ici de réaliser est de manipuler un état en lui faisant subir une impulsion lumineuse. La molécule arrive dans la cavité avec une certaine vitesse, subit l'effet du champ électrique pour lui faire \textit{changer d'état} (nous comparerons les états d'entrée et de sortie plus loin) et sort enfin de la cavité. Pour décrire l'évolution de la molécule dans la cavité, nous devons étudier son hamiltonien, qui doit tenir compte de l'interaction entre son dipôle et le champ électrique. \\
+
 Le hamiltonien de la molécule de $NH_3$, en tenant compte de la possible transition par effet tunnel, est repris ci-dessous.
 \begin{equation}
     H = 
@@ -403,7 +405,50 @@ $$\left\{
         \gamma_-(t) &= \gamma_+(-\infty) e^{i\Phi(t)} \\
         \end{array}
 \right.$$
-où $$\Phi(t) = \int_{-\infty}^t \dt'\; \mu\;  \dfrac{\mathcal{E}_0(t')}{\hbar}\; .$$
+où 
+\begin{equation}\label{eq:chap5-rabi-phi}
+    \Phi(t) = \int_{-\infty}^t \dt'\; \mu\;  \dfrac{\mathcal{E}_0(t')}{\hbar}\; .
+\end{equation}
+
+\subsection{État en sortie de cavité}
+Intéressons-nous à l'état en sortie de cavité, au temps $t=+\infty$, et comparons à l'état de la particule avant d'y entrer, au temps $t=-\infty$.
+$$\left\{ 
+    \begin{array}{rl}
+        \gamma_+(+\infty) &= \gamma_+(-\infty) e^{-i\Phi} \\
+        \gamma_-(+\infty) &= \gamma_+(-\infty) e^{i\Phi} \\
+        \Phi &= \int_{-\infty}^{+\infty}\dt'\; \mu\;  \dfrac{\mathcal{E}_0(t')}{\hbar}
+    \end{array}
+    \right.$$
+    Avec les définitions de $\gamma_{+, -}$ en fonction de $\gamma_\mathrm{I, II}$, nous pouvons réécrire.
+$$\left\{ 
+    \begin{array}{lll}
+        \gamma_\mathrm{I}(t=+\infty) &= \gamma_\mathrm{I}(t=-\infty) \cos\Phi &+ i \gamma_\mathrm{II}(t=-\infty)\sin\Phi \\
+        \gamma_\mathrm{II}(t=+\infty) &= i\gamma_\mathrm{I}(t=-\infty) \sin\Phi &+ \gamma_\mathrm{II}(t=-\infty)\cos\Phi \\
+    \end{array}
+\right.$$
+L'évolution dans la cavité se décrit alors comme une rotation dans l'espace des états propres, d'un angle $\Phi$. Nous pouvons en effet considérer :
+\begin{itemize}[label=$\blacktriangleright$]
+    \item Si $\gamma_\mathrm{I}(-\infty) =1$ \footnote{et alors  $\gamma_\mathrm{II}(-\infty) = 0$, car $|\gamma_\mathrm{I}|^2 +|\gamma_\mathrm{II}|^2 = 1$ pour tout temps $t$, en particulier donc pour $t\rightarrow -\infty$.}, étant donc initialement dans l'état I, alors nous pouvons écrire la probabilité de trouver la molécule dans l'état I en sortie de cavité ($t=\infty$) comme fonction de $\Phi$, en utilisant l'écriture \eqref{eq:chap5-rabi-eq_etat} de l'état et le postulat de la mesure : \\
+    \begin{eqnarray*}        
+        \mathcal{P}(\ket{\mathrm{I}}, \; t=+\infty) &=& \lim_{t\rightarrow +\infty}\left|  \gamma_\mathrm{I}(t) \; e^{-i(E_0+A) t/\hbar} \right|^2 \\
+        &=&\lim_{t\rightarrow +\infty}\left|  \gamma_\mathrm{I}(t)\right|^2 \\
+        &=&|\cos\Phi|^2
+    \end{eqnarray*}
+    {\color{red}{Insérer graphique!}}
+\end{itemize}
+Le paramètre $\Phi$ de la transition peut donc être choisi de sorte à ce que la molécule sorte dans un état ou dans l'autre. En pratique, vu les dépendances \eqref{eq:chap5-rabi-phi} de $\Phi$, il est possible de le faire varier, 
+\begin{itemize}[label=$\blacktriangleright$]
+    \item en modifiant l'intensité du champ : modifie $\mathcal{E}(x)$, donc $\mathcal{E}_0(t)$, donc $\Phi$ ;
+    \item en modifiant la vitesse de la molécule : modifie $\mathcal{E}_0(t)$, donc $\Phi$.
+\end{itemize}
+
+
+% $|\gamma_\mathrm{I}(t)|^2 +|\gamma_\mathrm{II}(t)|^2 = 1$ pour tout temps $t$, ça c'est normal. Mais le prof il donne comme exemple : 
+% $$\boxed{\gamma_\mathrm{I}(-\infty) = 1 \qquad \gamma_\mathrm{II}(-\infty) = 0}$$
+% et pour moi ça veut rien dire parce que les "infinis sont différents" haha \\
+
+% Par contre, écrire $$\lim_{t\rightarrow -\infty}\gamma_\mathrm{I}(t) = 1 \qquad \lim_{t\rightarrow -\infty}\gamma_\mathrm{II}(t) = 0$$
+% ça ça me parle plus, parce qu'une limite a une "unique" valeur (pour autant qu'elle soit définie)
 
 \section{Résonance quantique}
 
