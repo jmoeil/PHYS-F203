@@ -295,6 +295,55 @@ où nous avons posé $\Delta m^2 = m_1^2-m_2^2$. Il existe donc une probabilité
 
 Empiquement, il se trouve que $\sin^22\theta \approx 0.85$ et $\Delta m^2 \approx 8 10^{-5} eV^2$. \color{purple} Notons qu'en réalité le problème est un peu plus complexe, car il existe 3 saveurs de neutrinos et non deux : cette résolution naïve pour 2 saveurs permet cependant de bien mettre en évidence la réalité physique, et les effets quantiques présents dans ce système. \color{black}
 
+\section{Ammoniac : oscillations de Rabi}
+Nous avons déjà étudié la molécule d'ammoniac, et ses deux états possibles, notés $\ket 1$ et $\ket 2$. La transition d'un état à l'autre est l'œuvre de l'effet tunnel et sera décrite dans la section suivante. Dans cette section, nous nous intéressons à la \textbf{polarité} de cette molécule, et l'interaction entre son dipôle et un champ électrique oscillant. Plus précisément, la fréquence du champ oscillant sera calibrée sur la fréquence de transition entre les deux états $\ket 1$ et $\ket 1$ -- aussi appelée \textit{fréquence de Bohr}. \\
+
+Un système à deux niveaux excité à sa fréquence de résonance subit des oscillations, appelées \textit{oscillations de Rabi}, que nous calculerons dans cette section. 
+
+\subsection{Dispositif et hamiltonien}
+Le hamiltonien de la molécule de $NH_3$, en tenant compte de la possible transition par effet tunnel, est repris ci-dessous.
+\begin{equation}
+    H = 
+    \begin{pmatrix}
+        E_0 & -A\\
+        -A & E_0
+    \end{pmatrix}\label{eq:chap5-rabi-hamiltonien}
+\end{equation}
+Ajoutons à cela une interaction entre le dipôle électrique $$\vec \mu_{\ket 1, \ket 2} = pm\mu \vec 1_z$$ de la molécule et le champ oscillant $$\vec E = \mathcal{E}(x)\cos(\omega_0 t)\vec 1_z \; .$$
+
+\begin{center}
+    {\color{red}{Ajouter dispositif}}
+\end{center}
+Comme la molécule traverse la cavité avec une certaine vitesse, l'amplitude du champ qu'elle subira peut être écrit comme dépendant seulement du temps :
+$$\mathcal{E}(x) \rightarrow\mathcal{E}_0(t) \; ,$$ de sorte à ce que l'énergie d'interaction entre le champ et le dipôle puisse s'écrire comme dépendant seulement du temps :
+
+$$W = \pm\mu\mathcal{E}_0(t)\cos(\omega_0 t) \; .$$
+
+Avec cette énergie d'interaction, le hamiltonien du système devient dépendant du temps et peut s'écrire
+\begin{equation}
+    H = 
+    \begin{pmatrix}
+        E_0 + \mu\mathcal{E}_0(t)\cos(\omega_0 t)& -A\\
+        -A & E_0 - \mu\mathcal{E}_0(t)\cos(\omega_0 t)
+    \end{pmatrix}\label{eq:chap5-rabi-hamiltonien-interaction}
+\end{equation}
+et nous pouvons écrire un état comme une combinaison linéaire des vecteurs propres avec des coefficients dépendant du temps : 
+
+$$\ket\psi = C_1(t) \ket 1 + C_2(t)\ket 2\; .$$
+
+\subsection{Réécriture dans la base propre}
+Nous pouvons modifier l'écriture précédente pour faciliter l'étude de l'impact du champ électrique. En effet, si nous posons 
+$$\ket{\mathrm{I}} = \dfrac{\ket 1 - \ket 2}{\sqrt{2}} \qquad \ket{ \mathrm{II}} = \dfrac{\ket 1 + \ket 2}{\sqrt{2}} \; ,$$
+
+nous pouvons toujours trouver des coefficients $\gamma_\mathrm{I}(t)$ et $\gamma_\mathrm{II}(t)$ tels que
+
+\begin{equation}\label{eq:chap5-rabi-eq_etat}
+    \ket \psi = \gamma_\mathrm{I}(t) \; e^{-i(E_0+A) t/\hbar} \ket{\mathrm{I}} +\gamma_\mathrm{II}(t) \; e^{-i(E_0-A) t/\hbar} \ket{\mathrm{II}} \; .
+\end{equation}
+Cette écriture utile permet de comparer cette situation à celle obtenue lors de notre première étude de la molécule d'ammoniac. En effet, si le champ est d'amplitude nulle ($\mathcal{E}_0 = 0$), alors le hamiltonien \eqref{eq:chap5-rabi-hamiltonien-interaction} devient égal au hamiltonien \eqref{eq:chap5-rabi-hamiltonien}, et la solution s'écrit comme \eqref{eq:chap5-rabi-eq_etat} avec $\gamma_\mathrm{I}$ et $\gamma_\mathrm{II}$ constantes, comme à la section précédente.
+
+\subsection{Résolution de l'équation de Schrodinger}
+
 \section{Résonance quantique}
 
 Nous entamons ici l'étude de 3 exemples différents de systèmes quantiques à 2 états - des systèmes différents, mais liés par le fait qu'ils possèdent une symétrie. Cette symétrie impose des conditions menant à des résultats parfois surprenants.
