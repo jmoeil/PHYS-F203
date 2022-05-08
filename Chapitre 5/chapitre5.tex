@@ -343,6 +343,67 @@ nous pouvons toujours trouver des coefficients $\gamma_\mathrm{I}(t)$ et $\gamma
 Cette écriture utile permet de comparer cette situation à celle obtenue lors de notre première étude de la molécule d'ammoniac. En effet, si le champ est d'amplitude nulle ($\mathcal{E}_0 = 0$), alors le hamiltonien \eqref{eq:chap5-rabi-hamiltonien-interaction} devient égal au hamiltonien \eqref{eq:chap5-rabi-hamiltonien}, et la solution s'écrit comme \eqref{eq:chap5-rabi-eq_etat} avec $\gamma_\mathrm{I}$ et $\gamma_\mathrm{II}$ constantes, comme à la section précédente.
 
 \subsection{Résolution de l'équation de Schrodinger}
+Avec l'écriture de l'état $\ket \psi$ selon \eqref{eq:chap5-rabi-eq_etat}, l'équation de Schrodinger 
+$$i\hbar \partial_t \ket \psi = H\ket \psi$$
+devient, en posant $\omega=2A/\hbar$, 
+$$\left\{
+    \begin{array}{ll}
+        i\hbar \dfrac{\d\gamma_\mathrm{I}}{\dt}(t) &= \mu \mathcal{E}_0(t)\cos(\omega_0 t)\; e^{i\omega t}\; \gamma_\mathrm{II}(t) \\
+        \strut \\
+        i\hbar \dfrac{\d\gamma_\mathrm{II}}{\dt}(t) &= \mu \mathcal{E}_0(t)\cos(\omega_0 t)\; e^{-i\omega t}\; \gamma_\mathrm{I}(t) 
+    \end{array}
+\right. \; .$$
+La fréquence que nous avons posée est la \textit{fréquence de Bohr}, la fréquence de la transition, comme déjà discuté à la section précédente. L'objet des oscillations de Rabi est le comportement de ce système à la résonance, c'est-à-dire lorsque la fréquence extérieure (celle du champ, $\omega_0$) approche la fréquence propre du système $\omega$. \\
+
+Pour continuer notre résolution de l'équation de Schrodinger, posons comme hypothèse que $\mathcal{E}_0(t)$ varie lentement{\color{red}{à quoi ça nous sert?}}, et que $\omega$ et $\omega_0$ ont même ordre de grandeur. En développant le cosinus, la \textit{rotating wave approximation} peut être utilisée. Elle consiste à négliger les termes d'un hamiltonien qui oscillent rapidement. Suivant cette approximation, nous avons alors :
+$$\begin{array}{ll}
+    \cos(\omega_0 t) e^{i\omega t}&= \dfrac{1}{2} \; e^{i(\omega +\omega_0)t} + \dfrac{1}{2} \; e^{i(\omega -\omega_0)t} \\
+    \strut \\
+    &\approx \dfrac{1}{2} \; e^{i(\omega -\omega_0)t}
+\end{array}\; ,$$
+et le système d'équations devient 
+$$\left\{
+    \begin{array}{ll}
+        i\hbar\dot{\gamma_\mathrm{I}}(t) &= \mu \mathcal{E}_0(t)e^{i(\omega-\omega_0)}\; \gamma_\mathrm{II}(t) \\
+        \strut \\
+        i\hbar \dot{\gamma_\mathrm{II}}(t) &= \mu \mathcal{E}_0(t)e^{-i(\omega-\omega_0)}\; \gamma_\mathrm{I}(t) 
+    \end{array}
+\right. \; .$$
+Notons qu'il s'agit là d'un des très rares cas où l'équation de Schrodinger dépendant du temps est soluble. \\
+
+À la résonance ($\omega = \omega_0$), le système devient
+$$\left\{
+    \begin{array}{ll}
+        i\hbar\dot{\gamma_\mathrm{I}}(t) &= \mu \mathcal{E}_0(t) \gamma_\mathrm{II}(t) \\
+        \strut \\
+        i\hbar \dot{\gamma_\mathrm{II}}(t) &= \mu \mathcal{E}_0(t)\; \gamma_\mathrm{I}(t) 
+    \end{array}
+\right. \; .$$
+Ce système d'équations différentielles couplées peut se résoudre en posant 
+
+$$\gamma_+ = \dfrac{\gamma_\mathrm{I} + \gamma_\mathrm{II}}{\sqrt{2}} \qquad \gamma_- = \dfrac{\gamma_\mathrm{I} - \gamma_\mathrm{II}}{\sqrt{2}}\;,$$
+donnant alors (la dépendance en $t$ de $\gamma$ n'a pas été reprise pour alléger l'écriture)
+$$\left\{
+    \begin{array}{ll}
+        i\hbar\dfrac{\d\gamma_+}{\dt} &= \mu \mathcal{E}_0(t) \gamma_+ \\
+        \strut \\
+        i\hbar\dfrac{\d\gamma_-}{\dt} &= -\mu \mathcal{E}_0(t) \gamma_- \\
+    \end{array}
+\right. \; \Rightarrow \left\{
+    \begin{array}{ll}
+        \dfrac{\d\gamma_+}{\gamma_+} &= \mu -\dfrac{i}{\hbar}\mathcal{E}_0(t) \dt \\
+        \strut \\
+        \dfrac{\d\gamma_-}{\gamma_-} &= \mu \dfrac{i}{\hbar}\mathcal{E}_0(t) \dt \\
+    \end{array}
+\right. .$$
+En intégrant alors entre les temps $-\infty$ et $t$, nous obtenons la solution 
+$$\left\{ 
+    \begin{array}{ll}
+        \gamma_+(t) &= \gamma_+(-\infty) e^{-i\Phi(t)} \\
+        \gamma_-(t) &= \gamma_+(-\infty) e^{i\Phi(t)} \\
+        \end{array}
+\right.$$
+où $$\Phi(t) = \int_{-\infty}^t \dt'\; \mu\;  \dfrac{\mathcal{E}_0(t')}{\hbar}\; .$$
 
 \section{Résonance quantique}
 
