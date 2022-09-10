@@ -3,6 +3,7 @@
 \begin{document}
 \chapter{Représentations de la position et de l'impulsion en Mécanique Quantique}\label{chap:chap6}
 
+\section{Introduction}
 Dans ce chapitre, nous nous intéressons à la \textit{représentation} d'un état quantique, et plus particulièrement aux représentations \textit{position} et \textit{impulsion}. Considérons un système quantique, par exemple une particule. Il lui est associé un état dans l'espace de Hilbert $L^2(\mathbb{R})$ ou $L^2(\mathbb{R}^3)$, \textit{i.e} l'espace des fonctions de carré sommables, comme l'indique le premier postulat de la Mécanique Quantique. \\
 
 Nous avons vu lors du développement du formalisme de Dirac que l'espace des ondes planes $$v_p(x) = \frac{1}{\sqrt{2 \pi \hbar}} \; e^{ipx/\hbar}$$ constituait une base continue dans laquelle il est possible d'écrire une fonction d'onde de l'espace $L^2(\mathbb{R})$, bien que les éléments de la base ne soient pas eux-mêmes des fonctions de carré sommable. En effet, une onde plane ne pouvait donc pas constituer un état physique, mais il était possible d'en obtenir un en superposant plusieurs ondes planes, obtenant ainsi un \textit{paquet d'ondes}. Nous avons aussi vu que le coefficient (noté $g(k)$ dans le chapitre \ref{chap:chap2}) qui pondérait chaque onde plane dans la superposition (dans le paquet) n'était rien autre que la transformée de Fourier de $\psi(x)$ :
@@ -12,7 +13,8 @@ $$ \psi(x) = \int_{-\infty}^{+\infty} \; dp \; \hat{\psi_p} v_p \; , $$ où $$\h
 
 Insistons encore sur le fait qu'à tout état \textbf{physique} doit être associé une fonction de carré sommable. C'est le premier postulat de la Mécanique Quantique. Ainsi, l'onde plane $v_p$ ne peut \textbf{pas} représenter l'état d'une particule par exemple, ce n'est qu'un intermédiaire de calcul, et nous venons de voir qu'il était donc légitime de considérer des éléments de base qui ne soient pas des fonctions de carré sommable. \\
 
-Nous avons utilisé la base des ondes planes pour introduire le chapitre, mais nous développerons plus en détail l'utilisationn des deux bases suivantes :
+\section{Les bases $\ket x$ et $\ket p$}
+Nous avons utilisé la base des ondes planes pour introduire le chapitre, mais nous développerons plus en détail l'utilisation des deux bases suivantes :
 \begin{enumerate}
     \item $\left\{ \xi_{x_0}(x) \right\}$ où $\xi_{x_0}(x) = \delta(x-x_0)$ 
     \item $\left\{ v_{p_0}(x) \right\}$ où $v_{p_0}(x) = \frac{1}{\sqrt{2\pi \hbar}} \; e^{ip_0 x/\hbar}$
@@ -25,7 +27,7 @@ Nous chercherons à représenter les opérateurs position $\hat{X}$ et impulsion
     \item $\ket{p_0} \equiv$ état propre de l'opérateur $\hat{P}$, correspondant à la "fonction propre" $\frac{e^{ip_0 x/\hbar}}{\sqrt{2 \pi \hbar}}$, de valeur propre $p_0$. 
 \end{itemize}
 
-\section{Relations d'orthonormalisation et de fermeture}
+\subsection{Relations d'orthonormalisation et de fermeture}
 
 Par définition du produit scalaire, nous avons que 
 \begin{itemize}[label=\textbullet]
@@ -41,23 +43,23 @@ Puisque chacun des ensembles $\left\{ \ket{x_0} \right\}$ et $\left\{ \ket{p_0} 
     \item $\int dp_0 \; \ket{p_0}\bra{p_0} = \mathbb{I}$ 
 \end{itemize}
 
-\section{Composantes d'un ket}
+\subsection{Composantes d'un ket}
 
 Considérons un état quantique $\ket{\psi}$, correspondant à la fonction d'onde $\psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
-\begin{align}
+\begin{align*}
 \ket{\psi} &= \int dx_0 \; \ket{x_0} \braket{x_0|\psi} \\
 \ket{\psi} &= \int dp_0 \; \ket{p_0} \braket{p_0|\psi}
-\end{align}
+\end{align*}
 
 De plus, nous observons que : 
 \begin{align}
-    \braket{x_0| \psi} &= \int dx \; \xi_{x_0}^*(x) \psi(x) \; \mbox{ (par définition du produit scalaire)} \\
-    &= \int dx \; \delta(x-x_0)\psi(x) \\
-    &= \psi(x_0)\\
-    \mbox{et } \; \braket{p_0|\psi} &= \bra{p_0}\mathbb{I}\ket{\psi} = \bra{p_0} \left( \int dx \; \ket{x_0} \bra{x_0} \right) \ket{\psi} \\
-    &= \int dx \; \braket{p_0|x_0} \braket{x_0|\psi} \; \mbox{ où $\braket{p_0|x_0} = \int dx \; p_0^*(x) \delta(x-x_0) = p_0^*(x_0)$} \\
-    &= \int dx \; \frac{e^{-ip_0x_0/\hbar}}{\sqrt{e\pi \hbar}} \psi(x_0) \\
-	&= \tilde{\psi}(p_0) \; \mbox{ (transformée de Fourier de $\psi(x)$)} \label{eq:chap6-psi_p}\\
+    \braket{x_0| \psi} &= \int dx \; \xi_{x_0}^*(x) \psi(x) \; \mbox{ (par définition du produit scalaire)}  \notag\\
+    &= \int dx \; \delta(x-x_0)\psi(x)  \notag\\
+    &= \psi(x_0) \notag\\
+    \mbox{et } \; \braket{p_0|\psi} &= \bra{p_0}\mathbb{I}\ket{\psi} = \bra{p_0} \left( \int dx \; \ket{x_0} \bra{x_0} \right) \ket{\psi} \notag\\
+    &= \int dx \; \braket{p_0|x_0} \braket{x_0|\psi} \; \mbox{ où $\braket{p_0|x_0} = \int dx \; p_0^*(x) \delta(x-x_0) = p_0^*(x_0)$} \notag \\
+    &= \int dx \; \frac{e^{-ip_0x_0/\hbar}}{\sqrt{e\pi \hbar}} \psi(x_0) \notag \\
+	&= \tilde{\psi}(p_0) \; \mbox{ (transformée de Fourier de $\psi(x)$)} \label{eq:chap6-psi_p}
 \end{align}
 
 En résumé, nous avons donc obtenu ces deux relations importantes :
@@ -71,9 +73,8 @@ $$
 
 
 
-\section{Produit scalaire de deux vecteurs}
-A l'aide des relations de fermeture, nous allons écrire le produit scalaire de deux vecteurs de l'espace de Hilbert $L^2(\mathbb{R})$ ($L^2(\mathbb{R}^3)$). \\
-En effet, nous avions déjà défini le produit scalaire dans cet espace comme $(f,g) = \int dx \; f^* g$ ; nous verrons que c'est ce que l'on retrouve bien autant dans la base position que la base impulsion : 
+\subsection{Produit scalaire de deux vecteurs}
+A l'aide des relations de fermeture, nous allons écrire le produit scalaire de deux vecteurs de l'espace de Hilbert $L^2(\mathbb{R})$ ($L^2(\mathbb{R}^3)$). Nous avions déjà défini le produit scalaire dans cet espace comme $(f,g) = \int dx \; f^* g$ ; nous verrons que c'est ce que l'on retrouve bien autant dans la base position que la base impulsion : 
 
 \begin{align}
 	\braket{\varphi | \psi} &= \bra{\varphi} \left( \int dx \; \ket{x}\bra{x} \right) \ket{\psi}  && \text{(rel. de complétude dans la base position)} \notag\\
@@ -115,10 +116,10 @@ Commençons par calculer $\bra{x}\hat{P}\ket{\psi}$ : \textcolor{red}{A vérifie
 Ceci est bien cohérent avec l'équivalence faite au début du cours entre l'opérateur impulsion $\hat{P}$ et $-i\hbar \; \partial_x$ afin de déterminer l'équation de Schrödinger. \\
 Nous pouvons en déduire facilement $\bra{\varphi} \hat{P} \ket{\psi}$ : 
 
-\begin{align}
+\begin{align*}
     \bra{\varphi} \hat{P} \ket{\psi} &= \int dx \; \braket{\varphi | x} \bra{x} \hat{P} \ket{\psi} \notag \\
 	&= \int dx \; \bar\varphi(x) \left( -i\hbar \; \partial_x \psi(x) \right) && \text{ (vu \eqref{eq:chap6-x_P_psi})} 
-\end{align}
+\end{align*}
 
 Montrons à présent la relation $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$ : 
 \begin{align}
@@ -134,42 +135,38 @@ Ceci étant valabe pour tous $\ket{x}$, $\ket{\psi}$, nous avons bien que
      [\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}
 \end{equation} 
 
-\section{Comment justifier ces notations ?}
-
-Considérons $\mathcal{H} = L^2(\mathbb{R})$ l'espace de Hilbert des fonctions de carré sommables (à une dimension). \\ 
-Nous avions mentionné au début du chapitre que pour représenter les opérateurs $\hat{X}$ et $\hat{P}$, nous utiliserons une base dont les éléments n'appartiennent pas à l'espace de Hilbert, et nous avions fait comme s'ils étaient état propre des opérateurs positions $\hat{X}$ et impulsion $\hat{P}$. \\
-Nous allons maintenant voir que ce qu'on appelle le \textit{"Rigged Hilbert Space"} permet de justifier cette démarche ; en effet, cet espace est construit pour relier les notions de distributions et de fonctions de carré sommables en analyse de fonctions. \\
+\section{Justification de ces notations : Rigged Hilbert Space}
+Considérons $\mathcal{H} = L^2(\mathbb{R})$ l'espace de Hilbert des fonctions de carré sommables (à une dimension). Nous avions mentionné au début du chapitre que pour représenter les opérateurs $\hat{X}$ et $\hat{P}$, nous utiliserons une base dont les éléments n'appartiennent pas à l'espace de Hilbert, et nous avions fait comme s'ils étaient état propre des opérateurs positions $\hat{X}$ et impulsion $\hat{P}$. Nous allons maintenant voir que ce qu'on appelle le \textit{"Rigged Hilbert Space"} permet de justifier cette démarche ; en effet, cet espace est construit pour relier les notions de distributions et de fonctions de carré sommables en analyse de fonctions. \\
 
 Soit $\ket{\psi}$, $\ket{\varphi}$ $\in \mathcal{H}$ et $A : \mathcal{H} \rightarrow \mathcal{H}$ un opérateur linéaire. \\
 Nous savons déjà comment le produit scalaire $\braket{\varphi | \psi}$ peut être défini sur l'espace $\mathcal{H}$ ; de plus, l'opérateur linéaire $A$ permet de calculer des quantités comme $\bra{\varphi} A \ket{\psi}$. \\
 
-Considérons à présent : 
-
-$\begin{array}{ll}
-S &=\left\{ \mbox{ fonctions $\mathcal{C}^{\infty}$ à décroissance rapide } \right\} \subset \mathcal{H} \notag \\
-S^*&= \left\{ \mbox{ formes linéaires continues sur $S$ } \right\} \notag
-\end{array}$
+Considérons à présent
+\begin{itemize}[label=\scriptsize$\blacksquare$]
+    \item $S= \left\{ \mbox{ fonctions $\mathcal{C}^{\infty}$ à décroissance rapide } \right\} \subset \mathcal{H}$ ,
+    \item $S^* = \left\{ \mbox{ formes linéaires continues sur $S$ } \right\} $.
+\end{itemize}
 
 $S^*$ correspond aux distributions tempérées, comme mentionné dans le chapitre sur les notions mathématiques. C'est en particulier le dual de $S$. \\
 
 
-Nous pouvons remarquer que $S \subset \mathcal{H} \subset{S^*}$. \\
-En effet, il existe un théorème mathématique (appelé \textit{théorème d'Erdös-Kaplansky}, ce sujet est par ailleurs hors du cadre du cours) qui permet de justifier que lorsque la dimension d'un espace vectoriel est infinie, alors aucune application linéaire allant de cet espace à son dual n'est surjective. Autrement dit, nous avons dans notre cas que $\mathcal{H} \subset \mathcal{H}^*$, où l'inclusion est stricte. \\
-De plus, $S \subset \mathcal{H} \implies \mathcal{H}^* \subset S^*$ car : il est clair que si nous avons une forme linéaire $f$ agissant sur $\mathcal{H}$ (\textit{i.e} $f \in \mathcal{H}^*$), alors puisque $S \subset \mathcal{H}$, $f$ peut agir en particulier sur $S$, et donc $f \in S^*$. Ainsi, nous avons bien que $\mathcal{H}^* \subset S^*$. En d'autres mots, nous pouvons comprendre cela par le fait que prendre une classe de fonction plus grande (petit), "réduit (augmente)" la taille de son dual. \\
+Nous pouvons remarquer que $S \subset \mathcal{H} \subset{S^*}$. En effet, il existe un théorème mathématique (appelé \textit{théorème d'Erdös-Kaplansky}, ce sujet est par ailleurs hors du cadre du cours) qui permet de justifier que lorsque la dimension d'un espace vectoriel est infinie, alors aucune application linéaire allant de cet espace à son dual n'est surjective. Autrement dit, nous avons dans notre cas que $\mathcal{H} \subset \mathcal{H}^*$, où l'inclusion est stricte. \\
 
-Nous trouvons donc les inclusions suivantes : $S \subset \mathcal{H} \subset \mathcal{H}^* \subset S^*$, et ainsi $S \subset \mathcal{H} \subset S^*$. \\
+De plus, $S \subset \mathcal{H} \implies \mathcal{H}^* \subset S^*$ car : il est clair que si nous avons une forme linéaire $f$ agissant sur $\mathcal{H}$ (\textit{i.e} $f \in \mathcal{H}^*$), alors puisque $S \subset \mathcal{H}$, $f$ peut agir en particulier sur $S$, et donc $f \in S^*$. Ainsi, nous avons bien que $\mathcal{H}^* \subset S^*$. En d'autres mots, nous pouvons comprendre cela par le fait que prendre une classe de fonction plus grande (petit), "réduit (augmente)" la taille de son dual. Nous trouvons donc les inclusions suivantes : $$S \subset \mathcal{H} \subset \mathcal{H}^* \subset S^* \; \text{et ainsi}\; S \subset \mathcal{H} \subset S^*\; .$$
 
-Prenons à présent $\ket{\phi} \in S$ et $\ket{T} \in S^*$ ; $\braket{T|\phi}$ est bien défini par définition de $S$ et $S^*$. \\
-De plus, si $A : S \rightarrow S$ est un opérateur linéaire, alors $A \ket{T}$ est défini par $\bra{\phi}(A\ket{T}) = (\bra{\phi}A)\ket{T}$, pour tout $\ket{T} \in S^*$, $\ket{\phi} \in S$. \\
-Ainsi, puisque le produit scalaire hermitien est défini entre $\ket{\phi}$ et $\ket{T}$ appartenant à $S$ et $S^*$ respectivement, il est dès lors possible de représenter un état dans une base de vecteurs n'appartenant pas à $\mathcal{H}$ mais à $S^*$. Nous pouvons donc élargir l'espace de Hilbert à $S^*$. \\
+Prenons à présent $\ket{\phi} \in S$ et $\ket{T} \in S^*$. L'opération $\braket{T|\phi}$ est bien définie par définition de $S$ et $S^*$. De plus, si $A : S \rightarrow S$ est un opérateur linéaire, alors $A \ket{T}$ est défini par $\bra{\phi}(A\ket{T}) = (\bra{\phi}A)\ket{T}$, pour tout $\ket{T} \in S^*$, $\ket{\phi} \in S$. Ainsi, puisque le produit scalaire hermitien est défini entre $\ket{\phi}$ et $\ket{T}$ appartenant à $S$ et $S^*$ respectivement, il est dès lors possible de représenter un état dans une base de vecteurs n'appartenant pas à $\mathcal{H}$ mais à $S^*$. Nous pouvons donc élargir l'espace de Hilbert à $S^*$. \\
 
-\textit{Remarque :} il reste encore à voir dans quelle mesure nous pouvons définir les grandeurs comme $\braket{T|T'}$ pour $\ket{T}$, $\ket{T'} \in S^*$. 
+\begin{remark}
+    Il reste encore à voir dans quelle mesure nous pouvons définir les grandeurs comme $\braket{T|T'}$ pour $\ket{T}$, $\ket{T'} \in S^*$. 
+\end{remark}
 
 
 \section{Opérateur translation}
 \subsection{Définition}
 Soit $\hat{X}$ et $\hat{P}$ les observables positions et impulsions reliées par la relation $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$. Quelque soit $\lambda \in \mathbb{R}$, on définit l'\emph{opérateur translation} $S(\lambda)$ par
-$$ S(\lambda) = e^{-i\frac{\lambda \hat{P}}{\hbar}} $$
+\begin{equation}\label{eq:chap6-definition_operateur_translation}
+    S(\lambda) = e^{-i\frac{\lambda \hat{P}}{\hbar}} 
+\end{equation}
 
 Cet opérateur vérifie les propriétés suivantes : 
 \begin{itemize}[label = \textbullet]
@@ -189,47 +186,77 @@ La signification en est la suivante. Pour un $\lambda$ donné, appliquer l'opér
 	\hat X S(\lambda)\ket{x_0} &= (x_0+\lambda) \ket{x_0+\lambda} \label{eq:chap6-operateur_translation_signification}
 \end{align}
 
-Pour la justifier, commençons par calculer le commutateur $[\hat X, S(\lambda)]$ pour un $\lambda$ quelconque. Cela servira à simplifier les calculs. Pour ce faire voyons d'abord quelques propriétés sur les commutateurs : 
+Pour la justifier, introduisons le lemme suivant, qui servira à simplifier les calculs. Le lemme concerne le commutateur $[\hat X, S(\lambda)]$.
 
-\begin{enumerate}
-    \item Le commutateur est un opérateur bilinéaire, antisymétrique et vérifiant, pour tout opérateur $A$, $B$ et $C$, l'identité de Jacobi donnée par l'expression suivante :
-	\begin{equation}
-		[[\hat{A},\hat{B}],\hat{C}] + [[\hat{B},\hat{C}],\hat{A}] + [[\hat{C},\hat{A}],\hat{B}] = 0
-	\end{equation}
-    \item Pour tout opérateur $A$, $B$ et $C$ : 
-    \begin{equation}
-        [A,BC] = [A,B]C + B[A,C]
-        \label{eq:chap6-commutateur_de_produit}
-    \end{equation}
-    \item $[\hat{X}, \hat{P}^n] = i\hbar n\hat{P}^{n-1}$ ; \\
-	    Nous pouvons le montrer par récurrence. Commençons par $n=1$ pour l'initialisation : $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$ est vrai par \eqref{eq:chap6-commut_X_P}. Pour montrer l'hérédité, supposons que la propriété est vraie jusque $n$. Nous avons alors que :
-    \begin{align} [\hat{X}, \hat{P}^{n+1}] = [\hat{x}, \hat{P}\hat{P}^n] &= [\hat{X}, \hat{P}]\hat{P}^n + \hat{P}[\hat{X}, \hat{P}^n] \; \mbox{ par la propriété \eqref{eq:chap6-commutateur_de_produit}} \notag \\
-        &= i\hbar \hat{P}^n + i\hbar n \hat{P}^n \; \mbox{ puisque la propriété est vraie jusque $n$} \notag \\
-        &= i\hbar \hat{P}^n (n+1)
-    \end{align}
-    \item Pour tout opérateurs $A$, $B$ commutant avec $[A,B]$, 
+\begin{lemma}
+    $[\hat X, S(\lambda)] = \lambda S(\lambda)$.
+\end{lemma}
+\begin{proof}
+    Pour prouver ce lemme, introduisons certaines propriétés sur les commutateurs.
+
+    \begin{proposition}\label{pr:chap6-commutateur_bilineaire_jacobi}
+        Le commutateur est un opérateur bilinéaire, antisymétrique et vérifiant, pour tous opérateurs $A$, $B$ et $C$, l'identité de Jacobi donnée par l'expression suivante :
+            \begin{equation}
+                [[\hat{A},\hat{B}],\hat{C}] + [[\hat{B},\hat{C}],\hat{A}] + [[\hat{C},\hat{A}],\hat{B}] = 0
+            \end{equation}
+    \end{proposition}
+
+    \begin{proposition}
+        Pour tous opérateurs $A$, $B$ et $C$ : 
+        \begin{equation}
+            [A,BC] = [A,B]C + B[A,C]
+            \label{eq:chap6-commutateur_de_produit}
+        \end{equation}
+    \end{proposition}
+
+    \begin{proposition}
+        $[\hat{X}, \hat{P}^n] = i\hbar n\hat{P}^{n-1}$
+
+        \begin{proof}
+            Nous pouvons le montrer par récurrence. Commençons par $n=1$ pour l'initialisation : $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$ est vrai par \eqref{eq:chap6-commut_X_P}. Pour montrer l'hérédité, supposons que la propriété est vraie jusque $n$. Nous avons alors que :
+            \begin{align} [\hat{X}, \hat{P}^{n+1}] = [\hat{x}, \hat{P}\hat{P}^n] &= [\hat{X}, \hat{P}]\hat{P}^n + \hat{P}[\hat{X}, \hat{P}^n] \; \mbox{ par la propriété \eqref{eq:chap6-commutateur_de_produit}} \notag \\
+                &= i\hbar \hat{P}^n + i\hbar n \hat{P}^n \; \mbox{ puisque la propriété est vraie jusque $n$} \notag \\
+                &= i\hbar \hat{P}^n (n+1)
+            \end{align}
+        \end{proof}
+    \end{proposition}
+
+    \begin{proposition}
+        Pour tous opérateurs $A$, $B$ commutant avec l'opérateur $[A,B]$, 
     	\begin{equation}
             e^A e^B = e^{A+B}e^{\frac{1}{2} [A,B]}
     	\end{equation}
-    Il s'agit d'un cas particulier de l'identité de Backer-Hausdorff (elle est parfois également appelée formule de Glaubert).
-    \item Soit $F(\hat{P}) = \sum_{n=0}^\infty a_n \hat{P}^n$, une fonction de l'observable impulsion. Alors, $[\hat{X}, F(\hat{P})] = i\hbar F'(\hat{P})$. \\
-    En effet, \begin{align}
-        [\hat{X}, F(\hat{P})] &= [\hat{X}, \sum_n a_n \hat{P}^n] = \sum_n a_n[\hat{X}, \hat{P}^n] \notag \\
-        &= \sum_n a_n i\hbar n \hat{P}^{n-1} \notag \\
-        &= i\hbar F'(\hat{P}) \label{commutateur d'une fonction de P}
-    \end{align}
-\end{enumerate}
+        Il s'agit d'un cas particulier de l'identité de Backer-Hausdorff (elle est parfois également appelée formule de Glaubert).
+    \end{proposition}
 
-\'Etant donné que l'opérateur translation $S(\lambda)$ est une fonction de $\hat{P}$, nous pouvons déduire par la dernière propriété énoncée \eqref{commutateur d'une fonction de P} ce que nous voulions calculer au départ : 
-$[\hat{X}, S(\lambda)] = i\hbar \left( \frac{-i \lambda}{\hbar} \right) S(\lambda) = \lambda S(\lambda)$. \\
-Donc \begin{equation}
-    [\hat{X}, S(\lambda)] =\lambda S(\lambda)
-    \label{commutateur de S}
-\end{equation}
+    \begin{proposition} \label{pr:chap6-commutateur_fonction_P}
+        Soit $F(\hat{P}) = \sum_{n=0}^\infty a_n \hat{P}^n$, une fonction de l'observable impulsion. Alors, $[\hat{X}, F(\hat{P})] = i\hbar F'(\hat{P})$.
 
-Le lemme est maintenant terminé, et nous allons maintenant justifier l'appellation de $S(\lambda)$ comme "opérateur de \textbf{translation}". \\
+        \begin{proof}
+            En effet, \begin{align}
+                [\hat{X}, F(\hat{P})] &= [\hat{X}, \sum_n a_n \hat{P}^n] = \sum_n a_n[\hat{X}, \hat{P}^n] \notag \\
+                &= \sum_n a_n i\hbar n \hat{P}^{n-1} \notag \\
+                &= i\hbar F'(\hat{P}) \notag
+            \end{align}
+        \end{proof}
+    \end{proposition}
 
-Soit $\ket{x_0}$ un vecteur propre de $\hat{X}$ de valeur propre $x_0$ : $$ \hat{X} \ket{x_0} = x_0 \ket{x_0} $$
+    Maintenant ces propriétés énoncées, la démonstration du lemme peut continuer.\\
+
+
+    \'Etant donné que l'opérateur translation $S(\lambda)$ est une fonction de $\hat{P}$, nous pouvons déduire par la proposition \ref{pr:chap6-commutateur_fonction_P} ce que nous voulions calculer au départ : 
+    $[\hat{X}, S(\lambda)] = i\hbar \left( \frac{-i \lambda}{\hbar} \right) S(\lambda) = \lambda S(\lambda)$. \\
+    Ainsi :
+    \begin{equation}
+        [\hat{X}, S(\lambda)] =\lambda S(\lambda)
+        \label{commutateur de S}
+    \end{equation}
+    Ce qui achève la démonstration du lemme.
+\end{proof}
+
+
+
+Justifions à présent l'appellation de $S(\lambda)$ comme "opérateur de \textbf{translation}". Soit $\ket{x_0}$ un vecteur propre de $\hat{X}$ de valeur propre $x_0$ : $$ \hat{X} \ket{x_0} = x_0 \ket{x_0} $$
 Calculons $\hat{X} (S(\lambda) \ket{x_0})$ : 
 \begin{align}
     \hat{X} (S(\lambda) \ket{x_0}) &= \left( \hat{X}S(\lambda) + S(\lambda) \hat{X} - S(\lambda)\hat{X} \right) \ket{x_0} \notag \\
@@ -249,83 +276,135 @@ Cela a pour conséquence que pour $\ket{\psi}$ un ket de fonction d'onde $\brake
 Autrement dit, nous pouvons voir que l'opérateur $S(\lambda)$ agit sur les vecteurs de la base position en les translatant d'une valeur de $\lambda$ (et agit de manière inverse sur les composantes d'un vecteur quelconque $\ket{\psi}$, \textit{i.e} $S(\lambda)\ket{\psi}$ est un vecteur de fonction d'onde $\psi(x-\lambda)$). \\
 Il est donc cohérent d'appeler $S(\lambda) = \exp \left( -i \frac{\lambda \hat{P}}{\hbar} \right)$ l'opérateur de translation. 
 
-% \section{Valeurs propres et vecteurs propres de Q}
-% \section{Spectre de Q}
 
-% \begin{Property}
-% 	Soit $\ket{x_0}$ le vecteur propre de X, de valeur propre $x_0$. Alors,
-% 	\begin{equation}
-% 		S(\lambda)\ket{x_0} = \ket{x_0+\lambda}
-% 	\end{equation}
-% \end{Property}
-% \begin{proof}
-% 	\begin{align*}
-% 		XS(\lambda)\ket{x_0} &= (S(\lambda)X+\lambda S(\lambda))\ket{x_0}\\
-% 		&= S(\lambda)x_0\ket{x_0} + \lambda S(\lambda)\ket{x_0} = (x_0+\lambda)S(\lambda)\ket{x_0}
-% 	\end{align*}
-% \end{proof}
+%%%% Début de la SUITE
 
-% Cette propriété exprime que $S(\lambda)\ket{x_0}$ est un autre vecteur propre non nul de X, de valeur propre ($x_0+\lambda$). A partir d'un vecteur propre de X, nous pouvons alors en construire un autre : le spectre de X est continu, composé de toutes les valeurs de l'axe réelle.
+\section{Invariance par translation}
 
-% \begin{Property}
-% 	Si $\ket{\psi}$ est un vecteur de la fonction d'onde $\psi$, alors $S(\lambda)\ket{\psi}$ est un ket d ela fonction d'onde $\psi(x-\lambda)$.
-% \end{Property}
+Rappelons que les symétries d'un système sont importantes car elles sont en général liées à la conservation d'une grandeur (\textit{théorème de Noether}). Nous avons par exemple discuté précédemment dans la section sur le spin 1/2 que l'invariance par rotation impliquait la conservation du moment angulaire, car il commute avec le Hamiltonien du système. Nous allons voir ici la conséquence d'une invariance par translation. En effet, nous pouvons nous faire une idée en nous référérant à des résultats classiques connus, donnés grâce au théorème de Noether ; un Lagrangien indépendant des coordonnées spatiales indique que le système est invariant par translation, et signifie que l'impulsion est conservée. Nous verrons ici que nous obtenons des résultats similaires. \\
 
-% \begin{remark}
-% 	Nous avons vu que $S(\lambda)\ket{x_0} = \ket{x_0+\lambda}$. Remarquons que l'expression adjointe s'écrit
-% 	\begin{equation}
-% 		\bra{x_0}S^\dagger (\lambda) = \bra{x_0+\lambda}
-% 	\end{equation}
-% 	Soit alors,
-% 	\begin{equation}
-% 		\bra{x_0}S(\lambda) = \bra{x_0-\lambda}
-% 	\end{equation}
-% \end{remark}
+\begin{remark}
+    Il faut bien remarquer l'importance du théorème de Noether en physique. Cette notion de symétrie apparaît très régulièrement, autant en mécanique classique que quantique, et peut également apparaître dans des théories relativites. \\
+\end{remark}
 
-% \begin{Property}
-% 	On remarque alors que si $\ket{\psi}$ est un ket de la fonction d'onde $\psi(x)$, alors $S(\lambda)\ket{\psi}$ est le ket associé à la fonction d'onde $\psi(x-\lambda)$.
-% \end{Property}
-% \begin{proof}
-% 	\begin{align*}
-% 		\braket{x|\psi} &= \psi(x)\\
-% 		\braket{x|S(\lambda)|\psi} &= \braket{x-\lambda|\psi} = \psi(x-\lambda)
-% 	\end{align*}
-% \end{proof}
+Supposons donc que l'évolution temporelle d'un système soit indépendant de la position, \textit{i.e} que l'on ait invariance par translation. Cela se traduit par le fait que $\forall t$, $\forall \lambda$ et $\forall \ket{\psi}$ : \begin{equation}
+    e^{-\frac{iHt}{\hbar}} S(\lambda) \ket{\psi} = S(\lambda) e^{-\frac{iHt}{\hbar}} \ket{\psi} 
+\label{eq: invariance par translation}
+\end{equation}
+Autrement dit, l'ordre dans lequel on fait évoluer le système dans le temps et dans l'espace n'a pas d'importance. \\
+Développons maintenant \eqref{eq: invariance par translation} en série jusqu'au deuxième ordre pour des petites transformations ($t = \lambda = \epsilon$ où $\epsilon \ll 1$) : 
+\begin{itemize}[label = \textbullet]
+    \item $ e^{-\frac{iHt}{\hbar}} \approx \mathbb{I} - \frac{iH}{\hbar}\epsilon - \frac{H^2}{\hbar^2}\frac{\epsilon^2}{2} + o(\epsilon^3)$ 
+    \item $ S(\lambda) \approx \mathbb{I} - \frac{i\hat{P}}{\hbar}\epsilon - \frac{\hat{P}^2}{\hbar^2}\frac{\epsilon^2}{2} + o(\epsilon^3)$ (par la définition de $S(\lambda)$ \eqref{eq:chap6-definition_operateur_translation})
+\end{itemize}
 
-% Ces propriétés de $S(\lambda)$ lui valent le nom de \emph{opérateur de translation}.
+Ainsi, nous trouvons : 
+\begin{itemize}[label = \textbullet]
+    \item $ e^{-\frac{iHt}{\hbar}} S(\lambda) \ket{\psi} = \left( \mathbb{I} - \frac{iH\epsilon}{\hbar} - \frac{H^2 \epsilon^2}{2\hbar^2} \right) \left( \mathbb{I} - \frac{i\hat{P}\epsilon}{\hbar} - \frac{\hat{P}^2\epsilon^2}{2\hbar^2} \right) \ket{\psi}$ 
+    \item $ S(\lambda) e^{-\frac{iHt}{\hbar}} \ket{\psi} = \left( \mathbb{I} - \frac{i\hat{P}\epsilon}{\hbar} - \frac{\hat{P}^2\epsilon^2}{2\hbar^2} \right)\left( \mathbb{I} - \frac{iH\epsilon}{\hbar} - \frac{H^2 \epsilon^2}{2\hbar^2} \right) \ket{\psi} $
+\end{itemize}
+    
+\begin{align}
+    \stackrel{\eqref{eq: invariance par translation}}{\implies} &\left( \mathbb{I} - \frac{iH\epsilon}{\hbar} - \frac{i\hat{P}\epsilon}{\hbar} - \frac{H^2\epsilon^2}{2\hbar^2} - \frac{H \hat{P}\epsilon^2}{\hbar^2}- \frac{\hat{P}^2 \epsilon^2}{2\hbar^2} \right) \ket{\psi} = \left( \mathbb{I} - \frac{iH\epsilon}{\hbar} - \frac{i\hat{P}\epsilon}{\hbar} - \frac{H^2\epsilon^2}{2\hbar^2} - \frac{\hat{P} H\epsilon^2}{\hbar^2}- \frac{\hat{P}^2 \epsilon^2}{2\hbar^2} \right) \ket{\psi} \notag\\
+    \iff & H\hat{P} \ket{\psi} = \hat{P} H \ket{\psi} \notag \\
+    \iff & [H, \hat{P}] = 0 \label{eq: commutateur invariance par translation}
+\end{align} 
 
-% \section{Invariance par translation}
-% Supposons que le système est invariant par translation, c'est à dire que, pour tout $t,\lambda,\ket{\psi}$:
-% \begin{equation}
-% 	e^{-i\frac{Ht}{\h}}S(\lambda)\ket{\psi} = S(\lambda)e^{-i\frac{Ht}{\h}}\ket{\psi}
-% \end{equation}
+Ceci nous permet de voir facilement la conservation de l'impulsion : en effet, nous pouvons tout d'abord facilement vérifier que si $[H, \hat{P}] = 0$, alors $[F(H),\hat{P}] = 0$ quelque soit la fonction $F$ développable en série, grâce aux propriétés de linéarité de l'opérateur de commutation (proposition \ref{pr:chap6-commutateur_bilineaire_jacobi}). \\
 
-% Nous pouvons alors montrer que $HP\ket{\psi} = PH\ket{\psi}$, c'est à dire que $[H,P] = 0$.\\
+Dès lors, puisque $[e^{-\frac{iHt}{\hbar}}, \hat{P}] = 0$, on trouve finalement que : 
+\begin{align}
+    \bra{\psi (t)} \hat{P} \ket{\psi (t)} &= \bra{\psi(0)} e^{\frac{iHt}{\hbar}} \hat{P} e^{-\frac{iHt}{\hbar}} \ket{\psi (0)} \notag \\
+    & = \bra{\psi (0)} e^{\frac{iHt}{\hbar}}e^{-\frac{iHt}{\hbar}} \hat{P} \ket{\psi (0)} \notag \\
+    &= \bra{\psi(0)} \hat{P} \ket{\psi (0)} \; .
+\end{align}
 
-% L'invariance de translation implique la conservation du générateur des translations ; c'est à dire la conservation de l'impulsion. Ce résultat exploite le Théorème d'Emmy Nöther (\emph{pour une démonstration, le lecteur est invité à suivre le cours de}  $\href{https://www.ulb.be/fr/programme/math-f204}{\text{\emph{Mécanique Analytique - MATH-F204}}}$).
+Autrement dit, l'impulsion associée à l'état d'une particule, donnée à un temps $t$ est la même qu'au temps initial $t=0$ ; nous avons bien la conservation de l'impulsion comme annoncée précédemment. \\
 
-% \section{Relations d'incertitudes}
-% Soient A,B des observables et $\ket{\psi}$ un état.
+\begin{remark}
+    On peut également voir cela de la manière suivante : si $\ket{p_0}$ est un vecteur propre de $\hat{P}$ de valeur propre $p_0$ (\textit{i.e} $\hat{P}\ket{p_0} = p_0 \ket{p_0}$), alors l'état évolué dans le temps $e^{-\frac{iHt}{\hbar}} \ket{p_0}$ est encore un vecteur propre de $\hat{P}$ de valeur propre $p_0$. En effet, $\hat{P} \left( e^{-\frac{iHt}{\hbar}} \ket{p_0} \right) = e^{-\frac{iHt}{\hbar}} \hat{P} \ket{p_0} = p_0 \left( e^{-\frac{iHt}{\hbar}} \ket{p_0} \right)$. 
+\end{remark}
 
-% \begin{remark}
-% 	Nous notons $<A^n> = \braket{\psi|A^n|\psi}$, $\Delta A^2 = <A^2> - <A>^2$. De plus, on intoduit $A' = A-<A>$ afin de pouvoir noter $\Delta A^2 = <A'^2>$. On note que $[A,B] = [A',B']$.
-% \end{remark}
+\begin{remark}
+    L'opérateur impulsion est en fait le générateur de la translation. Dans le cours de BA3, les symétries d'un système physique seront discutés plus en détails, et nous caractériserons les opérateurs implémentant une symétrie en terme de ses générateurs lorsque l'on applique une transformation infinitésimale au système. 
+\end{remark}
 
-% \begin{theorem}
-% 	Soit A,B deux observables. Alors,
-% 	\begin{equation}
-% 		\Delta A\Delta B \geq \frac{1}{2} \norm{\braket{[A,B]}}
-% 	\end{equation}
-% \end{theorem}
+\begin{remark}
+    Nous pouvons voir la conservation de l'impulsion également comme une conséquence directe du théorème d'Ehrenfest (pour $A$ un opérateur tel que $\partial_t A$ = 0, alors $i\hbar \frac{d\langle A \rangle}{dt} = \langle [H,A] \rangle$).
+\end{remark}
 
-% \begin{proof}
-% 	\color{red} A compléter.
-% \end{proof}
-% \color{black}
-% Pour les opérateurs X et P, nous avons alors que $[X,P]$ valent $i\h$ ; il s'ensuit que
-% \begin{equation*}
-% 	\Delta X \Delta P \geq \frac{\h}{2},
-% \end{equation*}
-% ce qui est exactement la relation $\eqref{Heinsenberg}$.
- 
- \end{document}
+\section{Relations d'incertitude}
+
+Nous allons ici déterminer une relation entre les incertitudes liées à la mesure de deux observables $A$ et $B$, et présenter des applications à ce résultat. \\
+
+\subsection{Théorème et démonstration}
+Introduisons certaines notations, qui seront utiles à l'énoncé et la démonstration du théorème \ref{th:chap6-theoreme_incertitude}.
+
+\begin{itemize}[label = \textbullet]
+    \item $\langle A \rangle = \bra{\psi} A \ket{\psi}$ (moyenne de $A$ dans l'état $\ket{\psi}$) ; 
+    \item $\langle A^2 \rangle = \bra{\psi} A^2 \ket{\psi}$ ; 
+    \item $\Delta A^2 = \langle A^2 \rangle - \langle A \rangle^2$ (variance de $A$)
+    \item On pose : $A' = A - \langle A \rangle$ de sorte que $\Delta A^2 = \langle A'^2 \rangle$, et $[A,B] = [A', B']$ \\
+\end{itemize}
+
+\begin{theorem} \label{th:chap6-theoreme_incertitude}
+    Soit $\ket{\psi}$ un état et soient $A$ et $B$ deux observables.     Alors, $ \Delta A \Delta B \geq \frac{1}{2} \mid [A,B] \mid$. \\
+\end{theorem}
+
+\begin{proof}
+    Soit $\ket{\varphi(\lambda)} = (A' + i \lambda B')\ket{\psi}$, $\lambda \in \mathbb{R}$ \\
+    \begin{align}
+        0 \leq \braket{\varphi | \varphi} &= \bra{\psi} (A' - i\lambda B')(A' +i\lambda B') \ket{\psi} \notag \\
+        &= \bra{\psi} A'^2 \ket{\psi} + \bra{\psi} i\lambda A'B' \ket{\psi} - \bra{\psi} i\lambda B'A' \ket{\psi} + \lambda^2 \bra{\psi} B'^2 \ket{\psi} \notag \\
+        &= \langle A'^2 \rangle + \lambda \langle i [A', B'] \rangle + \lambda^2 \langle B'^2 \rangle 
+        \label{eq:chap6-polynome_lambda}
+    \end{align}
+
+    Or, si $A'$ et $B'$ sont hermitiens, alors $ \left( [A', B'] \right)^\dagger = - [A', B']$. Le commutateur de $A'$ et $B'$ est donc anti-hermitien, mais nous pouvons voir que $i [A', B']$ est quant à lui hermitien. Ceci implique alors que $i \langle [A', B'] \rangle$ est réel, et ainsi, $\langle [A',B'] \rangle$ est imaginaire pur. \\
+
+    Puisque $\braket{\varphi | \varphi} \geq 0$, nous pouvons observer que \eqref{eq:chap6-polynome_lambda} est un polynôme du second degré en la variable $\lambda$ à coefficients réels, qui est toujours positif. Autrement dit, le discriminant $\Delta$ doit être plus petit ou égal à zéro car le polynôme étant positif, ne pourra avoir au plus qu'une seule racine : 
+    $$ \Delta = \left( i \langle [A', B'] \rangle \right)^2 - 4 \langle A'^2 \rangle \langle B'^2 \rangle \leq 0\; .$$
+     Donc, 
+    \begin{align*}
+        \langle A'^2 \rangle \langle B'^2 \rangle \geq \frac{1}{4} \left( i \langle [A', B'] \rangle \right)^2 &= \frac{1}{4} \mid \langle [A',B'] \rangle \mid^2 \\
+        &= \frac{1}{4} \mid \langle [A,B] \rangle \mid^2 
+    \end{align*}
+
+    Nous trouvons donc finalement que $\Delta A^2 \Delta B^2 \geq \frac{1}{4} \mid \langle [A, B] \rangle \mid^2$, ce qui conclut. \\
+\end{proof}
+
+\subsection{Applications des relations d'incertitude}
+
+\subsubsection{Inégalité d'Heisenberg}
+Une application de ce théorème est un résultat bien connu qui est celui de l'inégalité de Heisenberg : $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$, et $\mid \langle [\hat{X}, \hat{P}] \rangle \mid^2 = \mid \bra{\psi} i\hbar \;\mathbb{I} \ket{\psi} \mid^2 = \hbar^2$, et donc nous obtenons directement
+\begin{equation}
+    \Delta \hat{X} \Delta \hat{P} \geq \frac{\hbar}{2}
+    \label{eq:chap6-Heisenberg_inegalite}
+\end{equation}
+
+\subsubsection{Paquets d'onde minimaux}
+Nous allons maintenant déterminer la forme de la fonction d'onde associée à un état pour lequel l'inégalité \eqref{eq:chap6-Heisenberg_inegalite} est saturée, \textit{i.e} $\Delta \hat{X} \Delta \hat{P} = \frac{\hbar}{2}$, d'où l'appellation de paquet d'onde \textit{minimal}. Prenons à nouveau les notations $\hat{X}' = \hat{X} - \langle \hat{X} \rangle$ et $\hat{P}' = \hat{P} - \langle \hat{P} \rangle$. \\
+
+Soit $\ket{\varphi} = (X' + i\lambda P') \ket{\psi}$. Nous remarquons qu'il y a égalité en \eqref{eq:chap6-Heisenberg_inegalite} lorsque le discriminant du polynôme \eqref{eq:chap6-polynome_lambda} est nul, $\Delta = 0$. Cela implique que $$\braket{\varphi(\lambda) | \varphi(\lambda)} =  \langle \hat{X}'^2 \rangle + \lambda \hbar + \lambda^2 \langle \hat{P}'^2 \rangle$$ possède une racine $\lambda_0$. \\
+
+Or, une propriété du produit scalaire garantit que $\braket{\varphi(\lambda_0) | \varphi(\lambda_0)} = 0 \iff \ket{\varphi(\lambda_0)} =0$, et donc $$(\hat{X}' + i\lambda_0 \hat{P}')\ket{\psi} = \left( \hat{X} - \langle \hat{X} \rangle + i\lambda_0 (\hat{P} - \langle \hat{P} \rangle) \right) \ket{\psi} =0\; .$$
+Notons $\langle \hat{X} \rangle \equiv \bar{X}$ et $\langle \hat{P} \rangle \equiv \bar{P}$, et multiplions par $\bra{x}$ les deux membres : \\
+\begin{align}
+    0&= \bra{x} \hat{X} \ket{\psi} - \bra{x} \bar{X} \ket{\psi} + i \lambda_0 \bra{x} \hat{P} \ket{\psi} - i\lambda_0 \bra{x} \bar{P} \ket{\psi} \notag \\
+    &= x \psi(x) - \bar{X} \psi(x) + i\lambda_0(-i\hbar \partial_x \psi(x)) - i\lambda_0 \bar{P} \psi(x) \notag \\
+    &= (x - \bar{X} + \lambda_0 \hbar \partial_x -i \lambda_0 \bar{P}) \psi(x) \notag \\
+    \iff \partial_x \psi(x) &= - \frac{(x- \bar{X})}{\hbar \lambda_0} \psi(x) + i \frac{\bar{P}}{\hbar} \psi(x) \notag \\
+    &= \left( -\frac{(x-\bar{X})}{\hbar \lambda_0} + \frac{i\bar{P}}{\hbar} \right) \psi(x) \label{eq:ua diff paquet minimal}
+\end{align}
+
+La dernière égalité donnée en \eqref{eq:ua diff paquet minimal} n'est en fait rien d'autre qu'une équation différentielle du premier ordre, et l'on trouve donc directement une solution de la forme : 
+\begin{equation}
+    \psi(x) = C e^{\dfrac{i\bar{P}x}{\hbar}} e^{-\dfrac{(x-\bar{X})^2}{2\hbar \lambda_0}} \qquad C \in \mathbb{C} \; \mbox{(constante)}
+\end{equation} 
+Cela forme un paquet d'ondes gaussien. \\
+
+\begin{remark}
+    Lorsqu'un état d'un oscillateur harmonique sature l'inégalité de Heisenberg, on dit que l'état est cohérent. C'est un état dont l'évolution se fait de manière classique, autrement dit, ses équations du mouvements sont conformes à celles de la mécanique classique. Ceci sera discuté plus en détails dans le cours de BA3 de Mécanique Quantique.
+\end{remark}
+
+\end{document}
