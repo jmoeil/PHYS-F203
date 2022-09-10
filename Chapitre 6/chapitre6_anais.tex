@@ -1,31 +1,57 @@
-\documentclass[../notesdecours]{subfiles}
+\documentclass{article}
+\usepackage[allcolors=true]{hyperref}
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{caption}
+\usepackage{multirow}
+\usepackage{physics}
+\usepackage{tikz}
+\usepackage{cleveref}
+\usepackage{pgfplotstable}
+\usepackage{siunitx}
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\usepackage{subfiles}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage[french]{babel}
+\usepackage{titlesec}
+\usepackage{lmodern}
+\usepackage{braket}
+\usepackage{chngcntr}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{calrsfs}
 
-\begin{document}
-\chapter{Représentations de la position et de l'impulsion en Mécanique Quantique}\label{chap:chap6}
+\geometry{
+     a4paper,
+    total={170mm,257mm},
+    left=20mm,
+    top=20mm,
+ }
+ \title{Représentations de la position et de l'impulsion en Mécanique Quantique}
+ \date{}
+ \begin{document}
+ 
+ \maketitle
 
-Dans ce chapitre, nous nous intéressons à la \textit{représentation} d'un état quantique, et plus particulièrement aux représentations \textit{position} et \textit{impulsion}. Considérons un système quantique, par exemple une particule. Il lui est associé un état dans l'espace de Hilbert $L^2(\mathbb{R})$ ou $L^2(\mathbb{R}^3)$, \textit{i.e} l'espace des fonctions de carré sommables, comme l'indique le premier postulat de la Mécanique Quantique. \\
+ Considérons une particule dans l'espace de Hilbert $L^2(\mathbb{R})$ ou $L^2(\mathbb{R}^3)$, \textit{i.e} l'espace des fonctions de carré sommables. \\
 
-Nous avons vu lors du développement du formalisme de Dirac que l'espace des ondes planes $$v_p(x) = \frac{1}{\sqrt{2 \pi \hbar}} \; e^{ipx/\hbar}$$ constituait une base continue dans laquelle il est possible d'écrire une fonction d'onde de l'espace $L^2(\mathbb{R})$, bien que les éléments de la base ne soient pas eux-mêmes des fonctions de carré sommable. En effet, une onde plane ne pouvait donc pas constituer un état physique, mais il était possible d'en obtenir un en superposant plusieurs ondes planes, obtenant ainsi un \textit{paquet d'ondes}. Nous avons aussi vu que le coefficient (noté $g(k)$ dans le chapitre \ref{chap:chap2}) qui pondérait chaque onde plane dans la superposition (dans le paquet) n'était rien autre que la transformée de Fourier de $\psi(x)$ :
+Nous avons vu lors du développement du formalisme de Dirac que l'onde plane $v_p(x) = \frac{1}{\sqrt{2 \pi \hbar}} \; e^{ipx/\hbar}$ constituait une base continue dans laquelle il est possible d'écrire une fonction d'onde de l'espace $L^2(\mathbb{R})$, bien que la fonction de la base même ne soit pas de carré sommable. Dans ce cas-ci, cela revient en effet à décomposer une fonction en mode de Fourier puisqu'alors $$ \psi(x) = \int_{-\infty}^{+\infty} \; dp \; \hat{\psi_p} v_p $$ où $\hat{\psi_p} = (v_p, \psi) = \int_{-\infty}^{+\infty} \; dx \; v_p^* \psi(x)$. \\
+Rappelons également que l'on ne doit pas perdre de vue qu'à tout état \textbf{physique} doit être associé une fonction de carré sommable. Ainsi, l'onde plane $v_p$ ne peut pas représenter l'état d'une particule par exemple, ce n'est qu'un intermédiaire de calcul. \\
 
-$$ \psi(x) = \int_{-\infty}^{+\infty} \; dp \; \hat{\psi_p} v_p \; , $$ où $$\hat{\psi_p} = (v_p, \psi) = \int_{-\infty}^{+\infty} \; dx \; v_p^* \psi(x)\; .$$ \\
-
-
-Insistons encore sur le fait qu'à tout état \textbf{physique} doit être associé une fonction de carré sommable. C'est le premier postulat de la Mécanique Quantique. Ainsi, l'onde plane $v_p$ ne peut \textbf{pas} représenter l'état d'une particule par exemple, ce n'est qu'un intermédiaire de calcul, et nous venons de voir qu'il était donc légitime de considérer des éléments de base qui ne soient pas des fonctions de carré sommable. \\
-
-Nous avons utilisé la base des ondes planes pour introduire le chapitre, mais nous développerons plus en détail l'utilisationn des deux bases suivantes :
+Dans la suite, nous utiliserons les deux bases continues suivantes : 
 \begin{enumerate}
     \item $\left\{ \xi_{x_0}(x) \right\}$ où $\xi_{x_0}(x) = \delta(x-x_0)$ 
-    \item $\left\{ v_{p_0}(x) \right\}$ où $v_{p_0}(x) = \frac{1}{\sqrt{2\pi \hbar}} \; e^{ip_0 x/\hbar}$
+    \item $\left\{ v_{p_0}(x) \right\}$ où $v_{p_0}(x) = \frac{1}{\sqrt{2\pi \hbar}} \; e^{ip_0 x/\hbar}$ \\
 \end{enumerate}
-Dans les deux cas, les vecteurs de base sont caractérisés par des indices continus. \\
-
 Nous chercherons à représenter les opérateurs position $\hat{X}$ et impulsion $\hat{P}$ grâce à cette base. En effet, ces deux opérateurs n'ont pas de vecteurs propres dans l'espace de Hilbert, mais nous ferons comme si (cela sera ultérieurement justifié), où l'on notera : 
 \begin{itemize}[label = \textbullet]
     \item $\ket{x_0} \equiv$ état propre de l'opérateur $\hat{X}$, correspondant à la "fonction propre" $\delta(x-x_0)$, de valeur propre $x_0$. 
     \item $\ket{p_0} \equiv$ état propre de l'opérateur $\hat{P}$, correspondant à la "fonction propre" $\frac{e^{ip_0 x/\hbar}}{\sqrt{2 \pi \hbar}}$, de valeur propre $p_0$. 
 \end{itemize}
 
-\section{Relations d'orthonormalisation et de fermeture}
+\subsection*{Relations d'orthonormalisation et de fermeture}
 
 Par définition du produit scalaire, nous avons que 
 \begin{itemize}[label=\textbullet]
@@ -35,13 +61,13 @@ Par définition du produit scalaire, nous avons que
 
 Les bases que l'on a défini sont donc bien orthonormées au sens large ; ceci nous donne ainsi une \textit{relation d'orthonormalisation}. \\
 
-Puisque chacun des ensembles $\left\{ \ket{x_0} \right\}$ et $\left\{ \ket{p_0} \right\}$ forme une base orthonormée dans l'espace des états, nous pouvons également écrire les \textit{relations de fermeture} (ou de complétude) suivantes : 
+Puisque $\left\{ \ket{x_0} \right\}$ et $\left\{ \ket{p_0} \right\}$ forment une base orthonormée dans l'espace des états, nous pouvons également écrire les \textit{relations de fermeture} (ou de complétude) suivantes : 
 \begin{itemize}[label=\textbullet]
     \item $\int dx_0 \; \ket{x_0}\bra{x_0} = \mathbb{I}$ 
     \item $\int dp_0 \; \ket{p_0}\bra{p_0} = \mathbb{I}$ 
 \end{itemize}
 
-\section{Composantes d'un ket}
+\subsection*{Composantes d'un ket}
 
 Considérons un état quantique $\ket{\psi}$, correspondant à la fonction d'onde $\psi(x)$. En exploitant les relations de fermetures définies ci-dessus, nous pouvons alors écrire l'état quantique sous les deux formes suivantes:
 \begin{align}
@@ -60,45 +86,40 @@ De plus, nous observons que :
     &= \tilde{\psi}(p_0) \; \mbox{ (transformée de Fourier de $\psi(x)$)} \\
 \end{align}
 
-En résumé, nous avons donc obtenu ces deux relations importantes :
-$$
-\scalebox{1.5}{
-	\boxed{\braket{x|\psi} = \psi(x)}
-	\qquad 
-	\boxed{ \braket{p|\psi} = \tilde{\psi}(p)}
-}
-$$
+En résumé, nous avons donc obtenu ces deux relations importantes : \textcolor{red}{Ici ce serait bien d'écrire ces deux relations dans une boîte}
+\begin{itemize}[label=\textbullet]
+    \item $\braket{x|\psi} = \psi(x)$
+    \item $\braket{p|\psi} = \tilde{\psi}(p)$
+\end{itemize}
 
 
-
-\section{Produit scalaire de deux vecteurs}
-A l'aide des relations de fermeture, nous allons écrire le produit scalaire de deux vecteurs de l'espace de Hilbert $L^2(\mathbb{R})$ ($L^2(\mathbb{R}^3)$). \\
+\subsection*{Produit scalaire de deux vecteurs}
+A l'aide des relations de fermeture, nous allons écrire le produit de deux vecteurs de l'espace de Hilbert $L^2(\mathbb{R})$ ($L^2(\mathbb{R}^3)$). \\
 En effet, nous avions déjà défini le produit scalaire dans cet espace comme $(f,g) = \int dx \; f^* g$ ; nous verrons que c'est ce que l'on retrouve bien autant dans la base position que la base impulsion : 
 
 \begin{align}
-        \braket{\varphi | \psi} &= \bra{\varphi} \left( \int dx \; \ket{x}\bra{x} \right) \ket{\psi}  && \text{relation de complétude dans la base position}\\
-        &= \int dx \; \braket{\varphi |x}\braket{x|\psi} && \text{La linéarité nous permet d'intervertir l'intégrale et le bra}\\
+        \braket{\varphi | \psi} &= \bra{\varphi} \left( \int dx \; \ket{x}\bra{x} \right) \ket{\psi} \\
+        &= \int dx \; \braket{\varphi |x}\braket{x|\psi} \\
         &= \int dx \; \varphi^*(x)\psi(x)
 \end{align}
-Alternativement,
+
 \begin{align}
         \braket{\varphi | \psi} &= \bra{\varphi} \left( \int dp \; \ket{p}\bra{p} \right) \ket{\psi} \\
         &= \int dp \; \braket{\varphi |p}\braket{p|\psi} \\
         &= \int dp \; \tilde{\varphi}^*(p)\tilde{\psi}(p)
 \end{align}
-Ceci confirme donc bien notre écriture du produit scalaire entre deux vecteurs, écrits dans n'importe laquelle des deux bases.
-\section{Opérateurs $\hat{X}$ et $\hat{P}$}
+
+\subsection*{Opérateurs $\hat{X}$ et $\hat{P}$}
 
 Supposons que l'on ait : \begin{itemize}[label=\textbullet]
     \item $\ket{x} \equiv$ "vecteur propre" de l'opérateur $\hat{X}$ de "valeur propre" $x$ ; $\hat{X}\ket{x} = x\ket{x}$
     \item $\ket{p} \equiv$ "vecteur propre" de l'opérateur $\hat{P}$ de "valeur propre" $p$ ; $\hat{P}\ket{p} = p\ket{p}$
 \end{itemize}
-Et commes les deux opérateurs sont des observables (mesurant respectivement comme grandeur physique la position et l'impulsion), les valeurs propres $x$ et $p$ sont \textbf{réelles}. \\
 
 Ainsi, nous en déduisons directement que : 
 \begin{align}
-    \bra{x}\hat{X}\ket{\psi} &= x \braket{x|\psi} = x \; \psi(x)  && \text{car $x\in \mathbb{R}$}\\
-    \bra{p}\hat{P}\ket{\psi} &= p \braket{p|\psi} = p \; \tilde{\psi}(p) && \text{car $p\in \mathbb{R}$} \\
+    \bra{x}\hat{X}\ket{\psi} &= x \braket{x|\psi} = x \; \psi(x) \\
+    \bra{p}\hat{P}\ket{\psi} &= p \braket{p|\psi} = p \; \tilde{\psi}(p) \\
 \end{align}
 
 Nous allons maintenant calculer 2 quantités ($\bra{x}\hat{P}\ket{\psi}$ et $\bra{\varphi} \hat{P} \ket{\psi}$) qui nous permettront de montrer la relation de commutation canonique $[ \hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$. Cette relation est en effet importante car elle nous permet de retrouver à la limite classique où $\hbar \rightarrow 0$ la relation canonique classique donnée par le crochet de Poisson $\{ X^i,P_j \} = \delta^i_j$ ; ceci deviendra important pour quantifier des systèmes (cours de BA3). \\
@@ -131,7 +152,7 @@ Montrons à présent la relation $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$ :
 Ceci étant valabe pour tout $\ket{x}$, $\ket{\psi}$, nous avons bien que \begin{equation}
      [\hat{X}, \hat{P}] = i\hbar \; \mathbb{I} \end{equation} 
 
-\section{Comment justifier ces notations ?}
+\subsection*{Comment justifier ces notations ?}
 
 Considérons $\mathcal{H} = L^2(\mathbb{R})$ l'espace de Hilbert des fonctions de carré sommables (à une dimension). \\ 
 Nous avions mentionné au début du chapitre que pour représenter les opérateurs $\hat{X}$ et $\hat{P}$, nous utiliserons une base dont les éléments n'appartiennent pas à l'espace de Hilbert, et nous avions fait comme s'ils étaient état propre des opérateurs positions $\hat{X}$ et impulsion $\hat{P}$. \\
@@ -158,7 +179,7 @@ Ainsi, puisque le produit scalaire hermitien est défini entre $\ket{\phi}$ et $
 \textit{Remarque :} il reste encore à voir dans quelle mesure nous pouvons définir les grandeurs comme $\braket{T|T'}$ pour $\ket{T}$, $\ket{T'} \in S^*$. 
 
 
-\section{Opérateur translation}
+\subsection*{Opérateur translation}
 
 Soit $\hat{X}$ et $\hat{P}$ les observables positions et impulsions reliées par la relation $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$. Quelque soit $\lambda \in \mathbb{R}$, on définit l'\emph{opérateur translation} $S(\lambda)$ par
 $$ S(\lambda) = e^{-i\frac{\lambda \hat{P}}{\hbar}} $$
@@ -233,7 +254,7 @@ Autrement dit, nous pouvons voir que l'opérateur $S(\lambda)$ agit sur les vect
 Il est donc cohérent d'appeler $S(\lambda) = \exp \left( -i \frac{\lambda \hat{P}}{\hbar} \right)$ l'opérateur de translation. 
 
 % \section{Valeurs propres et vecteurs propres de Q}
-% \section{Spectre de Q}
+% \subsection{Spectre de Q}
 
 % \begin{Property}
 % 	Soit $\ket{x_0}$ le vecteur propre de X, de valeur propre $x_0$. Alors,
@@ -277,7 +298,7 @@ Il est donc cohérent d'appeler $S(\lambda) = \exp \left( -i \frac{\lambda \hat{
 
 % Ces propriétés de $S(\lambda)$ lui valent le nom de \emph{opérateur de translation}.
 
-% \section{Invariance par translation}
+% \subsection{Invariance par translation}
 % Supposons que le système est invariant par translation, c'est à dire que, pour tout $t,\lambda,\ket{\psi}$:
 % \begin{equation}
 % 	e^{-i\frac{Ht}{\h}}S(\lambda)\ket{\psi} = S(\lambda)e^{-i\frac{Ht}{\h}}\ket{\psi}

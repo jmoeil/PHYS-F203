@@ -739,12 +739,12 @@ e^{-it\; H} \;
  \ket \psi 
  \qquad \forall\;  \ket \psi , \vec n, \theta, t
 $$
-Et cette condition doit être vraie pour tout $\theta$ et $t$, que l'on peut peut prendre arbitrairement petits, pour obtenir la condition 
+Et cette condition doit être vraie pour tout $\theta$ et $t$, que l'on peut peut prendre arbitrairement petits, et pour tout vecteur $\vec n$, que l'on peut par exemple prendre tour à tour égal à $\vec 1_x$, $\vec 1_y$ et $\vec 1_z$ pour obtenir les conditions 
 
 \begin{equation}
-    [H, J_x] = [H, J_y] = [H, J_z] = 0
+    [H, J_x] = [H, J_y] = [H, J_z] = 0 \; .
 \end{equation}
-{\color{red}{Je ne suis pas sûr du calcul qui mène à cela. J'arrive à $[H, J_x] + [H, J_y] + [H, J_z] =0$ et je ne vois pas comment affirmer la condition ci-dessus}}
+
 
 Qui correspond à une traduction de l'invariance par rotation : il faut et suffit que $H$ commute avec les opérateurs de rotations infinitésimales, qui correspondent aux trois composantes du moment cinétique total $\vec J$ du système.
 
@@ -757,7 +757,7 @@ L'invariance par rotation implique la \textbf{conservation du moment angulaire}.
         \strut \\
         &= \bra{\psi(0)}J_x\ket{\psi(0)} \; ,
     \end{array}$$ 
-    étant donné que $J_x$ et $e^{\pm it\; H}$ commutent (vu que $H$ et $J_x$ commutent) {\color{red}{je ne suis pas sûr de cette justification}}. La relation que nous venons d'obtenir montre que si $J_x$ est une observable, \textbf{sa valeur moyenne dans l'état $\psi$ est constante à travers le temps}.
+    étant donné que $J_x$ et $e^{\pm it\; H}$ commutent (développez l'exponentielle en série et observez que $J_x$ commute avec chaque terme). La relation que nous venons d'obtenir montre que si $J_x$ est une observable, \textbf{sa valeur moyenne dans l'état $\psi$ est constante à travers le temps}.
 
     \item Si $\ket \psi$ est vecteur propre de $J_x$ :
     $$J_x\ket \psi = j \ket \psi$$
@@ -879,10 +879,10 @@ $$\ket \psi = \begin{pmatrix}
 \begin{equation}
     \ket \psi = \cos\frac{\theta}{2}\ket{\uparrow}+\sin\frac{\theta}{2}e^{i\varphi}\ket{\downarrow}
 \end{equation}
-Il est légitime de se demander à ce stade l'importance d'une telle écriture. Bien entendu, l'intuition n'est pas immédiate, mais cette écriture reste importante pour la raison qui suit. Les \textit{systèmes à deux niveaux} (où $\mathrm{dim} \mathcal{H}=2$) sont très intéressants en pratique (ils sont au coœur de l'informatique quantique, par exemple). {\color{red}{Insérer une interprétation de cette équation : la sphère de Bloch}} \\
+Ceci nous donne une paramétrisation d'un état d'un \textit{système à deux niveaux} ($\mathrm{dim}\mathcal{H}=2$) par deux paramètres, $\theta$ et $\varphi$, analogue à celle d'un point au bord d'une sphère. Il s'agit ici bel et bien d'une paramétrisation pour associer un état $\ket \psi$ à un point sur le bord d'une sphère vers laquelle nous envoyons le lecteur intéressé : la \textit{sphère de Bloch}.
 
 \begin{leftbar}
-    \textit{Certaines particules élémentaires ($e^-$, $p^+$, $n$) ont un spin $1/2$. Elles ont un espace de Hilbert de dimension 2 qui se transforme comme $\exp(i\theta/2 \; \vec n\cdot \vec \sigma)$.}
+    \textit{Certaines particules élémentaires ($e^-$, $p^+$, $n$) ont un spin $1/2$. Elles ont un espace de Hilbert de dimension 2 qui se transforme comme $\exp(i\theta/2 \; \vec n\cdot \vec \sigma)$. si on fait une rotation d'angle $\theta$ autour de l'axe $\vec n$.}
 \end{leftbar}
 
 \paragraph{Remarque sur les unités}
