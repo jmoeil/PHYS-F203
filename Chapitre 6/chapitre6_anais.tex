@@ -127,7 +127,7 @@ Commençons par calculer $\bra{x}\hat{P}\ket{\psi}$ : \textcolor{red}{A vérifie
 
 \begin{align}
     \bra{x}\hat{P}\ket{\psi} &= \bra{x} \left( \int dp \; \ket{p} \bra{p} \right) \hat{P} \ket{\psi} \notag \\
-    &= \int dp \; \braket{x|p} \bra{p}\hat{P}\ket{\psi} \notag \\
+	&= \int dp \; \braket{x|p} \bra{p}\hat{P}\ket{\psi} && \text{relation de complétude pour $\{\ket p\}$} \\
     &= \int dp \; \frac{e^{ipx/\hbar}}{\sqrt{2\pi \hbar}} p \tilde{\psi}(p) \notag \\
     &= -i \hbar \; \partial_x \left( dp \; \frac{e^{ipx/\hbar}}{\sqrt{2 \pi \hbar}} \tilde{\psi}(p) \right) \notag \\
     &= -i \hbar \; \partial_x \psi(x) \; \mbox{ (par propriété de la transformée de Fourier)}

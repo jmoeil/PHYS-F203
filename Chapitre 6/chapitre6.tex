@@ -57,7 +57,7 @@ De plus, nous observons que :
     \mbox{et } \; \braket{p_0|\psi} &= \bra{p_0}\mathbb{I}\ket{\psi} = \bra{p_0} \left( \int dx \; \ket{x_0} \bra{x_0} \right) \ket{\psi} \\
     &= \int dx \; \braket{p_0|x_0} \braket{x_0|\psi} \; \mbox{ où $\braket{p_0|x_0} = \int dx \; p_0^*(x) \delta(x-x_0) = p_0^*(x_0)$} \\
     &= \int dx \; \frac{e^{-ip_0x_0/\hbar}}{\sqrt{e\pi \hbar}} \psi(x_0) \\
-    &= \tilde{\psi}(p_0) \; \mbox{ (transformée de Fourier de $\psi(x)$)} \\
+	&= \tilde{\psi}(p_0) \; \mbox{ (transformée de Fourier de $\psi(x)$)} \label{eq:chap6-psi_p}\\
 \end{align}
 
 En résumé, nous avons donc obtenu ces deux relations importantes :
@@ -76,15 +76,15 @@ A l'aide des relations de fermeture, nous allons écrire le produit scalaire de 
 En effet, nous avions déjà défini le produit scalaire dans cet espace comme $(f,g) = \int dx \; f^* g$ ; nous verrons que c'est ce que l'on retrouve bien autant dans la base position que la base impulsion : 
 
 \begin{align}
-        \braket{\varphi | \psi} &= \bra{\varphi} \left( \int dx \; \ket{x}\bra{x} \right) \ket{\psi}  && \text{relation de complétude dans la base position}\\
-        &= \int dx \; \braket{\varphi |x}\braket{x|\psi} && \text{La linéarité nous permet d'intervertir l'intégrale et le bra}\\
-        &= \int dx \; \varphi^*(x)\psi(x)
+	\braket{\varphi | \psi} &= \bra{\varphi} \left( \int dx \; \ket{x}\bra{x} \right) \ket{\psi}  && \text{(rel. de complétude dans la base position)} \notag\\
+	&= \int dx \; \braket{\varphi |x}\braket{x|\psi} && \text{(linéarité des opérateurs)} \notag \\
+        &= \int dx \; \varphi^*(x)\psi(x) \notag
 \end{align}
 Alternativement,
 \begin{align}
-        \braket{\varphi | \psi} &= \bra{\varphi} \left( \int dp \; \ket{p}\bra{p} \right) \ket{\psi} \\
-        &= \int dp \; \braket{\varphi |p}\braket{p|\psi} \\
-        &= \int dp \; \tilde{\varphi}^*(p)\tilde{\psi}(p)
+	\braket{\varphi | \psi} &= \bra{\varphi} \left( \int dp \; \ket{p}\bra{p} \right) \ket{\psi} && \text{(même justifications)}\notag\\
+        &= \int dp \; \braket{\varphi |p}\braket{p|\psi} \notag\\
+        &= \int dp \; \tilde{\varphi}^*(p)\tilde{\psi}(p)\notag
 \end{align}
 Ceci confirme donc bien notre écriture du produit scalaire entre deux vecteurs, écrits dans n'importe laquelle des deux bases.
 \section{Opérateurs $\hat{X}$ et $\hat{P}$}
@@ -97,19 +97,19 @@ Et commes les deux opérateurs sont des observables (mesurant respectivement com
 
 Ainsi, nous en déduisons directement que : 
 \begin{align}
-    \bra{x}\hat{X}\ket{\psi} &= x \braket{x|\psi} = x \; \psi(x)  && \text{car $x\in \mathbb{R}$}\\
-    \bra{p}\hat{P}\ket{\psi} &= p \braket{p|\psi} = p \; \tilde{\psi}(p) && \text{car $p\in \mathbb{R}$} \\
+    \bra{x}\hat{X}\ket{\psi} &= x \braket{x|\psi} = x \; \psi(x)  && \text{car $x\in \mathbb{R}$} \notag\\
+	\bra{p}\hat{P}\ket{\psi} &= p \braket{p|\psi} = p \; \tilde{\psi}(p) && \text{car $p\in \mathbb{R}$} \label{eq:chap6-p_P_psi}
 \end{align}
 
 Nous allons maintenant calculer 2 quantités ($\bra{x}\hat{P}\ket{\psi}$ et $\bra{\varphi} \hat{P} \ket{\psi}$) qui nous permettront de montrer la relation de commutation canonique $[ \hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$. Cette relation est en effet importante car elle nous permet de retrouver à la limite classique où $\hbar \rightarrow 0$ la relation canonique classique donnée par le crochet de Poisson $\{ X^i,P_j \} = \delta^i_j$ ; ceci deviendra important pour quantifier des systèmes (cours de BA3). \\
 Commençons par calculer $\bra{x}\hat{P}\ket{\psi}$ : \textcolor{red}{A vérifier cette partie/ajouter commentaires}
 
 \begin{align}
-    \bra{x}\hat{P}\ket{\psi} &= \bra{x} \left( \int dp \; \ket{p} \bra{p} \right) \hat{P} \ket{\psi} \notag \\
-    &= \int dp \; \braket{x|p} \bra{p}\hat{P}\ket{\psi} \notag \\
-    &= \int dp \; \frac{e^{ipx/\hbar}}{\sqrt{2\pi \hbar}} p \tilde{\psi}(p) \notag \\
-    &= -i \hbar \; \partial_x \left( dp \; \frac{e^{ipx/\hbar}}{\sqrt{2 \pi \hbar}} \tilde{\psi}(p) \right) \notag \\
-    &= -i \hbar \; \partial_x \psi(x) \; \mbox{ (par propriété de la transformée de Fourier)}
+	\bra{x}\hat{P}\ket{\psi} &= \bra{x} \left( \int dp \; \ket{p} \bra{p} \right) \hat{P} \ket{\psi} && (\text{rel. de complétude pour $\{\ket p\}$}) \notag\\
+	&= \int dp \; \braket{x|p} \bra{p}\hat{P}\ket{\psi} && \text{(linearité des opérateurs)} \notag\\
+	&= \int dp \; \frac{e^{ipx/\hbar}}{\sqrt{2\pi \hbar}} p \tilde{\psi}(p) && \text{(vu \eqref{eq:chap6-p_P_psi})} \notag\\
+	&= -i \hbar \; \partial_x \left(\int dp \; \frac{e^{ipx/\hbar}}{\sqrt{2 \pi \hbar}} \tilde{\psi}(p) \right) && (\partial_x e^{(ipx/\hbar)}= ip/\hbar)\notag\\
+	&= -i \hbar \; \partial_x \psi(x) && \text{(par propriété de la transformée de Fourier)} \label{eq:chap6-x_P_psi}
 \end{align}
 
 Ceci est bien cohérent avec l'équivalence faite au début du cours entre l'opérateur impulsion $\hat{P}$ et $-i\hbar \; \partial_x$ afin de déterminer l'équation de Schrödinger. \\
@@ -117,33 +117,41 @@ Nous pouvons en déduire facilement $\bra{\varphi} \hat{P} \ket{\psi}$ :
 
 \begin{align}
     \bra{\varphi} \hat{P} \ket{\psi} &= \int dx \; \braket{\varphi | x} \bra{x} \hat{P} \ket{\psi} \notag \\
-    &= \int dx \; \varphi^*(x) \left( -i\hbar \; \partial_x \psi(x) \right) \notag \\
+	&= \int dx \; \bar\varphi(x) \left( -i\hbar \; \partial_x \psi(x) \right) && \text{ (vu \eqref{eq:chap6-x_P_psi})} 
 \end{align}
 
 Montrons à présent la relation $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$ : 
 \begin{align}
     \bra{x}[\hat{X}, \hat{P}] \ket{\psi} &= \bra{x} \hat{X}\hat{P}\ket{\psi} - \bra{x} \hat{P}\hat{X}\ket{\psi} \notag \\
-    &= x \bra{x}\hat{P}\ket{\psi} - \bra{x}\hat{P}(\hat{X}\ket{\psi}) = x \bra{x}\hat{P}\ket{\psi} - ( -i\hbar \partial_x \bra{x}\hat{X}\ket{\psi} ) = \notag \\
+    &= x \bra{x}\hat{P}\ket{\psi} - \bra{x}\hat{P}(\hat{X}\ket{\psi})\notag \\
+	&= x \bra{x}\hat{P}\ket{\psi} - ( -i\hbar \partial_x \bra{x}\hat{X}\ket{\psi} ) \notag \\
     &= \left( -i\hbar \partial_x \braket{x|\psi} \right) x + i\hbar \partial_x (x \psi(x)) \notag \\
     &= -i\hbar x \partial_x \psi(x) + i\hbar x\partial_x \psi(x) + i\hbar \psi(x) \notag \\
     &= i\hbar \psi(x) = \bra{x} i\hbar \; \mathbb{I}\ket{\psi} 
 \end{align}
-Ceci étant valabe pour tout $\ket{x}$, $\ket{\psi}$, nous avons bien que \begin{equation}
-     [\hat{X}, \hat{P}] = i\hbar \; \mathbb{I} \end{equation} 
+Ceci étant valabe pour tous $\ket{x}$, $\ket{\psi}$, nous avons bien que 
+\begin{equation}\label{eq:chap6-commut_X_P}
+     [\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}
+\end{equation} 
 
 \section{Comment justifier ces notations ?}
 
 Considérons $\mathcal{H} = L^2(\mathbb{R})$ l'espace de Hilbert des fonctions de carré sommables (à une dimension). \\ 
 Nous avions mentionné au début du chapitre que pour représenter les opérateurs $\hat{X}$ et $\hat{P}$, nous utiliserons une base dont les éléments n'appartiennent pas à l'espace de Hilbert, et nous avions fait comme s'ils étaient état propre des opérateurs positions $\hat{X}$ et impulsion $\hat{P}$. \\
-Nous allons maintenant voir que, ce qu'on appelle le \textit{"Rigged Hilbert Space"} permet de justifier cette démarche ; en effet, cet espace est construit pour relier les notions de distributions et de fonctions de carré sommables en analyse de fonctions. \\
+Nous allons maintenant voir que ce qu'on appelle le \textit{"Rigged Hilbert Space"} permet de justifier cette démarche ; en effet, cet espace est construit pour relier les notions de distributions et de fonctions de carré sommables en analyse de fonctions. \\
 
 Soit $\ket{\psi}$, $\ket{\varphi}$ $\in \mathcal{H}$ et $A : \mathcal{H} \rightarrow \mathcal{H}$ un opérateur linéaire. \\
 Nous savons déjà comment le produit scalaire $\braket{\varphi | \psi}$ peut être défini sur l'espace $\mathcal{H}$ ; de plus, l'opérateur linéaire $A$ permet de calculer des quantités comme $\bra{\varphi} A \ket{\psi}$. \\
 
-Considérons à présent : \begin{description}
-    \item[$S =$] $\left\{ \mbox{ fonctions $\mathcal{C}^{\infty}$ à décroissance rapide } \right\} \subset \mathcal{H}$  
-    \item[$S^*=$] $\left\{ \mbox{ formes linéaires continues sur $S$ } \right\}$, correspondent aux distributions tempérées, comme mentionné dans le chapitre sur les notions mathématiques. C'est en particulier le dual de $S$. 
-\end{description}
+Considérons à présent : 
+
+$\begin{array}{ll}
+S &=\left\{ \mbox{ fonctions $\mathcal{C}^{\infty}$ à décroissance rapide } \right\} \subset \mathcal{H} \notag \\
+S^*&= \left\{ \mbox{ formes linéaires continues sur $S$ } \right\} \notag
+\end{array}$
+
+$S^*$ correspond aux distributions tempérées, comme mentionné dans le chapitre sur les notions mathématiques. C'est en particulier le dual de $S$. \\
+
 
 Nous pouvons remarquer que $S \subset \mathcal{H} \subset{S^*}$. \\
 En effet, il existe un théorème mathématique (appelé \textit{théorème d'Erdös-Kaplansky}, ce sujet est par ailleurs hors du cadre du cours) qui permet de justifier que lorsque la dimension d'un espace vectoriel est infinie, alors aucune application linéaire allant de cet espace à son dual n'est surjective. Autrement dit, nous avons dans notre cas que $\mathcal{H} \subset \mathcal{H}^*$, où l'inclusion est stricte. \\
@@ -159,7 +167,7 @@ Ainsi, puisque le produit scalaire hermitien est défini entre $\ket{\phi}$ et $
 
 
 \section{Opérateur translation}
-
+\subsection{Définition}
 Soit $\hat{X}$ et $\hat{P}$ les observables positions et impulsions reliées par la relation $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$. Quelque soit $\lambda \in \mathbb{R}$, on définit l'\emph{opérateur translation} $S(\lambda)$ par
 $$ S(\lambda) = e^{-i\frac{\lambda \hat{P}}{\hbar}} $$
 
@@ -171,9 +179,17 @@ Cet opérateur vérifie les propriétés suivantes :
 
 \textit{Remarque :} Nous avons obtenu les propriétés précédentes en utilisant le fait que pour $A$, $B$ deux opérateurs, on a que $e^A e^B = e^{A+B}$. Ceci est vrai dans les cas où $[A, B] = 0$ (ce qui était vérifié dans notre cas), mais donc n'est pas vrai en général !! Nous allons voir tout de suite une propriété sur les exponentielles de matrices. \\
 
-Nous voulons maintenant déterminer la valeur de $[\hat{X},S(\lambda)]$. \\
+\subsection{Justification de l'appellation}
+Nous avons introduit cet opérateur comme "de translation". Nous allons maintenant expliquer la signification de cette appellation, et nous la justifierons par après.\\
 
-Commençons d'abord par voir quelques propriétés sur les commutateurs : 
+La signification en est la suivante. Pour un $\lambda$ donné, appliquer l'opérateur $S(\lambda)$ à un ket $\ket{x_0}$ vecteur propre de l'opérateur position $\hat X$ avec la valeur propre $x_0$, résultera en un ket $\ket{x_0+\lambda}$ vecteur propre de l'opérateur $\hat X$ avec la valeur propre $x_0+\lambda$.
+
+\begin{align}
+\hat X \ket{x_0}&= x_0 \ket{x_0} \notag \\
+	\hat X S(\lambda)\ket{x_0} &= (x_0+\lambda) \ket{x_0+\lambda} \label{eq:chap6-operateur_translation_signification}
+\end{align}
+
+Pour la justifier, commençons par calculer le commutateur $[\hat X, S(\lambda)]$ pour un $\lambda$ quelconque. Cela servira à simplifier les calculs. Pour ce faire voyons d'abord quelques propriétés sur les commutateurs : 
 
 \begin{enumerate}
     \item Le commutateur est un opérateur bilinéaire, antisymétrique et vérifiant, pour tout opérateur $A$, $B$ et $C$, l'identité de Jacobi donnée par l'expression suivante :
@@ -183,11 +199,11 @@ Commençons d'abord par voir quelques propriétés sur les commutateurs :
     \item Pour tout opérateur $A$, $B$ et $C$ : 
     \begin{equation}
         [A,BC] = [A,B]C + B[A,C]
-        \label{eq:commutateur de produit}
+        \label{eq:chap6-commutateur_de_produit}
     \end{equation}
     \item $[\hat{X}, \hat{P}^n] = i\hbar n\hat{P}^{n-1}$ ; \\
-    Nous pouvons le montrer par récurrence. Commençons par $n=1$ pour l'initialisation : $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$ est vrai par leur définition. Pour montrer l'hérédité, supposons que la propriété est vraie jusque $n$. Nous avons alors que :
-    \begin{align} [\hat{X}, \hat{P}^{n+1}] = [\hat{x}, \hat{P}\hat{P}^n] &= [\hat{X}, \hat{P}]\hat{P}^n + \hat{P}[\hat{X}, \hat{P}^n] \; \mbox{ par la propriété \eqref{eq:commutateur de produit}} \notag \\
+	    Nous pouvons le montrer par récurrence. Commençons par $n=1$ pour l'initialisation : $[\hat{X}, \hat{P}] = i\hbar \; \mathbb{I}$ est vrai par \eqref{eq:chap6-commut_X_P}. Pour montrer l'hérédité, supposons que la propriété est vraie jusque $n$. Nous avons alors que :
+    \begin{align} [\hat{X}, \hat{P}^{n+1}] = [\hat{x}, \hat{P}\hat{P}^n] &= [\hat{X}, \hat{P}]\hat{P}^n + \hat{P}[\hat{X}, \hat{P}^n] \; \mbox{ par la propriété \eqref{eq:chap6-commutateur_de_produit}} \notag \\
         &= i\hbar \hat{P}^n + i\hbar n \hat{P}^n \; \mbox{ puisque la propriété est vraie jusque $n$} \notag \\
         &= i\hbar \hat{P}^n (n+1)
     \end{align}
@@ -211,7 +227,8 @@ Donc \begin{equation}
     \label{commutateur de S}
 \end{equation}
 
-Nous allons essayer de voir en quoi $S(\lambda)$ est un opérateur de \textbf{translation}. \\
+Le lemme est maintenant terminé, et nous allons maintenant justifier l'appellation de $S(\lambda)$ comme "opérateur de \textbf{translation}". \\
+
 Soit $\ket{x_0}$ un vecteur propre de $\hat{X}$ de valeur propre $x_0$ : $$ \hat{X} \ket{x_0} = x_0 \ket{x_0} $$
 Calculons $\hat{X} (S(\lambda) \ket{x_0})$ : 
 \begin{align}
@@ -220,7 +237,7 @@ Calculons $\hat{X} (S(\lambda) \ket{x_0})$ :
     &= \left( \lambda S(\lambda) + S(\lambda) \hat{X} \right) \ket{x_0} \; \mbox{ par \eqref{commutateur de S}} \notag \\
     &= (x_0 + \lambda) \; S(\lambda) \ket{x_0}
 \end{align}
-Nous pouvons donc voir que $(x_0 + \lambda)$ est une valeur propre de l'opérateur position pour le vecteur propre $S(\lambda) \ket{x_0}$. Or puisqu'un vecteur appartenant à un sous-espace propre de $\hat{X}$ de valeur propre $x$ peut s'écrire comme $\ket{x}$, nous pouvons réécrire $S(\lambda) \ket{x_0}$ comme le vecteur $\ket{x_0 + \lambda}$. \\
+Nous pouvons donc voir que $(x_0 + \lambda)$ est une valeur propre de l'opérateur position pour le vecteur propre $S(\lambda) \ket{x_0}$. Or puisqu'un vecteur appartenant à un sous-espace propre de $\hat{X}$ de valeur propre $x$ peut s'écrire comme $\ket{x}$, nous pouvons réécrire $S(\lambda) \ket{x_0}$ comme le vecteur $\ket{x_0 + \lambda}$, et nous retrouvons le résultat recherché en \eqref{eq:chap6-operateur_translation_signification}. \\
 
 Cela a pour conséquence que pour $\ket{\psi}$ un ket de fonction d'onde $\braket{x|\psi} = \psi(x)$, alors $S(\lambda) \ket{\psi}$ est un ket de fonction d'onde : 
 \begin{align}
